@@ -13,9 +13,40 @@ void selectSort(vector<int>& v) {
 				idx = j;
 			}
 		}
+
 		int temp = v[i];
 		v[i] = v[idx];
 		v[idx] = temp;
+	}
+
+	return;
+}
+
+//O(N^2)
+void bubbleSort(vector<int>& v) {
+	for (int i = 0; i < v.size(); i++) {
+		for (int j = 0; j < v.size() - 1 - i; j++) {
+			if (v[j] > v[j + 1]) {
+				int temp = v[j];
+				v[j] = v[j + 1];
+				v[j + 1] = temp;
+			}
+		}
+	}
+
+	return;
+}
+
+//O(N^2)
+void insertSort(vector<int>& v) {
+	for (int i = 0; i < v.size() - 1; i++) {
+		int j = i;
+		while (j >= 0 && v[j] > v[j + 1]) {
+			int temp = v[j];
+			v[j] = v[j + 1];
+			v[j + 1] = temp;
+			j--;
+		}
 	}
 
 	return;
@@ -25,7 +56,7 @@ int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
 
-	int n;
+	int n; //MAX=1000
 	cin >> n;
 
 	vector<int> v(n);
@@ -35,6 +66,8 @@ int main() {
 	}
 
 	selectSort(v);
+	//bubbleSort(v);
+	//insertSort(v);
 
 	for (int i : v) cout << i << '\n';
 
