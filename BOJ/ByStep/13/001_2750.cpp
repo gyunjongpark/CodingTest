@@ -2,6 +2,7 @@
 #include<vector>
 using namespace std;
 
+//O(N^2)
 void selectSort(vector<int>& v) {
 	for (int i = 0; i < v.size(); i++) {
 		int minVal = 1e6; int idx = -1;
