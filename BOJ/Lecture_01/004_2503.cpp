@@ -2,21 +2,22 @@
 #include<vector>
 using namespace std;
 
-int n, a, b, c, ret;
+int n, ret;
+vector<vector<string>> v;
 
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
 
-	cin >> n;
-	vector<vector<string>> numbers(n);
+	cin >> n; // n<=100
 
 	for (int i = 0; i < n; i++) {
-		string num, s, b; //인덱스로 자리수 비교를 위해 string type
-		cin >> num >> s >> b;
-		numbers[i] = { num,s,b };
+		string number, s, b;
+		cin >> number >> s >> b; //input number,strike,ball in string
+		v.push_back({ number,s,b });
 	}
-	
+
+	//O(10^5)
 	for (int a = 1; a < 10; a++) {
 		for (int b = 1; b < 10; b++) {
 			for (int c = 1; c < 10; c++) {
@@ -24,34 +25,30 @@ int main() {
 
 				int cnt = 0;
 				for (int i = 0; i < n; i++) {
-					string check = numbers[i][0];
-					int strike = atoi(numbers[i][1].c_str()); //atoi(s.c_str())
-					int ball = atoi(numbers[i][2].c_str());
+					string num = v[i][0];
+					int strike = atoi(v[i][1].c_str());
+					int ball = atoi(v[i][2].c_str());
 
 					int strike_cnt = 0;
 					int ball_cnt = 0;
 
 					//strike counting
-					if (a == check[0] - '0') strike_cnt++;
-					if (b == check[1] - '0') strike_cnt++;
-					if (c == check[2] - '0') strike_cnt++;
+					if (a == num[0] - '0') strike_cnt++;
+					if (b == num[1] - '0') strike_cnt++;
+					if (c == num[2] - '0') strike_cnt++;
 
 					//ball counting
-					if (a == (check[1] - '0') || a == (check[2] - '0')) ball_cnt++;
-					if (b == (check[0] - '0') || b == (check[2] - '0')) ball_cnt++;
-					if (c == (check[0] - '0') || c == (check[1] - '0')) ball_cnt++;
+					if (a == num[1] - '0' || a == num[2] - '0') ball_cnt++;
+					if (b == num[0] - '0' || b == num[2] - '0') ball_cnt++;
+					if (c == num[0] - '0' || c == num[1] - '0') ball_cnt++;
 
-					if (strike_cnt != strike) break;
-					if (ball_cnt != ball) break;
-
-					cnt++;
+					if (ball_cnt == ball && strike_cnt == strike) cnt++;
 				}
-
 				if (cnt == n) ret++;
 			}
 		}
 	}
 	cout << ret;
-	
+
 	return 0;
 }
