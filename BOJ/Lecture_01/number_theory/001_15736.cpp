@@ -1,5 +1,5 @@
 #include<iostream>
-#include<math.h>
+#include<cmath>
 using namespace std;
 
 int n;
@@ -8,6 +8,7 @@ int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
 
+	//문제 해석->도식화->규칙 발견
 	cin >> n;
 	cout<<(int)sqrt(n);
 	
