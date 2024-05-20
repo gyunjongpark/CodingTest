@@ -20,18 +20,18 @@ int main() {
 	}
 
 	vector<int> answer(n,-1);
-	for (int y : ypos) {
-		for (int x : xpos) {
+	for (int y : ypos) { //모든 좌표에 대해서
+		for (int x : xpos) { //모든 좌표에 대해서
 			vector<int> dist;
 
-			for (pair<int, int> pi : v) { //{x,y}
+			for (pair<int, int> pi : v) { //{x,y} 해당 좌표와의 거리 계산
 				int d = abs(pi.first - x) + abs(pi.second - y);
 				dist.push_back(d);
 			}
 			sort(dist.begin(), dist.end());
 
 			int tmp = 0;
-			for (int i = 0; i < n; i++) {
+			for (int i = 0; i < n; i++) { //체커의 개수에 따른 최소거리 계산
 				tmp += dist[i];
 				if (answer[i] == -1) {
 					answer[i] = tmp;
