@@ -16,6 +16,7 @@ int main() {
 		sum += a[i];
 	}
 
+	//완전탐색. 시간과 메모리가 허용된다면 무식하게 풀 생각을 하자!
 	for (int i = 0; i < 9; i++) {
 		for (int j = 0; j < i; j++) {
 			if (sum - a[i] - a[j] == 100) {
