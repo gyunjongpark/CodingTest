@@ -15,7 +15,7 @@ int main() {
 	ll x = n;
 	vector<ll> v;
 
-  //소인수분해
+  //보석들의 최대 개수 : 소인수분해
 	for (int i = 2; i <= (int)sqrt(n); i++) {
 		while (x % i == 0) {
 			v.push_back(i);
