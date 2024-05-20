@@ -6,6 +6,7 @@ using namespace std;
 int a[9], sum;
 pair<int, int> idx;
 vector<int> v;
+
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
@@ -15,7 +16,6 @@ int main() {
 		sum += a[i];
 	}
 
-	// N^2
 	for (int i = 0; i < 9; i++) {
 		for (int j = 0; j < i; j++) {
 			if (sum - a[i] - a[j] == 100) {
