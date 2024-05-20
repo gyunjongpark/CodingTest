@@ -4,13 +4,14 @@ using namespace std;
 
 int a, n, ret;
 
-/*
-sqrt(n)까지만 조사해도 되는 이유
-제곱근 이상의 수는 반드시 제곱근 이하의 수와 짝을 이루기 때문입니다.
-*/
-
 bool check(int n) {
 	if (n == 1) return 0;
+	
+	/*
+	sqrt(n)까지만 조사해도 되는 이유는
+	제곱근 이상의 수는 반드시 제곱근 이하의 수와 짝을 이루기 때문입니다.
+	*/
+	
 	for (int i = 2; i <= (int)sqrt(n); i++) { //sqrt
 		if (n % i == 0) return 0;
 	}
