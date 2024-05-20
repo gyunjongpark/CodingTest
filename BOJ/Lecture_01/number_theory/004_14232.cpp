@@ -14,14 +14,15 @@ int main() {
 
 	ll x = n;
 	vector<ll> v;
-
- 	//보석들의 최대 개수 : 소인수분해
 	
 	/*
 	sqrt(n)까지만 조사해도 되는 이유
-	제곱근 이상의 수는 반드시 제곱근 이하의 수와 짝을 이루기 때문입니다.
+	n=p*q에서 p>sqrt(n) && q>sqrt(n)인 합성수는 존재하지 않음
+ 	p>sqrt(n)라면 반드시 q<sqrt(n)이어야 함
+  	따라서, 제곱근보다 큰 소인수는 많아야 한 개이다.
 	*/
-	
+
+	//보석들의 최대 개수 : 소인수분해
 	for (int i = 2; i <= (int)sqrt(n); i++) {
 		while (x % i == 0) {
 			v.push_back(i);
