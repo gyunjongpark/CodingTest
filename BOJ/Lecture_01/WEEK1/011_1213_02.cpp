@@ -25,7 +25,8 @@ int main() {
 			ret = char(i) + ret;
 		}
 	}
-  //string mid
+	
+  	//string mid
 	if (mid.size()) ret.insert(ret.size() / 2, mid);
 
 	if (flag == 2) cout << "I'm Sorry Hansoo";
