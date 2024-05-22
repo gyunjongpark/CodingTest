@@ -1,0 +1,56 @@
+#include<iostream>
+#include<vector>
+#define MAX 1000 //문제에서 설정한 최대 제한 범위
+using namespace std;
+
+//에라토스테네스의 체 O(NloglogN)
+bool chae[MAX + 1]; //누적합처럼 1부터 N까지 받기 위해 +1
+int n; //구하고자 하는 범위
+
+vector<int> era(int n) {
+	vector<int> v;
+
+	for (int i = 2; i <= n; i++) {
+		if (chae[i]) continue; //이미 지워졌다면 continue
+
+		for (int j = 2 * i; j <= n; j += i) {
+			chae[j] = 1; //소수가 아닌 값들 true로 지우기
+		}
+	}
+
+	for (int i = 2; i <= n; i++) {
+		if (!chae[i]) v.push_back(i);
+	}
+
+	return v;
+}
+
+//하나의 수만 소수 판별하기 O(sqrt(N))
+int num; //판별하고 싶은 수
+
+bool checkPrime(int num) {
+	if (num == 1) return 0;
+	for (int i = 2; i <= (int)sqrt(num); i++) {
+		if (num % i == 0) return 0;
+	}
+	return 1;
+}
+
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL); cout.tie(NULL);
+
+	//era
+	cin >> n;
+	vector<int> v = era(n);
+	
+	for (int i : v) cout << i << ' ';
+	cout << '\n';
+
+	//checkPrime
+	cin >> num;
+	if (checkPrime(num)) cout << "소수입니다!";
+	else cout << "소수가 아닙니다!";
+
+	return 0;
+}
