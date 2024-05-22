@@ -16,7 +16,7 @@ int main() {
 	}
 
 	for (int i = 0; i < 26; i++) {
-		if (cnt[i] >= 5) ret+=char(i + 97); //a=97
+		if (cnt[i] >= 5) ret+=char(i + 97); // 'a'=97
 	}
 	if (ret.size()) cout << ret;
 	else cout<< "PREDAJA";
