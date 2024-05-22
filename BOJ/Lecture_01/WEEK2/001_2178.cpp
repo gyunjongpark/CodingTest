@@ -1,6 +1,6 @@
 #include<iostream>
 #include<queue>
-#define MAX 104
+#define MAX 101
 using namespace std;
 
 const int dy[] = { -1,0,1,0 };
