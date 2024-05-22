@@ -29,7 +29,7 @@ int main() {
 		}
 	}
 
-	//char mid
+	//char mid, char일 경우 이터레이터 연산
 	if (mid) ret.insert(ret.begin() + ret.size() / 2, mid);
 
 	if (flag == 2) cout << "I'm Sorry Hansoo";
