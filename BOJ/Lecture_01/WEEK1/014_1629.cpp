@@ -19,7 +19,7 @@ int main() {
 	cin.tie(NULL); cout.tie(NULL);
 
 	cin >> a >> b >> c;
-	cout<<go(a, b, c);
+	cout << go(a, b, c);
 	
 	return 0;
 }
