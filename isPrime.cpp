@@ -1,6 +1,6 @@
 #include<iostream>
 #include<vector>
-#define MAX 1000 //문제에서 설정한 최대 제한 범위
+#define MAX 1000 //문제에서 제시된 범위로 수정하기
 using namespace std;
 
 //에라토스테네스의 체 O(NloglogN)
@@ -25,8 +25,8 @@ vector<int> era(int n) {
 	return v;
 }
 
-//하나의 수만 소수 판별하기 O(sqrt(N))
-int num; //판별하고 싶은 수
+//어떤 수가 소수인지 판별하기 O(sqrt(N))
+int num; //확인하고 싶은 수
 
 bool checkPrime(int num) {
 	if (num == 1) return 0;
