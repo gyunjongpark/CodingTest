@@ -51,8 +51,8 @@ int main() {
                 sum = 0;
 
                 if (!visited[i][j]) {
-                    sum += a[i][j]; //기준이 되는 좌표 더하기
-                    dfs(i, j, v);
+                    sum += a[i][j]; //초기 좌표의 값 더하기
+                    dfs(i, j, v); //초기 좌표 vector v에 저장
                     
                     if (v.size() == 1) continue; //기준 좌표에서 인구 이동 없다면 continue
                     else {
