@@ -12,7 +12,7 @@ int atk[6][3]{ //뮤탈리스크가 공격할 수 있는 경우의 수
     {1,3,9},
     {1,9,3},
 };
-struct A { //최대 3기이므로 tuple-tie는 복잡하다 -> struct
+struct A { //최대 3기이므로 tie 구현은 복잡하다 -> struct
     int a, b, c;
 };
 queue<A> q;
