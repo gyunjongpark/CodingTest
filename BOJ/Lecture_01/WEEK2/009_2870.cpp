@@ -15,7 +15,7 @@ bool cmp(string a, string b) { //비내림차순
 
 void check() {
 	while (true) {
-		if (ret.size() && ret[0] == '0') ret.erase(0,1); //erase(배열 번호,갯수)
+		if (ret.size() && ret[0] == '0') ret.erase(0,1); //erase(시작 인덱스, 갯수)
 		else break; //size가 없거나(0을 전부 지우거나), 0이 아닌 숫자거나
 	}
 
