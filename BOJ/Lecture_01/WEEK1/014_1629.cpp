@@ -4,6 +4,7 @@ typedef long long ll;
 
 int a, b, c;
 
+//O(logN)
 ll go(int a, int b, int c) {
 	if (b == 1) return a% c;
 
