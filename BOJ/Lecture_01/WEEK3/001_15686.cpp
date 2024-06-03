@@ -39,7 +39,7 @@ int main() {
 	vector<int> v; //치킨집 고르는 순서 저장
 	combi(-1, v);
 
-	int ret = 1e6;
+	int dist_chicken = 1e6;
 	for (vector<int> cList : chickenList) {
 		int dist_city = 0; //도시의 치킨 거리
 		for (pair<int, int> _home : home) {
@@ -53,9 +53,9 @@ int main() {
 			}
 			dist_city += dist; //도시의 치킨 거리는 치킨 거리의 합
 		}
-		ret = min(ret, dist_city); //가장 작은 도시의 치킨 거리
+		dist_chicken = min(dist_chicken, dist_city); //가장 작은 도시의 치킨 거리
 	}
-	cout << ret;
+	cout << dist_chicken;
 
 	return 0;
 }
