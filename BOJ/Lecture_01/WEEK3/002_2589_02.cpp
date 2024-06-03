@@ -9,7 +9,7 @@ string s, a[MAX][MAX];
 vector<pair<int, int>> Land;
 const int dy[] = { -1,0,1,0 };
 const int dx[] = { 0,1,0,-1 };
-int n, m, ypos, xpos, visited[MAX][MAX]; //bfs이므로 int형 visitied
+int n, m, ypos, xpos, visited[MAX][MAX];
 
 void bfs(int y, int x) {
 	visited[y][x] = 1;
