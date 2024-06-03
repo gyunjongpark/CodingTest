@@ -45,7 +45,7 @@ void j_bfs(int y, int x) {
 
         if (ypos == 0 || ypos == n - 1 || xpos == 0 || xpos == m - 1) { //탈출 조건
             ret = j_visited[ypos][xpos];
-            return;
+            break;
         }
         
         for (int i = 0; i < 4; i++) {
