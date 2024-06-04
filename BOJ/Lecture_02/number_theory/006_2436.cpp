@@ -14,6 +14,7 @@ ll getGCD(ll a, ll b) {
 void solve() {
 	ll div = lcm / gcd; //서로소 a,b의 곱
 
+	//a*b=div이므로, a : b는 쌍을 이룬다. 따라서 sqrt까지만 조사한다
 	//반복문을 거칠수록 서로소 관계의 두 수의 차이가 줄어든다
 	for (ll i = 1; i <= sqrt(div); i++) {
 		if (div % i == 0) {
