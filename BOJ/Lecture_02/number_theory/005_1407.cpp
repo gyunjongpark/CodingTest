@@ -1,17 +1,10 @@
 #include<iostream>
-#include<cmath>
-#include<vector>
 using namespace std;
 typedef long long ll;
 
 ll a, b;
 
-/*
-1부터 N까지의 2의 거듭제곱 수의 합 구하기
-수학적 공식이므로 암기할 것!
-*/
-
-ll solve(ll N) { //1부터 N까지 2의 최대 거듭수를 각각 구하고 더함
+ll solve(ll N) { //1부터 N까지 2의 최대 승수를 각각 구하고 더함
 	ll ret = N;
 
 	for (ll i = 2; i <= N; i *= 2) {
