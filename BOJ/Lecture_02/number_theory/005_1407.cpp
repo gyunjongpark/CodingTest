@@ -11,7 +11,7 @@ ll a, b;
 수학적 공식이므로 암기할 것!
 */
 
-ll solve(ll N) { 
+ll solve(ll N) { //1부터 N까지 2의 최대 거듭수를 각각 구하고 더함
 	ll ret = N;
 
 	for (ll i = 2; i <= N; i *= 2) {
