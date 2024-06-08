@@ -20,6 +20,8 @@ int main() {
 	for (int a = 1; a <= 9; a++) { //100의 자리
 		for (int b = 1; b <= 9; b++) { //10의 자리
 			for (int c = 1; c <= 9; c++) { //1의 자리
+				
+				//같은 숫자는 제외한다
 				if (a == b || b == c || c == a) continue;
 
 				int count = 0;
@@ -45,7 +47,7 @@ int main() {
 					if (strike == strike_cnt && ball == ball_cnt) count++;
 				}
 
-				// n번 모두 만족한다면 예상하는 수가 가능성이 있는 수이다. ret++
+				// n번 모두 만족한다면 현재 수가 가능성이 있는 수이다
 				if (count == n) ret++;
 			}
 		}
