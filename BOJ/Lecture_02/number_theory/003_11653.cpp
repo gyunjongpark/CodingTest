@@ -20,7 +20,7 @@ int main() {
 			else break;
 		}
 	}
-	if (x != 1) cout << x << '\n'; //가장 큰 소인수 출력
+	if (x != 1) cout << x << '\n'; // sqrt(n) 이상의 소인수 존재 시 출력
 
 	return 0;
 }
