@@ -15,6 +15,7 @@ int main() {
 	ll x = n;
 	vector<ll> v;
 
+	//O(sqrt(N)*log(i))
 	for (int i = 2; i <= (int)sqrt(n); i++) {
 		while (x % i == 0) {
 			v.push_back(i);
