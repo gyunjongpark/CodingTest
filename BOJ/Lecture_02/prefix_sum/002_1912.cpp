@@ -3,7 +3,7 @@
 #define MAX 100001
 using namespace std;
 
-int n, temp, maxVal, s[MAX], a[MAX];
+int n, temp, s[MAX];
 
 int main() {
 	ios_base::sync_with_stdio(false);
@@ -11,16 +11,18 @@ int main() {
 
 	cin >> n;
 
-	for (int i = 1; i <= n; i++) {
-		cin >> a[i];
-	}
-
 	fill(&s[0], &s[0] + MAX, -1001);
 
 	for (int i = 1; i <= n; i++) {
-		s[i] = max(s[i - 1] + a[i], a[i]);
+		cin >> temp;
+		s[i] = max(s[i - 1] + temp, temp);
 	}
-	cout << *(max_element(s, s + (n + 1)));
+
+	int maxVal = s[1];
+	for (int i = 1; i <= n; i++) {
+		maxVal = max(maxVal, s[i]);
+	}
+	cout << maxVal;
 
 	return 0;
 }
