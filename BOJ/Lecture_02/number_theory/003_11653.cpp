@@ -20,7 +20,9 @@ int main() {
 			else break;
 		}
 	}
-	if (x != 1) cout << x << '\n'; // sqrt(n) 이상의 소인수 존재 시 출력
+	
+	//sqrt(n) 이상의 소인수 존재 시 출력
+	if (x != 1) cout << x << '\n';
 
 	return 0;
 }
