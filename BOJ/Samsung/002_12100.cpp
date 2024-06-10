@@ -88,7 +88,7 @@ int main() {
 			cin >> c.a[i][j];
 		}
 	}
-	go(c, 0); // Board c, here 0
+	go(c, 0);
 
 	cout << ret;
   
