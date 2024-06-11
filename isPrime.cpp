@@ -3,8 +3,7 @@
 #define MAX 1000 //문제에서 제시된 최대 범위로 수정
 using namespace std;
 
-//에라토스테네스의 체 O(NloglogN)
-
+//에라토스테네스의 체 : O(NloglogN)
 bool chae[MAX + 1]; //최대 범위 MAX까지 담는 배열 chae
 int n; //문제에 제시된 범위
 
@@ -27,8 +26,7 @@ vector<int> era(int n) {
 
 /*----------------------------------*/
 
-//어떤 수 하나가 소수인지 판별하기 O(sqrt(N))
-
+//어떤 수 하나가 소수인지 판별하기 : O(sqrt(N))
 int num; //확인하고 싶은 수
 
 bool checkPrime(int num) {
