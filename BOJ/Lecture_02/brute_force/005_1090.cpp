@@ -19,6 +19,7 @@ int main() {
 		ypos.push_back(y); //기준 좌표 입력
 	}
 
+	//값에 따른 결과에 영향을 주지 않는 초기화가 매우 중요함
 	vector<int> answer(n, -1);
 	for (int y : ypos) {
 		for (int x : xpos) {
