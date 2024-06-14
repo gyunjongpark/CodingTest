@@ -13,7 +13,6 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		ret += s[i] - 48;
 	}
-  
 	cout << ret;
   
 	return 0;
