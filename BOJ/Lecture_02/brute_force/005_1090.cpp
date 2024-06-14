@@ -44,7 +44,7 @@ int main() {
 			}
 		}
 	}
-	for (int ret : answer) cout << ret << ' '; i에 따라 체커가 모이는 최소 횟수 출력
+	for (int ret : answer) cout << ret << ' '; //i에 따라 체커가 모이는 최소 횟수 출력
 
 	return 0;
 }
