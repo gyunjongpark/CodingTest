@@ -13,7 +13,7 @@ int main() {
 	cin >> n;
 
 	while (n--) {
-		bool flag = 0;
+		bool flag = 0; //init
 		cin >> s;
 
 		for (int i = 2; i < 1000001; i++) {
