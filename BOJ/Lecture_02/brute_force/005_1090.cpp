@@ -3,9 +3,9 @@
 #include<algorithm>
 using namespace std;
 
-int n, x, y;
 vector<pair<int, int>> v;
 vector<int> xpos, ypos;
+int n, x, y;
 
 int main() {
 	ios_base::sync_with_stdio(false);
@@ -14,18 +14,17 @@ int main() {
 	cin >> n;
 	for (int i = 0; i < n; i++) {
 		cin >> x >> y;
-		v.push_back({ x,y }); //비교 좌표 입력
-		xpos.push_back(x); //기준 좌표 입력
-		ypos.push_back(y); //기준 좌표 입력
+		v.push_back({ x,y }); //움직일 좌표 입력
+		xpos.push_back(x); //최소가 될 수 있는 후보 x 좌표 입력
+		ypos.push_back(y); //최소가 될 수 있는 후보 y 좌표 입력
 	}
 
-	//값에 따른 결과에 영향을 주지 않는 초기화가 매우 중요함!!
 	vector<int> answer(n, -1);
 	for (int y : ypos) {
 		for (int x : xpos) {
-			vector<int> dist; //기준 좌표와 비교 좌표의 차이를 담는 vector
+			vector<int> dist; //거리 차이 담기
 
-			for (pair<int, int> pi : v) { //{x,y}
+			for (pair<int, int> pi : v) { //움직일 좌표 전체 조사
 				int d = abs(pi.first - x) + abs(pi.second - y);
 				dist.push_back(d);
 			}
@@ -36,10 +35,11 @@ int main() {
 			for (int i = 0; i < n; i++) {
 				tmp += dist[i]; //tmp는 i개의 체커가 모이는 횟수가 된다
 				if (answer[i] == -1) {
-					answer[i] = tmp; //배열에 값이 처음 들어왔다면 tmp 우선 배정
+					answer[i] = tmp; //배열에 값이 처음 들어왔다면 tmp로 우선 배정
 				}
 				else {
-					answer[i] = min(tmp, answer[i]); //answer[i]는 i개의 체커가 모이는 최소 횟수가 된다
+					//answer[i]는 i개의 체커가 모이는 최소 횟수가 된다
+					answer[i] = min(tmp, answer[i]);
 				}
 			}
 		}
