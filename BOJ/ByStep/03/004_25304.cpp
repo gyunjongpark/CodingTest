@@ -1,5 +1,4 @@
 #include<iostream>
-#define MAX 10004
 using namespace std;
 
 int x, n, a, b, sum;
