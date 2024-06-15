@@ -1,28 +1,27 @@
 #include<iostream>
-#include<cmath> //sqrt
+#include<cmath>
 #include<vector>
 using namespace std;
 typedef long long ll;
 
-ll n;
+ll k;
 
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
 
-	cin >> n;
+	cin >> k;
 
-	ll x = n;
+	ll n = k;
 	vector<ll> v;
 
-	//O(sqrt(N)*log(N))
 	for (int i = 2; i <= (int)sqrt(n); i++) {
-		while (x % i == 0) {
+		while (n % i == 0) {
 			v.push_back(i);
-			x /= i;
+			n /= i;
 		}
 	}
-	if (x != 1) v.push_back(x);
+	if (n != 1) v.push_back(n); //마지막 소인수
 
 	cout << v.size() << '\n';
 	for (ll i : v) cout << i << ' ';
