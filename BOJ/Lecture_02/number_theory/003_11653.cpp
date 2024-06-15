@@ -20,9 +20,7 @@ int main() {
 			else break;
 		}
 	}
-	
-	//sqrt(n) 이상의 소인수 존재 시 출력
-	if (x != 1) cout << x << '\n';
+	if (x != 1) cout << x << '\n'; //마지막 소인수
 
 	return 0;
 }
