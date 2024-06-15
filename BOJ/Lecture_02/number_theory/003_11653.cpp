@@ -1,5 +1,5 @@
 #include<iostream>
-#include<cmath>
+#include<cmath> //sqrt
 using namespace std;
 
 int n;
@@ -10,17 +10,15 @@ int main() {
 
 	cin >> n;
 
-	int x = n; //소인수 분해를 위한 변수 x
+	int x = n; //소인수 분해를 위한 변수 x 선언
 	for (int i = 2; i <= (int)sqrt(n); i++) {
-		while (true) {
-			if (x % i == 0) {
-				cout << i << '\n';
-				x /= i;
-			}
-			else break;
+		while (x % i == 0) {
+			cout << i << '\n';
+			x /= i;
 		}
 	}
-	if (x != 1) cout << x << '\n'; //마지막 소인수
+	//sqrt(n)보다 큰 마지막 소인수
+	if (x != 1) cout << x << '\n';
 
 	return 0;
 }
