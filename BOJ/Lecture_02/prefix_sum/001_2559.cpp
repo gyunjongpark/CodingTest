@@ -1,5 +1,5 @@
 #include<iostream>
-#define MAX 100001
+#define MAX 100004
 using namespace std;
 
 int n, k, temp, s[MAX];
