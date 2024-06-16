@@ -1,5 +1,5 @@
 #include<iostream>
-#define MAX 1025
+#define MAX 1030
 using namespace std;
 
 int n, m, temp, s[MAX][MAX];
