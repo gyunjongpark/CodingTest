@@ -20,12 +20,14 @@ int main() {
 		}
 	}
 
+	//왼쪽에서는 마지막 maxPos가 나올 때까지 검사
 	for (int i = 1; i < maxPos; i++) {
 		if (a[i - 1] >= a[i]) {
 			a[i] = a[i - 1];
 		}
 	}
 
+	//오른쪽에서는 첫 maxPos까지 검사
 	for (int i = 1000; i>maxPos; i--) {
 		if (a[i + 1] >= a[i]) {
 			a[i] = a[i + 1];
