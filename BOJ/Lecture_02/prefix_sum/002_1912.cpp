@@ -18,7 +18,7 @@ int main() {
 		s[i] = max(s[i - 1] + temp, temp);
 	}
 
-	int maxVal = s[1];
+	int maxVal = s[1]; //첫번째 요소부터 검사
 	for (int i = 1; i <= n; i++) {
 		maxVal = max(maxVal, s[i]);
 	}
