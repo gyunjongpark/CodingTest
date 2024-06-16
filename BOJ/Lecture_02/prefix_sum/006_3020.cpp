@@ -12,28 +12,24 @@ int main() {
 
 	cin >> n >> h;
 
+	//장애물 height는 h보다 작은 양수이다
 	for (int i = 0; i < n; i++) {
 		cin >> height; //장애물의 크기
 
 		if (i % 2 == 0) { //석순일 경우
 			line[0]++;
-			if (height < h) {
-				line[height]--;
-			}
+			line[height]--;
 		}
-		else{ //종유석일 경우
-			if (h >= height) {
-				line[h - height]++;
-			}
+		else { //종유석일 경우
+			line[h - height]++;
 		}
 	}
 
-	//height는 h보다 작은 양수
 	for (int i = 0; i < h; i++) {
 		s[i + 1] = s[i] + line[i];
 	}
 
-	int minVal = s[1];
+	int minVal = s[1]; //첫번째 요소부터 검사
 	for (int i = 1; i <= h; i++) {
 		minVal = min(minVal, s[i]);
 	}
