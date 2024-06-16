@@ -20,6 +20,7 @@ int main() {
 		}
 	}
 
+	//왼쪽에서는 마지막 maxPos가 나올 때까지 검사
 	int maxVal_front = a[1];
 	for (int i = 1; i < maxPos; i++) {
 		if (a[i - 1] >= a[i]) {
@@ -30,6 +31,7 @@ int main() {
 		else maxVal_front = a[i];
 	}
 
+	//오른쪽에서는 첫 maxPos까지 검사
 	int maxVal_back = a[m];
 	for (int i = m; i > maxPos; i--) {
 		if (a[i + 1] >= a[i]) {
