@@ -9,12 +9,11 @@ int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
 
-
 	cin >> n;
 
 	while (n--) {
 		bool flag = 0; //init
-		cin >> s;
+		cin >> s; //init
 
 		for (int i = 2; i < 1000001; i++) {
 			if (s % i == 0) {
@@ -22,8 +21,7 @@ int main() {
 				break;
 			}
 		}
-    
-		if(flag) cout << "NO\n";
+		if (flag) cout << "NO\n";
 		else cout << "YES\n";
 	}
 
