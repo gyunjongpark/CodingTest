@@ -13,7 +13,7 @@ int main() {
 
 	while (n--) {
 		bool flag = 0; //init
-		cin >> s; //init
+		cin >> s; //암호 입력
 
 		for (int i = 2; i < 1000001; i++) {
 			if (s % i == 0) {
