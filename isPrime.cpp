@@ -12,7 +12,7 @@ vector<int> era(int n) {
 
 	for (int i = 2; i <= n; i++) {
 		if (chae[i]) continue; //이미 지워졌다면 continue
-		for (int j = 2 * i; j <= n; j += i) {
+		for (int j = i + i; j <= n; j += i) {
 			chae[j] = 1; //소수가 아닌 값들 true로 지우기
 		}
 	}
@@ -37,6 +37,8 @@ bool checkPrime(int num) {
 	
 	return 1;
 }
+
+/*----------------------------------*/
 
 int main() {
 	ios_base::sync_with_stdio(false);
