@@ -26,9 +26,9 @@ int main() {
 
 				int count = 0;
 				for (int i = 0; i < n; i++) {
-					string num = v[i][0];
-					int strike = atoi(v[i][1].c_str()); //string to int
-					int ball = atoi(v[i][2].c_str()); //string to int
+					string num = v[i][0]; //number
+					int strike = atoi(v[i][1].c_str()); //s
+					int ball = atoi(v[i][2].c_str()); //b
 
 					int strike_cnt = 0;
 					int ball_cnt = 0;
@@ -47,7 +47,7 @@ int main() {
 					if (strike == strike_cnt && ball == ball_cnt) count++;
 				}
 
-				// n번 모두 만족한다면 현재 수가 가능성이 있는 수이다
+				// n번 모두 만족한다면 가능성이 있는 수이다
 				if (count == n) ret++;
 			}
 		}
