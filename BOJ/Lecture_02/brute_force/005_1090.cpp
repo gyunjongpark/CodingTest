@@ -15,11 +15,11 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		cin >> x >> y;
 		v.push_back({ x,y }); //움직일 좌표 입력
-		xpos.push_back(x); //최소가 될 수 있는 후보 x 좌표 입력
-		ypos.push_back(y); //최소가 될 수 있는 후보 y 좌표 입력
+		xpos.push_back(x); //최소 거리가 될 수 있는 x 좌표 입력
+		ypos.push_back(y); //최소 거리가 될 수 있는 y 좌표 입력
 	}
 
-	vector<int> answer(n, -1);
+	vector<int> answer(n, -1); //init
 	for (int y : ypos) {
 		for (int x : xpos) {
 			vector<int> dist; //거리 차이 담기
@@ -28,14 +28,14 @@ int main() {
 				int d = abs(pi.first - x) + abs(pi.second - y);
 				dist.push_back(d);
 			}
-			
+
 			sort(dist.begin(), dist.end());
 
 			int tmp = 0;
 			for (int i = 0; i < n; i++) {
 				tmp += dist[i]; //tmp는 i개의 체커가 모이는 횟수가 된다
 				if (answer[i] == -1) {
-					answer[i] = tmp; //배열에 값이 처음 들어왔다면 tmp로 우선 배정
+					answer[i] = tmp; //배열에 값이 처음 들어왔다면 tmp로 일단 배정
 				}
 				else {
 					//answer[i]는 i개의 체커가 모이는 최소 횟수가 된다
