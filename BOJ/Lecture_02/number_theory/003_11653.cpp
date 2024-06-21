@@ -11,13 +11,14 @@ int main() {
 	cin >> n;
 
 	int x = n; //소인수 분해를 위한 변수 x 선언
-	for (int i = 2; i <= (int)sqrt(n); i++) {
+	for (int i = 2; i <= (int)sqrt(n); i++) { //while문에 의해 i는 소수이다
 		while (x % i == 0) {
 			cout << i << '\n';
 			x /= i;
 		}
 	}
-	//sqrt(n)보다 큰 마지막 소인수
+	
+	//sqrt(n)보다 크고 유일하면서 마지막인 소인수
 	if (x != 1) cout << x << '\n';
 
 	return 0;
