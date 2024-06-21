@@ -1,5 +1,5 @@
 #include<iostream>
-#include<cmath>
+#include<cmath> //sqrt
 using namespace std;
 
 int n, temp, cnt;
