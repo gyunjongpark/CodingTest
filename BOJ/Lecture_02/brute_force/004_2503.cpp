@@ -47,7 +47,7 @@ int main() {
 					if (strike == strike_cnt && ball == ball_cnt) count++;
 				}
 
-				// n번 모두 만족한다면 가능성이 있는 수이다
+				//n번 모두 만족한다면 현재 수는 가능성이 있는 수이다
 				if (count == n) ret++;
 			}
 		}
