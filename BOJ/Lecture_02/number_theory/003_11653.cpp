@@ -11,7 +11,7 @@ int main() {
 	cin >> n;
 
 	int x = n; //소인수 분해를 위한 변수 x 선언
-	for (int i = 2; i <= (int)sqrt(n); i++) { //while문에 의해 i는 소수이다
+	for (int i = 2; i <= (int)sqrt(n); i++) { //while문에 의해 소수인 i로만 반복한다
 		while (x % i == 0) {
 			cout << i << '\n';
 			x /= i;
@@ -29,5 +29,6 @@ n=p*q를 만족하면서 p>sqrt(n) && q>sqrt(n)인 소수쌍 (p,q)는 존재하�
 즉, p>sqrt(n)라면 반드시 q<sqrt(n)이다
 
 만약 제곱근보다 큰 소인수가 p,q 두 개 이상이라면 p*q*r*s...>n 이므로 모순이다
+
 따라서, 제곱근보다 큰 소인수는 많아봐야 최대 한 개이다.
 */
