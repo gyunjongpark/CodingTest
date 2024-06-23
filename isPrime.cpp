@@ -1,7 +1,9 @@
 #include<iostream>
 #include<vector>
-#define MAX 1000 //문제에서 제시된 최대 범위로 수정
+#define MAX 1000 //문제에 제시된 최대 범위
 using namespace std;
+
+/*----------------------------------*/
 
 //에라토스테네스의 체 : O(NloglogN)
 bool chae[MAX + 1]; //최대 범위 MAX까지 담는 배열 chae
@@ -13,7 +15,7 @@ vector<int> era(int n) {
 	for (int i = 2; i <= n; i++) {
 		if (chae[i]) continue; //이미 지워졌다면 continue
 		for (int j = i + i; j <= n; j += i) {
-			chae[j] = 1; //소수가 아닌 값들 true로 지우기
+			chae[j] = 1; //i의 배수 지우기(소수만 남기기)
 		}
 	}
 
@@ -26,7 +28,7 @@ vector<int> era(int n) {
 
 /*----------------------------------*/
 
-//어떤 수 하나가 소수인지 판별하기 : O(sqrt(N))
+//어떤 수가 소수인지 판별하기 : O(sqrt(N))
 int num; //확인하고 싶은 수
 
 bool checkPrime(int num) {
@@ -47,8 +49,8 @@ int main() {
 	//era
 	cin >> n;
 	vector<int> v = era(n);
-	
 	for (int i : v) cout << i << ' ';
+	
 	cout << '\n';
 
 	//checkPrime
