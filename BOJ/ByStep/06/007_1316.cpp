@@ -18,7 +18,7 @@ int main() {
 			for (int j = 0; j < s.size(); j++) {
 				if (s[j] != s[j + 1]) {
 					//find(찾는 요소,시작 위치)
-					if (s.find(s[j], j + 2) != string::npos) {
+					if (s.find(s[j], j + 2) != string::npos) { //같은 단어를 찾았다면 그룹 단어 x
 						cnt++; //그룹 단어가 아니라면 cnt++
 						break;
 					}
