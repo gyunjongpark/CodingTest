@@ -13,9 +13,9 @@ int main() {
 	cin >> s;
 
 	for (char a : s) {
-		if (a >= 'a') a -= 32;
+		if (a >= 'a') a -= 32; //'a' = 97, 'A' = 65
 
-		cnt[a - 'A']++;
+		cnt[a - 'A']++; //cnt[0~25]
 	}
 
 	for (int i : cnt) {
