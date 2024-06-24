@@ -6,7 +6,9 @@ double avg, score[20];
 float sumGrade, grade[20];
 
 int main() {
-
+	cin.tie(NULL), cout.tie(NULL);
+	ios_base::sync_with_stdio(false);
+	
 	for (int i = 0; i < 20; ++i) {
 		cin >> majorName >> grade[i] >> input;
 
