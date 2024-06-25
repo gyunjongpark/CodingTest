@@ -1,5 +1,4 @@
 #include<iostream>
-#include<algorithm>
 using namespace std;
 
 int a, t, s[4]; //쿼터, 다임, 니켈, 페니
