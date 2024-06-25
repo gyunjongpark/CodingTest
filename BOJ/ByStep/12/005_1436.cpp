@@ -3,7 +3,7 @@
 #include<string> //to_string...?
 using namespace std;
 
-int cnt, n; //300 이하
+int cnt, n;
 string ret;
 
 int main() {
