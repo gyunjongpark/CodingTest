@@ -1,5 +1,5 @@
 #include<iostream>
-#include<cmath>
+#include<cmath> //pow
 using namespace std;
 
 int n, dot = 2;
