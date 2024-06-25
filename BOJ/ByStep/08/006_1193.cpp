@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int n, i = 1;
+int i=1, n;
 
 int main() {
 	ios_base::sync_with_stdio(false);
@@ -15,8 +15,7 @@ int main() {
 
 	if (i % 2 == 1) {
 		cout << i + 1 - n << '/' << n << '\n';
-	}
-		
+	}	
 	else {
 		cout << n << '/' << i + 1 - n << '\n';
 	}
