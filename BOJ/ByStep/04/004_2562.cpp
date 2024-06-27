@@ -17,6 +17,5 @@ int main() {
 	}
 	cout << maxVal << '\n' << temp + 1;
 
-
 	return 0;
 }
