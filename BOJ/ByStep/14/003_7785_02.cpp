@@ -17,7 +17,7 @@ int main() {
 		mp[a] = b;
 	}
 
-	for (pair<string, string> s : mp) {
+	for (pair<string,string> s : mp) {
 		if (s.second == "enter") {
 			cout << s.first << '\n';
 		}
