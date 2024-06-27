@@ -1,5 +1,5 @@
 #include<iostream>
-#include<cmath>
+#include<cmath> //sqrt
 using namespace std;
 
 int n, m, ret, minVal=1e6;
