@@ -11,10 +11,10 @@ int main() {
 
     for (int i = 1; i < n; i++) {
         int sum = 0;
-        int num = i;
+        int num = i; //1부터 시작. i=245에서 조건을 만족한다
 
         while (num > 0) {
-            sum += num % 10; //2+4+5
+            sum += num % 10; //5 + 4 + 2
             num /= 10;
         }
 
