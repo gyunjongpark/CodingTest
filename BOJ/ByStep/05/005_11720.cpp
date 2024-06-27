@@ -11,7 +11,7 @@ int main() {
 	cin >> n >> s;
 
 	for (int i = 0; i < n; i++) {
-		ret += s[i] - 48;
+		ret += s[i] - 48; //문자 - 숫자 = 48
 	}
 	cout << ret;
   
