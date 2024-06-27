@@ -27,7 +27,7 @@ int main() {
 	}
 	cout << cnt << '\n';
 
-	for (auto a : mp) {
+	for (pair<string,int> a : mp) {
 		if (a.second == 2) cout << a.first << '\n';
 	}
 
