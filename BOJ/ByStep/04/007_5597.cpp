@@ -12,6 +12,7 @@ int main() {
 		cin >> num;
 		arr[num - 1] = num;
 	}
+	
 	for (int i = 0; i < 30; i++) {
 		if (arr[i] != i + 1)
 			cout << i + 1 << '\n';
