@@ -11,6 +11,7 @@ int main() {
 
 	cin >> n;
 
+	//가장 우축의 최대값을 저장한다
 	for (int i = 0; i < n; i++) {
 		cin >> x >> y;
 		a[x] = y;
@@ -34,6 +35,7 @@ int main() {
 		}
 	}
 
+	//a를 변형시킨 후 누적합 s 계산
 	for (int i = 1; i <= 1000; i++) {
 		s[i] = s[i - 1] + a[i];
 	}
