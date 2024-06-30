@@ -1,6 +1,6 @@
 #include<iostream>
 #include<cstring> //memcpy, memset..?
-#define MAX 21
+#define MAX 24
 using namespace std;
 
 const int INF = -1e6;
@@ -89,7 +89,6 @@ int main() {
 		}
 	}
 	go(c, 0);
-
 	cout << ret;
   
 	return 0;
