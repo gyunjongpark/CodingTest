@@ -2,6 +2,7 @@
 using namespace std;
 typedef long long ll;
 
+bool flag;
 int n;
 ll s;
 
@@ -12,8 +13,8 @@ int main() {
 	cin >> n;
 
 	while (n--) {
-		bool flag = 0; //init
-		cin >> s; //암호 입력
+		cin >> s; //init
+		flag = 0; //init
 
 		for (int i = 2; i < 1000001; i++) {
 			if (s % i == 0) {
