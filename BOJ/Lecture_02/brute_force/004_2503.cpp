@@ -17,11 +17,11 @@ int main() {
 		v.push_back({ number,s,b });
 	}
 
-	for (int a = 1; a <= 9; a++) { //100의 자리
-		for (int b = 1; b <= 9; b++) { //10의 자리
-			for (int c = 1; c <= 9; c++) { //1의 자리
+	for (int a = 1; a <= 9; a++) {
+		for (int b = 1; b <= 9; b++) {
+			for (int c = 1; c <= 9; c++) {
 				
-				//같은 숫자는 제외한다
+				//같은 숫자는 제외
 				if (a == b || b == c || c == a) continue;
 
 				int count = 0;
@@ -30,8 +30,8 @@ int main() {
 					int strike = atoi(v[i][1].c_str()); //s
 					int ball = atoi(v[i][2].c_str()); //b
 
-					int strike_cnt = 0;
-					int ball_cnt = 0;
+					int strike_cnt = 0; //init
+					int ball_cnt = 0; //init
 
 					//strike count
 					if (a == num[0] - '0') strike_cnt++;
@@ -46,8 +46,7 @@ int main() {
 					
 					if (strike == strike_cnt && ball == ball_cnt) count++;
 				}
-
-				//n번 모두 만족한다면 현재 수는 가능성이 있는 수이다
+				//n번 모두 만족한다면 현재 수는 정답 가능성이 있는 수
 				if (count == n) ret++;
 			}
 		}
