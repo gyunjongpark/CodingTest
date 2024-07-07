@@ -34,7 +34,7 @@ int main() {
     cin >> n >> m;
 
     vector<int> v;
-    vector<bool> visited(n + 1, false); //중복 방지를 위한 visited 배열
+    vector<bool> visited(n + 1, false); //중복 방지
 
     combi(0, v, visited);
 
