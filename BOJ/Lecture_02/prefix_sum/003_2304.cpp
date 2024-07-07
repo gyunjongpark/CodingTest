@@ -21,14 +21,14 @@ int main() {
 		}
 	}
 
-	//왼쪽부터 maxPos까지 검사
+	//왼쪽부터 maxPos 직전까지 검사
 	for (int i = 1; i < maxPos; i++) {
 		if (a[i - 1] >= a[i]) {
 			a[i] = a[i - 1];
 		}
 	}
 
-	//오른쪽부터 maxPos까지 검사
+	//오른쪽부터 maxPos 직전까지 검사
 	for (int i = 1000; i > maxPos; i--) {
 		if (a[i + 1] >= a[i]) {
 			a[i] = a[i + 1];
