@@ -4,7 +4,7 @@ using namespace std;
 
 int n, m; //n개 중에서 m개를 뽑는다
 
-void combi(int start, vector<int>& v) {
+void combi(int start, vector<int>& v, vector<bool>& visited) {
     if (v.size() == m) {
         for (int i : v) cout << i << ' ';
         cout << '\n';
@@ -13,9 +13,15 @@ void combi(int start, vector<int>& v) {
     }
 
     for (int i = start + 1; i <= n; i++) {
+        if (visited[i]) continue;
+
         v.push_back(i);
-        combi(i, v);
+        visited[i] = true;
+
+        combi(i, v, visited);
+
         v.pop_back();
+        visited[i] = false;
     }
 
     return;
@@ -27,8 +33,10 @@ int main() {
 
     cin >> n >> m;
 
-    vector<int> v; //조합, 인덱스를 나열한 배열 v
-    combi(0, v);
+    vector<int> v;
+    vector<bool> visited(n + 1, false); //중복 방지
+
+    combi(0, v, visited);
 
     return 0;
 }
