@@ -2,7 +2,8 @@
 #define MAX 504
 using namespace std;
 
-int n, m, temp, maxVal, maxPos, sum, a[MAX];
+int n, m, temp, sum, a[MAX];
+int maxVal = -1, maxPos;
 
 int main() {
 	ios_base::sync_with_stdio(false);
@@ -10,7 +11,7 @@ int main() {
 
 	cin >> n >> m;
 
-	for (int i = 1; i <= m; i++) {
+	for (int i = 1; i <= m; i++) { //i가 x좌표에 쓰이므로 1부터 정의한다
 		cin >> temp;
 		a[i] = temp;
 
