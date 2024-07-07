@@ -15,7 +15,7 @@ int main() {
 		s[i] = s[i - 1] + temp;
 	}
 
-	int maxVal = -MAX * 100; //최악의 경우 -100*10만
+	int maxVal = -MAX * 100; //최악의 경우 -100 * 10만
 	for (int i = k; i <= n; i++) {
 		maxVal = max(maxVal, (s[i] - s[i - k]));
 	}
