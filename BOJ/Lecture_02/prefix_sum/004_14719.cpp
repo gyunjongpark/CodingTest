@@ -3,7 +3,7 @@
 using namespace std;
 
 int n, m, temp, sum, a[MAX];
-int maxVal = -1, maxPos;
+int maxPos, maxVal, maxVal_front, maxVal_back;
 
 int main() {
 	ios_base::sync_with_stdio(false);
@@ -11,7 +11,7 @@ int main() {
 
 	cin >> n >> m;
 
-	for (int i = 1; i <= m; i++) { //i가 x좌표에 쓰이므로 1부터 정의한다
+	for (int i = 1; i <= m; i++) { //i가 x좌표에 직접 쓰이므로 1부터 정의
 		cin >> temp;
 		a[i] = temp;
 
@@ -21,8 +21,7 @@ int main() {
 		}
 	}
 
-	//왼쪽에서는 마지막 maxPos가 나올 때까지 검사
-	int maxVal_front = a[1];
+	//왼쪽부터 maxPos 직전까지 검사
 	for (int i = 1; i < maxPos; i++) {
 		if (a[i - 1] >= a[i]) {
 			maxVal_front = a[i - 1];
@@ -32,8 +31,7 @@ int main() {
 		else maxVal_front = a[i];
 	}
 
-	//오른쪽에서는 첫 maxPos까지 검사
-	int maxVal_back = a[m];
+	//오른쪽부터 maxPos 직전까지 검사
 	for (int i = m; i > maxPos; i--) {
 		if (a[i + 1] >= a[i]) {
 			maxVal_back = a[i + 1];
