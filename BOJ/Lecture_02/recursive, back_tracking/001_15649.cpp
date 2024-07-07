@@ -4,7 +4,7 @@ using namespace std;
 
 int n, m; //n개 중에서 m개를 뽑는다
 
-void permutation(vector<int>& v, vector<bool>& visited) {
+void combi(int start, vector<int>& v, vector<bool>& visited) {
     if (v.size() == m) {
         for (int i : v) cout << i << ' ';
         cout << '\n';
@@ -12,17 +12,19 @@ void permutation(vector<int>& v, vector<bool>& visited) {
         return;
     }
 
-    for (int i = 1; i <= n; i++) {
-        if (visited[i]) continue; //중복 제거
+    for (int i = start + 1; i <= n; i++) {
+        if (visited[i]) continue;
 
-        visited[i] = true;
         v.push_back(i);
+        visited[i] = true;
 
-        permutation(v, visited);
+        combi(start, v, visited);
 
-        visited[i] = false; //원상복구
         v.pop_back();
+        visited[i] = false;
     }
+
+    return;
 }
 
 int main() {
@@ -31,9 +33,10 @@ int main() {
 
     cin >> n >> m;
 
-    vector<int> arr; //순열, 실제 값을 나열한 배열 arr
-    vector<bool> visited(n + 1, false); //중복 방지를 위한 visited
-    permutation(arr, visited); 
+    vector<int> v;
+    vector<bool> visited(n + 1, false); //중복 방지를 위한 visited 배열
+
+    combi(0, v, visited);
 
     return 0;
 }
