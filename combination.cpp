@@ -12,13 +12,14 @@ void combi(int start, vector<int>& v, vector<bool>& visited) {
         return;
     }
 
+    //visited 주석 처리 여부에 따라서 순열(중복 포함)로도 만들 수 있다
     for (int i = start + 1; i <= n; i++) {
         if (visited[i]) continue;
 
         v.push_back(i);
         visited[i] = true;
 
-        combi(start, v, visited);
+        combi(start, v, visited); //첫 번째 인자에 의해 조합의 성격이 결정된다. start? i? i - 1?
 
         v.pop_back();
         visited[i] = false;
