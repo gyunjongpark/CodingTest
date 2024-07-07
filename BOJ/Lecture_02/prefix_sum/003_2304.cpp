@@ -21,7 +21,7 @@ int main() {
 		}
 	}
 
-	//왼쪽부터 maxPos가 나올 때까지 검사
+	//왼쪽부터 maxPos까지 검사
 	for (int i = 1; i < maxPos; i++) {
 		if (a[i - 1] >= a[i]) {
 			a[i] = a[i - 1];
