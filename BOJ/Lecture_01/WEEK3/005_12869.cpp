@@ -41,7 +41,7 @@ int bfs(int a, int b, int c) {
         }
     }
 
-    return visited[0][0][0] - 1; //모로 가도 visited[0][0][0]만 가면 된다
+    return visited[0][0][0] - 1; //모로 가도 visited[0][0][0]으로만 가면 된다
 }
 
 int main() {
