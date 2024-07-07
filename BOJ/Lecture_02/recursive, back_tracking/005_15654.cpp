@@ -1,10 +1,11 @@
 #include<iostream>
-#include<vector>
 #include<algorithm>
+#include<vector>
 #define MAX 10004
 using namespace std;
 
-int a[8], n, m; //n개 중에서 m개를 뽑는다
+int n, m; //n개 중에서 m개를 뽑는다
+int a[10];
 
 void combi(int start, vector<int>& v, vector<bool>& visited) {
     if (v.size() == m) {
@@ -17,13 +18,13 @@ void combi(int start, vector<int>& v, vector<bool>& visited) {
     for (int i = start + 1; i < n; i++) {
         if (visited[a[i]]) continue;
 
-        visited[a[i]] = true;
         v.push_back(a[i]);
+        visited[a[i]] = true;
 
         combi(start, v, visited);
 
-        visited[a[i]] = false;
         v.pop_back();
+        visited[a[i]] = false;
     }
 
     return;
@@ -40,8 +41,9 @@ int main() {
     }
     sort(a, a + n);
 
-    vector<int> v; //조합, 인덱스를 나열한 배열 v
-    vector<bool> visited(MAX, false); //중복 방지를 위한 visited
+    vector<int> v;
+    vector<bool> visited(MAX, false); //중복 방지
+
     combi(-1, v, visited);
 
     return 0;
