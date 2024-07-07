@@ -11,7 +11,7 @@ int main() {
 
 	cin >> n >> m;
 
-	for (int i = 1; i <= n; i++) {
+	for (int i = 1; i <= n; i++) { //0행과 0열은 0으로 비워둔 후 계산한다
 		for (int j = 1; j <= n; j++) {
 			cin >> temp;
 			s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + temp;
