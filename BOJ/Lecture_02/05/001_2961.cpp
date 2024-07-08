@@ -1,10 +1,10 @@
 #include<iostream>
 #include<vector>
 #include<cmath> //abs
-#define INF 1e6
+#define INF 1e9
 using namespace std;
 
-vector<pair<int, int>> ingre;
+vector<pair<int, int>> ingre; //신 맛, 쓴 맛 pair로 저장
 int answer = INF;
 int n, s, b;
 
@@ -29,7 +29,7 @@ int main() {
         cin >> s >> b; //sour, bitter
         ingre.push_back({ s,b });
     }
-    recur(0, 1, 0, 0); //쓴 맛은 곱이기 때문에 초기값 1
+    recur(0, 1, 0, 0);
 
     cout << answer;
 
