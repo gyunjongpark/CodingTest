@@ -5,7 +5,7 @@ using namespace std;
 vector<vector<int>> affordable;
 vector<vector<string>> v;
 string number, s, b;
-int n;
+int n, ret;
 
 void combi(int start, vector<int>& v, vector<bool>& visited) {
     if (v.size() == 3) { //3개의 숫자로 게임을 진행한다
@@ -29,27 +29,16 @@ void combi(int start, vector<int>& v, vector<bool>& visited) {
     return;
 }
 
-void search() {
+void search_number() {
     vector<int> v;
     vector<bool> visited(9 + 1, false); //중복 방지
 
     combi(0, v, visited);
+
+    return;
 }
 
-int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL); cout.tie(NULL);
-
-    search();
-
-    cin >> n;
-
-    for (int i = 0; i < n; i++) {
-		cin >> number >> s >> b;
-		v.push_back({ number,s,b });
-	}
-	
-    int ret = 0;
+void number_baseball() {
     for (vector<int> aff : affordable) {
 
         int cnt = 0;
@@ -72,6 +61,23 @@ int main() {
         }
         if (cnt == n) ret++;
     }
+
+    return;
+}
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL); cout.tie(NULL);
+
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> number >> s >> b;
+        v.push_back({ number,s,b });
+    }
+
+    search_number(); //가능한 숫자 찾기
+    number_baseball(); //숫자야구 진행
+
     cout << ret;
 
     return 0;
