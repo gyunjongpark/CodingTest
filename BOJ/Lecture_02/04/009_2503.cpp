@@ -42,14 +42,14 @@ int main() {
 
     search();
 
-	cin >> n;
+    cin >> n;
 
-	for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
 		cin >> number >> s >> b;
 		v.push_back({ number,s,b });
 	}
-
-	int ret = 0;
+	
+    int ret = 0;
     for (vector<int> aff : affordable) {
 
         int cnt = 0;
@@ -70,10 +70,9 @@ int main() {
 
             if (strike_cnt == strike && ball_cnt == ball) cnt++;
         }
-
         if (cnt == n) ret++;
     }
-  	cout << ret;
+    cout << ret;
 
     return 0;
 }
