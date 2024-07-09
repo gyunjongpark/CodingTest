@@ -1,6 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include<iostream>
+#include<vector>
+#include<algorithm>
 #define MAX 10004
 using namespace std;
 
@@ -8,7 +8,6 @@ vector<vector<int>> ingre;
 vector<int> selectedIngredients, bestCombination;
 int answer = MAX;
 int n, mp, mf, ms, mv;
-
 
 void recur(int idx, int a, int b, int c, int d, int cost) {
     if (a >= mp && b >= mf && c >= ms && d >= mv) {
@@ -22,9 +21,9 @@ void recur(int idx, int a, int b, int c, int d, int cost) {
     }
 
     // 현재 재료를 선택하는 경우
-    selectedIngredients.push_back(idx + 1); // 인덱스 1부터 시작
+    selectedIngredients.push_back(idx + 1);
     recur(idx + 1, a + ingre[idx][0], b + ingre[idx][1], c + ingre[idx][2], d + ingre[idx][3], cost + ingre[idx][4]);
-    selectedIngredients.pop_back(); // 원상 복구
+    selectedIngredients.pop_back();
 
     // 현재 재료를 선택하지 않는 경우
     recur(idx + 1, a, b, c, d, cost);
