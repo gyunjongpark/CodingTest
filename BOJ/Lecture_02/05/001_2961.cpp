@@ -9,7 +9,7 @@ int answer = INF;
 int n, s, b;
 
 void recur(int idx, int sour, int bitter, int used) {
-    if (idx == n) {
+    if (idx == n) { //내부 조건없이 모든 경우의 수 전체 검사
         if (used > 0) {
             answer = min(answer, abs(sour - bitter));
         }
