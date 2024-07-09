@@ -25,9 +25,12 @@ int main() {
     cin.tie(NULL); cout.tie(NULL);
 
     cin >> n;
+
+    ingre.resize(n);
+
     for (int i = 0; i < n; i++) {
         cin >> s >> b; //sour, bitter
-        ingre.push_back({ s,b });
+        ingre[i] = { s,b };
     }
     recur(0, 1, 0, 0);
 
