@@ -3,7 +3,7 @@
 using namespace std;
 
 vector<pair<int, int>> table;
-int n, answer;
+int n, t, p, answer;
 
 void recur(int day, int price) {
     if (day > n) return;
@@ -25,7 +25,8 @@ int main() {
     table.resize(n);
 
     for (int i = 0; i < n; i++) {
-        cin >> table[i].first >> table[i].second; //T, P
+        cin >> t >> p;
+        table[i] = { t,p };
     }
 
     recur(0, 0);
