@@ -16,21 +16,24 @@ void recur(int idx,int p,int f,int s,int v,int cost) {
         }
     }
 
-    //조건을 이미 만족하여 추가적으로 식재료를 선택하는 것이 불필요하다
-    //굳이 idx가 n이 될 때까지 억지로 조합할 이유가 없음
-    //idx에 상관없이 조건을 만족하기만 하면 바로 answer값을 변경한다
-    //조건을 만족한 이후 idx가 증가할수록 cost는 기존의 answer보다 커지기 때문에 사실상 의미가 없다
-
-    //idx가 n이 될 때까지 조건을 만족하지 못할 수도 있기 때문에 n까지는 무조건 호출
+    /*
+    if(idx==n) 내부에 조건문을 중첩하지 않는 이유:
+    조건을 이미 만족한다면 식재료를 추가로 선택하는 것이 불필요하다
+    굳이 idx가 n이 될 때까지 억지로 조합할 이유가 없음
+    idx에 상관없이 조건을 만족하기만 하면 바로 answer값을 변경한다
+    조건을 만족한 이후 idx가 증가하면 cost는 기존의 answer보다 무조건 크기 때문에 사실상 의미가 없다
+    하지만, idx가 n이 될 때까지 조건을 만족하지 못할 수도 있기 때문에 break 없이 n까지는 무조건 반복한다
+    */
+    
     //idx가 n이 되면 무조건 반환
     if (idx == n) {
         return;
     }
 
     //식재료를 선택하는 경우
-    sufficient_combination.push_back(idx + 1);
+    sufficient_combination.push_back(idx + 1); //인덱스 출력을 위한 조합
     recur(idx + 1, p + value_table[idx][0], f + value_table[idx][1], s + value_table[idx][2], v + value_table[idx][3], cost + value_table[idx][4]);
-    sufficient_combination.pop_back();
+    sufficient_combination.pop_back(); //원상 복구
 
     //선택하지 않는 경우
     recur(idx + 1, p, f, s, v, cost);
