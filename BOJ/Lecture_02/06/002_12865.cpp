@@ -35,3 +35,41 @@ int main() {
     return 0;
 }
 */
+
+#include<iostream>
+#include<vector>
+#define INF 1e9
+using namespace std;
+
+vector<pair<int, int>> backpack;
+vector<vector<int>> dp;
+int n, k, w, v;
+
+int recur(int idx, int weight) {
+    if (idx > n || weight > k) return -INF;
+    if (idx == n) return 0;
+
+    if (dp[idx][weight] != -1) return dp[idx][weight];
+
+    dp[idx][weight] = max(recur(idx + 1, weight), recur(idx + 1, weight + backpack[idx].first) + backpack[idx].second);
+
+    return dp[idx][weight];
+}
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL); cout.tie(NULL);
+
+    cin >> n >> k;
+
+    backpack.resize(n);
+    dp.resize(n, vector<int>(k + 1, -1)); //최대 입력 범위로 dp 설정
+
+    for (int i = 0; i < n; i++) {
+        cin >> w >> v;
+        backpack[i] = { w,v };
+    }
+    cout<<recur(0,0);
+
+    return 0;
+}
