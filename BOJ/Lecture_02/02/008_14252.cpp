@@ -1,6 +1,6 @@
 #include<iostream>
 #include<algorithm>
-#define MAX 51
+#define MAX 54
 using namespace std;
 
 int n, cnt, a[MAX];
