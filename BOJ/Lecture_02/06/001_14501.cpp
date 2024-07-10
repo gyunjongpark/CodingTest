@@ -24,7 +24,7 @@ int main() {
 
     cin >> n;
 
-    dp.resize(n + 1, -1);
+    dp.resize(n + 1, -1); //최대 범위로 dp배열 설정
 
     for (int i = 0; i < n; i++) {
         cin >> d >> p;
