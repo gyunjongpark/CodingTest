@@ -11,8 +11,9 @@ int answer = INF;
 void recur(int idx, int sour, int bitter, int used) {
     if (idx == n) {
         if (used > 0) {
-            answer = min(answer, abs(sour - bitter));
+            answer = min(answer, abs(sour-bitter));
         }
+
         return;
     }
 
@@ -25,16 +26,15 @@ int main() {
     cin.tie(NULL); cout.tie(NULL);
 
     cin >> n;
-
-    table.resize(n);
-
     for (int i = 0; i < n; i++) {
         cin >> s >> b;
-        table[i] = { s,b };
+        table.push_back({ s,b });
     }
+
     recur(0, 1, 0, 0);
 
     cout << answer;
+    
 
     return 0;
 }
