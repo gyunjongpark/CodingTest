@@ -21,7 +21,7 @@ int main() {
 	}
 	sort(a, a + n);
 
-	for (int i = 0; i < n - 1; i++) {
+	for (int i = 0; i < n - 1; i++) { //a[i + 1]을 다루므로 i는 48까지 반복
 		if (getGCD(a[i], a[i + 1]) == 1) continue;
 
 		for (int j = a[i] + 1; j < a[i + 1]; j++) {
