@@ -44,6 +44,7 @@ using namespace std;
 vector<pair<int, int>> backpack;
 vector<vector<int>> dp;
 int n, k, w, v;
+int answer = -INF;
 
 int recur(int idx, int weight) {
     if (idx > n || weight > k) return -INF;
@@ -61,15 +62,15 @@ int main() {
     cin.tie(NULL); cout.tie(NULL);
 
     cin >> n >> k;
-
-    backpack.resize(n);
-    dp.resize(n + 1, vector<int>(k + 1, -1)); //최대 범위로 dp배열 설정
+    
+    dp.resize(n + 1, vector<int>(k + 1, -1));
 
     for (int i = 0; i < n; i++) {
         cin >> w >> v;
-        backpack[i] = { w,v };
+        backpack.push_back({ w,v });
     }
-    cout<<recur(0,0);
+    
+    cout << recur(0, 0);
 
     return 0;
 }
