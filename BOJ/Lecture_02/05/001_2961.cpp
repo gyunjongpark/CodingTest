@@ -36,6 +36,5 @@ int main() {
 
     cout << answer;
     
-
     return 0;
 }
