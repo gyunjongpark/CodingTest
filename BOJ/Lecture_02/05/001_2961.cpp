@@ -9,10 +9,12 @@ int n, s, b;
 int answer = INF;
 
 void recur(int idx, int sour, int bitter, int used) {
-    if (used > 0) { //내부 조건 없이 사용했다면 모든 경우의 수 검사
-        answer = min(answer, abs(sour-bitter));
+    if (idx == n) {
+        if (used > 0) {
+            answer = min(answer, abs(sour - bitter));
+        }
+        return;
     }
-    if (idx == n) return;
 
     recur(idx + 1, sour * table[idx].first, bitter + table[idx].second, used + 1);
     recur(idx + 1, sour, bitter, used);
