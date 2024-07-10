@@ -4,38 +4,39 @@
 using namespace std;
 
 vector<vector<int>> value_table;
-vector<int> effective_combination, sufficient_combination;
+vector<int> best_combi, temp_combi;
 int answer = INF;
 int n, mp, mf, ms, mv;
 
-void recur(int idx,int p,int f,int s,int v,int cost) {
-    if (p >= mp && f >= mf && s >= ms && v >= mv) {
-        if (cost < answer) {
+void recur(int idx, int p, int f, int s, int v, int cost) {
+    if (p >= mp && f >= mf && s >= ms && v >= mv) { //영양 조건 만족 시
+        if (cost < answer) { //갱신되는 가격이 기존보다 싸다면 best_combi 변경
             answer = cost;
-            effective_combination = sufficient_combination;
+            best_combi = temp_combi;
         }
     }
 
     /*
-    if(idx==n) 내부에 조건문을 중첩하지 않는 이유:
-    조건을 이미 만족한다면 식재료를 추가로 선택하는 것이 불필요하다
-    굳이 idx가 n이 될 때까지 억지로 조합할 이유가 없음
-    idx에 상관없이 조건을 만족하기만 하면 바로 answer값을 변경한다
-    조건을 만족한 이후 idx가 증가하면 cost는 기존의 answer보다 무조건 크기 때문에 사실상 의미가 없다
-    하지만, idx가 n이 될 때까지 조건을 만족하지 못할 수도 있기 때문에 break 없이 n까지는 무조건 반복한다
+    if(idx==n) 내부에 위 조건문을 중첩하지 않는 이유 :
+    조건문을 이미 만족한다면 식재료를 추가로 선택하는 것이 불필요하다
+    굳이 idx가 n이 될 때까지 억지로 cost를 늘려서 조합할 이유가 없음(best가 아니다)
+    조건을 만족한 이후 idx가 증가하면 cost는 기존의 answer보다 무조건 커지기 때문에 문제 의도에 부합하지 않음
+    따라서, idx에 상관없이 조건을 만족하기만 하면 바로 answer값을 고정시켜 최소 cost를 유지한다
+
+    하지만, idx가 n이 될 때까지 조건을 만족하지 못할 수도 있기 때문에 idx=n까지는 recur는 수행되어야 한다
     */
-    
+
     //idx가 n이 되면 무조건 반환
     if (idx == n) {
         return;
     }
 
     //식재료를 선택하는 경우
-    sufficient_combination.push_back(idx + 1); //인덱스 출력을 위한 조합
+    temp_combi.push_back(idx + 1); //인덱스 출력을 위한 + 1
     recur(idx + 1, p + value_table[idx][0], f + value_table[idx][1], s + value_table[idx][2], v + value_table[idx][3], cost + value_table[idx][4]);
-    sufficient_combination.pop_back(); //원상 복구
+    temp_combi.pop_back();
 
-    //선택하지 않는 경우
+    //식재료를 선택하지 않는 경우
     recur(idx + 1, p, f, s, v, cost);
 
     return;
@@ -62,10 +63,10 @@ int main() {
     }
     else {
         cout << answer << '\n';
-        for (int i : effective_combination) {
+        for (int i : best_combi) {
             cout << i << ' ';
         }
     }
-
+    
     return 0;
 }
