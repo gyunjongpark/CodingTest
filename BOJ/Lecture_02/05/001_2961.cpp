@@ -4,19 +4,17 @@
 #define INF 1e9
 using namespace std;
 
-vector<pair<int, int>> ingre; //신 맛, 쓴 맛 pair로 저장
-int answer = INF;
+vector<pair<int, int>> table;
 int n, s, b;
+int answer = INF;
 
 void recur(int idx, int sour, int bitter, int used) {
-    if (idx == n) { //내부 조건 없이 모든 경우의 수 전체 검사
-        if (used > 0) {
-            answer = min(answer, abs(sour - bitter));
-        }
-        return;
+    if (used > 0) { //내부 조건 없이 모든 경우의 수 전체 검사
+        answer = min(answer, abs(sour-bitter));
     }
+    if (idx == n) return;
 
-    recur(idx + 1, sour * ingre[idx].first, bitter + ingre[idx].second, used + 1);
+    recur(idx + 1, sour * table[idx].first, bitter + table[idx].second, used + 1);
     recur(idx + 1, sour, bitter, used);
 }
 
@@ -26,11 +24,11 @@ int main() {
 
     cin >> n;
 
-    ingre.resize(n);
+    table.resize(n);
 
     for (int i = 0; i < n; i++) {
-        cin >> s >> b; //sour, bitter
-        ingre[i] = { s,b };
+        cin >> s >> b;
+        table[i] = { s,b };
     }
     recur(0, 1, 0, 0);
 
