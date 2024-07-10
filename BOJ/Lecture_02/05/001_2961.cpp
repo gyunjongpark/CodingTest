@@ -26,6 +26,7 @@ int main() {
     cin.tie(NULL); cout.tie(NULL);
 
     cin >> n;
+    
     for (int i = 0; i < n; i++) {
         cin >> s >> b;
         table.push_back({ s,b });
