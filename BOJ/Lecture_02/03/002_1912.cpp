@@ -1,6 +1,6 @@
 #include<iostream>
 #include<algorithm>
-#define MAX 100001
+#define MAX 100004
 using namespace std;
 
 int n, temp, s[MAX];
