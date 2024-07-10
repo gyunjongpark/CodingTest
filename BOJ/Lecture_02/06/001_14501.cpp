@@ -5,14 +5,14 @@ using namespace std;
 
 vector<pair<int, int>> table;
 vector<int> dp;
-int n, t, p, answer;
+int answer = -INF;
+int n, d, p;
 
 int recur(int day) {
     if (day > n) return -INF;
     if (day == n) return 0;
 
     if (dp[day] != -1) return dp[day];
-
     dp[day] = max(recur(day + table[day].first) + table[day].second, recur(day + 1));
 
     return dp[day];
@@ -24,14 +24,13 @@ int main() {
 
     cin >> n;
 
-    table.resize(n);
-    dp.resize(n,-1);
+    dp.resize(n + 1, -1);
 
     for (int i = 0; i < n; i++) {
-        cin >> t >> p; //T, P
-        table[i] = { t,p };
+        cin >> d >> p;
+        table.push_back({ d,p });
     }
-    cout<<recur(0);
-
+    cout << recur(0);
+    
     return 0;
 }
