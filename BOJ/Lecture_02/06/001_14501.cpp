@@ -5,17 +5,20 @@ using namespace std;
 
 vector<pair<int, int>> table;
 vector<int> dp;
+int n, t, p;
 int answer = -INF;
-int n, d, p;
 
-int recur(int day) {
-    if (day > n) return -INF;
-    if (day == n) return 0;
+int recur(int t) {
+    if (t > n) return -INF;
+    if (t == n) return 0;
 
-    if (dp[day] != -1) return dp[day];
-    dp[day] = max(recur(day + table[day].first) + table[day].second, recur(day + 1));
+    if (dp[t] != -1) return dp[t];
 
-    return dp[day];
+    //t > n일 때 recur는 -INF를 반환하므로 max로 선택되지 않는다
+    //즉, t > n인 dp[t] 배열은 만들어지지 않는다
+    dp[t] = max(recur(t + 1), recur(t + table[t].first) + table[t].second);
+
+    return dp[t];
 }
 
 int main() {
@@ -24,13 +27,15 @@ int main() {
 
     cin >> n;
 
-    dp.resize(n + 1, -1); //최대 범위로 dp배열 설정
+    //t > n일 때 recur는 -INF를 반환하므로 t > n인 dp[t] 배열은 만들어지지 않는다
+    dp.resize(n + 1, -1);
 
     for (int i = 0; i < n; i++) {
-        cin >> d >> p;
-        table.push_back({ d,p });
+        cin >> t >> p;
+        table.push_back({ t,p });
     }
-    cout << recur(0);
     
+    cout << recur(0);
+
     return 0;
 }
