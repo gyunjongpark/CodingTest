@@ -1,4 +1,4 @@
-/* 시간 초과 코드
+/* 시간 초과 코드(단순 재귀 함수)
 #include<iostream>
 #include<vector>
 #define INF 1e9
