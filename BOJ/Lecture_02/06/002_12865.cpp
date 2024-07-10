@@ -63,7 +63,7 @@ int main() {
     cin >> n >> k;
 
     backpack.resize(n);
-    dp.resize(n, vector<int>(k + 1, -1)); //최대 입력 범위로 dp 설정
+    dp.resize(n + 1, vector<int>(k + 1, -1)); //최대 범위로 dp배열 설정
 
     for (int i = 0; i < n; i++) {
         cin >> w >> v;
