@@ -2,11 +2,16 @@
 using namespace std;
 typedef long long ll;
 
-/* 정수론 문제가 나온다면 떠올리면 좋을 반복문
+/*
+
+정수론 문제가 나온다면 떠올리면 좋을 반복문
+
+int ret = 0;
 
 for (int i = a; i <= N; i *= a) {
-	ret=N/i; //N!에서 a가 몇 번 곱해져있는가?
+	ret += N/i; //N!에서 a가 몇 번 곱해져있는가?
 }
+cout << ret;
 
 */
 
