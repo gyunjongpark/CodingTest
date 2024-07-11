@@ -1,44 +1,46 @@
 #include<iostream>
-#define MAX 1004
+#define MAX 504
 using namespace std;
 
-int n, x, y, a[MAX], s[MAX];
-int maxPos, maxVal;
+int n, m, temp, sum, a[MAX];
+int maxPos, maxVal, maxVal_front, maxVal_back;
 
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
 
-	cin >> n;
+	cin >> n >> m;
 
-	for (int i = 1; i <= n; i++) { //a[1] ~ a[1000]
-		cin >> x >> y;
-		a[x] = y; //높이 저장
+	for (int i = 1; i <= m; i++) { //a[1] ~ a[m]
+		cin >> temp;
+		a[i] = temp;
 
-		if (y >= maxVal) { //가장 우측의 최대값을 maxPos, maxVal로 저장한다
-			maxPos = x;
-			maxVal = y;
+		if (temp >= maxVal) {
+			maxVal = temp;
+			maxPos = i;
 		}
 	}
 
 	//왼쪽부터 maxPos 직전까지 검사, a[1]은 비교 대상 없이 그대로
 	for (int i = 2; i < maxPos; i++) {
 		if (a[i - 1] >= a[i]) {
-			a[i] = a[i - 1];
+			maxVal_front = a[i - 1];
+			sum += maxVal_front - a[i];
+			a[i] = maxVal_front;
 		}
+		else maxVal_front = a[i];
 	}
 
-	//오른쪽부터 maxPos 직전까지 검사, a[1000]은 비교 대상 없이 그대로
-	for (int i = 999; i > maxPos; i--) {
+	//오른쪽부터 maxPos 직전까지 검사, a[m]은 비교 대상 없이 그대로
+	for (int i = m - 1; i > maxPos; i--) {
 		if (a[i + 1] >= a[i]) {
-			a[i] = a[i + 1];
+			maxVal_back = a[i + 1];
+			sum += maxVal_back - a[i];
+			a[i] = maxVal_back;
 		}
+		else maxVal_back = a[i];
 	}
-
-	for (int i = 1; i <= 1000; i++) {
-		s[i] = s[i - 1] + a[i];
-	}
-	cout << s[1000];
+	cout << sum;
 
 	return 0;
 }
