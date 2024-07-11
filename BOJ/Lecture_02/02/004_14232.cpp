@@ -13,7 +13,7 @@ int main() {
 
 	cin >> k;
 	
-	ll n = k; //소인수 분해를 위한 변수 n 선언
+	ll n = k; //소인수 분해를 위한 변수 n
 	for (int i = 2; i <= (int)sqrt(k); i++) {
 		while (n % i == 0) {
 			v.push_back(i);
