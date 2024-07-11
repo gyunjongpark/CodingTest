@@ -18,7 +18,7 @@ int main() {
 		}
 	}
 
-	for (int i = 0; i < m; i++) {
+	while(m--) {
 		cin >> a1 >> b1 >> a2 >> b2;
 		cout << s[a2][b2] - s[a2][b1 - 1] - s[a1 - 1][b2] + s[a1 - 1][b1 - 1] << '\n';
 	}
