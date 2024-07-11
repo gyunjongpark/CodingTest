@@ -11,7 +11,7 @@ int main() {
 
 	cin >> n;
 
-	for (int i = 0; i < n; i++) {
+	for (int i = 1; i <= n; i++) { //a[1] ~ a[1000]
 		cin >> x >> y;
 		a[x] = y; //높이 저장
 
@@ -21,15 +21,15 @@ int main() {
 		}
 	}
 
-	//왼쪽부터 maxPos 직전까지 검사
-	for (int i = 1; i < maxPos; i++) {
+	//왼쪽부터 maxPos 직전까지 검사, a[1]은 비교 대상 없이 그대로
+	for (int i = 2; i < maxPos; i++) {
 		if (a[i - 1] >= a[i]) {
 			a[i] = a[i - 1];
 		}
 	}
 
-	//오른쪽부터 maxPos 직전까지 검사
-	for (int i = 1000; i > maxPos; i--) {
+	//오른쪽부터 maxPos 직전까지 검사, a[1000]은 비교 대상 없이 그대로
+	for (int i = 999; i > maxPos; i--) {
 		if (a[i + 1] >= a[i]) {
 			a[i] = a[i + 1];
 		}
