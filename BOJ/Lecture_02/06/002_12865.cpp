@@ -1,4 +1,4 @@
-/* 시간 초과 코드(단순 재귀 함수)
+/* 시간 초과 코드 (단순 재귀)
 #include<iostream>
 #include<vector>
 #define INF 1e9
@@ -50,7 +50,7 @@ int recur(int idx, int weight) {
     if (idx > n || weight > k) return -INF;
     if (idx == n) return 0;
 
-    if (dp[idx][weight] != -1) return dp[idx][weight];
+    if (dp[idx][weight]) return dp[idx][weight];
 
     dp[idx][weight] = max(recur(idx + 1, weight), recur(idx + 1, weight + backpack[idx].first) + backpack[idx].second);
 
@@ -62,14 +62,14 @@ int main() {
     cin.tie(NULL); cout.tie(NULL);
 
     cin >> n >> k;
-    
-    dp.resize(n + 1, vector<int>(k + 1, -1));
+
+    dp.resize(n + 1, vector<int>(k + 1, 0));
 
     for (int i = 0; i < n; i++) {
         cin >> w >> v;
         backpack.push_back({ w,v });
     }
-    
+
     cout << recur(0, 0);
 
     return 0;
