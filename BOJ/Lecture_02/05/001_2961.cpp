@@ -9,8 +9,7 @@ int n, s, b;
 int answer = INF;
 
 void recur(int idx, int sour, int bitter, int used) {
-    //끝까지 가봐야 전체 중에서 최솟값을 알 수 있다!
-    //idx == n 조건문 내에서 answer 도출
+    //끝까지 가봐야 전체 중에서 최솟값을 알 수 있다! -> idx == n 조건문 내에서 answer 도출
     if (idx == n) {
         if (used > 0) {
             answer = min(answer, abs(sour - bitter));
