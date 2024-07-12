@@ -10,7 +10,8 @@ vector<vector<int>> dp;
 int answer = -INF;
 int a[MAX][MAX], n;
 
-/* 시간 초과 (단순 재귀)
+/* 시간 초과 ( 단순 재귀 -> O(4^(N^2)) )
+
 int recur(int y, int x) {
     int ret = 0;
 
@@ -25,9 +26,8 @@ int recur(int y, int x) {
         }
     }
     return ret;
-
-    //return max(max(max(recur(y - 1, x), recur(y, x + 1)), recur(y + 1, x)), recur(y, x + 1));
 }
+
 */
 
 int recur(int y, int x) {
