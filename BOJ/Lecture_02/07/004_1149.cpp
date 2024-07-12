@@ -1,6 +1,6 @@
 #include<iostream>
 #include<vector>
-#include<algorithm> //3개 이상의 수를 비교하는 min, max
+#include<algorithm> //집합 내의 수들을 비교하는 min, max (overloading)
 #define INF 1e9
 using namespace std;
 
