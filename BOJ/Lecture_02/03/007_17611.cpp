@@ -6,13 +6,13 @@ using namespace std;
 
 int n, xpos, ypos;
 int cnt_x[MAX], cnt_y[MAX], s_x[MAX], s_y[MAX];
-vector<pair<int,int>> pos;
+vector<pair<int, int>> pos;
 
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
 
-	cin>>n;
+	cin >> n;
 
 	for (int i = 0; i < n; i++) {
 		cin >> xpos >> ypos;
@@ -21,7 +21,7 @@ int main() {
 		pos.push_back({ xpos,ypos });
 	}
 
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < n; i++) { //pos[0] ~ pos[n - 1]
 		int x = pos[i].first;
 		int y = pos[i].second;
 		int nx = pos[(i + 1) % n].first; //마지막 좌표는 첫 좌표로 돌아온다
@@ -41,13 +41,13 @@ int main() {
 		}
 	}
 
-	for (int i = 1; i < 1000001; i++) {
+	for (int i = 1; i <= 1000000; i++) {
 		s_x[i] = s_x[i - 1] + cnt_x[i - 1];
 		s_y[i] = s_y[i - 1] + cnt_y[i - 1];
 	}
 
-	int ret = 0;
-	for (int i = 1; i < 1000001; i++) {
+	int ret = -1;
+	for (int i = 1; i <= 1000000; i++) {
 		ret = max(ret, max(s_x[i], s_y[i]));
 	}
 	cout << ret;
