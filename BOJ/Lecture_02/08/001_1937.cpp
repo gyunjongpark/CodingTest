@@ -10,7 +10,7 @@ vector<vector<int>> dp;
 int answer = -INF;
 int a[MAX][MAX], n;
 
-/* 시간 초과 ( 단순 재귀 -> O(4^(N^2)) )
+/* 시간 초과 O(4*(n^2))
 
 int recur(int y, int x) {
     int ret = 0;
@@ -30,6 +30,8 @@ int recur(int y, int x) {
 
 */
 
+//(y,x)가 정해질 때 최악의 경우 O(n^2)가 걸릴 수 있지만, 만약 그렇다면 나머지 y,x에 대해서는 O(1)이 소요된다
+//메모이제이션으로 굳어진 좌표값을 바로 사용하기 때문이다
 int recur(int y, int x) {
     if (dp[y][x]) return dp[y][x];
 
@@ -63,7 +65,7 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            recur(i, j); //dp[i][j] 채우기
+            recur(i, j); //dp[i][j] 채우기, 각 i,j에 대하여 평균적으로 O(1)이 소요된다
         }
     }
 
