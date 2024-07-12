@@ -25,8 +25,9 @@ int main() {
 		}
 	}
 
+	//line은 0부터 시작하지만 누적합 s는 1부터 시작한다
 	for (int i = 0; i < h; i++) {
-		s[i + 1] = s[i] + line[i];
+		s[i + 1] = s[i] + line[i]; //s[1] ~ s[h]
 	}
 
 	int minVal = s[1]; //첫번째 요소부터 검사
