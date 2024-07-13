@@ -19,7 +19,7 @@ void combi(int start, vector<int>& v, vector<bool>& visited) {
         v.push_back(i);
         visited[i] = true;
 
-        combi(start, v, visited); //첫 번째 인자에 의해 조합의 성격이 결정된다. start? i? i - 1?
+        combi(start, v, visited); //첫 번째 인자에 따라서 조합의 성격이 결정된다. start? i? i - 1?
 
         v.pop_back();
         visited[i] = false;
