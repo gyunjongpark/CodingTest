@@ -24,9 +24,9 @@ int main() {
 		mp[a] = b;
 	}
 
-	for (pair<string,string> i : mp) {
-		if (i.second == "enter") {
-			v.push_back(i.first);
+	for (pair<string, string> s : mp) {
+		if (s.second == "enter") {
+			v.push_back(s.first);
 		}
 	}
 	sort(v.begin(), v.end(), cmp);
