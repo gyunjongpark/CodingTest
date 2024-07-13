@@ -2,8 +2,8 @@
 #include<stack>
 using namespace std;
 
-int a, k, ret;
 stack<int> stk;
+int a, k, ret;
 
 int main() {
 	ios_base::sync_with_stdio(false);
@@ -15,8 +15,9 @@ int main() {
 		cin >> a;
 
 		if (a == 0) {
-			if (stk.size()) stk.pop();
-			else continue;
+			if (stk.size()) {
+				stk.pop();
+			}
 		}
 		else stk.push(a);
 	}
