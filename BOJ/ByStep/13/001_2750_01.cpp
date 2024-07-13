@@ -17,8 +17,8 @@ int main() {
 		v.push_back(temp);
 	}
 
-  //O(NlogN)
-	sort(v.begin(), v.end());
+  	
+	sort(v.begin(), v.end()); //O(NlogN)
 
 	for (int i : v) cout << i << '\n';
 
