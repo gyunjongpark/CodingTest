@@ -2,13 +2,12 @@
 using namespace std;
 
 string majorName, input;
-double avg, score[20];
-float sumGrade, grade[20];
+double sum, avg, grade[20], score[20];
 
 int main() {
 	cin.tie(NULL), cout.tie(NULL);
 	ios_base::sync_with_stdio(false);
-	
+
 	for (int i = 0; i < 20; ++i) {
 		cin >> majorName >> grade[i] >> input;
 
@@ -25,11 +24,12 @@ int main() {
 			score[i] = 0.0;
 			grade[i] = 0;
 		}
-		avg += (score[i] * grade[i]);
-		sumGrade += grade[i];
-	}
 
-	avg = avg / sumGrade;
+		avg += (score[i] * grade[i]);
+		sum += grade[i];
+	}
+	avg = avg / sum;
+
 	cout.precision(5); //소수 4자리까지? precision(4+1);
 	cout << avg;
 
