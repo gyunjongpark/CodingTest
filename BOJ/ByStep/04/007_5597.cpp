@@ -10,12 +10,13 @@ int main() {
 
 	for (int i = 0; i < 28; i++) {
 		cin >> num;
-		arr[num - 1] = num;
+		arr[num] = num;
 	}
-	
-	for (int i = 0; i < 30; i++) {
-		if (arr[i] != i + 1)
-			cout << i + 1 << '\n';
+
+	for (int i = 1; i <= 30; i++) {
+		if (arr[i] != i) {
+			cout << i << '\n';
+		}	
 	}
 
 	return 0;
