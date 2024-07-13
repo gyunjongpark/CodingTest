@@ -2,7 +2,7 @@
 #include<stack>
 using namespace std;
 
-int cnt = 1, n, t;
+int n, t;
 stack<int> stk;
 
 int main() {
@@ -11,6 +11,7 @@ int main() {
 
 	cin >> n;
 
+	int cnt = 1;
 	while (n--) {
 		cin >> t;
 
@@ -24,7 +25,7 @@ int main() {
 			}
 			else break;
 		}
-  }
+  	}
   
 	if (stk.size()) cout << "Sad";
 	else cout << "Nice";
