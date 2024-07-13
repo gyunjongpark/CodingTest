@@ -15,6 +15,7 @@ int main() {
 		a.push_back(n % 42);
 	}
 
+	//정렬 후 중복 제거
 	sort(a.begin(), a.end());
 	a.erase(unique(a.begin(), a.end()), a.end());
 
