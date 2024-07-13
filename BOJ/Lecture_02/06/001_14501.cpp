@@ -6,7 +6,6 @@ using namespace std;
 vector<pair<int, int>> table;
 vector<int> dp;
 int n, t, p;
-int answer = -INF;
 
 int recur(int t) {
     if (t > n) return -INF;
@@ -14,7 +13,7 @@ int recur(int t) {
 
     if (dp[t]!=-1) return dp[t]; //이미 정의되었다면 그대로 반환(메모이제이션)
 
-    //t >= n일 때 recur(t)는 배열을 만들지 않고 곧바로 값을 반환한다
+    //t >= n일 때 recur(t)는 배열을 만들지 않고 값을 반환한다
     dp[t] = max(recur(t + 1), recur(t + table[t].first) + table[t].second);
 
     return dp[t];
