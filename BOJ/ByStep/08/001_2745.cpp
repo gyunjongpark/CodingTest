@@ -1,5 +1,5 @@
 #include<iostream>
-#include<cmath>
+#include<cmath> //pow
 using namespace std;
 
 string n;
@@ -12,11 +12,11 @@ int main() {
 	cin >> n >> b;
 
 	for (int i = 0; i < n.size(); i++) {
-		if ('A' <= n[i] && n[i] <= 'Z') { //아스키 코드 참고
-			sum += (int)pow(b, n.size() - 1 - i) * (n[i] - 55);
+		if ('A' <= n[i] && n[i] <= 'Z') {
+			sum += (int)pow(b, n.size() - 1 - i) * (n[i] - 55); //'A' = 65
 		}
-		if ('0' <= n[i] && n[i] <= '9') { //문자-숫자=48
-			sum += (int)pow(b, n.size() - 1 - i) * (n[i] - 48);
+		if ('0' <= n[i] && n[i] <= '9') {
+			sum += (int)pow(b, n.size() - 1 - i) * (n[i] - 48); //문자 - 숫자 = 48
 		}
 	}
 	cout << sum;
