@@ -13,14 +13,14 @@ int main() {
 	while (true) {
 		if (a < 0) {
 			cout << -1;
-			return 0;
+			return 0; //즉시 종료
 		}
 
 		if ((n - a * 5) % 3 == 0) {
 			b = (n - a * 5) / 3;
-			break; //3, 5로 정확하게 분할된다면 break
+			break; //n이 5와 3으로 정확하게 분할된다면 break
 		}
-		a--; //정확하게 나눌 수 없는 경우를 계산하기 위해
+		a--; //정확하게 나눌 수 없는 경우 a를 줄이고 b로 다시 분할해보기
 	}
 	cout << a + b;
 
