@@ -3,8 +3,8 @@
 #include<string> //getline
 using namespace std;
 
-int t;
 string s;
+int t;
 
 int main() {
 	ios_base::sync_with_stdio(false);
@@ -12,9 +12,9 @@ int main() {
 
 	while (getline(cin, s)) {
 		if (s == ".") break;
+		
 		stack<char> stk; //init
-
-		//분기를 잘 나누자!
+		
 		for (char a : s) {
 			if (a == '(' || a == ')' || a == '[' || a == ']') {
 				if (stk.empty()) stk.push(a);
