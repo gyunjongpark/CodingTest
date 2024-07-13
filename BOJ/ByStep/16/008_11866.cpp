@@ -15,7 +15,6 @@ int main() {
 		q.push(i);
 	}
 
-  //출력 형식 신경쓰자!
 	cout << '<';
 	while (q.size() != 1) {
 		for (int i = 1; i < k; i++) {
