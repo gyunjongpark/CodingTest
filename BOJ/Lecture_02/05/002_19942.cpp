@@ -23,7 +23,8 @@ void recur(int idx, int p, int f, int s, int v, int cost) {
     if (idx == n) return; //idx가 n이 되면 무조건 반환
 
     //식재료를 선택하는 경우
-    temp_combi.push_back(idx + 1); //식재료의 번호는 1부터 시작한다
+    //idx 변화가 없는 시점에서 우선적으로 조합을 만들고 재귀로 들어간다
+    temp_combi.push_back(idx + 1);
     recur(idx + 1, p + ingre[idx][0], f + ingre[idx][1], s + ingre[idx][2], v + ingre[idx][3], cost + ingre[idx][4]);
     temp_combi.pop_back();
 
