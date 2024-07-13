@@ -23,7 +23,7 @@ int main() {
 
 		if (dq.empty()) break;
 
-		//cur 위치 신경쓰자!
+		//cur 위치
 		if (cur >= 0) {
 			for (int i = 0; i < cur - 1; i++) {
 				dq.push_back(dq.front());
