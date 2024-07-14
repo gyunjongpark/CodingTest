@@ -12,7 +12,15 @@ int main() {
 
     cin >> n >> k;
 
-    dp.resize(n + 1, vector<int>(k + 1, 0));
+    dp.resize(n + 1, vector<int>(k + 1, -1));
+
+    for (int i = 0; i <= k; i++) {
+        dp[n][i] = 0;
+    }
+
+    for (int i = 0; i <= n; i++) {
+        dp[i][k] = 0;
+    }    
 
     for (int i = 0; i < n; i++) {
         cin >> w >> v;
