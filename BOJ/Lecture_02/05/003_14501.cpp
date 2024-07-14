@@ -10,7 +10,7 @@ int answer = -INF;
 void recur(int t, int p) {
     if (t > n) return; //table 범위를 벗어나면 return
 
-    //돈을 최대로 벌기 위해서는 끝까지 가는 것이 무조건 좋다
+    //돈을 최대로 받기 위해서 마지막 날까지의 경우의 수 조사
     //idx == n 조건문 내에서 answer 도출
     if (t == n) {
         answer = max(answer, p);
