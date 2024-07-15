@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 
-int n, ret;
+int n, ret, count;
 vector<vector<string>> v;
 string number, s, b;
 
@@ -24,9 +24,11 @@ int main() {
 				//같은 숫자는 제외
 				if (a == b || b == c || c == a) continue;
 
-				int count = 0;
+				count = 0;
 				for (int i = 0; i < n; i++) {
 					string num = v[i][0]; //number
+					
+					//문자열 숫자를 정수형 숫자로 변환 atoi(s.c_str())
 					int strike = atoi(v[i][1].c_str()); //s
 					int ball = atoi(v[i][2].c_str()); //b
 
@@ -46,7 +48,7 @@ int main() {
 					
 					if (strike == strike_cnt && ball == ball_cnt) count++;
 				}
-				//n번 모두 만족한다면 현재 수는 정답 가능성이 있는 수
+				//n번 모두 만족한다면 현재 a, b, c는 정답일 가능성이 있다
 				if (count == n) ret++;
 			}
 		}
