@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 
-int n, ret, count;
+int n, ret;
 vector<vector<string>> v;
 string number, s, b;
 
@@ -24,7 +24,7 @@ int main() {
 				//같은 숫자는 제외
 				if (a == b || b == c || c == a) continue;
 
-				count = 0;
+				int count = 0;
 				for (int i = 0; i < n; i++) {
 					string num = v[i][0]; //number
 					
