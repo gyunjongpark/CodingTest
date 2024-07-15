@@ -15,7 +15,7 @@ void solve() {
 	ll div = lcm / gcd; //서로소 ret_a, ret_b의 곱
 	
 	//sqrt까지만 조사하기 때문에 반복문을 돌수록 a, b의 차이가 줄어든다
-	//a와 b는 서로소일 수도 있고 아닐 수도 있다. 단지 a * b = div이다. 완전탐색, a = 1부터 시작
+	//a와 b는 서로소일 수도 있고 아닐 수도 있다. 단지 a * b = div이다. a = 1부터 완전 탐색
 	for (ll i = 1; i <= (int)sqrt(div); i++) {
 		if (div % i == 0) {
 			ll a = i, b = div / i; //init
