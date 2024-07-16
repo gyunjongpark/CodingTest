@@ -9,15 +9,15 @@ typedef long long ll;
 int ret = 0;
 
 for (int i = a; i <= N; i *= a) {
-	ret += N/i; //N!에서 a가 몇 번 곱해져있는가?
+	ret += N/i;
 }
-cout << ret;
+cout << ret; //결과: N!에서 a가 몇 번 곱해져있는가?
 
 */
 
 ll a, b;
 
-ll solve(ll N) { //1부터 N까지 각각의 수가 나눠질 수 있는 2의 최대 승수를 구해서 더함
+ll solve(ll N) { //1부터 N까지 각각의 수에서 나눠질 수 있는 2의 최대 승수를 전부 구해서 합산
 	ll ret = N;
 
 	for (ll i = 2; i <= N; i *= 2) {
