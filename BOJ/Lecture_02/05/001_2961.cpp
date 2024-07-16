@@ -9,7 +9,8 @@ int n, s, b;
 int answer = INF;
 
 void recur(int idx, int sour, int bitter, int used) {
-    //전체 경우의 수 중에서 최소 판단. idx == n 조건문 내에서 answer 도출
+    
+    //전체 경우의 수 중에서 최솟값 찾기. idx == n 조건문 내에서 answer 도출
     if (idx == n) {
         if (used > 0) {
             answer = min(answer, abs(sour - bitter));
