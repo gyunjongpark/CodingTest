@@ -11,6 +11,7 @@ int answer = INF;
 
 //같은 비용의 집합이 하나 이상이면 사전 순으로 가장 빠른 것을 출력한다
 //idx가 n이 아니어도 영양 기준을 만족한다면 idx == n에 묶일 필요가 없다
+
 void recur(int idx, int p, int f, int s, int v, int cost) {
     if (p >= mp && f >= mf && s >= ms && v >= mv) {
         if (cost < answer) { 
