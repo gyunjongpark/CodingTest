@@ -9,7 +9,7 @@ typedef long long ll;
 int ret = 0;
 
 for (int i = a; i <= N; i *= a) {
-	ret += N/i;
+	ret += N/i; //N!에서 i를 약수로 가지는 수의 갯수
 }
 cout << ret; //결과: N!에서 a가 몇 번 곱해져있는가?
 
