@@ -1,9 +1,6 @@
 #include<iostream>
 using namespace std;
 
-string s;
-int cnt[26]; //a~z
-
 int func2(int arr[],int n) { //O(N)
 	int cnt[51];
 
