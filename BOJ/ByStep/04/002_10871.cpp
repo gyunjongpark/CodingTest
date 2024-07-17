@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-int n, v, a[10001], cnt;
+int n, v, cnt, a[10001];
 
 int main() {
 	ios_base::sync_with_stdio(false);
