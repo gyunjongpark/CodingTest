@@ -1,8 +1,7 @@
 #include<iostream>
-#define MAX 14
 using namespace std;
 
-int a[MAX], temp, maxVal = -1;
+int a[9], temp, maxVal;
 
 int main() {
 	ios_base::sync_with_stdio(false);
