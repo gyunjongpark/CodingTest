@@ -1,5 +1,4 @@
 #include<iostream>
-#include<algorithm> //max_element
 using namespace std;
 
 int cnt[10], ret;
