@@ -1,8 +1,7 @@
 #include<iostream>
-#define MAX 10004
 using namespace std;
 
-int n, sum, s[MAX];
+int n, sum, s[10004];
 
 int main() {
     ios_base::sync_with_stdio(false);
