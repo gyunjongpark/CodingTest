@@ -1,8 +1,7 @@
 #include<iostream>
-#define MAX 104
 using namespace std;
 
-int n, v, a[MAX], cnt;
+int n, v, a[101], cnt;
 
 int main() {
 	ios_base::sync_with_stdio(false);
