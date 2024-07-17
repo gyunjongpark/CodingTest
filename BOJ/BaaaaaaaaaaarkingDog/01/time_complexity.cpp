@@ -13,6 +13,7 @@ int func1(int n) { //O(N)
 			ret += i;
 		}
 	}
+	
 	return ret;
 }
 
@@ -22,6 +23,7 @@ int func2(int arr[], int n) { //O(n^2)
 			if (arr[i] + arr[j] == 100) return 1;
 		}
 	}
+	
 	return 0;
 }
 
@@ -29,6 +31,7 @@ int func3(int n) { //O(sqrt(N))
 	for (int i = 1; i < n; i++) {
 		if (i * i == n) return 1;
 	}
+	
 	return 0;
 }
 
@@ -37,6 +40,7 @@ int func4(int n) { //O(logN)
 	for (int i = 2; i <= n; i*=2) {
 		ret = i;
 	}
+	
 	return ret;
 }
 
@@ -105,5 +109,6 @@ int main() {
 	test2();
 	test3();
 	test4();
+	
 	return 0;
 }
