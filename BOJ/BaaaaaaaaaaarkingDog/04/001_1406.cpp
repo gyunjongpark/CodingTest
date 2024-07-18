@@ -2,46 +2,47 @@
 #include<list>
 using namespace std;
 
-list<char> L;
 string input_str;
-char ch, add;
 int n;
 
 int main(void) {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
 	
-	cin >> input_str >> n;
-
-	for (char c : input_str) L.push_back(c);
-
-	list<char>::iterator cur = L.end();
+	cin >> n;
 
 	while (n--) {
-		cin >> ch;
+		cin >> input_str;
 
-		if (ch == 'P') {
-			cin >> add;
-			L.insert(cur, add);
-		}
-		else if (ch == 'L') {
-			if (cur != L.begin()) {
-				cur--;
+		list<char> L = {};
+
+		list<char>::iterator cur = L.begin();
+
+		for (char c : input_str) {
+			if (c == '<') {
+				if (cur != L.begin()) {
+					cur--;
+				}
+			}
+			else if (c == '>') {
+				if (cur != L.end()) {
+					cur++;
+				}
+			}
+			else if (c == '-') {
+				if (cur != L.begin()) {
+					cur--;
+					cur = L.erase(cur);
+				}
+			}
+			else {
+				L.insert(cur, c);
 			}
 		}
-		else if (ch == 'D') {
-			if (cur != L.end()) {
-				cur++;
-			}
-		}
-		else if (ch == 'B') {
-			if (cur != L.begin()) {
-				cur--;
-				cur = L.erase(cur);
-			}
-		}
+
+		for (char c : L) cout << c;
+		cout << '\n';
 	}
-	for (char c : L) cout << c;
 
 	return 0;
 }
