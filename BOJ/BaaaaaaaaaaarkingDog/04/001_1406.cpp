@@ -35,7 +35,7 @@ int main(void) {
 			if (cur != s.begin()) {
 				cur--;
 				cur = s.erase(cur);
-				//list의 erase는 cur 다음 요소의 iter를 반환
+				//erase는 cur 다음 요소의 iter를 반환
 
 			}
 		}
