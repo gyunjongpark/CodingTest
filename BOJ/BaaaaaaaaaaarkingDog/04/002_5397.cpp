@@ -2,44 +2,45 @@
 #include<list>
 using namespace std;
 
-string str; //input
-int n; //number
+string input_str;
+int n;
 
 int main(void) {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
-
+	
 	cin >> n;
 
 	while (n--) {
-		cin >> str;
+		cin >> input_str;
 
-		list<char> s = {};
-		list<char>::iterator cur = s.begin();
+		list<char> L = {};
 
-		for (char c : str) {
+		list<char>::iterator cur = L.begin();
+
+		for (char c : input_str) {
 			if (c == '<') {
-				if (cur != s.begin()) {
+				if (cur != L.begin()) {
 					cur--;
 				}
 			}
 			else if (c == '>') {
-				if (cur != s.end()) {
+				if (cur != L.end()) {
 					cur++;
 				}
 			}
 			else if (c == '-') {
-				if (cur != s.begin()) {
+				if (cur != L.begin()) {
 					cur--;
-					cur = s.erase(cur); //erase
+					cur = L.erase(cur);
 				}
 			}
 			else {
-				s.insert(cur, c); //insert
+				L.insert(cur, c);
 			}
 		}
 
-		for (char c : s) cout << c;
+		for (char c : L) cout << c;
 		cout << '\n';
 	}
 
