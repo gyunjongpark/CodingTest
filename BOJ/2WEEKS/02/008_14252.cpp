@@ -1,9 +1,8 @@
 #include<iostream>
-#include<algorithm>
-#define MAX 54
+#include<algorithm> //sort
 using namespace std;
 
-int n, cnt, a[MAX];
+int n, cnt, a[51];
 
 int getGCD(int a, int b) {
 	if (a == 0) return b;
@@ -19,20 +18,21 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		cin >> a[i];
 	}
+
 	sort(a, a + n);
 
-	for (int i = 0; i < n - 1; i++) { //a[0] ~ a[49]
+	for (int i = 0; i < n - 1; i++) { // a[0] ~ a[49]
 		if (getGCD(a[i], a[i + 1]) == 1) continue;
 
 		for (int j = a[i] + 1; j < a[i + 1]; j++) {
 			if (getGCD(a[i], j) == 1) {
 				if (getGCD(a[i + 1], j) == 1) {
-					cnt++; //1개의 수로 공약수열 완성
+					cnt++; // 1개의 수로 공약수열 완성
 					break;
 				}
 			}
 
-			//마지막 요소 접근 시 2개의 수 추가(1개의 수로는 공약수열 완성 불가)
+			// 마지막 요소 접근 시 2개의 수 추가(1개의 수로는 공약수열 완성 불가)
 			if (j == a[i + 1] - 1) {
 				cnt += 2;
 				break;
