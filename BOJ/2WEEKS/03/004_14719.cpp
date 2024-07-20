@@ -1,8 +1,7 @@
 #include<iostream>
-#define MAX 504
 using namespace std;
 
-int n, m, temp, sum, a[MAX];
+int n, m, temp, sum, a[501];
 int maxPos, maxVal, maxVal_front, maxVal_back;
 
 int main() {
@@ -11,7 +10,7 @@ int main() {
 
 	cin >> n >> m;
 
-	for (int i = 1; i <= m; i++) { //a[1] ~ a[m]
+	for (int i = 1; i <= m; i++) { // a[1] ~ a[m]
 		cin >> temp;
 		a[i] = temp;
 
@@ -21,7 +20,7 @@ int main() {
 		}
 	}
 
-	//왼쪽부터 maxPos 직전까지 검사, a[1]은 비교 대상 없이 그대로
+	// 왼쪽부터 maxPos 직전까지 검사, a[1]은 비교 대상 없이 그대로
 	for (int i = 2; i < maxPos; i++) {
 		if (a[i - 1] >= a[i]) {
 			maxVal_front = a[i - 1];
@@ -31,7 +30,7 @@ int main() {
 		else maxVal_front = a[i];
 	}
 
-	//오른쪽부터 maxPos 직전까지 검사, a[m]은 비교 대상 없이 그대로
+	// 오른쪽부터 maxPos 직전까지 검사, a[m]은 비교 대상 없이 그대로
 	for (int i = m - 1; i > maxPos; i--) {
 		if (a[i + 1] >= a[i]) {
 			maxVal_back = a[i + 1];
