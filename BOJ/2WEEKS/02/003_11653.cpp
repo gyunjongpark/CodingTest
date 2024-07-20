@@ -10,7 +10,7 @@ int main() {
 
 	cin >> n;
 
-	int x = n; //소인수 분해를 위한 변수 x
+	int x = n; // 소인수 분해를 위한 변수 x
 	for (int i = 2; i <= (int)sqrt(n); i++) {
 		while (x % i == 0) { // 소수인 i로만 반복문이 수행된다
 			cout << i << '\n';
