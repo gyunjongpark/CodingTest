@@ -10,7 +10,7 @@ void rotate_left_90(vector<vector<int>>& key) {
   
 	for (int i = 0; i < m; i++) {
 		for (int j = 0; j < n; j++) {
-			temp[i][j] = key[j][m - i - 1]; //(i, j) -> (j, m - i - 1)
+			temp[i][j] = key[j][m - i - 1]; // i, j -> j, m - i - 1
 		}
 	}
   
@@ -29,7 +29,7 @@ void rotate_right_90(vector<vector<int>>& key) {
   
 	for (int i = 0; i < m; i++) {
 		for (int j = 0; j < n; j++) {
-			temp[i][j] = key[n - j - 1][i]; //(i, j) -> (n - j - 1, i)
+			temp[i][j] = key[n - j - 1][i]; // i, j -> n - j - 1, i
 		}
 	}
   
@@ -46,7 +46,7 @@ int main() {
 
 	vector<int> v = { 1, 2, 3, 4, 5, 6 };
 
-	//0번째 인덱스 값 ~ n-1번째 인덱스 값 범위를 1번 왼쪽으로 rotate
+	// 0번째 인덱스 값 ~ n-1번째 인덱스 값 범위를 왼쪽으로 1번 rotate
 	rotate(v.begin(), v.begin() + 1, v.end());
 	for (int i : v) cout << i << ' '; //2 3 4 5 6 1
 	
@@ -54,13 +54,15 @@ int main() {
 	
 	vector<int> v1 = { 1, 2, 3, 4, 5, 6 };
 
-	//1번째 인덱스 값 ~ 5-1번째 인덱스 값 범위를 2번 왼쪽으로 rotate
+	//1번째 인덱스 값 ~ 5-1번째 인덱스 값 범위를 왼쪽으로 2번 rotate
 	rotate(v1.begin() + 1, v1.begin() + 2, v1.begin() + 5);
 	for (int i : v1) cout << i << ' '; //1 3 4 5 2 6
 
 	cout << "\n\n";
 
-	/* 2차원 배열 rotate */
+	/*-----------------------------------*/
+
+	/* 2차원 배열 */
 	
 	vector<vector<int>> a = {
 		{1, 2, 3, 4},
