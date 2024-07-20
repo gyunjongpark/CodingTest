@@ -26,7 +26,7 @@ int main() {
 
 	for (string b : a) cout << b << "\n";
 
-	/* 출력 형태
+	/*
 	
 	hello
 	world!
