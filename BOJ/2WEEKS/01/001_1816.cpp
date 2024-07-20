@@ -13,8 +13,8 @@ int main() {
 	cin >> n;
 
 	while (n--) {
-		cin >> s; //init
-		flag = 0; //init
+		cin >> s; // init
+		flag = 0; // init
 		
 		for (int i = 2; i < 1000001; i++) {
 			if (s % i == 0) {
