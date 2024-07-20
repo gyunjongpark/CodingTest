@@ -26,18 +26,14 @@ int main() {
 			ret += (char)i;
 			ret = (char)i + ret;
 		}
-  }
-  
-	if (mid) {
-		ret.insert(ret.begin() + ret.size() / 2, mid);
-	}
-
-  //mid의 타입이 string이라면
-	//if (mid.size()) ret.insert(ret.size() / 2, mid);
+  	}
 	
-	if (flag == 2) {
-		cout << "I'm Sorry Hansoo";
-	}
+	//mid의 타입이 string이라면
+	//if (mid.size()) ret.insert(ret.size() / 2, mid);
+  
+	if (mid) ret.insert(ret.begin() + ret.size() / 2, mid);
+	
+	if (flag == 2) cout << "I'm Sorry Hansoo";
 	else cout << ret;
 	
 	return 0;
