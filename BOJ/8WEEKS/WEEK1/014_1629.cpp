@@ -9,12 +9,12 @@ ll go(int a, int b, int c) {
 		return a % c;
 	}
 
-	ll ret = go(a, b / 2, c); //divide and conquer
+	ll ret = go(a, b / 2, c); // divide and conquer
 
 	ret = ret * ret % c;
 
 	if (b % 2) {
-		ret = ret * a % c; //홀수 승수인 경우 한번 더 연산
+		ret = ret * a % c; // 홀수 승수인 경우 한번 더 연산
 	}
 
 	return ret;
