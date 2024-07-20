@@ -1,5 +1,5 @@
 #include<iostream>
-#include<string> //to_string
+#include<string> // to_string
 using namespace std;
 
 int n;
@@ -18,7 +18,7 @@ int main() {
 			}
 			else {
 				ret = ret * 10 + 1;
-				ret %= n; //mod 연산
+				ret %= n; // mod 연산
 				cnt++;
 			}
 		}
