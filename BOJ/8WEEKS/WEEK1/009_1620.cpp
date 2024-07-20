@@ -22,7 +22,7 @@ int main() {
 	while (m--) {
 		cin >> s;
 
-		if (atoi(s.c_str()) == 0) { //문자열이라면
+		if (atoi(s.c_str()) == 0) { // 문자열이라면
 			cout << mp[s] << '\n';
 		}
 		else {
