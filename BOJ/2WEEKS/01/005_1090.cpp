@@ -27,7 +27,7 @@ int main() {
 			vector<int> dist;
 
 			for (pair<int, int> pi : v) {
-				int d = abs(x - pi.first) + abs(y - pi.second); // 문제 내 정의된 최소 이동거리 공식
+				int d = abs(x - pi.first) + abs(y - pi.second); // 문제로부터 정의된 최소 이동거리 공식
 				dist.push_back(d);
 			}
 			
@@ -48,7 +48,7 @@ int main() {
 		}
 	}
 
-	for (int i : answer) { // n개의 체커가 모이기 위한 최소 이동거리 오름차순 출력
+	for (int i : answer) { // n개의 체커가 모이기 위한 최소 이동거리를 오름차순으로 출력
 		cout << i << ' ';
 	}
 
