@@ -28,7 +28,7 @@ int main() {
 				for (int i = 0; i < n; i++) {
 					string num = v[i][0]; //number
 					
-					// 문자열 숫자를 정수형 숫자로 변환. atoi(s.c_str())
+					// 문자열 숫자를 정수형으로 변환. atoi(s.c_str())
 					int strike = atoi(v[i][1].c_str()); //s
 					int ball = atoi(v[i][2].c_str()); //b
 
