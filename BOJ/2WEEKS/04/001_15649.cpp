@@ -34,9 +34,9 @@ int main() {
     cin >> n >> m;
 
     vector<int> v;
-    vector<bool> visited(n + 1, false); //중복 방지
+    vector<bool> visited(n + 1, false);
 
-    combi(0, v, visited); //start가 배열, vector의 인덱스를 다룬다면 -1로 초기화
+    combi(0, v, visited);
 
     return 0;
 }
