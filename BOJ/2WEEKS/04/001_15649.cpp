@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 
-int n, m; //n개 중에서 m개를 뽑는다
+int n, m; // n개 중에서 m개를 뽑는다
 
 void combi(int start, vector<int>& v, vector<bool>& visited) {
     if (v.size() == m) {
