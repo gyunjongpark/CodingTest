@@ -23,7 +23,7 @@ int main() {
 
 		if (sum == 100) break;
 
-	} while (next_permutation(arr, arr + 9)); //배열의 값 switch
+	} while (next_permutation(arr, arr + 9)); // 배열의 값 switch
 
 	for (int i = 0; i < 7; i++) {
 		cout << arr[i] << '\n';
