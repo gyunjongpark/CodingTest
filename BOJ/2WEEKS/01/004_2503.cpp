@@ -2,9 +2,9 @@
 #include<vector>
 using namespace std;
 
-int n, ret;
 vector<vector<string>> v;
 string number, s, b;
+int n, ret;
 
 int main() {
 	ios_base::sync_with_stdio(false);
@@ -21,14 +21,14 @@ int main() {
 		for (int b = 1; b <= 9; b++) {
 			for (int c = 1; c <= 9; c++) {
 				
-				//같은 숫자는 제외
+				//같은 숫자 제외
 				if (a == b || b == c || c == a) continue;
 
 				int count = 0;
 				for (int i = 0; i < n; i++) {
 					string num = v[i][0]; //number
 					
-					//문자열 숫자를 정수형 숫자로 변환 atoi(s.c_str())
+					//문자열 숫자를 정수형 숫자로 변환. atoi(s.c_str())
 					int strike = atoi(v[i][1].c_str()); //s
 					int ball = atoi(v[i][2].c_str()); //b
 
@@ -48,6 +48,7 @@ int main() {
 					
 					if (strike == strike_cnt && ball == ball_cnt) count++;
 				}
+				
 				//n번 모두 만족한다면 현재 a, b, c는 정답일 가능성이 있다
 				if (count == n) ret++;
 			}
