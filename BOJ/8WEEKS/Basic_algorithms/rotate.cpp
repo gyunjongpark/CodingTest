@@ -54,7 +54,7 @@ int main() {
 	
 	vector<int> v1 = { 1, 2, 3, 4, 5, 6 };
 
-	//1번째 인덱스 값 ~ 5-1번째 인덱스 값 범위를 왼쪽으로 2번 rotate
+	// 1번째 인덱스 값 ~ 5-1번째 인덱스 값 범위를 왼쪽으로 2번 rotate
 	rotate(v1.begin() + 1, v1.begin() + 2, v1.begin() + 5);
 	for (int i : v1) cout << i << ' '; //1 3 4 5 2 6
 
