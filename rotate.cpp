@@ -10,7 +10,7 @@ void rotate_left_90(vector<vector<int>>& key) {
   
 	for (int i = 0; i < m; i++) {
 		for (int j = 0; j < n; j++) {
-			temp[i][j] = key[j][m - i - 1];
+			temp[i][j] = key[j][m - i - 1]; //(i, j) -> (j, m - i - 1)
 		}
 	}
   
@@ -29,7 +29,7 @@ void rotate_right_90(vector<vector<int>>& key) {
   
 	for (int i = 0; i < m; i++) {
 		for (int j = 0; j < n; j++) {
-			temp[i][j] = key[n - j - 1][i];
+			temp[i][j] = key[n - j - 1][i]; //(i, j) -> (n - j - 1, i)
 		}
 	}
   
@@ -61,6 +61,7 @@ int main() {
 	cout << "\n\n";
 
 	/* 2차원 배열 rotate */
+	
 	vector<vector<int>> a = {
 		{1, 2, 3, 4},
 		{5, 6, 7, 8},
@@ -68,6 +69,7 @@ int main() {
 	};
   
 	rotate_right_90(a);
+	
 	for (int i = 0; i < a.size(); i++) {
 		for (int j = 0; j < a[0].size(); j++) {
 			cout << a[i][j] << " ";
@@ -75,9 +77,10 @@ int main() {
 		cout << '\n';
 	}
 
-	cout << "\n";
+	cout << "\n\n";
 
 	rotate_left_90(a);
+	
 	for (int i = 0; i < a.size(); i++) {
 		for (int j = 0; j < a[0].size(); j++) {
 			cout << a[i][j] << " ";
