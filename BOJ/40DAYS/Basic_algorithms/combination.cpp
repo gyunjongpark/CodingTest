@@ -6,7 +6,9 @@ int n, m; //n개 중에서 m개를 뽑는다
 
 void combi(int start, vector<int>& v, vector<bool>& visited) {
     if (v.size() == m) {
-        for (int i : v) cout << i << ' ';
+        for (int i : v) {
+            cout << i << ' ';
+        }
         cout << '\n';
 
         return;
@@ -35,9 +37,9 @@ int main() {
     cin >> n >> m;
 
     vector<int> v;
-    vector<bool> visited(n + 1, false); //중복 방지
+    vector<bool> visited(n + 1, false); //중복 방지를 위한 visited
 
-    combi(0, v, visited); //start가 배열이나 vector의 인덱스를 다룬다면 -1로 초기화
+    combi(0, v, visited); //vector의 값을 뽑는 경우 -1로 초기화
 
     return 0;
 }
