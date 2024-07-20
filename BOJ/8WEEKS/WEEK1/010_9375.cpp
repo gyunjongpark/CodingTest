@@ -15,13 +15,13 @@ int main() {
 	while (t--) {
 		cin >> n;
 
-		map<string, int> mp; //TC마다 초기화
+		map<string, int> mp; // TC마다 초기화
 		for (int i = 0; i < n; i++) {
 			cin >> cloth >> type;
 			mp[type]++;
 		}
 
-		int ret = 1; //TC마다 초기화
+		int ret = 1; // TC마다 초기화
 		for (pair<string, int> pi : mp) {
 			ret *= (pi.second + 1);	
 		}
