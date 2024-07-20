@@ -21,7 +21,7 @@ int main() {
 		}
 	}
 	
-	// sqrt(n)보다 큰 소인수가 있다면 출력
+	// sqrt(n)보다 큰 마지막 소인수가 있다면 출력
 	if (n != 1) v.push_back(n);
 
 	cout << v.size() << '\n';
