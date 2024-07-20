@@ -14,21 +14,24 @@ int main() {
 	cin >> n;
 	for (int i = 0; i < n; i++) {
 		cin >> x >> y;
+		
 		xpos.push_back(x);
 		ypos.push_back(y);
 		v.push_back({ x,y });
 	}
 
 	vector<int> answer(n, -1); //init
+	
 	for (int x : xpos) {
 		for (int y : ypos) {
 			vector<int> dist;
 
 			for (pair<int, int> pi : v) {
-				int d = abs(x - pi.first) + abs(y - pi.second); //문제에 주어진 최소 이동거리 계산식
+				int d = abs(x - pi.first) + abs(y - pi.second); //문제 내 정의된 최소 이동거리 공식
 				dist.push_back(d);
 			}
-			//하나의 좌표에 대하여 각 체커별로 최소 이동거리를 구한 후 오름차순 정렬
+			
+			//하나의 (x, y) 좌표에 대하여 각 체커별로 최소 이동거리를 구한 후 오름차순 정렬
 			sort(dist.begin(), dist.end());
 
 			int temp = 0;
