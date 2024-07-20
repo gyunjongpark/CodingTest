@@ -1,7 +1,6 @@
 #include<iostream>
-#include<algorithm>
+#include<algorithm> //sort
 #include<vector>
-#define MAX 10004
 using namespace std;
 
 int n, m; // n개 중에서 m개를 뽑는다
@@ -42,7 +41,7 @@ int main() {
     sort(a, a + n);
 
     vector<int> v;
-    vector<bool> visited(MAX, false);
+    vector<bool> visited(10001, false);
 
     combi(-1, v, visited);
 
