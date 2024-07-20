@@ -1,40 +1,35 @@
 #include<iostream>
-#include<algorithm>
-#include<vector>
+#include<algorithm> //sort
+#include<utility> //pair
 using namespace std;
 
-int a[9];
-pair<int, int> pi;
-vector<int> v;
+pair<int, int> not_dwarf;
+int arr[9], sum;
 
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
 
-	
-	int sum = 0;
 	for (int i = 0; i < 9; i++) {
-		cin >> a[i];
-		sum += a[i];
+		cin >> arr[i];
+		sum += arr[i];
 	}
 
-	//시간과 메모리가 허용된다면 완전탐색을 먼저 떠올린다
+	sort(arr, arr + 9);
+
 	for (int i = 0; i < 9; i++) {
-		for (int j = 0; j < i; j++) {
-			if (sum - a[i] - a[j] == 100) {
-				pi.first = i, pi.second = j;
+		for (int j = i + 1; j < 9; j++) {
+			if (sum - arr[i] - arr[j] == 100) {
+				not_dwarf = { i,j };
 			}
 		}
 	}
 
 	for (int i = 0; i < 9; i++) {
-		if (i == pi.first || i == pi.second) continue;
-		v.push_back(a[i]);
+		if (i == not_dwarf.first || i == not_dwarf.second) continue;
+
+		cout << arr[i] << '\n';
 	}
-
-	sort(v.begin(), v.end());
-
-	for (int i : v) cout << i << '\n';
 
 	return 0;
 }
