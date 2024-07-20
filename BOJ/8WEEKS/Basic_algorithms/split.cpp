@@ -11,7 +11,7 @@ vector<string> split(const string& input, string delimiter) {
 		start = end + delimiter.size();
 		end = input.find(delimiter, start);
 	}
-	result.push_back(input.substr(start)); //마지막 단어 저장
+	result.push_back(input.substr(start)); // 마지막 문자열 저장
 
 	return result;
 }
@@ -26,7 +26,7 @@ int main() {
 
 	for (string b : a) cout << b << "\n";
 
-	/*
+	/* 출력 형태
 	
 	hello
 	world!
