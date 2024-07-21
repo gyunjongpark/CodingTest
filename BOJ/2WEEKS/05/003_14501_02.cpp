@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 
-int n, t, p, table[15][2]; // 배열을 미리 생성
+int n, t, p, table[15][2]; // 배열을 이용한 풀이
 int answer = -1;
 
 void recur(int t, int p) {
