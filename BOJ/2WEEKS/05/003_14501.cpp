@@ -2,7 +2,8 @@
 #include<vector>
 using namespace std;
 
-int n, t, p, table[15][2];
+vector<pair<int, int>> table;
+int n, t, p;
 int answer = -1;
 
 void recur(int t, int p) {
@@ -13,7 +14,7 @@ void recur(int t, int p) {
     }
 
     recur(t + 1, p);
-    recur(t + table[t][0], p + table[t][1]);
+    recur(t + table[t].first, p + table[t].second);
 
     return;
 }
@@ -25,7 +26,8 @@ int main() {
     cin >> n;
 
     for (int i = 0; i < n; i++) {
-        cin >> table[i][0] >> table[i][1];
+        cin >> t >> p;
+        table.push_back({ t,p });
     }
 
     recur(0,0);
