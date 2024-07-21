@@ -3,7 +3,7 @@
 using namespace std;
 
 vector<pair<int, int>> table;
-int n, t, p, dp[15 + 1]; // 배열
+int n, t, p, dp[15 + 1]; // 배열을 이용한 풀이
 
 int recur(int t) {
     if (t > n) return -1e9;
