@@ -14,7 +14,7 @@ int main() {
 
     dp.resize(n + 1, vector<int>(k + 1, 0));
 
-    for (int i = 1; i <= n; i++) {
+    for (int i = 0; i < n; i++) {
         cin >> w >> v;
         table.push_back({ w,v });
     }
