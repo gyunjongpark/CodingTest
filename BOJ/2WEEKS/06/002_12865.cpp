@@ -23,7 +23,8 @@ int main() {
 
     cin >> n >> k;
 
-    dp.resize(n + 1, vector<int>(k + 1, -1)); //dp 입력은 push_back이 아니기 때문에 배열 초기화 필요
+    // dp 입력은 push_back이 아니기 때문에 배열 초기화 필요
+    dp.resize(n + 1, vector<int>(k + 1, -1)); 
 
     for (int i = 0; i < n; i++) {
         cin >> m >> v;
