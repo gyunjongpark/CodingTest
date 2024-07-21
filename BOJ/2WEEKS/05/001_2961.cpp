@@ -34,9 +34,9 @@ int main() {
         ingre.push_back({ s,b });
     }
 
-    recur(0, 1, 0, 0); //초기 상태에서 재귀 함수 실행
+    recur(0, 1, 0, 0); // 초기 상태에서 재귀 함수 실행
 
-    cout << answer; //최종 갱신된 answer 출력
+    cout << answer; // 최종 갱신된 answer 출력
 
     return 0;
 }
