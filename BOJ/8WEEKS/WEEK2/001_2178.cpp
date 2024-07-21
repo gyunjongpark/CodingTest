@@ -22,7 +22,7 @@ void bfs(int y, int x) {
             int nx = x + dx[i];
 
             if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue;
-            if (a[ny][nx] && !visited[ny][nx]) {
+            if (a[ny][nx] == 1 && !visited[ny][nx]) {
                 visited[ny][nx] = visited[y][x] + 1;
                 q.push({ ny,nx });
             }
