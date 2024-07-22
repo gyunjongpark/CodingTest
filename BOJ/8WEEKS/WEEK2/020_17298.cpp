@@ -15,7 +15,7 @@ int main() {
 		cin >> a[i];
 	}
 
-	fill(ret, ret + n, -1); // init
+	fill(&ret[0], &ret[0] + n, -1); // init
 
 	for (int i = 0; i < n; i++) {
 
