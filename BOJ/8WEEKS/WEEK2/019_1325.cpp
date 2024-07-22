@@ -6,6 +6,7 @@ vector<int> adj[10001]; // push_back
 bool visited[10001];
 int n, m, a, b, v[10001];
 
+// O(N)
 int dfs(int here) {
 	visited[here] = 1;
 	int ret = 1; // 최초 해킹한 컴퓨터 count
