@@ -1,6 +1,6 @@
 #include<iostream>
 #include<vector>
-#include<algorithm> //sort
+#include<algorithm>
 using namespace std;
 
 vector<string> v;
@@ -43,7 +43,7 @@ int main() {
 				check();
 			}
 		}
-		if (ret.size()) check(); // 마지막 요소가 숫자일 가능성 check. 최종 점검
+		if (ret.size()) check(); // 최종 점검
 	}
 
 	sort(v.begin(), v.end(), cmp);
