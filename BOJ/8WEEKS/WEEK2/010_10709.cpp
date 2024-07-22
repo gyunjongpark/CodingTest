@@ -1,8 +1,8 @@
 #include<iostream>
 using namespace std;
 
-int h, w, ret[101][101];
 char a[101][101];
+int h, w, ret[101][101];
 string s;
 
 int main() {
