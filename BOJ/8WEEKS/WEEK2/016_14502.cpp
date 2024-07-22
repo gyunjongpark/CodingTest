@@ -27,7 +27,7 @@ void dfs(int y, int x) {
 // visited = 1인 경우는 벽이거나 바이러스가 퍼져 오염된 지역을 의미한다
 int go() {
 	for (pair<int, int> virus : virusList) {
-		dfs(virus.first, virus.second); //바이러스 퍼뜨리기
+		dfs(virus.first, virus.second); // 바이러스 퍼뜨리기
 	}
 
 	int cnt = 0;
