@@ -5,15 +5,15 @@ using namespace std;
 const int dy[] = { -1,0,1,0 };
 const int dx[] = { 0,1,0,-1 };
 bool visited[101][101], a[101][101];
-vector<pair<int, int>> v;
 int n, m, cnt, ret;
+vector<pair<int, int>> v;
 
 void dfs(int y, int x) {
 	visited[y][x] = 1;
 
 	if (a[y][x] == 1) { 
-		v.push_back({ y,x }); // 녹일 치즈 저장
-		return; // 치즈인 경우 본인만 방문하고 저장 후 return
+		v.push_back({ y,x }); // 녹일 치즈 vector에 저장
+		return; // 본인 치즈만 방문하고 return
 	}
 
 	for (int i = 0; i < 4; i++) {
@@ -22,7 +22,7 @@ void dfs(int y, int x) {
 
 		if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue;
 
-		if (!visited[ny][nx]) {
+		if (!visited[ny][nx]) { // 배열 a에 대한 조건 없이 전체 검사
 			dfs(ny, nx);
 		}
 	}
