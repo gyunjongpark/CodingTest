@@ -20,9 +20,10 @@ int dfs(int here) {
 			child++;
 		}
 	}
+	
 	if (!child) ret++; // 리프 노드라면 ret++
 
-	return ret;
+	return ret; // 각 dfs에 대하여 0(자식 노드가 있을 때) 또는 1(리프 노드) 중 하나를 반환
 }
 
 int main() {
@@ -35,8 +36,8 @@ int main() {
 		cin >> temp;
 
 		if (temp == -1) {
-      root = i;
-    }
+      			root = i;
+   		}
 		else {
 			adj[temp].push_back(i);
 		}
