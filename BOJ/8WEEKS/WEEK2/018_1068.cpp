@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 
-vector<int> adj[51];
+vector<int> adj[51]; // push_back
 bool visited[51];
 int n, r, temp, root, ret;
 
