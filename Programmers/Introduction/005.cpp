@@ -4,5 +4,7 @@
 using namespace std;
 
 int solution(int num1, int num2) {
-    return 1000*(double)num1/num2;
+    int answer = 1000*(double)num1/num2;
+    
+    return answer;
 }
