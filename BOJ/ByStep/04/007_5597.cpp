@@ -1,8 +1,7 @@
 #include<iostream>
-#define MAX 34
 using namespace std;
 
-int arr[MAX], num;
+int arr[31], num;
 
 int main() {
 	ios_base::sync_with_stdio(false);
