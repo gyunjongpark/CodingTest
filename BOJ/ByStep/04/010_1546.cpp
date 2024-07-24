@@ -1,9 +1,8 @@
 #include<iostream>
-#define MAX 1004
 using namespace std;
 
+double maxVal = -1, sum, a[1001];
 int n;
-double maxVal = -1, sum, a[MAX];
 
 int main() {
 	cin.tie(NULL), cout.tie(NULL);
