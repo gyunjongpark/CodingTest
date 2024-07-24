@@ -37,7 +37,7 @@ int main(void) {
 		else if (ch == 'B') {
 			if (cur != L.begin()) {
 				cur--;
-				cur = L.erase(cur);
+				cur = L.erase(cur); // 연산 이후 다음 이터레이터 반환
 			}
 		}
 	}
