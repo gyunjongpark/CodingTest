@@ -19,7 +19,6 @@ int main() {
         table.push_back({ t,p });
     }
 
-
     for (int idx = n - 1; idx >= 0; idx--) {
         dp[idx] = dp[idx + 1];
 
