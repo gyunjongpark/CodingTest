@@ -18,7 +18,7 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         cin >> x;
-        if (flag[i] == 0) //queue일때만 deque에 원소 삽입
+        if (flag[i] == 0) // queue일때만 deque에 원소 삽입
             dq.push_back(x);
     }
 
