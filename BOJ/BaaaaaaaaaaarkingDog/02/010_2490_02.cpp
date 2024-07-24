@@ -11,10 +11,12 @@ int main() {
 	
     for (int i = 0; i < 3; i++) {
         result = 0;
+	    
         for (int j = 0; j < 4; j++) {
             cin >> input;
             result += input;
         }
+	    
         cout << ret[result] << '\n';
     }
 
