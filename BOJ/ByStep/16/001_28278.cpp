@@ -2,8 +2,8 @@
 #include<stack>
 using namespace std;
 
-int n, c, x;
 stack<int> stk;
+int n, c, x;
 
 int main() {
 	ios_base::sync_with_stdio(false);
@@ -13,6 +13,7 @@ int main() {
 
 	while (n--) {
 		cin >> c;
+		
 		if (c == 1) {
 			cin >> x;
 			stk.push(x);
