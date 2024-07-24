@@ -2,12 +2,18 @@
 using namespace std;
 
 int func2(int arr[], int N) {
-	int occur[101] = {};
+	int cnt[101];
+
+	fill(&cnt[0], &cnt[0] + 101, 0);
+
 	for (int i = 0; i < N; i++) {
-		if (occur[100 - arr[i]] == 1)
+		if (cnt[100 - arr[i]] == 1) { //짝이 있다면
 			return 1;
-		occur[arr[i]] = 1;
+		}
+			
+		cnt[arr[i]] = 1;
 	}
+
 	return 0;
 }
 
@@ -27,9 +33,6 @@ void test2() {
 }
 
 int main() {
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL); cout.tie(NULL);
-
 	test2();
 
 	return 0;
