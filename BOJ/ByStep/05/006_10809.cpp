@@ -10,7 +10,7 @@ int main() {
 	cin >> s;
 
 	for (int i = 0; i < 26; i++) {
-		//int로 형변환해야 string::npos = -1 반환
+		//인덱스 반환. int로 형변환해야 string::npos = -1 반환
 		cout << (int)s.find(alph[i]) << ' ';
 	}
 
