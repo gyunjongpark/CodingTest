@@ -8,9 +8,7 @@ int main() {
     cin.tie(NULL); cout.tie(NULL);
 
     cin >> s;
-
-    s += "??!";
-    cout << s;
+    cout << s << "??!";
 
     return 0;
 }
