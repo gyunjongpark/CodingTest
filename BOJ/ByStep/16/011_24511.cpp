@@ -1,11 +1,10 @@
 #include <iostream>
 #include <deque>
-#define MAX 100004
 using namespace std;
 
 deque<int> dq;
 int n, m, x, y;
-bool flag[MAX]; //0:queue, 1:stack
+bool flag[100001]; // 0:queue, 1:stack
 
 int main() {
     ios::sync_with_stdio(false);
