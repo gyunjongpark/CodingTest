@@ -20,7 +20,7 @@ int main(void) {
         while (!stk.empty() && h >= stk.top()) {
             stk.pop();
         }
-        ret += stk.size(); // 본인을 내려다 볼 수 있는 경우의 수 합산
+        ret += stk.size(); // 오른쪽 방향으로 본인을 내려다 볼 수 있는 경우의 수 합산
 
         stk.push(h);
     }
