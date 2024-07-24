@@ -1,8 +1,7 @@
 #include<iostream>
-#define MAX 104
 using namespace std;
 
-int maxVal=-1, a[MAX][MAX];
+int maxVal=-1, a[101][101];
 pair<int, int> pi;
 
 int main() {
