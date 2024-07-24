@@ -15,9 +15,10 @@ int main() {
 		}
 	}
 
-	for (int i = 0; i < MAX; i++) {
-		for (int j = 0; j < MAX; j++) {
+	for (int i = 0; i < 15; i++) {
+		for (int j = 0; j < 15; j++) {
 			if (a[j][i] == 0) continue; //null이면 continue
+			
 			cout << a[j][i];
 		}
 	}
