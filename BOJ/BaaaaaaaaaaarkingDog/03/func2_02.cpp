@@ -4,7 +4,7 @@ using namespace std;
 int func2(int arr[],int n) { //O(N)
 	int cnt[51];
 
-	fill(cnt, cnt + 51, 0);
+	fill(&cnt[0], &cnt[0] + 51, 0);
 
 	for (int i = 0; i < n; i++) {
 		if (arr[i] > 50) {
