@@ -21,8 +21,9 @@ int main() {
 
 
     for (int idx = n - 1; idx >= 0; idx--) {
-        if (idx + table[idx].first > n) dp[idx] = dp[idx + 1];
-        else {
+        dp[idx] = dp[idx + 1];
+
+        if (idx + table[idx].first <= n) {
             dp[idx] = max(dp[idx + table[idx].first] + table[idx].second, dp[idx + 1]);
         }
     }
