@@ -1,9 +1,8 @@
 #include<iostream>
 #include<vector>
-#define MAX 10004
 using namespace std;
 
-int n, m, sum, minVal = MAX, chae[MAX];
+int n, m, sum, minVal = 10001, chae[10001];
 
 vector<int> era(int n) {
 	vector<int> v;
