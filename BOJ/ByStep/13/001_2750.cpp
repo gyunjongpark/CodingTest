@@ -3,8 +3,8 @@
 #include<algorithm>
 using namespace std;
 
-int n, temp;
 vector<int> v;
+int n, temp;
 
 int main() {
 	ios_base::sync_with_stdio(false);
@@ -17,7 +17,6 @@ int main() {
 		v.push_back(temp);
 	}
 
-  	
 	sort(v.begin(), v.end()); //O(NlogN)
 
 	for (int i : v) cout << i << '\n';
