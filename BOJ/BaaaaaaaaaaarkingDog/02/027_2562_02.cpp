@@ -13,7 +13,7 @@ int main() {
 	}
 
 	cout << *max_element(a, a + 9) << '\n';
-	cout << max_element(a, a + 9) - a + 1;
+	cout << max_element(a, a + 9) - a + 1; //iterator - iterator 연산
 
 	return 0;
 }
