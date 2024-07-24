@@ -5,7 +5,7 @@ int n;
 
 int main() {
 	ios_base::sync_with_stdio(false);
-	cin.tie(NULL); cout.tie(NULL);
+	cin.tie(NULL), cout.tie(NULL);
 	
 	cin >> n;
 
@@ -13,7 +13,6 @@ int main() {
 		for (int j = 0; j < n - i - 1; j++) {
 			cout << ' ';
 		}
-		
 		for (int j = 0; j < i + 1; j++) {
 			cout << '*';
 		}
