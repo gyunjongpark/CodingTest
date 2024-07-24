@@ -1,10 +1,9 @@
 #include<iostream>
-#define MAX 10004
 using namespace std;
 
 int n, x, y;
-int maxX = -MAX, maxY = -MAX;
-int minX = MAX, minY = MAX;
+int maxX = -10001, maxY = -10001;
+int minX = 10001, minY = 10001;
 
 int main() {
 	ios_base::sync_with_stdio(false);
