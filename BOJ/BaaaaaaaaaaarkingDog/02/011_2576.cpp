@@ -1,7 +1,8 @@
 #include<iostream>
 using namespace std;
 
-int minVal = 100, sum, temp;
+int sum, temp;
+int minVal = 100;
 
 int main() {
 	ios_base::sync_with_stdio(false);
@@ -10,6 +11,7 @@ int main() {
 	
 	for (int i = 0; i < 7; i++) {
 		cin >> temp;
+		
 		if (temp % 2) {
 			sum += temp;
 			minVal = min(minVal, temp);
