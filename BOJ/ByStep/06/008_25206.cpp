@@ -5,9 +5,9 @@ string majorName, input;
 double sum, avg, grade[20], score[20];
 
 int main() {
-	cin.tie(NULL), cout.tie(NULL);
 	ios_base::sync_with_stdio(false);
-
+	cin.tie(NULL), cout.tie(NULL);
+	
 	for (int i = 0; i < 20; ++i) {
 		cin >> majorName >> grade[i] >> input;
 
@@ -30,7 +30,10 @@ int main() {
 	}
 	avg = avg / sum;
 
-	cout.precision(5); //소수 4자리까지? precision(4+1);
+	// printf("%0.4f",avg); 의 경우 cin, cout tie 사용 금지
+
+	// 평점은 최대 4.5점이므로 정수1자리 + 소수 4자리 = precision(5)
+	cout.precision(5);
 	cout << avg;
 
 	return 0;
