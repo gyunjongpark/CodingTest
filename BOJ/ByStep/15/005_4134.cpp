@@ -5,8 +5,9 @@ using namespace std;
 
 unsigned int n, t;
 
-bool checkPrime(unsigned int num) {
+bool checkPrime(unsigned int num) { // 4 * 10^9
 	if (num <= 1) return 0;
+	
 	for (unsigned int i = 2; i <= (unsigned int)sqrt(num); i++) {
 		if (num % i == 0) return 0;
 	}
@@ -25,6 +26,7 @@ int main() {
 
 		while (true) {
 			if (checkPrime(n)) break;
+			
 			n++;
 		}
 		cout << n << '\n';
