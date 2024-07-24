@@ -2,9 +2,9 @@
 #include<algorithm> //sort
 using namespace std;
 
-int main() {
-    int a[3];
+int a[3];
 
+int main() {
     for (int i = 0; i < 3; i++) {
         cin >> a[i];
     }
