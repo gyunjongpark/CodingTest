@@ -1,8 +1,7 @@
 #include<iostream>
-#define MAX 19
 using namespace std;
 
-char a[MAX][MAX];
+char a[16][16];
 string s;
 
 int main() {
