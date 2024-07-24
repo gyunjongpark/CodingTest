@@ -9,7 +9,7 @@ int main(void) {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);
 
-    stk.push({ 100000001,0 }); //init
+    stk.push({ 100000001,0 }); // init
 
     cin >> n;
 
