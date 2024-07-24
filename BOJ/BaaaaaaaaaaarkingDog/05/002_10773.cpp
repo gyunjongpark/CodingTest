@@ -28,6 +28,7 @@ int main(void) {
 		ret += stk.top();
 		stk.pop();
 	}
+	
 	cout << ret;
 
 	return 0;
