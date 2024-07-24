@@ -3,30 +3,31 @@
 using namespace std;
 
 vector<pair<int, int>> table;
-vector<int> dp;
-int n, t, p;
+vector<vector<int>> dp;
+int n, k, w, v;
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);
 
-    cin >> n;
+    cin >> n >> k;
 
-    dp.resize(n + 1, 0);
+    dp.resize(n + 1, vector<int>(k + 1, 0));
 
     for (int i = 0; i < n; i++) {
-        cin >> t >> p;
-        table.push_back({ t,p });
+        cin >> w >> v;
+        table.push_back({ w,v });
     }
 
-    for (int idx = n - 1; idx >= 0; idx--) {
-        dp[idx] = max(dp[idx], dp[idx + 1]);
-
-        if (idx + table[idx].first <= n) {
-            dp[idx] = max(dp[idx + table[idx].first] + table[idx].second, dp[idx + 1]);
+    for (int i = n - 1; i >= 0; i--) {
+        for (int j = k - 1; j >= 0; j--) {
+            dp[i][j] = max(dp[i][j], dp[i + 1][j]);
+            if (j + table[i].first <= k) {
+                dp[i][j] = max(dp[i + 1][j], dp[i + 1][j + table[i].first] + table[i].second);
+            }
         }
     }
-    cout << dp[0];
+    cout << dp[0][0];
 
     return 0;
 }
