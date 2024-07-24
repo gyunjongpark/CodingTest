@@ -9,6 +9,7 @@ int n;
 
 bool cmp(string a, string b) {
 	if (a.size() == b.size()) return a < b;
+	
 	return a.size() < b.size();
 }
 
@@ -24,6 +25,7 @@ int main() {
 	}
 
 	sort(v.begin(), v.end(), cmp);
+	
 	v.erase(unique(v.begin(), v.end()), v.end());
 
 	for (string s : v) {
