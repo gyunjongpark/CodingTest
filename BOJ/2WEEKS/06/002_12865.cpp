@@ -10,7 +10,7 @@ int recur(int idx, int weight) {
     if (idx > n || weight > k) return -1e9;
     if (idx == n) return 0;
 
-    if (dp[idx][weight]!=-1) return dp[idx][weight];
+    if (dp[idx][weight] != -1) return dp[idx][weight];
 
     dp[idx][weight] = max(recur(idx + 1, weight), recur(idx + 1, weight + table[idx].first) + table[idx].second);
 
@@ -24,7 +24,7 @@ int main() {
     cin >> n >> k;
 
     // dp 입력은 push_back이 아니기 때문에 배열 초기화 필요
-    dp.resize(n + 1, vector<int>(k + 1, -1)); 
+    dp.resize(n, vector<int>(k + 1, -1));
 
     for (int i = 0; i < n; i++) {
         cin >> m >> v;
