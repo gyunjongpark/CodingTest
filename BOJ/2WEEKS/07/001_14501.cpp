@@ -21,7 +21,7 @@ int main() {
     }
 
     for (int idx = 0; idx < n; idx++) {
-        dp[idx + 1] = max(dp[idx + 1], dp[idx]); // dp의 길이는 n + 1까지 필요하다
+        dp[idx + 1] = max(dp[idx + 1], dp[idx]); // dp의 길이는 n까지 필요하다
 
         if (idx + table[idx].first <= n) {
             dp[idx + table[idx].first] = max(dp[idx + table[idx].first], dp[idx] + table[idx].second);
