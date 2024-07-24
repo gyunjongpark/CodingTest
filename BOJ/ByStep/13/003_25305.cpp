@@ -2,7 +2,7 @@
 #include<algorithm>
 using namespace std;
 
-int a[1004];
+int a[1001];
 int n, k;
 
 int main() {
