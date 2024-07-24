@@ -24,7 +24,8 @@ int main() {
     cin >> n;
 
     // dp 입력은 push_back이 아니기 때문에 초기화 필요
-    dp.resize(n + 1, -1);
+    // recur(n)은 dp[n]을 만들지 않고 0을 반환하므로 dp의 전체 길이는 n - 1이다
+    dp.resize(n, -1);
 
     for (int i = 0; i < n; i++) {
         cin >> t >> p;
