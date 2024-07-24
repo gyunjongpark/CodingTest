@@ -1,5 +1,5 @@
 #include<iostream>
-#include<algorithm>
+#include<algorithm> //reverse
 using namespace std;
 
 int a, b;
