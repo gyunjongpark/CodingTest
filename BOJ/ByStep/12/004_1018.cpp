@@ -1,9 +1,8 @@
 #include<iostream>
-#define MAX 54
 using namespace std;
 
 int temp, n, m, cnt, minVal = 65;
-string board[MAX];
+string board[51];
 
 string WB[8] = {
         "WBWBWBWB",
