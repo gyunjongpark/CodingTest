@@ -1,9 +1,8 @@
 #include<iostream>
-#define MAX 104
 using namespace std;
 
 int n, m;
-int a[MAX][MAX], b[MAX][MAX];
+int a[101][101], b[101][101];
 
 int main() {
 	cin.tie(NULL), cout.tie(NULL);
