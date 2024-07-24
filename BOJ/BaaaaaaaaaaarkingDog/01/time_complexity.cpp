@@ -1,12 +1,11 @@
-//시간 복잡도 : N = 25 이하 ->O(2^N), 500 이하 -> O(N^3)
-//시간 복잡도 : 100만 이하 -> O(NlogN), 1000만 이하 -> O(N)
-
-//공간 복잡도 : 512MB = 1.2억 개의 int
+// 시간 복잡도 : N = 25 이하 ->O(2^N), 500 이하 -> O(N^3), 100만 이하 -> O(NlogN), 1000만 이하 -> O(N)	
+// 공간 복잡도 : 512MB = 1.2억 개의 int
 
 #include<iostream>
+#include<cmath> //sqrt
 using namespace std;
 
-int func1(int n) { //O(N)
+int func1(int n) { // O(N)
 	int ret = 0;
 	for (int i = 1; i <= n; i++) {
 		if (i % 3 == 0 || i % 5 == 0) {
@@ -17,7 +16,7 @@ int func1(int n) { //O(N)
 	return ret;
 }
 
-int func2(int arr[], int n) { //O(n^2)
+int func2(int arr[], int n) { // O(n^2)
 	for (int i = 0; i < n; i++) {
 		for (int j = i + 1; j < n; j++) {
 			if (arr[i] + arr[j] == 100) return 1;
@@ -27,15 +26,15 @@ int func2(int arr[], int n) { //O(n^2)
 	return 0;
 }
 
-int func3(int n) { //O(sqrt(N))
-	for (int i = 1; i < n; i++) {
+int func3(int n) { // O(sqrt(N))
+	for (int i = 1; i <= (int)sqrt(n); i++) {
 		if (i * i == n) return 1;
 	}
 	
 	return 0;
 }
 
-int func4(int n) { //O(logN)
+int func4(int n) { // O(logN)
 	int ret = 1;
 	for (int i = 2; i <= n; i*=2) {
 		ret = i;
