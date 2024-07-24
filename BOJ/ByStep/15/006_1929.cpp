@@ -1,24 +1,23 @@
 #include<iostream>
 #include<vector>
-#define MAX 1000004
 using namespace std;
 
-int n, m, sum, chae[MAX];
+int n, m, sum, chae[1000001];
 vector<int> v;
 
 vector<int> era(int n) {
 	vector<int> v;
 
 	for (int i = 2; i <= n; i++) {
-		if (chae[i]) continue; //이미 지워졌다면 continue
+		if (chae[i]) continue; // 이미 지워졌다면 continue
     
 		for (int j = i + i; j <= n; j += i) {
-			chae[j] = 1; //i의 배수 지우기(소수만 남기기)
+			chae[j] = 1; // i의 배수 지우기(소수만 남기기)
 		}
 	}
 
 	for (int i = 2; i <= n; i++) {
-		if (!chae[i]) v.push_back(i); //소수라면 push back
+		if (!chae[i]) v.push_back(i); // 소수라면 push back
 	}
 
 	return v;
@@ -33,10 +32,9 @@ int main() {
 	vector<int> ret = era(n);
 
 	for (int i : ret) {
-		if (i >= m) {
-			v.push_back(i);
-		}
+		if (i >= m) v.push_back(i);
 	}
+	
 	for (int i : v) cout << i << '\n';
 
 	return 0;
