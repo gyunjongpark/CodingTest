@@ -10,7 +10,7 @@ int main() {
 	cin.tie(NULL); cout.tie(NULL);
 
 	while (true) {
-		sum = 0; v.clear(); //init
+		sum = 0; v.clear(); // init
 
 		cin >> n;
 
