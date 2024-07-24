@@ -2,7 +2,7 @@
 #include<algorithm> //sort
 using namespace std;
 
-int n, x, ret, a[100004];
+int n, x, ret, a[100001];
 
 int main() {
 	ios_base::sync_with_stdio(false);
