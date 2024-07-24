@@ -2,7 +2,7 @@
 using namespace std;
 
 void insert(int idx, int num, int arr[], int& len) {
-	len++;
+	len++; //insert이므로 일단 늘리고 시작
 
 	for (int i = len; i > idx; i--) {
 		arr[i] = arr[i - 1];
@@ -14,7 +14,7 @@ void insert(int idx, int num, int arr[], int& len) {
 }
 
 void erase(int idx, int arr[], int& len) {
-	len--;
+	len--; //erase이므로 일단 줄이고 시작
 
 	for (int i = idx; i < len; i++) {
 		arr[i] = arr[i + 1];
@@ -24,8 +24,12 @@ void erase(int idx, int arr[], int& len) {
 }
 
 void printArr(int arr[], int& len) {
-	for (int i = 0; i < len; i++) cout << arr[i] << ' ';
+	for (int i = 0; i < len; i++) {
+		cout << arr[i] << ' ';
+	}
 	cout << "\n\n";
+
+	return;
 }
 
 void insert_test() {
@@ -53,9 +57,6 @@ void erase_test() {
 }
 
 int main() {
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL); cout.tie(NULL);
-
 	insert_test();
 	erase_test();
 
