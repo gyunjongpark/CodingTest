@@ -1,7 +1,6 @@
 #include<iostream>
 #include<algorithm>
 #include<vector>
-#include<tuple>
 using namespace std;
 
 vector<pair<int, int>> v;
