@@ -13,7 +13,7 @@ int main(void) {
 
     cin >> n;
 
-    // monotone stack
+    //monotone stack
     while(n--){
         cin >> h;
         
@@ -21,7 +21,7 @@ int main(void) {
             stk.pop();
         }
         
-        ret += stk.size(); // 오른쪽 방향으로 본인을 내려다 볼 수 있는 경우의 수 합산
+        ret += stk.size(); //오른쪽 방향으로 본인을 내려다 볼 수 있는 경우의 수 합산
 
         stk.push(h);
     }
