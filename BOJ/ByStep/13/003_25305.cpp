@@ -14,8 +14,8 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		cin >> a[i];
 	}
-	sort(a, a + n); // O(NlogN)
-	reverse(a, a + n); // O(N)
+	sort(a, a + n);
+	reverse(a, a + n);
 
 	cout << a[k - 1];
 
