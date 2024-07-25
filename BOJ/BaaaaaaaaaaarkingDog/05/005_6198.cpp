@@ -13,17 +13,19 @@ int main(void) {
 
     cin >> n;
 
-    // monotone stack 방법
+    // monotone stack
     while(n--){
         cin >> h;
         
-        while (!stk.empty() && h >= stk.top()) {
+        while (!stk.empty() && stk.top() <= h) {
             stk.pop();
         }
+        
         ret += stk.size(); // 오른쪽 방향으로 본인을 내려다 볼 수 있는 경우의 수 합산
 
         stk.push(h);
     }
+    
     cout << ret;
 
     return 0;
