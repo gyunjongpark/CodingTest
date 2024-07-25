@@ -11,9 +11,9 @@ int main(void) {
 
     cin >> n;
 
-    stk.push({ 100000001,0 }); //신호를 수신하는 탑이 존재하지 않는 경우 init
+    stk.push({ 100000001,0 }); //수신 받는 탑이 존재하지 않는 경우 0 반환
 
-    for (int i = 1; i <= n; i++) { //탑들의 번호는 1부터 시작
+    for (int i = 1; i <= n; i++) { //1부터 시작
         cin >> h;
 
         while (stk.size() && stk.top().first < h) {
