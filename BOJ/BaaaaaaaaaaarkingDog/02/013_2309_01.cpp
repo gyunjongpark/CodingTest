@@ -1,6 +1,5 @@
 #include<iostream>
 #include<algorithm> //sort
-#include<utility> //pair
 using namespace std;
 
 int arr[9], sum;
