@@ -66,9 +66,6 @@ void erase_test() {
 }
 
 int main(void) {
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL); cout.tie(NULL);
-
 	fill(pre, pre + MX, -1);
 	fill(nxt, nxt + MX, -1);
 	insert_test();
