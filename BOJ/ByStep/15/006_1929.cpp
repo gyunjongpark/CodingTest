@@ -9,15 +9,15 @@ vector<int> era(int n) {
 	vector<int> v;
 
 	for (int i = 2; i <= n; i++) {
-		if (chae[i]) continue; // 이미 지워졌다면 continue
+		if (chae[i]) continue; //이미 지워졌다면 continue
     
 		for (int j = i + i; j <= n; j += i) {
-			chae[j] = 1; // i의 배수 지우기(소수만 남기기)
+			chae[j] = 1; //i의 배수 지우기(소수만 남기기)
 		}
 	}
 
 	for (int i = 2; i <= n; i++) {
-		if (!chae[i]) v.push_back(i); // 소수라면 push back
+		if (!chae[i]) v.push_back(i); //소수라면 push back
 	}
 
 	return v;
