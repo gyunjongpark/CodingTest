@@ -14,7 +14,7 @@ void push(int x) {
 void pop() {
 	pos--;
 
-	return
+	return;
 }
 
 int top() {
