@@ -7,10 +7,14 @@ int dat[MX], pos;
 
 void push(int x) {
 	dat[pos++] = x;
+
+	return;
 }
 
 void pop() {
 	pos--;
+
+	return
 }
 
 int top() {
@@ -38,9 +42,6 @@ void test() {
 }
 
 int main(void) {
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL); cout.tie(NULL);
-
 	test();
 
 	return 0;
