@@ -30,11 +30,11 @@ int main() {
 	}
 	avg = avg / sum;
 
-	// printf("%0.4f",avg); 의 경우 cin, cout tie 사용 금지
-
-	// 평점은 최대 4.5점이므로 정수1자리 + 소수 4자리 = precision(5)
+	//평점은 최대 4.5점이므로 정수1자리 + 소수 4자리 = precision(5)
 	cout.precision(5);
 	cout << avg;
 
+	//printf("%0.4f",avg); 의 경우 cin, cout tie 사용 불가
+	
 	return 0;
 }
