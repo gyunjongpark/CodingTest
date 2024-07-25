@@ -32,11 +32,11 @@ int main(void) {
 			else if (c == '-') {
 				if (cur != L.begin()) {
 					cur--;
-					cur = L.erase(cur); // 연산 이후 다음 이터레이터 반환
+					cur = L.erase(cur);
 				}
 			}
 			else {
-				L.insert(cur, c); // 연산 이후 다음 이터레이터 반환
+				L.insert(cur, c);
 			}
 		}
 
