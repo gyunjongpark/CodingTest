@@ -16,12 +16,16 @@ void insert(int addr, int num) {
 
 	nxt[addr] = unused;
 	unused++;
+
+	return;
 }
 
 void erase(int addr) {
 	nxt[pre[addr]] = nxt[addr];
 
 	if (nxt[addr] != -1) pre[nxt[addr]] = pre[addr];
+
+	return;
 }
 
 void traverse() {
@@ -31,6 +35,8 @@ void traverse() {
 		cur = nxt[cur];
 	}
 	cout << "\n\n";
+
+	return;
 }
 
 void insert_test() {
