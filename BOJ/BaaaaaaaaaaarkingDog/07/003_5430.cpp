@@ -27,6 +27,7 @@ int main(void) {
 	cin >> t;
 
 	while (t--) {
+		//init
 		cin >> p >> n >> x;
 		string test_str = "";
 		deque<string> ret_str;
@@ -34,7 +35,7 @@ int main(void) {
 		bool reversed = 0;
 
 		for (int i = 1; i < x.size() - 1; i++) {
-			test_str += x[i]; //괄호 제거
+			test_str += x[i]; //괄호 [] 제거
 		}
 
 		if (test_str.size()) {
@@ -43,14 +44,14 @@ int main(void) {
 
 		for (char c : p) {
 			if (c == 'R') {
-				reversed = !reversed;
+				reversed = !reversed; //reverse 상태 변경
 			}
 			else if (c == 'D') {
 				if (ret_str.empty()) {
 					flag = 1;
 					break; // No need to continue if empty
 				}
-				else {
+				else { //반전 상태에 따라 pop의 위치 결정
 					if (reversed) {
 						ret_str.pop_back();
 					}
@@ -58,14 +59,14 @@ int main(void) {
 				}
 			}
 		}
-		if (reversed) reverse(ret_str.begin(), ret_str.end());
+		if (reversed) reverse(ret_str.begin(), ret_str.end()); //최종 출력을 위한 reverse
 
-		if (flag) cout << "error" << '\n';
+		if (flag) cout << "error" << '\n'; //배열의 값이 없는데 D가 호출될 경우 error 출력
 		else {
-			if (ret_str.empty()) {
+			if (ret_str.empty()) { //배열의 값이 없는데 R이 호출될 경우 [] 출력
 				cout << "[]" << '\n';
 			}
-			else {
+			else { //배열의 값이 남아있는 경우
 				cout << '[';
 				cout << ret_str.front();
 				ret_str.pop_front();
@@ -77,7 +78,6 @@ int main(void) {
 				cout << ']' << '\n';
 			}
 		}
-		
 	}
 
 	return 0;
