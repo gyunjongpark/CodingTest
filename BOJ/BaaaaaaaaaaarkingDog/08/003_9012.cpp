@@ -21,7 +21,7 @@ int main() {
 				if (stk.top() == '(' && a == ')') stk.pop();
 				else stk.push(a);
 			}
-			else { //stk가 비어있다면 무조건 push
+			else { //비어있다면 무조건 push
 				stk.push(a);
 			}
 		}
