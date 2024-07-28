@@ -10,7 +10,7 @@ int main() {
 
 	cin >> a >> b >> c;
 	ret = a * b * c;
-	string str = to_string(ret); //최대 10자리 문자열
+	string str = to_string(ret); //10억 이하, 최대 10자리 문자열
 	
 	for (char c : str) {
 		cnt[c - '0']++;
