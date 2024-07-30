@@ -13,8 +13,8 @@ int main() {
 
 	while (n--) {
 		cin >> a >> b;
-		sort(a.begin(), a.begin() + a.size());
-		sort(b.begin(), b.begin() + b.size());
+		sort(a.begin(), a.end());
+		sort(b.begin(), b.end());
 
 		if (a == b) cout << "Possible" << '\n';
 		else cout << "Impossible" << '\n';
