@@ -28,7 +28,7 @@ int main(void) {
 			stk.pop();
 		}
 
-		if (stk.size()) { //조건을 만족하지 않아도 붙어있다면 무조건 1 추가
+		if (stk.size()) { //붙어있는 h가 존재한다면 무조건 1 추가
 			ret++;
 		}
 
