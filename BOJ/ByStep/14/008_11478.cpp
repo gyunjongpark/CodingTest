@@ -14,7 +14,7 @@ int main() {
 	for (int i = 0; i < s.size(); i++) {
 		for (int j = i; j < s.size(); j++) {
 			str += s[j];
-			st.insert(str); //집합에서 insert = 벡터의 push_back
+			st.insert(str); //집합 : insert = 벡터 : push_back
 		}
 		str = ""; //init
 	}
