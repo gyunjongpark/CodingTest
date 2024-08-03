@@ -17,12 +17,15 @@ int main() {
 
 	cin >> x;
 
-	//two pointer
+	//two pointer, O(N)
 	int l = 0, r = n - 1;
 
 	while (l < r) {
-		if (a[l] + a[r] == x) { //n개의 서로 다른 양의 정수
+		if (a[l] + a[r] == x) {
 			ret++;
+
+			//n개의 서로 다른 양의 정수이므로 두 변수 모두 수정
+			l++;
 			r--;
 		}
 		else if (a[l] + a[r] < x) l++;
