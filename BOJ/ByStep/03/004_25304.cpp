@@ -13,6 +13,7 @@ int main() {
 		cin >> a >> b;
 		sum += a * b;
 	}
+	
 	if (x == sum) cout << "Yes";
 	else cout << "No";
 
