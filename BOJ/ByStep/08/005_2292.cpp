@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int n, i = 0;
+int n, i;
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -14,6 +14,7 @@ int main() {
         for (int sum = 2; sum <= n; i++) {
             sum += 6 * i;
         }
+        
         cout << i;
     }
 
