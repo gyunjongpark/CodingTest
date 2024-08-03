@@ -10,6 +10,7 @@ int main() {
 	cin >> h >> m >> t;
 
 	int temp = h * 60 + m + t;
+	
 	h = temp / 60, m = temp % 60;
 
 	if (h > 23) {
