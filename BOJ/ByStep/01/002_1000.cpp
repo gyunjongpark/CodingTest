@@ -8,6 +8,7 @@ int main() {
     cin.tie(NULL); cout.tie(NULL);
     
 	  cin >> a >> b;
+	
 	  cout << a + b;
     
 	return 0;
