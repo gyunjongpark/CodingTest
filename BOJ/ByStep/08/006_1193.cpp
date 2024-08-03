@@ -1,7 +1,8 @@
 #include <iostream>
 using namespace std;
 
-int i=1, n;
+int i = 1;
+int n;
 
 int main() {
 	ios_base::sync_with_stdio(false);
