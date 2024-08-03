@@ -2,38 +2,39 @@
 #include<stack>
 using namespace std;
 
-int n, temp;
 stack<int> stk;
 string ret;
+int n, temp;
+int cnt = 1;
+bool flag;
 
-int main(void) {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL); cout.tie(NULL);
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL); cout.tie(NULL);
 
-    cin >> n;
+	cin >> n;
 
-    int cnt = 1;
+	while (n--) {
+		cin >> temp;
 
-    for (int i = 0; i < n; i++) {
-        cin >> temp;
-                
-        while (cnt <= temp) {
-            ret += "+\n";
-            stk.push(cnt);
-            cnt++;
-        }
+		while (cnt <= temp) {
+			ret += "+\n";
+			stk.push(cnt);
+			cnt++;
+		}
 
-        //정점을 찍은 후에는 내림차순으로 내려와야 stack으로 입력된 수열을 완성할 수 있다
-        if (stk.top() != temp) {
-            cout << "NO";
+		if (stk.top() != temp) {
+			flag = 1; //스택 수열이 아니어도 일단은 전부 입력받는다
+		}
 
-            return 0;
-        }
+		if (stk.top() == temp) {
+			ret += "-\n";
+			stk.pop();
+		}
+	}
 
-        stk.pop();
-        ret += "-\n";
-    }
-    cout << ret;
+	if (flag) cout << "NO";
+	else cout << ret;
 
-    return 0;
+	return 0;
 }
