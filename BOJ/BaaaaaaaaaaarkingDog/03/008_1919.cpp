@@ -3,7 +3,7 @@
 using namespace std;
 
 string a, b;
-int cnt[2][26], ret;
+int ret, cnt1[26], cnt2[26];
 
 int main() {
 	ios_base::sync_with_stdio(false);
@@ -12,15 +12,15 @@ int main() {
 	cin >> a >> b;
 
 	for (char c : a) {
-		cnt[0][c - 'a']++;
+		cnt1[c - 'a']++;
 	}
 
 	for (char c : b) {
-		cnt[1][c - 'a']++;
+		cnt2[c - 'a']++;
 	}
 
 	for (int i = 0; i < 26; i++) {
-		ret += abs(cnt[0][i] - cnt[1][i]);
+		ret += abs(cnt1[i]-cnt2[i]);
 	}
 
 	cout << ret;
