@@ -18,7 +18,8 @@ int main() {
 
 	for (int i = 0; i < m; i++) {
 		cin >> a >> b;
-		reverse(v.begin() + a - 1, v.begin() + b);
+		
+		reverse(v.begin() + a - 1, v.begin() + b); //iterator 연산이므로 begin, end를 기반한 연산이 필요하다
 	}
 	
 	for (int i : v) cout << i << ' ';
