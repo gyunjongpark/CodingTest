@@ -15,6 +15,7 @@ int main() {
 	
 	ret1 = a * (b % 10) + 10 * (a * ((b / 10) % 10));
 	ret2 = 100 * (a * (b / 100));
+	
 	cout << ret1 + ret2;
 
     return 0;
