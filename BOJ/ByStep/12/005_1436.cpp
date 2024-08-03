@@ -1,6 +1,5 @@
 #include<iostream>
-#include<cstring> //to_string...?
-#include<string> //to_string...?
+#include<string> //to_string
 using namespace std;
 
 int cnt, n;
