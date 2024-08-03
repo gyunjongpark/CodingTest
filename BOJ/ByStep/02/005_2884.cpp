@@ -16,6 +16,7 @@ int main() {
 	}
 
 	h = temp / 60, m = temp % 60;
+	
 	cout << h << ' ' << m;
 
     return 0;
