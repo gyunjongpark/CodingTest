@@ -15,7 +15,9 @@ int main() {
 
 	for (int cnt = 0; cnt < m; cnt++) {
 		cin >> i >> j;
+		
 		int temp = a[i];
+		
 		a[i] = a[j];
 		a[j] = temp;
 	}
