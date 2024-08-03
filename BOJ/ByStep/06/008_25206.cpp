@@ -30,11 +30,12 @@ int main() {
 	}
 	avg = avg / sum;
 
+	//정답과의 절대오차 또는 상대오차가 10^-4 이하이면 정답으로 인정한다
 	//평점은 최대 4.5점이므로 정수1자리 + 소수 4자리 = precision(5)
 	cout.precision(5);
 	cout << avg;
 
-	//printf("%0.4f",avg); 의 경우 cin, cout tie 사용 불가
+	//printf("%0.4f",avg);의 경우 cin, cout tie 사용 불가
 	
 	return 0;
 }
