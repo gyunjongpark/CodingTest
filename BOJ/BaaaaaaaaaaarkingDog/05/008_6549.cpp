@@ -33,7 +33,7 @@ int main(void) {
 			stk.push({ h,idx });
 		}
 
-		while (stk.size()) {
+		while (stk.size()) { //마지막 기둥에 대하여 계산
 			ret = max(ret, (n - stk.top().second) * stk.top().first);
 
 			stk.pop();
