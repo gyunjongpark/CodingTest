@@ -1,5 +1,3 @@
-//dfs 기본형
-
 void dfs(int y, int x) {
     visited[y][x] = 1;
 
