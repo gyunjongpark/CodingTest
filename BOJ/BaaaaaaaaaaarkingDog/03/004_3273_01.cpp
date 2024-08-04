@@ -8,9 +8,11 @@ int main() {
 	cin.tie(NULL); cout.tie(NULL);
 
 	cin >> n;
-	
-	for (int i = 0; i < n; i++) cin >> arr[i];
-	
+
+	for (int i = 0; i < n; i++) {
+		cin >> arr[i];
+	}
+
 	cin >> x;
 
 	//O(N)
@@ -18,7 +20,7 @@ int main() {
 		if (x - arr[i] > 0 && ret[x - arr[i]]) { //짝을 찾으면
 			answer++;
 		}
-		
+
 		ret[arr[i]] = 1;
 	}
 
