@@ -3,4 +3,4 @@ FROM CAR_RENTAL_COMPANY_CAR
 WHERE CAR_TYPE='SUV';
 
 -- ROUND(값, 숫자) 숫자까지 소수점 표현. 반올림 적용
--- ROUND(42.195, 2) -> 42.20
+-- SELECT ROUND(42.195, 2) -> 42.20
