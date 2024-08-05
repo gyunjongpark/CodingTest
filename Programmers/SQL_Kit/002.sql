@@ -5,6 +5,7 @@ ORDER BY HIRE_YMD DESC, DR_NAME ASC;
 
 -- 형식에 맞게 레이블 출력하기 : DATE_FORMAT(레이블 명, '포멧 형식') AS 나타낼 레이블 명
 
+
 -- 다른 풀이
 /*
 SELECT DR_NAME, DR_ID, MCDP_CD, DATE_FORMAT(HIRE_YMD, '%Y-%m-%d') AS HIRE_YMD
