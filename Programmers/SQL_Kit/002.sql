@@ -4,6 +4,7 @@ WHERE MCDP_CD='CS' OR MCDP_CD='GS'
 ORDER BY HIRE_YMD DESC, DR_NAME ASC;
 
 -- 형식에 맞게 레이블 출력하기 : DATE_FORMAT(레이블 명, '포멧 형식') AS 나타낼 레이블 명
+-- %Y-%M-%D, %Y-%m-%d ... 대소문자 구분하기
 
 
 -- 다른 풀이
