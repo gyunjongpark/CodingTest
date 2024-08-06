@@ -2,7 +2,7 @@
 #include<stack>
 using namespace std;
 
-int n, t;
+int n, temp;
 stack<int> stk;
 
 int main() {
@@ -12,23 +12,20 @@ int main() {
 	cin >> n;
 
 	int cnt = 1;
-	while (n--) {
-		cin >> t;
 
-		if (t == cnt) cnt++;
-		else stk.push(t);
+	for (int i = 0; i < n; i++) {
+		cin >> temp;
 
-		while (stk.size()) {
-			if (stk.top() == cnt) {
-				stk.pop();
-				cnt++;
-			}
-			else break;
+		stk.push(temp);
+
+		while (stk.size() && stk.top() == cnt) {
+			stk.pop();
+			cnt++;
 		}
-  	}
-  
-	if (stk.size()) cout << "Sad";
-	else cout << "Nice";
+	}
+
+	if (stk.empty()) cout << "Nice";
+	else cout<<"Sad";
 
 	return 0;
 }
