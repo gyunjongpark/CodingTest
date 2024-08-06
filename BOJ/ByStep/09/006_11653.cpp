@@ -11,13 +11,14 @@ int main() {
 	cin >> n;
   
 	int x = n;
+	
 	for (int i = 2; i <= (int)sqrt(n); i++) {
 		while (x % i == 0) {
 			cout << i << '\n';
 			x /= i;
 		}
 	}
-	if (x != 1) cout << x << '\n'; //가장 큰 소인수 출력
+	if (x != 1) cout << x << '\n'; //유일하게 sqrt(n)보다 큰 소인수가 있다면 출력
 
 	return 0;
 }
