@@ -13,7 +13,8 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		cin >> a[i];
 	}
-	sort(a, a + n);
+	
+	sort(a, a + n); //O(NlogN)
 
 	cin >> x;
 
