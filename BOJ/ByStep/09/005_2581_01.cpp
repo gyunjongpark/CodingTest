@@ -2,7 +2,8 @@
 #include<cmath> //sqrt
 using namespace std;
 
-int n, m, ret, minVal = 1e6;
+int n, m, ret;
+int minVal = 10001;
 
 bool check(int n) {
 	if (n <= 1) return 0;
