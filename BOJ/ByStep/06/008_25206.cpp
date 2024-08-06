@@ -35,7 +35,7 @@ int main() {
 	cout.precision(5);
 	cout << avg;
 
-	//printf("%0.4f",avg);의 경우 cin, cout tie 사용 불가
+	//printf("%0.4f",avg);의 경우 cin, cout tie 사용 불가. 하지만 이 방법이 일반적이다
 	
 	return 0;
 }
