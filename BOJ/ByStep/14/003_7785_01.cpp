@@ -10,7 +10,7 @@ string a, b;
 int n;
 
 bool cmp(string a, string b) {
-	return a > b;
+	return a > b; //사전의 역순
 }
 
 int main() {
@@ -29,6 +29,7 @@ int main() {
 			v.push_back(s.first);
 		}
 	}
+	
 	sort(v.begin(), v.end(), cmp);
 
 	for (string s : v) cout << s << '\n';
