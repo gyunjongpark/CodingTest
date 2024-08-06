@@ -1,11 +1,9 @@
 #include<iostream>
-#include<algorithm>
 #include<map>
 using namespace std;
 
-string temp;
-int n, m;
-map<string, int> mp;
+int n, m, temp;
+map<int, int> mp;
 
 int main() {
 	ios_base::sync_with_stdio(false);
@@ -13,16 +11,16 @@ int main() {
 
 	cin >> n;
 
-  //O(NlogN)
-	for (int i = 0; i < n; i++) { //N
+	//O(NlogN)
+	for (int i = 0; i < n; i++) {
 		cin >> temp;
 		mp[temp]++; //logN
 	}
-  
+
 	cin >> m;
-  
-  //O(NlogN)
-	for (int i = 0; i < m; i++) { //N
+
+	//O(NlogN)
+	for (int i = 0; i < m; i++) {
 		cin >> temp;
 		if (mp[temp]) cout << 1 << ' '; //logN
 		else cout << 0 << ' ';
