@@ -16,12 +16,15 @@ int main() {
 		cin >> temp;
 		v.push_back(temp);
 	}
-	sort(v.begin(), v.end());
+	
+	sort(v.begin(), v.end()); //O(NlogN)
 
 	cin >> m;
 
 	for (int i = 0; i < m; i++) {
 		cin >> num;
+
+		//O(logN)
 		if (binary_search(v.begin(), v.end(), num)) {
 			cout << 1 << ' ';
 		}
