@@ -2,20 +2,23 @@
 #include<vector>
 using namespace std;
 
-int n, m, sum, minVal = 10001, chae[10001];
+int n, m, sum, chae[10001];
+int minVal = 10001;
 
-vector<int> era(int n) {
+vector<int> era(int n) { //에라토스테네스의 체
 	vector<int> v;
 
+	//O(Nlog(logN))
 	for (int i = 2; i <= n; i++) {
 		if (chae[i]) continue; //이미 지워졌다면 continue
+		
 		for (int j = i + i; j <= n; j += i) {
 			chae[j] = 1; //i의 배수 지우기(소수만 남기기)
 		}
 	}
 
 	for (int i = 2; i <= n; i++) {
-		if (!chae[i]) v.push_back(i); //소수라면 push back
+		if (!chae[i]) v.push_back(i); //남은 소수라면 push back
 	}
 
 	return v;
