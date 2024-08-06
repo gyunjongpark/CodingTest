@@ -58,7 +58,7 @@ int main() {
 
 
 
-/* chatGPT가 작성한 답변. C++로 문자열은 역시 힘들다...
+/* chatGPT가 작성한 답변. C++로 문자열 처리는 역시 힘들다...
 
 #include<iostream>
 #include<vector>
