@@ -14,7 +14,7 @@ int main() {
 	if (temp < 0) {
 		temp += 24 * 60;
 	}
-
+	
 	h = temp / 60, m = temp % 60;
 	
 	cout << h << ' ' << m;
