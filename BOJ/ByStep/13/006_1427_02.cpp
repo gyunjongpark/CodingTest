@@ -10,7 +10,7 @@ int main() {
 
 	cin >> s;
 
-	sort(s.begin(), s.end(), greater<int>());
+	sort(s.begin(), s.end(), greater<int>()); //큰 것이 먼저
 
 	cout << s;
 
