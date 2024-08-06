@@ -55,3 +55,59 @@ int main() {
 
 	return 0;
 }
+
+
+//chatGPT가 작성한 답변. C++로 문자열은 역시 힘들다...
+/*
+#include<iostream>
+#include<vector>
+using namespace std;
+
+vector<int> nums;
+vector<int> v;
+vector<vector<int>> all_subsets;
+
+void generate_subsets(int start, vector<int>& v) {
+    all_subsets.push_back(v);
+
+    for (int i = start + 1; i < nums.size(); i++) {
+        v.push_back(nums[i]);
+        generate_subsets(i, v);
+        v.pop_back();
+    }
+
+    return;
+}
+
+void print_all_subsets(const vector<vector<int>>& subsets) {
+    cout << "[";
+    for (size_t i = 0; i < subsets.size(); i++) {
+        cout << "[";
+        for (size_t j = 0; j < subsets[i].size(); j++) {
+            cout << subsets[i][j];
+            if (j < subsets[i].size() - 1) {
+                cout << ", ";
+            }
+        }
+        cout << "]";
+        if (i < subsets.size() - 1) {
+            cout << ",";
+        }
+    }
+    cout << "]";
+
+    return;
+}
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL); cout.tie(NULL);
+    
+    nums = { 1, 2, 3 };
+
+    generate_subsets(-1, v);
+    print_all_subsets(all_subsets);
+
+    return 0;
+}
+*/
