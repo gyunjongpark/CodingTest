@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-char a[16][16];
+char a[16][16]; //전역변수로 선언되었으므로 배열의 값은 0으로 초기화
 string s;
 
 int main() {
