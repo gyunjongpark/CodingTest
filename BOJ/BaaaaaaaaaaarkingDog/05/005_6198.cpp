@@ -4,29 +4,29 @@ using namespace std;
 typedef long long ll;
 
 stack<int> stk;
-ll ret;
-int n, h;
+int n, height;
+ll ret; //최악의 경우 n=8만, (n * n - 1) / 2 -> 64억
 
-int main(void) {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL); cout.tie(NULL);
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL); cout.tie(NULL);
 
-    cin >> n;
+	cin >> n;
 
-    //monotone stack
-    while(n--){
-        cin >> h;
-        
-        while (!stk.empty() && stk.top() <= h) {
-            stk.pop();
-        }
-        
-        ret += stk.size(); //오른쪽 방향으로 본인을 내려다 볼 수 있는 경우의 수 합산
+	//monotone stack
+	while(n--) {
+		cin >> height;
 
-        stk.push(h);
-    }
-    
-    cout << ret;
+		while (!stk.empty() && stk.top() <= height) {
+			stk.pop();
+		}
 
-    return 0;
+		ret += stk.size(); //오른쪽 방향으로 본인을 내려다 볼 수 있는 경우의 수 합산
+
+		stk.push(height);
+	}
+
+	cout << ret;
+
+	return 0;
 }
