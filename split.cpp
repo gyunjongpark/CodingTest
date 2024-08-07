@@ -6,7 +6,7 @@ vector<string> split(string input, string delimiter) {
     vector<string> result;
 
     int start = 0;
-    int end = input.find(delimiter); //배열 번호(인덱스 반환)
+    int end = input.find(delimiter); //배열 번호(인덱스) 반환
 
     while (end != string::npos) {
         result.push_back(input.substr(start, end - start));
