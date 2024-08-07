@@ -20,7 +20,7 @@ int main(void) {
 			stk.push(num);
 		}
 		else if (s == "pop") {
-			if (stk.size()) {
+			if (!stk.empty()) {
 				cout << stk.top() << '\n';
 				stk.pop();
 			}
@@ -34,7 +34,7 @@ int main(void) {
 			else cout << 1 << '\n';
 		}
 		else if (s == "top") {
-			if (stk.size()) {
+			if (!stk.empty()) {
 				cout << stk.top() << '\n';
 			}
 			else cout << -1 << '\n';
