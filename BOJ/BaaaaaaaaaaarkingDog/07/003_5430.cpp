@@ -6,17 +6,20 @@ using namespace std;
 int t, n;
 string p, x;
 
-deque<string> split(const string& input, string delimiter) {
+deque<string> split(string input, string delimiter) {
 	deque<string> result;
-	int start = 0; int end = input.find(delimiter);
+
+	int start = 0;
+	int end = input.find(delimiter);
 
 	while (end != string::npos) {
 		result.push_back(input.substr(start, end - start));
 		start = end + delimiter.size();
 		end = input.find(delimiter, start);
 	}
+
 	result.push_back(input.substr(start));
-	
+
 	return result;
 }
 
@@ -27,19 +30,19 @@ int main(void) {
 	cin >> t;
 
 	while (t--) {
+
 		//init
 		cin >> p >> n >> x;
 		string test_str = "";
 		deque<string> ret_str;
-		bool flag = 0;
-		bool reversed = 0;
+		bool flag = 0; bool reversed = 0;
 
 		for (int i = 1; i < x.size() - 1; i++) {
-			test_str += x[i]; //괄호 [] 제거
+			test_str += x[i]; //괄호 [] 제거하고 test_str에 저장
 		}
 
-		if (test_str.size()) {
-			ret_str = split(test_str, ",");
+		if (!test_str.empty()) {
+			ret_str = split(test_str, ","); //,를 기준으로 문자열 split 후 ret_str에 저장
 		}
 
 		for (char c : p) {
@@ -48,8 +51,8 @@ int main(void) {
 			}
 			else if (c == 'D') {
 				if (ret_str.empty()) {
-					flag = 1;
-					break; // No need to continue if empty
+					flag = 1;  //배열에 값이 없는데 D가 호출될 경우
+					break; //더 이상 진행할 이유가 없음
 				}
 				else { //반전 상태에 따라 pop의 위치 결정
 					if (reversed) {
@@ -59,22 +62,25 @@ int main(void) {
 				}
 			}
 		}
-		if (reversed) reverse(ret_str.begin(), ret_str.end()); //최종 출력을 위한 reverse
 
-		if (flag) cout << "error" << '\n'; //배열의 값이 없는데 D가 호출될 경우 error 출력
+		if (reversed) reverse(ret_str.begin(), ret_str.end()); //최종 출력을 위한 reverse 연산
+
+		if (flag) cout << "error" << '\n'; //배열에 값이 없는데 D가 호출될 경우 error 출력
 		else {
-			if (ret_str.empty()) { //배열의 값이 없는데 R이 호출될 경우 [] 출력
+			if (ret_str.empty()) { //배열에 값이 없는데 R이 호출될 경우 [] 출력
 				cout << "[]" << '\n';
 			}
-			else { //배열의 값이 남아있는 경우
+			else { //배열의 값이 남아있을 때의 D, R 연산 결과를 출력
 				cout << '[';
 				cout << ret_str.front();
+
 				ret_str.pop_front();
 
 				while (!ret_str.empty()) {
 					cout << ',' << ret_str.front();
 					ret_str.pop_front();
 				}
+
 				cout << ']' << '\n';
 			}
 		}
