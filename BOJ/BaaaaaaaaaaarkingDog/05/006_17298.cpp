@@ -11,14 +11,12 @@ int main(void) {
 
 	cin >> n;
 
+	fill(&ret[0], &ret[0] + n, -1);	
+
 	for (int i = 0; i < n; i++) {
 		cin >> a[i];
-	}
-
-	fill(&ret[0], &ret[0] + n, -1);
-
-	for (int i = 0; i < n; i++) {
-		while(stk.size() && a[stk.top()] < a[i]) {
+		
+		while(!stk.empty() && a[stk.top()] < a[i]) {
 			ret[stk.top()] = a[i];
 			stk.pop();
 		}
