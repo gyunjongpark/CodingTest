@@ -14,7 +14,7 @@ void bfs(int y, int x) {
     queue<pair<int, int>> q;
     q.push({ y,x });
 
-    while (q.size()) {
+    while (!q.empty()) {
         int y, x;
         tie(y, x) = q.front(); q.pop();
 
