@@ -16,7 +16,7 @@ int main() {
 	for (int i = 1; i <= n; i++) {
 		cin >> height;
 
-		while (stk.size() && stk.top().first <= height) {
+		while (!stk.empty() && stk.top().first <= height) {
 			stk.pop();
 		}
 
