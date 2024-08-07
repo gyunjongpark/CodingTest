@@ -3,27 +3,27 @@
 using namespace std;
 
 stack<pair<int, int>> stk;
-int n, h;
+int n, height;
 
-int main(void) {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL); cout.tie(NULL);
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL); cout.tie(NULL);
 
-    cin >> n;
+	cin >> n;
 
-    stk.push({ 100000001,0 }); //수신 받는 탑이 존재하지 않는 경우 0 반환
+	stk.push({ 100000001,0 }); //0번째 탑 init
 
-    for (int i = 1; i <= n; i++) { //1부터 시작
-        cin >> h;
+	for (int i = 1; i <= n; i++) {
+		cin >> height;
 
-        while (stk.size() && stk.top().first < h) {
-            stk.pop();
-        }
+		while (stk.size() && stk.top().first <= height) {
+			stk.pop();
+		}
 
-        cout << stk.top().second << ' ';
+		cout << stk.top().second << ' ';
 
-        stk.push({ h,i });
-    }
+		stk.push({ height,i });
+	}
 
-    return 0;
+	return 0;
 }
