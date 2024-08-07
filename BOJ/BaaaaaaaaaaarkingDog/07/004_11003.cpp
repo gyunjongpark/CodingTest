@@ -23,6 +23,7 @@ int main() {
         if (dq.front().first <= i - l) {
             dq.pop_front(); //구간 이동 시 pop_front. i가 l 이상일 경우 매번 갱신
         }
+        
         cout << dq.front().second << ' ';
     }
 
