@@ -5,10 +5,12 @@ using namespace std;
 int n, k, visited[100001];
 
 void bfs(int n) {
+    visited[n] = 1;
+
     queue<int> q;
     q.push(n);
 
-    while (q.size()) {
+    while (!q.empty()) {
         int now = q.front(); q.pop();
 
         if (now == k) break;
@@ -40,7 +42,7 @@ int main() {
 
     bfs(n);
 
-    cout << visited[k];
+    cout << visited[k] - 1;
 
     return 0;
 }
