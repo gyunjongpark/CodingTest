@@ -14,7 +14,7 @@ void bfs() {
         q.push(toma);
     }
 
-    while (q.size()) {
+    while (!q.empty()) {
         int y, x;
         tie(y, x) = q.front(); q.pop();
 
