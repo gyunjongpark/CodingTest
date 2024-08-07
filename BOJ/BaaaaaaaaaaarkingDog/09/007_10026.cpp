@@ -84,12 +84,13 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         cin >> s;
+        
         for (int j = 0; j < n; j++) {
             a[i][j] = s[j];
         }
     }
 
-    //n^2 * dfs n^2번 -> 1초 간당간당하게 통과
+    //n^2 * dfs(n^2) = n^4 -> n은 100이하이므로 1초 간당간당하게 통과
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (a[i][j] == 'R' && !visited[i][j]) {
@@ -104,8 +105,7 @@ int main() {
         }
     }
 
-    //init
-    fill(&visited[0][0], &visited[0][0] + 101 * 101, 0);
+    fill(&visited[0][0], &visited[0][0] + 101 * 101, 0); //init
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
