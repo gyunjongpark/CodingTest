@@ -2,9 +2,9 @@
 #include<deque>
 using namespace std;
 
-deque<int> dq;
 int n, temp;
 string s;
+deque<int> dq;
 
 int main(void) {
 	ios_base::sync_with_stdio(false);
@@ -24,14 +24,14 @@ int main(void) {
 			dq.push_back(temp);
 		}
 		else if (s == "pop_front") {
-			if (dq.size()) {
+			if (!dq.empty()) {
 				cout << dq.front() << '\n';
 				dq.pop_front();
 			}
 			else cout << -1 << '\n';
 		}
 		else if (s == "pop_back") {
-			if (dq.size()) {
+			if (!dq.empty()) {
 				cout << dq.back() << '\n';
 				dq.pop_back();
 			}
@@ -45,13 +45,13 @@ int main(void) {
 			else cout << 0 << '\n';
 		}
 		else if (s == "front") {
-			if (dq.size()) {
+			if (!dq.empty()) {
 				cout << dq.front() << '\n';
 			}
 			else cout << -1 << '\n';
 		}
 		else if (s == "back") {
-			if (dq.size()) {
+			if (!dq.empty()) {
 				cout << dq.back() << '\n';
 			}
 			else cout << -1 << '\n';
