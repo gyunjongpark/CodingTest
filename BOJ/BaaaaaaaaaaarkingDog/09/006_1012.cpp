@@ -3,7 +3,7 @@ using namespace std;
 
 const int dy[] = { -1,0,1,0 };
 const int dx[] = { 0,1,0,-1 };
-int t, n, m, k, x, y, a[51][51], ret;
+int t, n, m, k, x, y, ret, a[51][51];
 bool visited[51][51];
 
 void dfs(int y, int x) {
@@ -30,11 +30,11 @@ int main() {
     cin >> t;
 
     while (t--) {
-        fill(&a[0][0], &a[0][0] + 51 * 51, 0); //case마다 초기화
-        fill(&visited[0][0], &visited[0][0] + 51 * 51, 0); //case마다 초기화
-        ret = 0; //case마다 초기화
+        //initialize
+        fill(&a[0][0], &a[0][0] + 51 * 51, 0);
+        fill(&visited[0][0], &visited[0][0] + 51 * 51, 0);
+        ret = 0;
         
-
         cin >> m >> n >> k;
 
         while (k--) {
