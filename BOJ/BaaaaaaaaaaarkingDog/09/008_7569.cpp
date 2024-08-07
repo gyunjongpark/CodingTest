@@ -7,7 +7,6 @@ using namespace std;
 const int dy[] = { -1, 0, 1, 0 };
 const int dx[] = { 0, 1, 0, -1 };
 const int dh[] = { 1, -1 };
-
 int n, m, h, answer, a[101][101][101], ret[101][101][101];
 vector<tuple<int, int, int>> tomato;
 
