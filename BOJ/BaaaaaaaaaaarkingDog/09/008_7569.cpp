@@ -26,19 +26,19 @@ void bfs() {
             int ny = y + dy[i];
             int nx = x + dx[i];
 
-            if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue; //범위를 벗어나면 continue
-            if (ret[ny][nx][height] >= 0) continue; //이미 방문한 곳이면 continue
+            if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue;
+            if (ret[ny][nx][height] >= 0) continue;
 
             ret[ny][nx][height] = ret[y][x][height] + 1; //height는 고정
             q.push({ ny, nx, height });
         }
 
-        //다른 층에 대하여 bfs
+        //다른 층에 대하여 bfs 진행
         for (int i = 0; i < 2; i++) {
             int nh = height + dh[i];
 
-            if (nh < 0 || nh >= h) continue; //범위를 벗어나면 continue
-            if (ret[y][x][nh] >= 0) continue; //이미 방문한 곳이면 continue
+            if (nh < 0 || nh >= h) continue;
+            if (ret[y][x][nh] >= 0) continue;
 
             ret[y][x][nh] = ret[y][x][height] + 1; //y, x는 고정
             q.push({ y, x, nh });
@@ -59,8 +59,8 @@ int main() {
             for (int j = 0; j < m; j++) {
                 cin >> a[i][j][height];
 
-                if (a[i][j][height] == 1) {
-                    tomato.push_back({ i, j, height }); //이미 잘 익은 토마토는 push, ret[i][j][height] = 0
+                if (a[i][j][height] == 1) { //이미 익은 토마토라면 push
+                    tomato.push_back({ i, j, height });
                 }
                 else if (a[i][j][height] == 0) { //익지 않은 토마토라면
                     ret[i][j][height] = -1; //초기 상태 -1
