@@ -5,7 +5,7 @@ typedef long long ll;
 
 stack<int> stk;
 int n, height;
-ll ret; //최악의 경우 n=8만, (n * n - 1) / 2 -> 64억
+ll ret; //최악의 경우 n = 8만, (n * n - 1) / 2 -> 64억
 
 int main() {
 	ios_base::sync_with_stdio(false);
