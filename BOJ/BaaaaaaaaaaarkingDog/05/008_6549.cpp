@@ -9,7 +9,7 @@ int main(void) {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
 
-	while (true) {		
+	while (true) {
 		cin >> n;
 
 		if (n == 0) break;
@@ -22,7 +22,8 @@ int main(void) {
 
 			idx = i;
 
-			while (stk.size() && stk.top().first >= h) {
+			while (!stk.empty() && stk.top().first >= h) {
+				//직전 히스토그램까지 중에서 역순으로 넓이 조사
 				ret = max(ret, (i - stk.top().second) * stk.top().first);
 
 				idx = stk.top().second;
@@ -33,7 +34,7 @@ int main(void) {
 			stk.push({ h,idx });
 		}
 
-		while (stk.size()) { //마지막 기둥에 대하여 계산
+		while (!stk.empty()) { //마지막 기둥에 대하여 계산
 			ret = max(ret, (n - stk.top().second) * stk.top().first);
 
 			stk.pop();
