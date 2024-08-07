@@ -10,12 +10,12 @@ const int INF = 1e9;
 int ret, n, m, fire_visited[1001][1001], j_visited[1001][1001];
 char a[1001][1001];
 string s;
-pair<int, int> jPos; //지훈이는 한 명
-vector<pair<int, int>> firePos; //불은 여러 곳에서 발생할 수 있다
+pair<int, int> jPos;
+vector<pair<int, int>> firePos;
 
 void fire_bfs() {
-    for (pair<int, int> fire : firePos) { 
-        fire_visited[fire.first][fire.second] = 1; //방문 처리
+    for (pair<int, int> fire : firePos) {
+        fire_visited[fire.first][fire.second] = 1;
     }
 
     queue<pair<int, int>> q;
@@ -31,9 +31,9 @@ void fire_bfs() {
             int ny = y + dy[i];
             int nx = x + dx[i];
 
-            if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue; //범위를 벗어났다면 continue
+            if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue;
 
-            //이미 불이 퍼졌거나 벽이라면 continue
+            //이미 불이 번진 곳이거나 벽이라면 continue
             if (fire_visited[ny][nx] != INF || a[ny][nx] == '#') continue;
 
             fire_visited[ny][nx] = fire_visited[y][x] + 1;
@@ -44,7 +44,7 @@ void fire_bfs() {
     return;
 }
 
-void j_bfs(int y, int x) { //지훈이는 한 명
+void j_bfs(int y, int x) {
     j_visited[y][x] = 1;
 
     queue<pair<int, int>> q;
@@ -54,9 +54,9 @@ void j_bfs(int y, int x) { //지훈이는 한 명
         int y, x;
         tie(y, x) = q.front(); q.pop();
 
-        //탈출 조건 : 지훈이는 미로의 가장자리에 접한 공간에서 탈출할 수 있다
+        //지훈이는 미로의 가장자리에 접한 공간에서 탈출할 수 있다
         if (y == 0 || y == n - 1 || x == 0 || x == m - 1) {
-            ret = j_visited[y][x];
+            ret = j_visited[y][x]; //최종 결과 ret에 저장
 
             break;
         }
@@ -65,9 +65,9 @@ void j_bfs(int y, int x) { //지훈이는 한 명
             int ny = y + dy[i];
             int nx = x + dx[i];
 
-            if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue; //범위를 벗어났다면
+            if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue;
             if (fire_visited[ny][nx] <= j_visited[y][x] + 1) continue; //이미 불이 먼저 퍼졌다면
-            if (j_visited[ny][nx] || a[ny][nx] == '#') continue; //벽이라면
+            if (j_visited[ny][nx] || a[ny][nx] == '#') continue;
 
             j_visited[ny][nx] = j_visited[y][x] + 1;
             q.push({ ny,nx });
@@ -93,7 +93,7 @@ int main() {
             a[i][j] = s[j];
 
             if (a[i][j] == 'J') {
-                jPos = { i,j }; //지훈이 좌표 지정
+                jPos = { i,j };
             }
             else if (a[i][j] == 'F') {
                 firePos.push_back({ i,j });
@@ -101,8 +101,8 @@ int main() {
         }
     }
 
-    fire_bfs(); //불이 여러 곳에서 발생할 수 있으므로 좌표를 특정할 수 없음
-    j_bfs(jPos.first, jPos.second); //지훈이는 한 명이다
+    fire_bfs(); //시작점이 여러 개인 bfs
+    j_bfs(jPos.first, jPos.second);
 
     if (ret) {
         cout << ret;
