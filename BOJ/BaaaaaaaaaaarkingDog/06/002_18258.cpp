@@ -20,7 +20,7 @@ int main() {
 			q.push(a);
 		}
 		else if (s == "pop") {
-			if (q.size()) {
+			if (!q.empty()) {
 				cout << q.front() << '\n';
 				q.pop();
 			}
@@ -34,13 +34,13 @@ int main() {
 			else cout << 1 << '\n';
 		}
 		else if (s == "front") {
-			if (q.size()) {
+			if (!q.empty()) {
 				cout << q.front() << '\n';
 			}
 			else cout << -1 << '\n';
 		}
 		else if (s == "back") {
-			if (q.size()) {
+			if (!q.empty()) {
 				cout << q.back() << '\n';
 			}
 			else cout << -1 << '\n';
@@ -49,5 +49,3 @@ int main() {
 
 	return 0;
 }
-
-//문제 10845와 다른 점은 N의 범위가 200만으로 증가했다. 배열, STL 1000만까지는 가능?
