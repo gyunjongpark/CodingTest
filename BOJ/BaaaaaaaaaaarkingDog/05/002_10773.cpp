@@ -15,7 +15,7 @@ int main(void) {
 		cin >> n;
 
 		if (n == 0) {
-			if (stk.size()) {
+			if (!stk.empty()) {
 				stk.pop();
 			}
 		}
@@ -24,7 +24,7 @@ int main(void) {
 		}
 	}
 
-	while (stk.size()) {
+	while (!stk.empty()) {
 		ret += stk.top();
 		stk.pop();
 	}
