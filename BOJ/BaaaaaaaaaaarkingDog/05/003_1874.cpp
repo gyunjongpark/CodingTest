@@ -24,7 +24,7 @@ int main() {
 		}
 
 		if (stk.top() != temp) {
-			flag = 1; //스택 수열이 성립되지 않아도 일단 입력받는다
+			flag = 1; //스택 수열이 성립되지 않아도 일단은 모두 입력받는다
 		}
 
 		if (stk.top() == temp) {
