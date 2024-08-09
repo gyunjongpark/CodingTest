@@ -1,4 +1,5 @@
-//정답은 아니지만 원리는 맞는데.. C++로 문자열 처리는 역시 힘들다! 파이썬으로 해야하나..?
+//C++로 문자열 처리는 역시 힘들다! 파이썬으로 해야하나..?
+
 #include<iostream>
 #include<vector>
 using namespace std;
@@ -14,7 +15,6 @@ void print(vector<int>& v) {
 	}
 
 	cout << "[";
-	
 	for (int i = 0; i < v.size() - 1; i++) {
 		cout << v[i] << ", ";
 	}
