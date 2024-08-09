@@ -22,6 +22,7 @@ int main() {
 	//O(NlogN)
 	for (int i = 0; i < m; i++) {
 		cin >> temp;
+		
 		if (mp[temp]) cout << 1 << ' '; //logN
 		else cout << 0 << ' ';
 	}
