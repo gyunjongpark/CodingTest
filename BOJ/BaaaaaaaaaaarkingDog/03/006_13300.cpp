@@ -14,9 +14,9 @@ int main() {
 		arr[s][g]++;
 	}
 
-	//s는 0 or 1, g는 1 ~ 6
+	
 	for (int i = 0; i < 2; i++) {
-		for (int j = 1; j < 7; j++) {
+		for (int j = 1; j < 7; j++) { //g는 1 ~ 6
 			if (arr[i][j] % k) {
 				ret += (arr[i][j] / k) + 1;
 			}
