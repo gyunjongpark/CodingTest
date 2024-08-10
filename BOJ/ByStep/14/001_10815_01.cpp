@@ -14,7 +14,7 @@ int main() {
 	//O(NlogN)
 	for (int i = 0; i < n; i++) {
 		cin >> temp;
-		mp[temp]++; //logN
+		mp[temp]++;
 	}
 
 	cin >> m;
@@ -23,7 +23,7 @@ int main() {
 	for (int i = 0; i < m; i++) {
 		cin >> temp;
 		
-		if (mp[temp]) cout << 1 << ' '; //logN
+		if (mp[temp]) cout << 1 << ' ';
 		else cout << 0 << ' ';
 	}
 
