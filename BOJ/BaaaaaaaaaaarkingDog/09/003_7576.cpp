@@ -64,7 +64,7 @@ int main() {
                 return 0;
             }
             else {
-                answer = max(answer, ret[i][j]); //모두 익어야 하므로 maximum
+                answer = max(answer, ret[i][j]); //모두 익어야 하므로 maximum 출력
             }
         }
     }
