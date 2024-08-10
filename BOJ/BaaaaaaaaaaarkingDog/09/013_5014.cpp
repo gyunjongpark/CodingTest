@@ -6,7 +6,7 @@ int f, s, g, u, d, visited[1000001];
 
 void bfs(int start) {
     visited[start] = 1;
-
+    
     queue<int> q;
     q.push(start);
 
@@ -25,7 +25,7 @@ void bfs(int start) {
             q.push(here - d);
         }
     }
-
+    
     return;
 }
 
@@ -37,7 +37,6 @@ int main() {
 
     if (s == g) {
         cout << 0;
-
         return 0;
     }
 
@@ -45,6 +44,6 @@ int main() {
 
     if (visited[g]) cout << visited[g] - 1;
     else cout << "use the stairs";
-        
+
     return 0;
 }
