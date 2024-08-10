@@ -20,7 +20,7 @@ int main() {
         if (s[i] == ')') {
             stk.pop();
 
-            if (s[i - 1] == '(') {
+            if (s[i - 1] == '(') { //레이저였다면
                 ret += stk.size();
             }
             else {
