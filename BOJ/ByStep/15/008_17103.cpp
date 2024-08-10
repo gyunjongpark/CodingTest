@@ -5,7 +5,7 @@ int t, n;
 bool chae[1000001];
 
 
-//n의 범위 100만까지 배열 chae 완성
+//n의 범위 100만까지 배열 완성
 void era() {
 	for (int i = 2; i <= 1000000; i++) {
 		chae[i] = true;
@@ -35,8 +35,9 @@ int main() {
 
 		int cnt = 0;
 
+		//골드바흐의 추측: 2보다 큰 짝수는 두 소수의 합으로 나타낼 수 있다
 		for (int i = 2; i <= n / 2; i++) {
-			if (chae[i] && chae[n - i]) { //골드바흐의 추측: 2보다 큰 짝수는 두 소수의 합으로 나타낼 수 있다.
+			if (chae[i] && chae[n - i]) {
 				cnt++;
 			}
 		}
