@@ -14,7 +14,6 @@ int main() {
 		arr[s][g]++;
 	}
 
-	
 	for (int i = 0; i < 2; i++) {
 		for (int j = 1; j < 7; j++) { //g는 1 ~ 6
 			if (arr[i][j] % k) {
