@@ -4,7 +4,7 @@
 using namespace std;
 
 int n, m, temp;
-vector<int> v, v1;
+vector<int> v;
 
 int main() {
 	ios_base::sync_with_stdio(false);
@@ -20,13 +20,10 @@ int main() {
 
 	cin >> m;
 
+	//upper_bound, lower_bound를 이용한 풀이
 	for (int i = 0; i < m; i++) {
 		cin >> temp;
-		v1.push_back(temp);
-	}
-
-	for (int a : v1) {
-		cout << upper_bound(v.begin(), v.end(), a) - lower_bound(v.begin(), v.end(), a) << ' ';
+		cout << upper_bound(v.begin(), v.end(), temp) - lower_bound(v.begin(), v.end(), temp) << ' ';
 	}
 
 	return 0;
