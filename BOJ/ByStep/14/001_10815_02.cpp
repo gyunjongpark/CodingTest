@@ -24,7 +24,7 @@ int main() {
 	for (int i = 0; i < m; i++) {
 		cin >> num;
 
-		//O(logN), 정렬된 배열에만 적용할 수 있다
+		//O(logN), binary_search는 정렬된 배열에만 적용할 수 있다
 		if (binary_search(v.begin(), v.end(), num)) {
 			cout << 1 << ' ';
 		}
