@@ -13,7 +13,7 @@ void bfs(int start) {
     while (!q.empty()) {
         int here = q.front(); q.pop();
 
-        if (here == g) return; //back tracking
+        if (here == g) break; //back tracking
 
         if (here + u <= f && !visited[here + u]) {
             visited[here + u] = visited[here] + 1;
