@@ -23,7 +23,9 @@ void bfs() {
             int nx = x + dx[i];
 
             if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue; //범위를 벗어나면 continue
-            if (ret[ny][nx] >= 0) continue; //초기 상태의 토마토가 아니라면 continue
+
+            //애초에 토마토가 들어있지 않았거나(a[i][j] = -1), 날짜가 지나서 익은 토마토라면
+            if (ret[ny][nx] >= 0) continue;
 
             ret[ny][nx] = ret[y][x] + 1;
             q.push({ ny,nx });
@@ -56,15 +58,17 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            if (ret[i][j] == -1) { //초기 상태에서 못 벗어난 토마토가 있다면 -1 출력
+            if (ret[i][j] == -1) { //토마토가 모두 익지는 못하는 상황이면 -1을 출력해야 한다
                 cout << -1;
+
                 return 0;
             }
             else {
-                answer = max(answer, ret[i][j]);
+                answer = max(answer, ret[i][j]); //모두 익어야 하므로 maximum
             }
         }
     }
+
     cout << answer;
 
     return 0;
