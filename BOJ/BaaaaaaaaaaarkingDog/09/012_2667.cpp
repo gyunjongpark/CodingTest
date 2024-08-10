@@ -13,7 +13,7 @@ vector<int> v;
 
 int dfs(int y, int x) {
     visited[y][x] = 1;
-
+    
     int ret = 1;
 
     for (int i = 0; i < 4; i++) {
@@ -47,9 +47,8 @@ int main() {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (a[i][j] == '1' && !visited[i][j]) {
-                ret++;
-
                 v.push_back(dfs(i, j));
+                ret++;
             }
         }
     }
