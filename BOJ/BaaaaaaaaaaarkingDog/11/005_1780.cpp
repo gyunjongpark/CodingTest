@@ -3,7 +3,7 @@ using namespace std;
 
 int n, a[2500][2500], ret_minus, ret_zero, ret_one;
 
-void recur(int y,int x, int n) {
+void recur(int y, int x, int n) {
 	if (n == 1) {
 		if (a[y][x] == -1) {
 			ret_minus++;
@@ -20,7 +20,7 @@ void recur(int y,int x, int n) {
 
 	for (int i = y; i < y + n; i++) {
 		for (int j = x; j < x + n; j++) {
-			if (a[y][x] != a[i][j]) { //9분할
+			if (a[y][x] != a[i][j]) {
 				recur(y, x, n / 3);
 				recur(y, x + n / 3, n / 3);
 				recur(y, x + 2 * n / 3, n / 3);
@@ -62,10 +62,10 @@ int main() {
 	}
 
 	recur(0, 0, n);
-  
+
 	cout << ret_minus << '\n';
 	cout << ret_zero << '\n';
 	cout << ret_one << '\n';
-  
+
 	return 0;
 }
