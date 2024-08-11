@@ -1,17 +1,18 @@
 #include<iostream>
 using namespace std;
-typedef long long ll;
+typedef unsigned long long ll;
 
 int a, b, c;
 
 ll go(int a, int b, int c) {
 	if (b == 1) return a % c;
 
-	ll ret = go(a, b / 2, c); //divide and conquer
-	ret = ret * ret % c;
-	if (b % 2) ret = ret * a % c; //홀수 승수인 경우 한번 더 연산
-
-	return ret;
+	if (b % 2) {
+		return (go(a, b / 2, c) * go(a, b / 2, c) % c) * a % c; //홀수 승수인 경우 한번 더 연산
+	}
+	else {
+		return go(a, b / 2, c) * go(a, b / 2, c) % c;
+	}
 }
 
 int main() {
@@ -20,6 +21,6 @@ int main() {
 
 	cin >> a >> b >> c;
 	cout << go(a, b, c);
-	
+
 	return 0;
 }
