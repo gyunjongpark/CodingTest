@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<queue>
-#include<tuple>
+#include<tuple> //tie
 using namespace std;
 
 const int dy[] = { -1,0,1,0 };
@@ -20,6 +20,7 @@ int bfs(int y, int x) {
 	while (!q.empty()) {
 		int y, x;
 		tie(y, x) = q.front(); q.pop();
+		
 		for (int i = 0; i < 4; i++) {
 			int ny = y + dy[i];
 			int nx = x + dx[i];
@@ -28,7 +29,7 @@ int bfs(int y, int x) {
 
 			if (a[ny][nx] == 1 && !visited[ny][nx]) {
 				visited[ny][nx] = 1; //방문 처리
-				ret += 1; //방문한 배열에 대하여 + 1
+				ret++;
 				q.push({ ny, nx });
 			}
 		}
