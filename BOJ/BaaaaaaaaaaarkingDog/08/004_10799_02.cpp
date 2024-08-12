@@ -2,16 +2,16 @@
 #include<stack>
 using namespace std;
 
-string s;
 stack<char> stk;
+string s;
 int ret;
 
 int main() {
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL); cout.tie(NULL);
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL); cout.tie(NULL);
 
     cin >> s;
-    
+
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '(') {
             stk.push(s[i]);
@@ -29,7 +29,7 @@ int main() {
         }
     }
 
-	cout << ret;
+    cout << ret;
 
-	return 0;
+    return 0;
 }
