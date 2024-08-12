@@ -7,13 +7,12 @@ string str;
 bool flag;
 int ret;
 
-
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
 
 	cin >> str;
-	
+
 	int num = 1; //괄호의 값 계산을 위한 num
 
 	for (int i = 0; i < str.size(); i++) {
@@ -30,13 +29,14 @@ int main() {
 				flag = 1;
 				break;
 			}
+
 			//if문을 통과했다면 반드시 stk.top()=='('이다
 
 			if (str[i - 1] == '(') { //직전 문자와 쌍을 이룬다면
 				ret += num;
 			}
 
-			stk.pop();
+			stk.pop(); //원상 복구
 			num /= 2; //원상 복구
 		}
 		else if (str[i] == ']') {
@@ -44,13 +44,14 @@ int main() {
 				flag = 1;
 				break;
 			}
+
 			//if문을 통과했다면 반드시 stk.top()=='['이다
 
 			if (str[i - 1] == '[') { //직전 문자와 쌍을 이룬다면
 				ret += num;
 			}
 
-			stk.pop();
+			stk.pop(); //원상 복구
 			num /= 3; //원상 복구
 		}
 	}
