@@ -38,11 +38,11 @@ int main(void) {
 		bool flag = 0; bool reversed = 0;
 
 		for (int i = 1; i < x.size() - 1; i++) {
-			test_str += x[i]; //괄호 [] 제거하고 test_str에 저장
+			test_str += x[i]; //바깥 괄호 [ ] 제거하고 test_str에 저장
 		}
 
 		if (!test_str.empty()) {
-			ret_str = split(test_str, ","); //,를 기준으로 문자열 split 후 ret_str에 저장
+			ret_str = split(test_str, ","); //,를 기준으로 test_str 문자열 split 후 ret_str에 저장
 		}
 
 		for (char c : p) {
@@ -63,9 +63,9 @@ int main(void) {
 			}
 		}
 
-		if (reversed) reverse(ret_str.begin(), ret_str.end()); //최종 출력을 위한 reverse 연산
+		if (reversed) reverse(ret_str.begin(), ret_str.end()); //최종 문자열 출력을 위한 reverse 연산
 
-		if (flag) cout << "error" << '\n'; //배열에 값이 없는데 D가 호출될 경우 error 출력
+		if (flag) cout << "error" << '\n'; //배열에 값이 없는데 D가 호출된 경우 error 출력
 		else {
 			if (ret_str.empty()) { //배열에 값이 없는데 R이 호출될 경우 [] 출력
 				cout << "[]" << '\n';
