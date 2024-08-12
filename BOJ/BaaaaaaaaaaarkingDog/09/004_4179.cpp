@@ -9,9 +9,9 @@ const int dx[] = { 0,1,0,-1 };
 const int INF = 1e9;
 int ret, n, m, fire_visited[1001][1001], j_visited[1001][1001];
 char a[1001][1001];
-string s;
 pair<int, int> jPos;
 vector<pair<int, int>> firePos;
+string s;
 
 void fire_bfs() {
     for (pair<int, int> fire : firePos) {
@@ -104,12 +104,8 @@ int main() {
     fire_bfs(); //시작점이 여러 개인 bfs
     j_bfs(jPos.first, jPos.second);
 
-    if (ret) {
-        cout << ret;
-    }
-    else {
-        cout << "IMPOSSIBLE";
-    }
+    if (ret) cout << ret;
+    else cout << "IMPOSSIBLE";
 
     return 0;
 }
