@@ -3,8 +3,8 @@ using namespace std;
 
 const int dy[] = { -1,0,1,0 };
 const int dx[] = { 0,1,0,-1 };
-int t, n, m, k, x, y, ret, a[51][51];
 bool visited[51][51];
+int t, n, m, k, x, y, ret, a[51][51];
 
 void dfs(int y, int x) {
     visited[y][x] = 1;
