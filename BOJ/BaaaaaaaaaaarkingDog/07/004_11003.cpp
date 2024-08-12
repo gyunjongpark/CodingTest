@@ -15,15 +15,15 @@ int main() {
         cin >> temp;
 
         while (dq.size() && dq.back().second >= temp) {
-            dq.pop_back(); //구간마다 최솟값이 아닌 수는 바로 pop_back
+            dq.pop_back(); //입력된 temp보다 dq에 들어있는 값이 크다면 바로 pop_back
+            //dq에 들어있는 값이 temp를 포함해서 최소가 될 때까지 진행
         }
 
         dq.push_back({ i,temp });
 
         if (dq.front().first <= i - L) {
-            
             //구간의 시작점을 맞추기 위한 pop_front
-            dq.pop_front(); //i가 L 이상일 경우 매번 갱신
+            dq.pop_front(); //i가 L 이상일 때부터는 매번 갱신
         }
 
         cout << dq.front().second << ' ';
