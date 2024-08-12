@@ -18,16 +18,17 @@ int main(void) {
 	for (int i = 0; i < m; i++) {
 		cin >> val;
 
-		for (int i = 0; i < dq.size(); i++) {
+		for (int i = 0; i < dq.size(); i++) { //deque는 size 연산이 가능하다
 			if (dq[i] == val) {
 				pos = i;
+				break;
 			}
 		}
 
 		if (val == dq.front()) {
 			dq.pop_front();
 		}
-		else if (pos <= dq.size() / 2) {
+		else if (pos <= dq.size() / 2) { //앞쪽이라면 앞에서 pop이 빠르다
 			while (val != dq.front()) {
 				dq.push_back(dq.front());
 				dq.pop_front();
@@ -37,7 +38,7 @@ int main(void) {
 
 			dq.pop_front();
 		}
-		else if (pos > dq.size() / 2) {
+		else if (pos > dq.size() / 2) { //뒷쪽이라면 뒤에서 pop이 빠르다
 			while (val != dq.front()) {
 				dq.push_front(dq.back());
 				dq.pop_back();
