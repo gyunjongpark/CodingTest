@@ -24,7 +24,7 @@ void bfs() {
 
             if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue; //범위를 벗어나면 continue
 
-            //애초에 토마토가 들어있지 않았거나(a[i][j] = -1), 날짜가 지나서 익은 토마토라면
+            //애초에 토마토가 들어있지 않았거나(a[i][j] = -1 -> ret[i][j] = 0), 날짜가 지나서 익은 토마토라면
             if (ret[ny][nx] >= 0) continue;
 
             ret[ny][nx] = ret[y][x] + 1;
