@@ -21,7 +21,7 @@ int main(void) {
 		while (stk.size() && stk.top().first <= h) { //현재 입력된 키가 이전의 값들보다 같거나 크다면
 			ret += stk.top().second; //현재 키로 볼 수 있는 사람들의 수를 ret에 추가
 
-			if (stk.top().first == h) { //현재 키가 이전 키와 같다면, 이전 키의 사람이 볼 수 있었던 사람들을 추가하여 현재 키의 cnt로 갱신
+			if (stk.top().first == h) { //현재 키가 이전 키와 정확히 같다면, 이전 키의 사람이 볼 수 있었던 사람들(cnt)을 현재 키의 cnt로 갱신
 				cnt += stk.top().second;
 			}
 
