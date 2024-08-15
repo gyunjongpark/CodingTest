@@ -17,7 +17,7 @@ int main() {
 		cin >> a[i];
 
 		while (!stk.empty() && stk.top().first < a[i]) {
-			ret[stk.top().second] = a[i];
+			ret[stk.top().second] = a[i]; //결과 배열을 따로 구현할 생각을 한다
 			stk.pop();
 		}
 
