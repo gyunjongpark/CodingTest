@@ -8,11 +8,13 @@ int main() {
 	cin.tie(NULL); cout.tie(NULL);
 
 	cin >> n;
+	
 	for (int i = 0; i < n; i++) {
 		cin >> a[i];
 	}
 
 	cin >> v;
+	
 	for (int i = 0; i < n; i++) {
 		if (v == a[i]) cnt++;
 	}
