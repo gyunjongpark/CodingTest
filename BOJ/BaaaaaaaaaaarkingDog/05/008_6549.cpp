@@ -1,7 +1,7 @@
 #include<iostream>
 #include<stack>
 using namespace std;
-typedef long long ll;
+typedef unsigned long long ll;
 
 int n, h, idx; //init
 
@@ -22,8 +22,7 @@ int main(void) {
 
 			idx = i;
 
-			while (!stk.empty() && stk.top().first >= h) {
-				//직전 히스토그램까지 중에서 역순으로 넓이 조사
+			while (!stk.empty() && stk.top().first >= h) { //직전 히스토그램까지 중에서 역순으로 넓이 조사
 				ret = max(ret, (i - stk.top().second) * stk.top().first);
 
 				idx = stk.top().second;
