@@ -40,9 +40,9 @@ void bfs(int num) { //섬의 번호를 인자로 받는다
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            if (a[i][j] == num) { //섬에서 출발
+            if (a[i][j] == num) { //섬이라면
                 visited[i][j] = 1;
-                q.push({ { i,j }, 0 });
+                q.push({ { i,j }, 0 }); //출발 직전 섬에서의 dist는 0으로 초기화
             }
         }
     }
@@ -50,23 +50,24 @@ void bfs(int num) { //섬의 번호를 인자로 받는다
     while (!q.empty()) {
         int y, x, dist;
         tie(y, x) = q.front().first; dist = q.front().second; q.pop();
-        
+
         for (int i = 0; i < 4; i++) {
             int ny = y + dy[i];
             int nx = x + dx[i];
 
             if (ny < 0 || ny >= n || nx < 0 || nx >= n) continue;
 
-            //바다도 아니고 자신의 섬도 아닌 다른 섬에 도착한다면
+            //바다도 아니고 자신의 섬도 아니라면... 다른 섬에 도착한 것이다!
             if (a[ny][nx] != 0 && a[ny][nx] != num) {
-                ret = min(ret, dist);
+                ret = min(ret, dist); //최소 거리 갱신
                 return; //다리를 놓았으므로 return
             }
 
-            if (!visited[ny][nx]) {
+            //바다라면
+            if (!a[ny][nx] && !visited[ny][nx]) {
                 visited[ny][nx] = 1;
                 q.push({ { ny,nx }, dist + 1 });
-            }          
+            }
         }
     }
 
@@ -84,14 +85,14 @@ int main() {
             cin >> a[i][j];
         }
     }
-    
+
     int cnt = 2; //섬을 구분하기 위한 라벨링 변수 cnt
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (a[i][j] == 1) { //섬이라면
                 label_land(i, j, cnt);
-                cnt++; //cnt를 증가시켜 다른 섬들과 구별하기
+                cnt++; //cnt를 증가시켜 다른 섬들과 구별
             }
         }
     }
