@@ -1,10 +1,8 @@
 #include<iostream>
-#include<tuple>
 using namespace std;
 
 const int dy[] = { -1,0,1,0 };
 const int dx[] = { 0,1,0,-1 };
-
 int n, m, ret_time, a[301][301], temp[301][301];
 bool visited[301][301];
 
@@ -25,12 +23,12 @@ void dfs(int y, int x) {
     return;
 }
 
-void melt() {
+void melt() { //temp 배열로 구상 후 a 배열로 옮기기
     fill(&temp[0][0], &temp[0][0] + 301 * 301, 0);
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            if (a[i][j] > 0) {
+            if (a[i][j]) { //빙산일 경우 네 방향으로 바다 조사
                 int sea_cnt = 0;
 
                 int y, x;
@@ -47,7 +45,7 @@ void melt() {
                     }
                 }
 
-                temp[y][x] = a[y][x] - sea_cnt;
+                temp[y][x] = a[y][x] - sea_cnt; //인접한 바다의 수만큼 빙산에서 차감
                 if (temp[y][x] < 0) temp[y][x] = 0;
             }
         }
@@ -55,7 +53,7 @@ void melt() {
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            a[i][j] = temp[i][j];
+            a[i][j] = temp[i][j]; //원본 배열 a 수정
         }
     }
 }
@@ -74,12 +72,12 @@ int main() {
     }
 
     while (true) {
-        int ret = 0;
+        int ret = 0; //TC마다 생성된 빙하의 개수
         fill(&visited[0][0], &visited[0][0] + 301 * 301, 0);
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                if (a[i][j] && !visited[i][j]) { //빙산이라면 dfs 시작
+                if (a[i][j] && !visited[i][j]) { //빙산일 경우 dfs 시작
                     dfs(i, j);
                     ret++;
                 }
