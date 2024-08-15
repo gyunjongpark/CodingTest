@@ -22,7 +22,7 @@ int main() {
         dq.push_back({ i,temp });
 
         if (dq.front().first <= i - L) {
-            //구간의 시작점을 맞추기 위한 pop_front
+            //비교 구간의 시작점을 맞추기 위한 pop_front
             dq.pop_front(); //i가 L 이상일 때부터는 매번 갱신
         }
 
