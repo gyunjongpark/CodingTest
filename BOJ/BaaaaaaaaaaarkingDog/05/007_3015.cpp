@@ -1,7 +1,7 @@
 #include<iostream>
 #include<stack>
 using namespace std;
-typedef long long ll;
+typedef unsigned long long ll;
 
 int n, h;
 ll ret;
