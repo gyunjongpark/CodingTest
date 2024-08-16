@@ -66,8 +66,8 @@ void s_bfs(int y, int x) {
             int nx = x + dx[i];
 
             if (ny < 0 || ny >= m || nx < 0 || nx >= n) continue;
-            if (fire_visited[ny][nx] <= s_visited[y][x] + 1) continue; //이미 불이 먼저 퍼졌다면
             if (s_visited[ny][nx] || a[ny][nx] == '#') continue;
+            if (fire_visited[ny][nx] <= s_visited[y][x] + 1) continue; //이미 불이 먼저 퍼졌다면
 
             s_visited[ny][nx] = s_visited[y][x] + 1;
             q.push({ ny,nx });
