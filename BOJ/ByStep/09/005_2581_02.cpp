@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 
-int n, m, sum, chae[10001];
+int n, m, sum, chae[10004]; //범위는 넉넉히 잡는다
 int minVal = 10001;
 
 vector<int> era(int n) { //에라토스테네스의 체
