@@ -84,6 +84,7 @@ int main() {
     cin >> t;
 
     while (t--) {
+        
         // s_visited와 비교해서 최솟값이 살아남으므로 maximum INF로 초기화
         fill(&fire_visited[0][0], &fire_visited[0][0] + 1001 * 1001, INF);
         fill(&s_visited[0][0], &s_visited[0][0] + 1001 * 1001, 0);
