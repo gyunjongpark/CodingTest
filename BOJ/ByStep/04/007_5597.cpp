@@ -9,7 +9,7 @@ int main() {
 
 	for (int i = 0; i < 28; i++) {
 		cin >> num;
-		arr[num] = num;
+		arr[num] = num; //1번부터 30번까지 출석번호가 붙어 있다
 	}
 
 	for (int i = 1; i <= 30; i++) {
