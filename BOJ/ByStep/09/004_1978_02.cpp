@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 
-int n, temp, ret, chae[100001];
+int n, temp, ret, chae[1004];
 
 void era(int n) { //에라토스테네스의 체로 chae 배열 먼저 완성
 	for (int i = 2; i <= n; i++) {
