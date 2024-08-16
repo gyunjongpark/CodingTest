@@ -15,6 +15,7 @@ void run(int here) {
         state[cur] = VISITED;
         cur = a[cur];
 
+        //back tracking
         if (state[cur] == CYCLE_IN || state[cur] == NOT_CYCLE_IN) {
             cur = here;
 
@@ -26,24 +27,31 @@ void run(int here) {
             return;
         }
 
+        //사이클이 일부 생성된 경우 아무리 돌아도 here로 오지 않는다
+        //일부만 cycle 처리
         if (state[cur] == VISITED && cur != here) {
             while (state[cur] != CYCLE_IN) {
                 state[cur] = CYCLE_IN;
                 cur = a[cur];
             }
+
             cur = here;
+
             while (state[cur] != CYCLE_IN) {
                 state[cur] = NOT_CYCLE_IN;
                 cur = a[cur];
             }
+
             return;
         }
 
+        //사이클이 생성된 경우 cur는 돌고돌아 here로 돌아온다
         if (state[cur] == VISITED && cur == here) {
             while (state[cur] != CYCLE_IN) {
                 state[cur] = CYCLE_IN;
                 cur = a[cur];
             }
+
             return;
         }        
     }
