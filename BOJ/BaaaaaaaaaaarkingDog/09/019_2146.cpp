@@ -25,9 +25,9 @@ void label_land(int y, int x, int cnt) {
 
             if (ny < 0 || ny >= n || nx < 0 || nx >= n) continue;
 
-            if (a[ny][nx] == 1) { //아직 라벨링을 하지 않은 섬이라면
+            if (a[ny][nx] == 1) {
                 a[ny][nx] = cnt;
-                q.push({ ny,nx }); //라벨링하고 push
+                q.push({ ny,nx });
             }
         }
     }
@@ -64,7 +64,7 @@ void bfs(int num) { //섬의 번호를 인자로 받는다
             }
 
             //바다라면
-            if (!a[ny][nx] && !visited[ny][nx]) {
+            if (a[ny][nx] == 0 && !visited[ny][nx]) {
                 visited[ny][nx] = 1;
                 q.push({ { ny,nx }, dist + 1 });
             }
@@ -91,7 +91,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (a[i][j] == 1) { //섬이라면
-                label_land(i, j, cnt);
+                label_land(i, j, cnt); //라벨링 시작
                 cnt++; //cnt를 증가시켜 다른 섬들과 구별
             }
         }
