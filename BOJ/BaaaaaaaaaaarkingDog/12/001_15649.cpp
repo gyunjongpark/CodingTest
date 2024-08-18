@@ -1,5 +1,5 @@
-#include <iostream>
-#include <vector>
+#include<iostream>
+#include<vector>
 using namespace std;
 
 int n, m; //n개 중에서 m개를 뽑는다
@@ -16,7 +16,7 @@ void print(vector<int>& v) {
 void combi(int start, vector<int>& v, vector<bool>& visited) {
     if (v.size() == m) {
         print(v);
-
+        
         return;
     }
 
