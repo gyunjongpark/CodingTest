@@ -21,15 +21,15 @@ void combi(int start, vector<int>& v, vector<bool>& visited) {
     }
 
     for (int i = start + 1; i <= n; i++) {
-        if (visited[i]) continue;
+        //if (visited[i]) continue;
 
         v.push_back(i);
-        visited[i] = true;
+        //visited[i] = true;
 
-        combi(i, v, visited); //다음 i는 현재 i보다 큰 수부터 순회
+        combi(i, v, visited); //다음 i는 현재 i보다 큰 수부터 순회하므로 visited도 필요없다
 
         v.pop_back();
-        visited[i] = false;
+        //visited[i] = false;
     }
 
     return;
