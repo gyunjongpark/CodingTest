@@ -4,15 +4,23 @@ using namespace std;
 
 int n, m; //n개 중에서 m개를 뽑는다
 
+void print(vector<int>& v) {
+    for (int i : v) {
+        cout << i << ' ';
+    }
+    cout << '\n';
+
+    return;
+}
+
 void combi(int start, vector<int>& v, vector<bool>& visited) {
     if (v.size() == m) {
-        for (int i : v) cout << i << ' ';
-        cout << '\n';
+        print(v);
 
         return;
     }
 
-    for (int i = start + 1; i <= n; i++) { //1 ~ n까지의 수
+    for (int i = start + 1; i <= n; i++) {
         if (visited[i]) continue;
 
         v.push_back(i);
@@ -34,9 +42,9 @@ int main() {
     cin >> n >> m; //1 ~ n까지의 수 중에서 m개를 뽑는다
 
     vector<int> v;
-    vector<bool> visited(n + 1, false); //중복 방지를 위한 visited 배열
+    vector<bool> visited(n + 1, false); //중복 방지를 위한 visited
 
-    combi(0, v, visited);
+    combi(0, v, visited); //1 ~ n까지의 수이므로 start = 0
 
     return 0;
 }
