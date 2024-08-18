@@ -26,7 +26,7 @@ void combi(int start, vector<int>& v, vector<bool>& visited) {
         v.push_back(i);
         //visited[i] = true;
 
-        combi(start, v, visited); //다음 수는 현재 i와 관계없이 처음부터 순회
+        combi(start, v, visited); //다음 i는 현재 i와 관계없이 처음부터 순회
 
         v.pop_back();
         //visited[i] = false;
