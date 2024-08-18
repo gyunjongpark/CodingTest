@@ -1,5 +1,5 @@
-#include <iostream>
-#include <vector>
+#include<iostream>
+#include<vector>
 using namespace std;
 
 int n, m; //n개 중에서 m개를 뽑는다
