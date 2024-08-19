@@ -20,7 +20,7 @@ int bfs() {
         int y, x, broken;
         tie(y, x, broken) = q.front(); q.pop();
 
-        if (y == n - 1 && x == m - 1) { //종료 조건
+        if (y == n - 1 && x == m - 1) { //broken 여부와 관계없이 (n,m) 위치에 도달했다면 종료
             return visited[y][x][broken];
         }
 
@@ -36,13 +36,13 @@ int bfs() {
                 q.push({ ny,nx,broken });
             }
 
-            //위 if문에서 벽에 막혔을 경우 딱 한번 벽을 부술 수 있다
-            //bfs 자체가 최단 경로를 구하는 방법이므로 모든 벽을 선택하는 경우를 포함한 결과를 반환한다
+            //위 if문에서 벽에 막혔을 경우 딱 한 번 벽을 부술 수 있다
+            //bfs 자체가 최단 경로를 구하는 방법이므로 모든 벽을 선택하는 경우 중 최단 거리를 반환한다
 
-            //벽을 부술 기회가 남아있고, a[ny][nx]가 1이면서 방문하지 않았다면
+            //벽을 부술 기회가 남아있고, a[ny][nx]가 1이면서(벽) 방문하지 않았다면
             if (!broken && a[ny][nx] == '1' && !visited[ny][nx][1]) {
                 visited[ny][nx][1] = visited[y][x][broken] + 1;
-                q.push({ ny,nx,1 }); //이후 bfs는 broken = 1인 채로 진행되므로 처음 if문만 유효하게 된다
+                q.push({ ny,nx,1 }); //이후 bfs는 broken = 1인 채로 진행되므로 해당 if문은 더이상 쓸모없게 된다
             }
         }
     }
