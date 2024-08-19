@@ -1,12 +1,11 @@
 #include<iostream>
 using namespace std;
 
-int a[100001], state[100001], t, n;
-
 const int NOT_VISITED = 0;
 const int VISITED = 1;
-const int CYCLE_IN = 2;
-const int NOT_CYCLE_IN = 3;
+const int IN_CYCLE = 2;
+const int NOT_IN_CYCLE = 3;
+int t, n, a[100001], state[100001];
 
 void run(int here) {
     int cur = here;
@@ -15,44 +14,47 @@ void run(int here) {
         state[cur] = VISITED;
         cur = a[cur];
 
-        if (state[cur] == CYCLE_IN || state[cur] == NOT_CYCLE_IN) {
-            cur = here;
-
-            while (state[cur] == VISITED) {
-                state[cur] = NOT_CYCLE_IN;
-                cur = a[cur];
-            }
-
-            return;
-        }
-
-        //사이클이 일부 생성된 경우 아무리 돌아도 here로 오지 않는다
-        //일부만 cycle 처리
-        if (state[cur] == VISITED && cur != here) {
-            while (state[cur] != CYCLE_IN) {
-                state[cur] = CYCLE_IN;
-                cur = a[cur];
-            }
-
-            cur = here;
-
-            while (state[cur] != CYCLE_IN) {
-                state[cur] = NOT_CYCLE_IN;
-                cur = a[cur];
-            }
-
-            return;
-        }
-
-        //사이클이 생성된 경우 cur는 돌고돌아 here로 돌아온다
+        //돌고돌아 cur를 재방문했는데 cur = here인 경우
+        //here는 사이클에 속해있다!
         if (state[cur] == VISITED && cur == here) {
-            while (state[cur] != CYCLE_IN) {
-                state[cur] = CYCLE_IN;
+            while (state[cur] != IN_CYCLE) { //사이클을 전부 돌 때까지
+                state[cur] = IN_CYCLE; //사이클에 속하는 state를 IN_CYCLE으로 변경
                 cur = a[cur];
             }
 
             return;
-        }        
+        }
+
+        //돌고돌아 cur를 재방문했지만 cur 자체가 here가 아닌 경우
+        //here는 사이클이 아니다!
+        if (state[cur] == VISITED && cur != here) {
+            while (state[cur] != IN_CYCLE) { //사이클을 전부 돌 때까지
+                state[cur] = IN_CYCLE; //사이클에 속하는 state를 visited에서 IN_CYCLE으로 변경
+                cur = a[cur];
+            }
+
+            cur = here; //here에서 다시 시작
+
+            while (state[cur] != IN_CYCLE) { //IN_CYCLE 상태인 cur를 만나기 전까지(사이클에 속하지 않는 state를 만날 동안)
+                state[cur] = NOT_IN_CYCLE; //here부터 시작해서 state를 visited에서 NOT_IN_CYCLE으로 변경
+                cur = a[cur];
+            }
+
+            return;
+        }
+
+        if (state[cur] == IN_CYCLE || state[cur] == NOT_IN_CYCLE) { //a[here] -> cur로 정의되는 state[cur]가 이미 사이클인지 아닌지 판별났을 때
+            cur = here; //here부터 다시 시작
+
+            //here가 사이클이라면 첫번째 if문에서 이미 state[here]가 VISITED가 아닌 IN_CYCLE이 되어야 하므로 NOT_IN_CYCLE. 즉, 끼어들 수 없다는 의미가 된다
+            //사이클이 아니라면 당연히 NOT_IN_CYCLE 처리
+            while (state[cur] == VISITED) { //사이클 소속 여부에 관계없이 방문만 되어있는 state라면 전부 NOT_IN_CYCLE으로 변경
+                state[cur] = NOT_IN_CYCLE;
+                cur = a[cur];
+            }
+
+            return;
+        }
     }
 }
 
@@ -65,25 +67,25 @@ int main() {
     while (t--) {
         cin >> n;
 
-        fill(&state[0], &state[0] + 100001, 0);
+        fill(&state[0], &state[0] + 100001, 0); //init
+        int ret = 0; //init
 
         for (int i = 1; i <= n; i++) {
             cin >> a[i];
         }
-        
+
         for (int i = 1; i <= n; i++) {
             if (state[i] == NOT_VISITED) { //방문하지 않았다면
                 run(i);
             }
         }
 
-        int ret = 0;
-
         for (int i = 1; i <= n; i++) {
-            if (state[i] == NOT_CYCLE_IN) ret++;
+            if (state[i] == NOT_IN_CYCLE) ret++;
         }
 
         cout << ret << '\n';
     }
+
     return 0;
 }
