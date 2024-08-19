@@ -15,7 +15,6 @@ void run(int here) {
         state[cur] = VISITED;
         cur = a[cur];
 
-        //back tracking
         if (state[cur] == CYCLE_IN || state[cur] == NOT_CYCLE_IN) {
             cur = here;
 
@@ -86,6 +85,5 @@ int main() {
 
         cout << ret << '\n';
     }
-
     return 0;
 }
