@@ -15,7 +15,7 @@ int bfs(int y, int x) {
 	queue<pair<int, int>> q;
 	q.push({ y,x });
 
-	int ret = 1; //그림의 넓이 계산
+	int ret = 1; //그림의 넓이 계산을 위한 ret
 
 	while (!q.empty()) {
 		int y, x;
@@ -28,7 +28,7 @@ int bfs(int y, int x) {
 			if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue;
 
 			if (a[ny][nx] == 1 && !visited[ny][nx]) {
-				visited[ny][nx] = 1; //방문 처리
+				visited[ny][nx] = 1;
 				ret++;
 				q.push({ ny, nx });
 			}
