@@ -61,6 +61,7 @@ void melt() { //temp 배열로 구상 후 a 배열로 옮기기
         }
     }
 
+    //배열 옮기기
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
             a[i][j] = temp[i][j];
@@ -69,7 +70,6 @@ void melt() { //temp 배열로 구상 후 a 배열로 옮기기
 
     return;
 }
-
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -84,8 +84,8 @@ int main() {
     }
 
     while (true) {
-        int ret = 0; //TC마다 생성된 빙하의 개수
-        fill(&visited[0][0], &visited[0][0] + 301 * 301, 0);
+        int ret = 0; //test를 진행할 때마다 생성된 빙하의 개수 init
+        fill(&visited[0][0], &visited[0][0] + 301 * 301, 0); //init
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
