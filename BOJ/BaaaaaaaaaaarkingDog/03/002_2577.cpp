@@ -9,6 +9,7 @@ int main() {
 	cin.tie(NULL); cout.tie(NULL);
 
 	cin >> a >> b >> c;
+	
 	ret = a * b * c;
 	string str = to_string(ret); //10억 이하, 최대 10자리 문자열
 	
