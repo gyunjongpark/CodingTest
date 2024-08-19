@@ -21,6 +21,7 @@ int main() {
 	}
 
 	ret = max(ret, (cnt[6] + cnt[9] + 1) / 2);
+	
 	cout << ret;
 
 	return 0;
