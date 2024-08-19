@@ -89,8 +89,7 @@ int main() {
             a[i][j] = s[j];
         }
     }
-
-    //n^2 * dfs(n^2) = n^4 -> n은 100 이하이므로 1초 간당간당하게 통과
+    
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (a[i][j] == 'R' && !visited[i][j]) {
