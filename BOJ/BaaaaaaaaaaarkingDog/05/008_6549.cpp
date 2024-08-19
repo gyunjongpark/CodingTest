@@ -3,9 +3,9 @@
 using namespace std;
 typedef unsigned long long ll;
 
-int n, h, idx; //init
+int n, h, idx;
 
-int main(void) {
+int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
 
@@ -22,10 +22,11 @@ int main(void) {
 
 			idx = i;
 
-			while (!stk.empty() && stk.top().first >= h) { //직전 히스토그램까지 중에서 역순으로 넓이 조사
+			while (!stk.empty() && stk.top().first >= h) { //입력된 높이가 현재 저장된 높이보다 작다면 중간 검사
+				//현재 저장된 위치부터 역으로 만들 수 있는 직사각형 전부 조사 후 ret 갱신
 				ret = max(ret, (i - stk.top().second) * stk.top().first);
 
-				idx = stk.top().second;
+				idx = stk.top().second; //현재까지 나온 높이 중 최저점을 높이로 삼는 가로로 긴 직사각형을 계산하기 위해
 
 				stk.pop();
 			}
@@ -33,13 +34,13 @@ int main(void) {
 			stk.push({ h,idx });
 		}
 
-		while (!stk.empty()) { //마지막 기둥에 대하여 계산
+		while (!stk.empty()) { //마지막 기둥에 대해서 검사
 			ret = max(ret, (n - stk.top().second) * stk.top().first);
 
 			stk.pop();
 		}
 
-		cout << ret << '\n';
+		cout << ret<<'\n';
 	}
 
 	return 0;
