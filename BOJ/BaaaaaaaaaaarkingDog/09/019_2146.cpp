@@ -42,7 +42,7 @@ void bfs(int num) { //섬의 번호를 인자로 받는다
         for (int j = 0; j < n; j++) {
             if (a[i][j] == num) { //섬이라면
                 visited[i][j] = 1;
-                q.push({ { i,j }, 0 }); //출발 직전 섬에서의 dist는 0으로 초기화
+                q.push({ { i,j }, 0 }); //섬 내에서의 dist는 0으로 초기화
             }
         }
     }
@@ -59,6 +59,7 @@ void bfs(int num) { //섬의 번호를 인자로 받는다
 
             //바다도 아니고 자신의 섬도 아니라면... 다른 섬에 도착한 것이다!
             if (a[ny][nx] != 0 && a[ny][nx] != num) {
+                visited[ny][nx] = 1;
                 ret = min(ret, dist); //최소 거리 갱신
                 return; //다리를 놓았으므로 return
             }
