@@ -5,7 +5,6 @@ using namespace std;
 stack<int> stk;
 string ret;
 int n, temp;
-int cnt = 1;
 bool flag;
 
 int main() {
@@ -14,6 +13,8 @@ int main() {
 
 	cin >> n;
 
+	int cnt = 1; //부호 출력을 위한 cnt 변수
+	
 	while (n--) {
 		cin >> temp;
 
