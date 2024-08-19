@@ -36,12 +36,18 @@ void label_land(int y, int x, int cnt) {
 }
 
 void bfs(int num) { //섬의 번호를 인자로 받는다
-    queue<pair<pair<int, int>, int>> q; //queue<좌표(y,x),두 섬 사이의 거리>
-
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (a[i][j] == num) { //섬이라면
                 visited[i][j] = 1;
+            }
+        }
+    }
+    
+    queue<pair<pair<int, int>, int>> q; //queue<좌표(y,x),두 섬 사이의 거리>
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (a[i][j] == num) { //섬이라면
                 q.push({ { i,j }, 0 }); //섬 내에서의 dist는 0으로 초기화
             }
         }
