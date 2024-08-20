@@ -4,9 +4,9 @@ WHERE ITEM_INFO.ITEM_ID IN (
                             SELECT ITEM_TREE.ITEM_ID
                             FROM ITEM_TREE
                             WHERE ITEM_TREE.PARENT_ITEM_ID IN (
-                                                              SELECT ITEM_ID
-                                                              FROM ITEM_INFO
-                                                              WHERE RARITY = 'RARE'
+                                                               SELECT ITEM_ID
+                                                               FROM ITEM_INFO
+                                                               WHERE RARITY = 'RARE'
                                                               )
                            )
 ORDER BY ITEM_INFO.ITEM_ID DESC;
