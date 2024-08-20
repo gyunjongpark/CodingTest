@@ -12,7 +12,7 @@ WITH RECURSIVE PARENT AS (
                           FROM ECOLI_DATA CHILD, PARENT
                           WHERE PARENT.ID = CHILD.PARENT_ID
 )
-SELECT COUNT(ID) AS COUNT, GENERATION -- 결과 테이블 생성
+SELECT COUNT(ID) AS COUNT, GENERATION -- 위 재귀 테이블을 기반으로 결과 테이블 생성
 FROM PARENT
 WHERE ID NOT IN (
                  SELECT IFNULL(PARENT_ID, 0) -- PARENT_ID가 NULL이 아닌 행의 ID
