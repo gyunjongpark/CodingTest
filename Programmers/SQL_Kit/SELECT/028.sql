@@ -8,9 +8,11 @@ ORDER BY ID;
 
 /*
 CASE
-    WHEN 값을 비교하는 구문 THEN 값 대신 나타낼 문자 값
+    WHEN 값을 비교하는 구문 THEN 대신 나타낼 값
     .
     .
-    ELSE 값 대신 나타낼 문자 값
+    ELSE 대신 나타낼 값
 END AS 대신 나타낼 레이블 명
+
+-> CASE - END 문이 하나의 속성이 된다
 */
