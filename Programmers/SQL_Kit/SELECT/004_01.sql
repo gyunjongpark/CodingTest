@@ -3,5 +3,6 @@ FROM MEMBER_PROFILE
 WHERE MONTH(DATE_OF_BIRTH) = 3 AND GENDER = 'W' AND TLNO IS NOT NULL
 ORDER BY MEMBER_ID;
 
--- MONTH(속성) : 속성에서 '월'만 추출. YEAR(속성), DAY(속성) ...
+-- MONTH(DATE 타입의 속성) : 속성에서 '월'만 추출. YEAR(DATE 타입의 속성), DAY(DATE 타입의 속성) ...
+-- DATE, DATETIME
 -- IS NULL, IS NOT NULL
