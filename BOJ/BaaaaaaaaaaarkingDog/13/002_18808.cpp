@@ -27,22 +27,14 @@ bool postable(int y, int x) {
 	for (int i = 0; i < r; i++) {
 		for (int j = 0; j < c; j++) {
 			//이미 note가 1이라면(하나라도 겹친다면) 온전히 못 붙인다
-			if (note[y+i][x+j] == 1 && paper[i][j] == 1) {
+			if (note[y + i][x + j] == 1 && paper[i][j] == 1) {
 				return false;
 			}
 		}
 	}
 
-	//검사 통과! R x C 사이즈의 스티커 붙이기
-	for (int i = 0; i < r; i++) {
-		for (int j = 0; j < c; j++) {
-			if (paper[i][j] == 1) {
-				note[y + i][x + j] = 1;
-			}
-		}
-	}
-
-	return true; //다 붙인 후 true 반환
+	//위 반복문을 통과했다면 스티커를 붙일 수 있는 상황이므로 true 반환
+	return true;
 }
 
 int main() {
@@ -67,8 +59,19 @@ int main() {
 				if (is_pasted) break;
 
 				for (int x = 0; x <= m - c; x++) {
-					if (postable(y, x)) {
+					if (postable(y, x)) { //붙일 수 있는지 검사
+
+						//검사 통과! R x C 사이즈의 스티커 붙이기
+						for (int i = 0; i < r; i++) {
+							for (int j = 0; j < c; j++) {
+								if (paper[i][j] == 1) {
+									note[y + i][x + j] = 1;
+								}
+							}
+						}
+
 						is_pasted = true;
+
 						break;
 					}
 				}
@@ -86,6 +89,6 @@ int main() {
 	}
 
 	cout << ret;
-	
+
 	return 0;
 }
