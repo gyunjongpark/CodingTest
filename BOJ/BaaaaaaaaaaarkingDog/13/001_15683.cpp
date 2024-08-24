@@ -129,25 +129,25 @@ vector<pair<int, int>> spread(int cctv_cnt, int dir) {
 }
 
 void dfs(int cctv_cnt) {
-	if (cctv_cnt == cctv_list.size()) {
+	if (cctv_cnt == cctv_list.size()) { //모든 cctv를 조사했다면
 		int cnt = 0;
 
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
-				if (a[i][j] == 0) cnt++;
+				if (a[i][j] == 0) cnt++; //사각지대 계산
 			}
 		}
 
-		ret = min(ret, cnt);
+		ret = min(ret, cnt); //최솟값 갱신
 
 		return;
 	}
 
 	for (int dir = 0; dir < 4; dir++) {
-		vector<pair<int, int>> spreaded_cctv = spread(cctv_cnt, dir);
+		vector<pair<int, int>> spreaded_area = spread(cctv_cnt, dir);
 		dfs(cctv_cnt + 1);
-		
-		for (pair<int, int> s : spreaded_cctv) { //원상 복구
+
+		for (pair<int, int> s : spreaded_area) { //원상 복구
 			a[s.first][s.second] = 0;
 		}
 	}
@@ -171,7 +171,7 @@ int main() {
 		}
 	}
 
-	dfs(0);
+	dfs(0); //0번째 cctv부터 dfs
 
 	cout << ret;
 
