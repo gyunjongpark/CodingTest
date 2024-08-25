@@ -4,13 +4,4 @@ WHERE i.REST_ID = r.REST_ID AND i.ADDRESS LIKE '서울%'
 GROUP BY i.REST_ID, i.REST_NAME, i.FOOD_TYPE, i.FAVORITES, i.ADDRESS
 ORDER BY SCORE DESC, i.FAVORITES DESC;
 
-/*
-SELECT i.REST_ID, i.REST_NAME, i.FOOD_TYPE, i.FAVORITES, i.ADDRESS, ROUND(AVG(r.REVIEW_SCORE),2) AS SCORE
-FROM REST_INFO i, REST_REVIEW r
-WHERE i.REST_ID = r.REST_ID AND i.ADDRESS LIKE '서울%'
-GROUP BY i.REST_ID
-ORDER BY SCORE DESC, i.FAVORITES DESC;
-
-'GROUP BY를 사용해 투플(인스턴스)을 그룹으로 묶으면 SELECT 절에는 GROUP BY에서 사용된 속성 또는 집계 함수만 사용할 수 있다'는 확실히 참인 명제이나
- MySQL에서는 특별히 'REST_ID가 PK이므로 SELECT에서 선택된 속성들이 모호하지 않다'고 판단한다. 하지만 이 방식은 위험할 수 있다
-*/
+-- GROUP BY를 사용해 투플(인스턴스)을 그룹으로 묶으면 SELECT 절에는 GROUP BY에서 사용된 속성 또는 집계 함수만 사용할 수 있다
