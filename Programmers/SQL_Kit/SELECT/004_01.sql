@@ -4,5 +4,6 @@ WHERE MONTH(DATE_OF_BIRTH) = 3 AND GENDER = 'W' AND TLNO IS NOT NULL
 ORDER BY MEMBER_ID;
 
 -- MONTH(DATE 타입의 속성) : 속성에서 '월'만 추출. YEAR(DATE 타입의 속성), DAY(DATE 타입의 속성) ...
--- DATE, DATETIME
+-- DATE : 날짜(y-m-d), DATETIME : 날짜 + 시간(y-m-d-h-m-s)
+
 -- IS NULL, IS NOT NULL
