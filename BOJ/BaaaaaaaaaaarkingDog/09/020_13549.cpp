@@ -15,7 +15,7 @@ void bfs(int n) {
 
         if (now == k) break;
 
-        //최소 시간을 구하기 위해서 가중치가 작은 경우를 우선적으로 push
+        //최소 시간을 구하기 위해 작은 가중치부터 우선적으로 push
         if (now * 2 <= 100000 && !visited[now * 2]) {
             visited[now * 2] = visited[now];
             q.push(now * 2);
