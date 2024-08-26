@@ -9,4 +9,5 @@ WHERE (FISH_INFO.FISH_TYPE, FISH_INFO.LENGTH) IN (
                                                  )
 ORDER BY FISH_INFO.ID;
 
--- 여러 개의 속성을 괄호로 묶어서 통째로 조건을 비교할 수 있다!
+-- 여러 개의 속성을 괄호로 묶어서 통째로 조건을 비교할 수 있다
+-- WHERE(속성1, 속성2) IN (속성1 값, 속성2 값)
