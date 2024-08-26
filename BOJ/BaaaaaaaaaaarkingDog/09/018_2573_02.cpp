@@ -1,4 +1,5 @@
 #include<iostream>
+#include<tuple> //tie
 using namespace std;
 
 const int dy[] = { -1,0,1,0 };
@@ -7,7 +8,7 @@ int n, m, ret_time, a[301][301], temp[301][301];
 bool visited[301][301];
 
 void dfs(int y, int x) {
-    visited[y][x] = 1;   
+    visited[y][x] = 1;
 
     for (int i = 0; i < 4; i++) {
         int ny = y + dy[i];
@@ -28,13 +29,13 @@ void melt() { //temp 배열로 구상 후 a 배열로 옮기기
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            if (a[i][j]) { //빙산일 경우 네 방향으로 바다 조사
+            if (a[i][j]) { //빙산이라면
                 int sea_cnt = 0;
 
                 int y, x;
                 tie(y, x) = { i,j };
 
-                for (int dir = 0; dir < 4; dir++) {
+                for (int dir = 0; dir < 4; dir++) { //상하좌우 바다 조사
                     int ny = y + dy[dir];
                     int nx = x + dx[dir];
 
@@ -45,15 +46,16 @@ void melt() { //temp 배열로 구상 후 a 배열로 옮기기
                     }
                 }
 
-                temp[y][x] = a[y][x] - sea_cnt; //인접한 바다의 수만큼 빙산에서 차감
+                temp[y][x] = a[y][x] - sea_cnt; //바다의 갯수만큼 빙산에서 차감
                 if (temp[y][x] < 0) temp[y][x] = 0;
             }
         }
     }
 
+    //배열 옮기기
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            a[i][j] = temp[i][j]; //원본 배열 a 수정
+            a[i][j] = temp[i][j];
         }
     }
 }
@@ -76,7 +78,7 @@ int main() {
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                if (a[i][j] && !visited[i][j]) { //빙산일 경우 dfs 시작
+                if (a[i][j] && !visited[i][j]) { //빙산이라면 dfs 시작
                     dfs(i, j);
                     ret++;
                 }
