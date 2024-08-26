@@ -5,9 +5,9 @@ using namespace std;
 
 const int dy[] = { -1,0,1,0 };
 const int dx[] = { 0,1,0,-1 };
+bool visited[101][101];
 int n, a[101][101];
 int ret = 10001;
-bool visited[101][101];
 
 void label_land(int y, int x, int cnt) {
     a[y][x] = cnt; //labeling
@@ -36,6 +36,7 @@ void label_land(int y, int x, int cnt) {
 }
 
 void bfs(int num) { //섬의 번호를 인자로 받는다
+    //visited 처리
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (a[i][j] == num) { //섬이라면
@@ -43,11 +44,12 @@ void bfs(int num) { //섬의 번호를 인자로 받는다
             }
         }
     }
-    
-    queue<pair<pair<int, int>, int>> q; //queue<좌표(y,x),두 섬 사이의 거리>
+
+    //queue 생성, q.push 과정
+    queue<pair<pair<int, int>, int>> q; //q<좌표(y,x),두 섬 사이의 거리>
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            if (a[i][j] == num) { //섬이라면
+            if (a[i][j] == num) { //같은 섬이라면
                 q.push({ { i,j }, 0 }); //섬 내에서의 dist는 0으로 초기화
             }
         }
