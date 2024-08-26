@@ -25,11 +25,12 @@ void bfs(int y, int x) {
             if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue;
 
             if (a[ny][nx] && !visited[ny][nx]) {
-                bfs(ny, nx);
+                visited[ny][nx] = 1;
+                q.push({ ny,nx });
             }
         }
     }
-    
+
     return;
 }
 
@@ -44,7 +45,7 @@ void melt() { //temp 배열로 구상 후 a 배열로 옮기기
                 int y, x;
                 tie(y, x) = { i,j };
 
-                for (int dir = 0; dir < 4; dir++) { //상하좌우에서 바다 조사
+                for (int dir = 0; dir < 4; dir++) { //상하좌우 바다 조사
                     int ny = y + dy[dir];
                     int nx = x + dx[dir];
 
