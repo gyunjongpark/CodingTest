@@ -8,7 +8,7 @@ int main() {
     cin.tie(NULL); cout.tie(NULL);
 
     cin >> n;
-    cout << n * (n + 1) / 2;
+    cout << n * (n + 1) / 2; //수학적 접근 활용
 
     return 0;
 }
