@@ -9,12 +9,12 @@ vector<int> v;
 
 //에라토스테네스의 체를 이용해서 isPrime 배열 완성하기
 void era(int n) { //O(Nlog(logN))
-    for (int i = 2; i <= n; i++) isPrime[i] = 1; //처음에는 모든 수를 true 처리
+    for (int i = 2; i < n; i++) isPrime[i] = 1; //처음에는 모든 수를 true 처리
 
-    for (int i = 2; i <= n; i++) {
+    for (int i = 2; i < n; i++) {
         if (!isPrime[i]) continue; //소수가 아니라면 continue
 
-        for (int j = i + i; j <= n; j += i) {
+        for (int j = i + i; j < n; j += i) {
             isPrime[j] = 0; //소수의 배수들을 false 처리
         }
     }
