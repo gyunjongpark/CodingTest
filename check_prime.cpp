@@ -3,11 +3,11 @@
 #define MAX 10000001 //0 ~ 10^7
 using namespace std;
 
-bool chae[MAX];
+bool chae[MAX]; //소수만 true로 저장될 배열
 
 //에라토스테네스의 체 O(Nlog(logN))
 void era(int n) { 
-	for (int i = 2; i <= n; i++) chae[i] = true; //초기에는 전부 소수라고 가정
+	for (int i = 2; i <= n; i++) chae[i] = true; //초기값은 전부 소수로 가정
 
 	for (int i = 2; i <= n; i++) {
 		if (!chae[i]) continue; //소수가 아니라면 continue
@@ -23,6 +23,7 @@ void era(int n) {
 //소수 하나 판별하기 O(sqrt(N))
 bool check(int n) {
     if (n == 1) return 0;
+	
     for (int i = 2; i <= sqrt(n); i++) {
         if (n % i == 0) return 0;
     }
@@ -43,8 +44,7 @@ int main() {
 	cout<<'\n';
 
 	//소수 하나 판별하기
-	//100이라는 수가 소수인지 판별
-	if(check(100)) cout<<"yes";
+	if(check(100)) cout<<"yes"; //100이라는 수가 소수인지 판별
 	else cout<<"no";
 
 	return 0;
