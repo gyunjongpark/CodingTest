@@ -12,8 +12,8 @@ WITH RECURSIVE PARENT AS (
                           FROM ECOLI_DATA CHILD, PARENT
                           WHERE PARENT.ID = CHILD.PARENT_ID
 )
-SELECT COUNT(ID) AS COUNT, GENERATION -- 위 재귀 테이블을 기반으로 결과 테이블 생성
-FROM PARENT
+SELECT COUNT(ID) AS COUNT, GENERATION
+FROM PARENT -- 위 재귀 테이블을 기반으로 결과 테이블 생성
 WHERE ID NOT IN ( -- PARENT_ID에 존재하지 않는 수(멸종 위기의 대장균 ID만 추출)
                  SELECT IFNULL(PARENT_ID, 0) -- NULL 연산은 값이 부정확하므로 IFNULL 처리(NULL -> 0)
                  FROM ECOLI_DATA
