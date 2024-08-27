@@ -17,7 +17,7 @@ int main() {
 	for (int i = 0; i < 10; i++) {
 		if (i == 6 || i == 9) continue;
 
-		ret = max(ret, (int)cnt[i]);
+		ret = max(ret, cnt[i]);
 	}
 
 	ret = max(ret, (cnt[6] + cnt[9] + 1) / 2);
