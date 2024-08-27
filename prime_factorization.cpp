@@ -2,17 +2,15 @@
 #include<cmath> //sqrt
 using namespace std;
 
-void prime_factorization(int n) { //O(sqrt(N))
-	int x = n; //소인수 분해를 위한 변수 x 선언
-	
-	for (int i = 2; i <= (int)sqrt(n); i++) {
-		while (x % i == 0) {
+void prime_factorization(int num) { //O(sqrt(N))
+	for (int i = 2; i <= (int)sqrt(num); i++) {
+		while (num % i == 0) {
 			cout << i << '\n'; //while문에 의해 소수인 i만 출력된다
-			x /= i;
+			num /= i;
 		}
 	}
 
-	if (x != 1) cout << x; //유일하게 sqrt(n)보다 큰 마지막 소인수가 있다면 출력
+	if (num != 1) cout << num; //유일하게 sqrt(n)보다 큰 마지막 소인수가 있다면 출력
 
 	return;
 }
@@ -26,6 +24,6 @@ int main() {
 	cin >> n;
 
 	prime_factorization(n);
-  
+
 	return 0;
 }
