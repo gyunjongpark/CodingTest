@@ -14,7 +14,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> temp;
 
-        while (dq.size() && dq.back().second >= temp) {
+        while (!dq.empty() && dq.back().second >= temp) {
             dq.pop_back(); //입력된 temp보다 dq에 들어있는 값이 크다면 바로 pop_back
             //dq에 들어있는 값이 temp를 포함해서 최소가 될 때까지 진행
         }
