@@ -13,7 +13,7 @@ struct Board {
 
 		for (int i = 0; i < n; i++) { //c 행
 			for (int j = 0; j < n; j++) { //r 열
-				temp[i][j] = a[n - j - 1][i]; //temp[r][c] = a[r - j - 1][i];
+				temp[i][j] = a[n - j - 1][i]; //temp[i][j] = a[r - j - 1][i];
 			}
 		}
 
