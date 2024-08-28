@@ -48,7 +48,7 @@ struct Board {
 				}
 				else {
 					temp[i][c] = a[i][j]; //밀기
-          flag = true; //현재 temp[i][c]에 대해서 합칠 수 있는 flag = true
+          				flag = true; //현재 temp[i][c]에 대해서 합칠 수 있는 flag = true
 					c++;
 				}
 			}
@@ -73,8 +73,8 @@ void dfs(Board c, int here) {
 		return;
 	}
 
-  //15683번 <감시> 문제처럼 단순한 방문 처리가 아니라 배열의 값을 바꾸는 행위이므로 원상 복구는 사실상 불가능하다
-  //메모리가 충분하므로 복제된 d를 계속 생성 후 dfs를 돌리는 방법 선택. 4x5 개의 Board가 생성된다
+  	//15683번 <감시> 문제처럼 단순한 방문 처리 복구가 아닌 배열의 값 자체를 바꾸고 활용하는 행위이므로 원상 복구는 사실상 불가능하다
+  	//메모리가 충분하므로 복제된 d를 계속 생성 후 dfs를 돌리는 방법 선택. 4x5 개의 Board가 생성된다
 	for (int dir = 0; dir < 4; dir++) {
 		Board d = c;
 		
