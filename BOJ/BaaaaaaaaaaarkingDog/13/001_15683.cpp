@@ -145,11 +145,10 @@ void dfs(int cctv_cnt) {
 
 	for (int dir = 0; dir < 4; dir++) {
 		vector<pair<int, int>> spreaded_area = spread(cctv_cnt, dir);
+		
 		dfs(cctv_cnt + 1);
 
-		for (pair<int, int> s : spreaded_area) { //원상 복구
-			a[s.first][s.second] = 0;
-		}
+		for (pair<int, int> s : spreaded_area) a[s.first][s.second] = 0; //원상 복구
 	}
 
 	return;
