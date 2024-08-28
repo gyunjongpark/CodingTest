@@ -5,8 +5,7 @@ int n, ret, col[16];
 
 bool check(int level) {
     for (int i = 0; i < level; i++) { //level 이전까지 행들에 대하여
-        //같은 열에 queen이 있거나
-        //행 차이와 열 차이가 같을 경우(대각선) queen을 놓을 수 없다
+        //같은 열에 queen이 있거나 행 차이와 열 차이가 같을 경우(대각선) queen을 놓을 수 없다
         //level이 반복되는 i보다 무조건 큰 행이므로 level - i로 연산 진행
         if (col[level] == col[i] || (level - i) == abs(col[level] - col[i])) {
             return false;
