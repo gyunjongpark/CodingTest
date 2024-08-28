@@ -3,7 +3,7 @@
 using namespace std;
 
 int n;
-int ret = -1;
+int ret = -1; //최댓값으로 갱신
 
 struct Board {
 	int a[21][21];
@@ -11,9 +11,9 @@ struct Board {
 	void rotate() {
 		int temp[21][21];
 
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
-				temp[i][j] = a[n - j - 1][i];
+		for (int i = 0; i < n; i++) { //r
+			for (int j = 0; j < n; j++) { //c
+				temp[i][j] = a[n - j - 1][i]; //temp[r][c] = a[c - j - 1][i];
 			}
 		}
 
@@ -36,24 +36,24 @@ struct Board {
 		int temp[21][21];
 
 		for (int i = 0; i < n; i++) {
-			bool flag = false; //combinalbe flag
+			bool flag = false; //combine flag
 			int c = 0; //moving variable
 
 			for (int j = 0; j < n; j++) {
 				if (a[i][j] == 0) continue;
 
 				if (flag && (a[i][j] == temp[i][c - 1])) {
-					temp[i][c - 1] += a[i][j]; //flag = true였던 좌표 temp[i][c - 1] 기준으로 밀고 합치기
-					flag = false; //합쳤다면 해당 좌표에 대해서 flag = false
+					temp[i][c - 1] += a[i][j]; //temp[i][c - 1] 기준으로 밀어서 합치기
+					flag = false; //해당 좌표로 합쳤다면 combine flag = false
 				}
 				else {
-					temp[i][c] = a[i][j]; //밀기
-          				flag = true; //현재 temp[i][c]에 대해서 합칠 수 있는 flag = true
-					c++;
+					temp[i][c] = a[i][j]; //temp 공백없이 복사, 붙여넣기
+          				flag = true; //현재 temp[i][c]에 대해서 합칠 수 있는 combine flag = true
+					c++; //복사, 붙여넣기 이후 c++
 				}
 			}
 
-			//더 이상 참조할 j가 없다면 단독으로 temp를 완성
+			//더 이상 참조할 j가 없다면(더 이상 합칠 생각을 안해도 된다면) 단독으로 temp를 완성
 			while (c < n) {
 				temp[i][c] = 0;
 				c++;
@@ -73,7 +73,7 @@ void dfs(Board c, int here) {
 		return;
 	}
 
-  	//15683번 <감시> 문제처럼 단순한 방문 처리 복구가 아닌 배열의 값 자체를 바꾸고 활용하는 행위이므로 원상 복구는 사실상 불가능하다
+  	//15683번 <감시> 문제처럼 단순한 방문 처리 복구가 아니라 배열의 값 자체를 바꾸고 활용하는 행위이므로 원상 복구는 사실상 불가능하다
   	//메모리가 충분하므로 복제된 d를 계속 생성 후 dfs를 돌리는 방법 선택. 4x5 개의 Board가 생성된다
 	for (int dir = 0; dir < 4; dir++) {
 		Board d = c;
