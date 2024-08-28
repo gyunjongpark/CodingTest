@@ -1,12 +1,13 @@
 #include<iostream>
 #include<vector>
+#include<climits> //INT_MAX
 #include<tuple> //tie
 using namespace std;
 
 const int dy[] = { -1,0,1,0 };
 const int dx[] = { 0,1,0,-1 };
 int n, m, a[10][10];
-int ret = 101;
+int ret = INT_MAX;
 vector<pair<int, int>> cctv_list;
 
 vector<pair<int, int>> spread(int cctv_cnt, int dir) {
