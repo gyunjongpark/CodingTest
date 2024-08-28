@@ -17,6 +17,7 @@ int calculate_city_distance(vector<pair<int, int>>& house, vector<int>& selected
 		for (int selected_number : selected_chicken_store_number) {
 			individual_dist = min(individual_dist, abs(home.first - chicken_store[selected_number].first) + abs(home.second - chicken_store[selected_number].second));
 		}
+
 		city_dist += individual_dist;
 	}
 
