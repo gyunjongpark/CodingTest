@@ -11,9 +11,9 @@ struct Board {
 	void rotate() {
 		int temp[21][21];
 
-		for (int i = 0; i < n; i++) { //r
-			for (int j = 0; j < n; j++) { //c
-				temp[i][j] = a[n - j - 1][i]; //temp[r][c] = a[c - j - 1][i];
+		for (int i = 0; i < n; i++) { //c 행
+			for (int j = 0; j < n; j++) { //r 열
+				temp[i][j] = a[n - j - 1][i]; //temp[r][c] = a[r - j - 1][i];
 			}
 		}
 
