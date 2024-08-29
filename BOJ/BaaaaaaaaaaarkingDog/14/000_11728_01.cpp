@@ -1,3 +1,5 @@
+//logic of merge sorting
+
 #include<iostream>
 #include<climits> //INT_MAX
 using namespace std;
