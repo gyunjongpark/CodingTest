@@ -17,7 +17,7 @@ int main() {
 		v.push_back(temp);
 	}
 
-  //N은 10^6이므로 O(NlogN) 내의 정렬 방식을 사용해야 한다
+ 	//N은 10^6이므로 O(NlogN) 내의 정렬 방식을 사용해야 한다
 	sort(v.begin(), v.end());
 
 	for (int i : v) cout << i << '\n';
