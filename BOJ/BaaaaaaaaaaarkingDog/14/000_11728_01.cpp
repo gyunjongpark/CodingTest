@@ -1,4 +1,4 @@
-//logic of merge sorting
+//merge sort logic
 
 #include<iostream>
 #include<climits> //INT_MAX
