@@ -1,4 +1,4 @@
-//logic of counting sorting
+//counting sort logic
 
 #include<iostream>
 #include<algorithm>
