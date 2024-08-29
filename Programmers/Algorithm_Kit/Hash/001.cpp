@@ -1,4 +1,4 @@
-#include<vector>
+#include <vector>
 #include<iostream>
 #include<set>
 using namespace std;
@@ -9,12 +9,12 @@ int solution(vector<int> nums)
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);
-    
+
     int answer = nums.size() / 2;
 
-    for (int num : nums) {
-			st.insert(num);
-		}
+    for (int num : nums) st.insert(num);
 
-	return st.size() > answer ? answer : st.size();
+    answer = min(answer, (int)st.size()); //size 연산은 unsigned를 반환
+
+    return answer;
 }
