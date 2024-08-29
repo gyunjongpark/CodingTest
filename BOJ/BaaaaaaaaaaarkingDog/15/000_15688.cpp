@@ -1,3 +1,5 @@
+//logic of counting sorting
+
 #include<iostream>
 #include<algorithm>
 #include<climits> //INT_MAX
