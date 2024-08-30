@@ -22,7 +22,7 @@ int main(void) {
 
 		if (ch == 'P') {
 			cin >> add;
-			L.insert(cur, add); //삽입 연산 후 다음 포인터로 이동한다
+			L.insert(cur, add); //insert는 연산 후 다음 주소(iterator)를 가리킨다
 		}
 		else if (ch == 'L') {
 			if (cur != L.begin()) {
