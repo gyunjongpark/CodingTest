@@ -13,7 +13,7 @@ int main() {
 	}
 
 	cout << *max_element(a, a + 9) << '\n';
-	cout << max_element(a, a + 9) - a + 1; //iterator - iterator = index
+	cout << max_element(a, a + 9) - a + 1; //target iterator - begin iterator + 1(index interpolation)
 
 	return 0;
 }
