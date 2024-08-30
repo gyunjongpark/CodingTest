@@ -16,7 +16,7 @@ int main() {
 		stack<char> stk; //init
 
 		for (char a : s) {
-			if (a == '(' || a == ')' || a == '[' || a == ']') { //4가지 반 괄호에 대해서만 생각
+			if (a == '(' || a == ')' || a == '[' || a == ']') { //4종류의 괄호에 대해서만 생각
 				if (stk.empty()) { //stk이 비어있다면 무조건 push
 					stk.push(a);
 				}
