@@ -27,9 +27,9 @@ int main() {
 }
 
 /* call-by-reference 생각나는 함수들?
-reverse(begin,end);
-rotate(begin,begin + move_range_toward_counter_clock,end);
-swap(a,b);
-swap_ranges(a,a+n,b) //a.begin부터 n개의 수를 b와 바꾼다
-max_element(a,a+n) //a.begin부터 n개의 수 중 최대값의 주소를 반환한다. 포인터 연산으로 값에 접근 가능
+reverse(begin, end);
+rotate(begin, begin + move_range_toward_counter_clock,end);
+swap(a, b);
+swap_ranges(a, a+n, b) //a.begin부터 n개의 수를 b의 begin부터 n개까지 바꾼다
+max_element(a, a+n) //a.begin부터 n개의 수 중 최대값의 주소를 반환한다
 */
