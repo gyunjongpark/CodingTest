@@ -41,7 +41,7 @@ int main() {
 			}
 		}
 
-		cout << cnt << '\n'; // 수정된 부분
+		cout << cnt << '\n';
 	}
 
 	return 0;
