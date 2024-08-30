@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-int func2(int arr[], int N) {
+int func2(int arr[], int N) { //O(N)
 	int cnt[101];
 
 	fill(&cnt[0], &cnt[0] + 101, 0);
