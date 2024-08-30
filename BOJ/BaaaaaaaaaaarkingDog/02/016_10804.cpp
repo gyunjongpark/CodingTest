@@ -14,7 +14,7 @@ int main() {
 	
 	for (int i = 0; i < 10; i++) {
 		cin >> s >> e;
-		reverse(arr + s - 1, arr + e);
+		reverse(arr + s - 1, arr + e); //인덱스에 유의하자!
 	}
 
 	for (int i : arr) {
