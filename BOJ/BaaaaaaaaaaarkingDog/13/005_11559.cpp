@@ -44,7 +44,7 @@ void chain_reaction() {
                     dfs(i, j, a[i][j]); //push_back to 'blocks'
 
                     if (blocks.size() >= 4) {
-                        flag = true; //reactionable!
+                        flag = true; //ready to pop!
 
                         for (int i = 0; i < blocks.size(); i++) {
                             ret_blocks.push_back(blocks[i]);
@@ -57,6 +57,7 @@ void chain_reaction() {
         }
 
         //ret_blocks에 저장된 블록들을 '.'으로 바꾸기
+        //flag가 true가 아니었다면(4개 이상이 모이지 않았다면) ret_blocks에 저장된 블록이 없으므로 아래 반복문은 실행되지 않는다
         for (int i = 0; i < ret_blocks.size(); i++) {
             int y = ret_blocks[i].first;
             int x = ret_blocks[i].second;
@@ -64,7 +65,8 @@ void chain_reaction() {
             a[y][x] = '.';
         }
 
-        //맨 아래거나 아래 블록이 비어있지 않을 때까지 한 칸씩 아래로 내리기 반복
+        //맨 아래에 도달하거나, 문자인 블록을 만날 때까지 블록을 한 칸씩 아래로 내리기
+        //flag가 true가 아니었다면 아래 반복문에 부합하는 (i, j)가 없어서 아래 반복문 또한 실행되지 않는다
         for (int i = 11; i >= 0; i--) {
             for (int j = 0; j < 6; j++) {
                 if (a[i][j] == '.') continue;
@@ -82,8 +84,8 @@ void chain_reaction() {
             }
         }
 
-        if (flag) ret++; //reactionable이라면 ret++ 이후 바뀐 필드에 대하여 while문 다시 반복
-        else break;
+        if (flag) ret++;
+        else break; //flag가 false였다면 while문 종료
     }
 
     return;
