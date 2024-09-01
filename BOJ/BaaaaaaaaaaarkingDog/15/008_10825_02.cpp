@@ -3,7 +3,7 @@
 #include<algorithm> //sort
 using namespace std;
 
-tuple<int, int, int, string> sts[100000];
+tuple<int, int, int, string> sts[100001];
 int n, a, b, c;
 string name;
 
