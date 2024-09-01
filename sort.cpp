@@ -3,8 +3,6 @@
 #include<climits> //INT_MAX
 using namespace std;
 
-vector<int> v = { 1,4,2,5,3 };
-
 void select_sort(vector<int>& v) {
 	int temp, idx;
 
@@ -24,10 +22,6 @@ void select_sort(vector<int>& v) {
 		v[idx] = temp;
 	}
 
-	for (int i : v) cout << i << ' ';
-
-	cout << '\n';
-
 	return;
 }
 
@@ -44,10 +38,6 @@ void bubble_sort(vector<int>& v) {
 			}
 		}
 	}
-
-	for (int i : v) cout << i << ' ';
-
-	cout << '\n';
 
 	return;
 }
@@ -67,10 +57,6 @@ void insert_sort(vector<int>& v) {
 			j--;
 		}
 	}
-
-	for (int i : v) cout << i << ' ';
-
-	cout << '\n';
 
 	return;
 }
@@ -108,7 +94,6 @@ void quick_sort(vector<int>& v, int s_idx, int e_idx) {
 
 void print(vector<int>& v) {
 	for (int i : v) cout << i << ' ';
-
 	cout << '\n';
 
 	return;
@@ -118,11 +103,17 @@ int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
 
-	select_sort(v); //O(N^2)
-	bubble_sort(v); //O(N^2)
-	insert_sort(v); //O(N^2)
+	vector<int> v = { 1,4,2,5,3 };
+	select_sort(v); print(v); //O(N^2)
 
-	quick_sort(v, 0, v.size() - 1); print(v);  //O(NlogN) ~ O(N^2)
+	v = { 1,4,2,5,3 };
+	bubble_sort(v); print(v); //O(N^2)
+
+	v = { 1,4,2,5,3 };
+	insert_sort(v); print(v); //O(N^2)
+
+	v = { 1,4,2,5,3 };
+	quick_sort(v, 0, v.size() - 1); print(v); //O(NlogN) ~ O(N^2)
 
 	return 0;
 }
