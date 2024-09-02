@@ -84,8 +84,6 @@ void dfs(Board c, int here) {
 
 		c.rotate();
 	}
-
-	return;
 }
 
 int main() {
