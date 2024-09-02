@@ -38,8 +38,6 @@ void combi(int start, vector<int>& selected_chicken_store_number) {
 
 		selected_chicken_store_number.pop_back(); //원상 복구
 	}
-	
-	return;
 }
 
 int main() {
