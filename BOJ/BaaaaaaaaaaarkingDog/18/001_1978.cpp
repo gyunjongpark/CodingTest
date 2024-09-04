@@ -27,7 +27,7 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		cin >> temp;
 		
-		if (temp == 1) continue;
+		if (temp == 1) continue; //1은 소수가 아니므로 제외
 		if (!chae[temp]) ret++;
 	}
 
