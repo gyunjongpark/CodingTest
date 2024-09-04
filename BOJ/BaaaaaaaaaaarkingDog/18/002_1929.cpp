@@ -9,6 +9,7 @@ void era(int n) { //O(Nlog(logN))
 		if (chae[i]) continue; //이미 소수가 아니라면 continue
 
 		for (int j = i + i; j <= n; j += i) {
+            if (chae[j]) continue; //이미 소수가 아니라면 continue
 			chae[j] = true; //소수가 아닌 수 true
 		}	
 	}
