@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
 
-const int dy[] = { 0,0,-1,1 };  //정면, 동, 서, 북, 남
-const int dx[] = { 1,-1,0,0 };  //정면, 동, 서, 북, 남
+const int dy[] = { 0,0,-1,1 };  //동, 서, 북, 남
+const int dx[] = { 1,-1,0,0 };  //동, 서, 북, 남
 int n, m, y, x, k, dir, temp, a[21][21];
 int n1, n2, n3, n4, n5, n6; //주사위의 면
 
