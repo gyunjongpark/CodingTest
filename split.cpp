@@ -11,7 +11,7 @@ vector<string> split(string input, string delimiter) {
     while (end != string::npos) {
         result.push_back(input.substr(start, end - start));
         start = end + delimiter.size();
-        end = input.find(delimiter, start);
+        end = input.find(delimiter, start); //find(문자열, 조사 시작 위치)
     }
 
     result.push_back(input.substr(start));
