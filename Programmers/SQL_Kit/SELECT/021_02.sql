@@ -7,3 +7,5 @@ WHERE PARENT_ITEM_ID IN (
                          WHERE RARITY = 'RARE'
                         )
 ORDER BY INFO.ITEM_ID DESC;
+
+-- 외부 조인으로 두 테이블을 ITEM_ID로 묶어 합친 후 결과를 도출한다
