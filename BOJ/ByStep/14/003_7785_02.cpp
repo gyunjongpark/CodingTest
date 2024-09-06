@@ -2,7 +2,7 @@
 #include<map>
 using namespace std;
 
-
+map<string, string, greater<>> mp; //사전의 역순 = 내림차순 = greater<> = 큰 것이 먼저
 string a, b;
 int n;
 
