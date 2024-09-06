@@ -10,16 +10,15 @@ int main() {
 	cin >> n;
 
 	a = n / 5;
+	
 	while (true) {
 		if (a < 0) {
 			cout << -1;
-			
 			return 0;
 		}
 
 		if ((n - a * 5) % 3 == 0) {
 			b = (n - a * 5) / 3;
-			
 			break; //n이 5와 3으로 정확하게 분할된다면 break
 		}
 		
