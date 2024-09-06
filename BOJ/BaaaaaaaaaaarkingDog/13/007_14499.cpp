@@ -1,11 +1,9 @@
 #include <iostream>
-#include <tuple>
 using namespace std;
 
-const int dy[] = { 0,0,0,-1,1 };  //정면, 동, 서, 북, 남
-const int dx[] = { 0,1,-1,0,0 };  //정면, 동, 서, 북, 남
-
-int n, m, y, x, k, a[21][21], dir, temp;
+const int dy[] = { 0,0,-1,1 };  //동, 서, 북, 남
+const int dx[] = { 1,-1,0,0 };  //동, 서, 북, 남
+int n, m, y, x, k, dir, temp, a[21][21];
 int n1, n2, n3, n4, n5, n6; //주사위의 면
 
 void go(int dir) {
@@ -13,16 +11,16 @@ void go(int dir) {
     int nx = x + dx[dir];
 
     if (ny >= 0 && ny < n && nx >= 0 && nx < m) {
-        if (dir == 1) { //동
+        if (dir == 0) { //동
             temp = n1, n1 = n4, n4 = n6, n6 = n3, n3 = temp;
         }
-        else if (dir == 2) { //서
+        else if (dir == 1) { //서
             temp = n1, n1 = n3, n3 = n6, n6 = n4, n4 = temp;
         }
-        else if (dir == 3) { //북    
+        else if (dir == 2) { //북    
             temp = n1, n1 = n5, n5 = n6, n6 = n2, n2 = temp;
         }
-        else if (dir == 4) { //남    
+        else if (dir == 3) { //남    
             temp = n1, n1 = n2, n2 = n6, n6 = n5, n5 = temp;
         }
 
@@ -63,7 +61,7 @@ int main() {
 
     while (k--) {
         cin >> dir;
-        go(dir);
+        go(dir - 1);
     }
 
     return 0;
