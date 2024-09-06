@@ -19,7 +19,7 @@ int main() {
 			for (int j = 0; j < s.size(); j++) {
 				if (s[j] != s[j + 1]) {
 
-					//find(문자열, 위치) : 해당 요소의 인덱스(배열 번호) 반환. 못찾으면 string::npos 반환
+					//find(문자열, 조사 시작 위치) : 해당 요소의 인덱스(배열 번호) 반환. 못찾으면 string::npos 반환
 					if (s.find(s[j], j + 2) != string::npos) { //같은 단어를 찾았다면 그룹 단어가 아니다
 						cnt++;
 						break;
