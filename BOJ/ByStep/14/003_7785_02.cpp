@@ -2,7 +2,7 @@
 #include<map>
 using namespace std;
 
-map<string, string, greater<>> mp; //사전의 역순 = 내림차순 = greater<> = 큰 것이 먼저
+
 string a, b;
 int n;
 
@@ -25,3 +25,7 @@ int main() {
 
 	return 0;
 }
+
+//map<string, string, greater<>> mp; //사전의 역순 = 내림차순 = greater<> = 큰 것이 먼저
+//sort(s.begin(), s.end(), greater<int>()); //큰 것이 먼저
+//같은 greater, less지만 표기 방식이 조금 다릅니다!
