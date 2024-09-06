@@ -21,6 +21,7 @@ int main() {
 
 	cin >> m;
 
+	//O(NlogN)
 	for (int i = 0; i < m; i++) {
 		cin >> num;
 
