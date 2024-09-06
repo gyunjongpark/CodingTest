@@ -11,5 +11,7 @@ WHERE SALES_DATE LIKE '2022-03%'
 ORDER BY SALES_DATE, PRODUCT_ID, USER_ID
 
 -- UNION : 레이블이 겹치지 않게 집합(일반적인 합집합)
--- UNION ALL : 레이블이 겹치게 집합(교집합이 중복되는 합집합)
+-- UNION ALL : 레이블이 겹치게 집합(교집합이 중복 출력되는 합집합)
+
 -- NULL 속성 : 해당 속성의 모든 값을 NULL로 표시
+-- NULL, IS NULL, IS NOT NULL, IFNULL 구분하기
