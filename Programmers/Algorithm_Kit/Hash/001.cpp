@@ -14,7 +14,7 @@ int solution(vector<int> nums)
 
     for (int num : nums) st.insert(num);
 
-    answer = min(answer, (int)st.size()); //size 연산은 unsigned 반환
+    answer = min(answer, (int)st.size()); //set의 size 연산은 unsigned 반환
 
     return answer;
 }
