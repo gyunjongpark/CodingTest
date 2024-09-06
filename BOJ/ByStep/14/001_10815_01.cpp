@@ -12,6 +12,7 @@ int main() {
 	cin >> n;
 
 	//O(NlogN)
+	//맵은 기본적으로 이진탐색 트리 방식으로 데이터를 검색, 저장합니다
 	for (int i = 0; i < n; i++) {
 		cin >> temp;
 		mp[temp]++;
@@ -19,7 +20,6 @@ int main() {
 
 	cin >> m;
 
-	//O(NlogN)
 	for (int i = 0; i < m; i++) {
 		cin >> temp;
 		
