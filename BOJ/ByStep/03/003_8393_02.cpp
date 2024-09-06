@@ -8,7 +8,7 @@ int main() {
     cin.tie(NULL); cout.tie(NULL);
 
     cin >> n;
-    cout << n * (n + 1) / 2; //수학적인 접근 방식(가우스 법칙)
+    cout << n * (n + 1) / 2; //수학적인 접근 방식(가우스 계산법)
 
     return 0;
 }
