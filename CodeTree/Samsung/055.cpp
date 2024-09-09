@@ -3,11 +3,12 @@
 #include<climits> //INT_MAX
 using namespace std;
 
-int n, a[21][21], ret=INT_MAX;
+int n, a[21][21];
+int ret = INT_MAX;
 bool visited[21];
 vector<int> v;
 
-int go(vector<int>& morning, vector<int>& evening) {
+int go(vector<int> morning, vector<int> evening) {
     pair<int, int> ret;
 
     for (int i = 0; i < n / 2; i++) {
@@ -24,10 +25,10 @@ int go(vector<int>& morning, vector<int>& evening) {
 
 void combi(int start, vector<int>& v) {
     if (v.size() == n / 2) {
-        vector<int> morning, evening;
+        vector<int> morning, evening; //사이즈가 될 때마다 init
 
         for (int i = 0; i < n; i++) {
-            if (visited[i]) morning.push_back(i); //visited=true인 일은 아침, 아닌 일은 저녁으로 정의
+            if (visited[i]) morning.push_back(i); //visited = true인 일은 아침, 아니라면 저녁으로 정의
             else evening.push_back(i);
         }
         
@@ -37,7 +38,7 @@ void combi(int start, vector<int>& v) {
     }
 
     for (int i = start + 1; i < n; i++) {
-        visited[i] = 1; //일을 아침, 저녁으로 나누기 위해 visited로 구분
+        visited[i] = 1; //아침, 저녁으로 나누기 위해 visited로 구분
         v.push_back(i);
 
         combi(i, v);
