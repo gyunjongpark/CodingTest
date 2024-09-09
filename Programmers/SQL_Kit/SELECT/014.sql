@@ -15,3 +15,4 @@ ORDER BY SALES_DATE, PRODUCT_ID, USER_ID
 
 -- NULL 속성 : 해당 속성의 모든 값을 NULL로 표시
 -- NULL, IS NULL, IS NOT NULL, IFNULL 구분하기
+-- NULL 속성 / IFNULL(속성,'대체할 값') / IS NULL, IS NOT NULL : WHERE 절(조건)에서 사용
