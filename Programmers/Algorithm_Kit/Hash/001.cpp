@@ -1,4 +1,4 @@
-#include <vector>
+#include<vector>
 #include<iostream>
 #include<set>
 using namespace std;
@@ -15,5 +15,6 @@ int solution(vector<int> nums)
     for (int num : nums) st.insert(num);
 
     answer = min(answer, (int)st.size()); //모든 자료구조의 size 연산은 unsigned long을 반환합니다
+    
     return answer;
 }
