@@ -22,11 +22,11 @@ void drive(int y, int x, int dir) {
 
         if (ny >= 0 && ny < n && nx >= 0 && nx < m && a[ny][nx] == 0 && !visited[ny][nx]) {
             drive(ny, nx, dir); //1번 과정 시도
-            return; //좌표가 옮겨졌다면 y, x에서의 drive의 역할은 종료된다
+            return; //조건을 만족하여 좌표가 옮겨졌다면 현재 y, x에서의 drive의 역할은 종료된다(후진 과정을 거치지 않는다).
         }
     }
 
-    //y, x에서 네 방향 모두 조건을 만족하지 않을 시 후진 방향 설정
+    //y, x에서 네 방향 모두 조건을 만족하지 않을 시(if 문의 조건 불만족) 후진 방향 설정
     int back_dir = (dir + 2) % 4;
 
     //후진
