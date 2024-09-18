@@ -3,7 +3,7 @@ using namespace std;
 
 int t, n, cnt;
 
-void recur(int num) {
+void recur(int num) { //using recursive method
     if (num > n) return;
 
     if (num == n) {
