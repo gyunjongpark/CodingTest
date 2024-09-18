@@ -8,12 +8,12 @@ int ret = -1;
 struct Board {
 	int a[21][21];
 
-	void rotate() {
-		int temp[21][21];
+	void rotate() { //시계 방향으로 회전
+		int temp[21][21]; //r행 c열에 대하여
 
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
-				temp[i][j] = a[n - j - 1][i];
+		for (int i = 0; i < n; i++) { //c
+			for (int j = 0; j < n; j++) { //r
+				temp[i][j] = a[n - j - 1][i]; //(i, j) = (r - j - 1, i)
 			}
 		}
 
