@@ -13,14 +13,16 @@ int main() {
 
     dp.resize(n + 1, 0);
 
-    dp[0] = 1;
-    dp[1] = 2;
+    //init
+    dp[1] = 1;
+    dp[2] = 2;
 
-    for (int idx = 2; idx < n; idx++) {
+    for (int idx = 3; idx <= n; idx++) {
         dp[idx] = dp[idx - 1] + dp[idx - 2];
-        dp[idx] %= 10007;
+        dp[idx] %= 10007; //mod
     }
-    cout << dp[n - 1];
+
+    cout << dp[n];
 
     return 0;
 }
