@@ -5,7 +5,8 @@ int a, b;
 
 int getGCD(int a, int b) {
 	if (a == 0) return b;
-	return getGCD(b % a, a);
+
+	getGCD(b % a, a);
 }
 
 int getLCM(int a, int b) {
@@ -19,6 +20,9 @@ int main() {
 	cin >> a >> b;
 
 	cout << getGCD(a, b);
+
+	cout << '\n';
+
 	cout << getLCM(a, b);
 
 	return 0;
