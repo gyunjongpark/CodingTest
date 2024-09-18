@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
 
-const int dy[] = { 0,0,-1,1 };  //동, 서, 북, 남
-const int dx[] = { 1,-1,0,0 };  //동, 서, 북, 남
+const int dy[] = { 0,0,-1,1 };  //동,서,북,남
+const int dx[] = { 1,-1,0,0 };  //동,서,북,남
 int n, m, y, x, k, dir, temp, a[21][21];
 int n1, n2, n3, n4, n5, n6; //주사위의 면
 
@@ -33,14 +33,12 @@ void go(int dir) {
             a[ny][nx] = 0; //좌표는 0으로 수정
         }
 
-        //y, x 좌표 바꾸기
+        //y, x 좌표 갱신
         y = ny;
         x = nx;
 
         //현재 윗면 출력
         cout << n1 << '\n';
-
-        return;
     }
 
     return;
