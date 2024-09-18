@@ -21,9 +21,7 @@ int get_score(int i, int j, int k) {
         int y = i + tet[k][t].first;
         int x = j + tet[k][t].second;
 
-        if (y < 0 || y >= n || x < 0 || x >= m) continue;
-      
-        sum += a[y][x];
+        if (y >= 0 && y < n && x >= 0 && x < m) sum += a[y][x];
     }
 
     return sum;
