@@ -1,5 +1,4 @@
 #include<iostream>
-#include<climits> //INT_MIN
 using namespace std;
 
 int n, l, a[101][101], b[101][101], ret;
