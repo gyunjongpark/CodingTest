@@ -4,9 +4,7 @@ using namespace std;
 
 int k, visited[1000001];
 
-void bfs(int n) { //using bfs method
-    visited[n] = 1;
-
+void bfs(int n) {
     queue<int> q;
     q.push(n);
 
@@ -38,9 +36,9 @@ int main() {
 
     cin >> k;
 
-    bfs(1);
+    bfs(1); //1부터 시작
 
-    cout << visited[k] - 1;
+    cout << visited[k];
 
     return 0;
 }
