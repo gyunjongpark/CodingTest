@@ -24,7 +24,7 @@ void bfs() {
         int y, x, height;
         tie(y, x, height) = q.front(); q.pop();
 
-        //같은 층 bfs 우선 진행
+        //같은 층 bfs 진행(퍼지는 것은 동일하기 때문에 순서가 바뀌어도 상관없다)
         for (int i = 0; i < 4; i++) {
             int ny = y + dy[i];
             int nx = x + dx[i];
