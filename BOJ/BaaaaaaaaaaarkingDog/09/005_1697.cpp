@@ -15,6 +15,7 @@ void bfs(int n) {
 
         if (now == k) break;
 
+        //방문여부 뿐만 아니라 범위도 함께 체크 필수!
         if (now - 1 >= 0 && !visited[now - 1]) {
             visited[now - 1] = visited[now] + 1;
             q.push(now - 1);
