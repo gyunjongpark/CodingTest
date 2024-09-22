@@ -33,7 +33,7 @@ void drive(int y, int x, int dir) {
     int ny = y + dy[back_dir];
     int nx = x + dx[back_dir];
 
-    if (ny >= 0 && ny < n && nx >= 0 && nx < m && a[ny][nx] == 0) { //후진은 visited와는 관계없다
+    if (ny >= 0 && ny < n && nx >= 0 && nx < m && a[ny][nx] == 0) { //후진은 visited와 관계없다
         drive(ny, nx, dir); //후진 이후 해당 좌표에서 다시 drive 실행
     }
     else return; //더 이상 후진할 수 없다면 종료
