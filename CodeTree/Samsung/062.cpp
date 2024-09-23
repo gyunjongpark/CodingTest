@@ -9,12 +9,11 @@ int n, m, ret;
 char a[11][11];
 string s;
 
-struct info { //bfs에서 queue의 자료형을 정의하기 위한 구조체
+struct info { //bfs에서 queue의 자료형을 정의하기 위한 구조체 info
 	int ry, rx, by, bx, cnt;
 };
 
-info start; //info형 변수 start
-
+info start; //info형 변수 start 선언
 
 int bfs() {
 	visited[start.ry][start.rx][start.by][start.bx] = 1;
@@ -29,12 +28,14 @@ int bfs() {
 
 		if (cur.cnt > 10) break;
 
-		if (a[cur.ry][cur.rx] == 'O' && a[cur.by][cur.bx] != 'O') { //빨간색 사탕만 뺐다면
+		if (a[cur.ry][cur.rx] == 'O' && a[cur.by][cur.bx] != 'O') { //빨간색 사탕만 빠진다면
 			ret = cur.cnt;
 			break;
 		}
 
 		for (int dir = 0; dir < 4; dir++) {
+			//queue에 들어가는 데이터는 구슬들의 이동 예상 좌표가 아닌 목적지를 넣는다
+			//q.push({ nry,nrx,nby,nbx,cur.cnt + 1 });처럼 정지된 좌표를 넣기 위해서 cur 그대로 대입
 			int nry = cur.ry;
 			int nrx = cur.rx;
 			int nby = cur.by;
@@ -82,15 +83,14 @@ int bfs() {
 						nbx -= dx[dir];
 					}
 				}
+				//출구인 경우 queue에 한번 들어갔다가 경우의 수에서 제외된다
 			}
 
 			if (!visited[nry][nrx][nby][nbx]) {
 				visited[nry][nrx][nby][nbx] = 1;
-
 				q.push({ nry,nrx,nby,nbx,cur.cnt + 1 });
 			}
 		}
-
 	}
 
 	return ret;
@@ -113,19 +113,20 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < m; j++) {
 			if (a[i][j] == 'R') {
-				start.ry = i, start.rx = j;
+				start.ry = i;
+				start.rx = j;
 			}
 
 			if (a[i][j] == 'B') {
-				start.by = i, start.bx = j;
+				start.by = i;
+				start.bx = j;
 			}
 		}
 	}
-
 	start.cnt = 0;
 
 	ret = bfs();
-
+	
 	cout << ret;
 
 	return 0;
