@@ -7,28 +7,28 @@ int ret = INT_MAX;
 bool visited[31][11];
 
 bool check() { //모든 번호가 자기 번호에 맞게 내려오는지 확인
-	for (int i = 1; i <= n; i++) {
+	for (int i = 1; i <= n; i++) { //열(줄)별로 조사
 		int start = i;
 
-		for (int j = 1; j <= h; j++) {
-			//j번 점선 위치에서 start와 start + 1 사이가 연결되어 있다면
+		for (int j = 1; j <= h; j++) { //j가 h까지 조사하면서 내려오게 된다
+
+			//j행에서 start와 start + 1 사이가 연결되어 있다면
 			if (visited[j][start]) start++;
 
-			//j번 점선 위치에서 start와 start - 1 사이가 연결되어 있다면
-      //i가 0인 열은 없으므로 start는 2보다 커야 [start - 1]이 1열부터 가리킨다
+			//j행에서 start와 start - 1 사이가 연결되어 있다면
 			else if (start >= 2 && visited[j][start - 1]) start--;
 		}
 
-		if (start != i) return false; //start 위치가 바뀌었다면 false 반환
+		if (start != i) return false; //start 위치가 바뀌었다면
 	}
 
-	return true; //start가 처음 i 그대로라면 true 반환
+	return true; //그대로라면
 }
 
 void dfs(int here, int cnt) {
-	if (here > h || cnt > 3) return;
+	if (here > h || cnt > 3) return; //가로줄 범위를 넘어섰거나, 필요 가로선이 3개가 넘어간다면
 
-	if (check()) {
+	if (check()) { //온전히 조작 가능한지 check!
 		ret = min(ret, cnt);
 
 		return;
@@ -59,12 +59,13 @@ int main() {
 
 	for (int i = 0; i < m; i++) { //주어진 m개의 가로선 입력
 		cin >> a >> b;
-		visited[a][b] = 1;
+		visited[a][b] = 1; //a행에서 b -> b + 1 열로 가는 가로선이 있다!
 	}
 
-	dfs(1, 0);
+	dfs(1, 0); //1번 가로줄, 횟수는 0부터 시작
 
-	result = (ret == INT_MAX ? -1 : ret); //조작이 불가능한 경우, 3보다 큰 경우
+	//조작이 불가능한 경우, 3보다 큰 경우는 INT_MAX를 유지
+	result = (ret == INT_MAX ? -1 : ret);
 
 	cout << result;
 
