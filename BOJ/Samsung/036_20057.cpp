@@ -21,9 +21,9 @@ bool visited[500][500];
 
 int wind(int y, int x, int dir) {
 	int sand = a[y][x]; //초기 전체 모래
-	int sum = 0; //생성된 모래의 합
+	int sum = 0; //생성된 모래의 합(범위 내 + 범위 외)
 	int ret = 0; //생성된 모래 중 범위를 벗어난 모래의 합
-	
+
 
 	//비율 자리의 모래 계산
 	for (int i = 0; i < 9; i++) {
@@ -45,7 +45,7 @@ int wind(int y, int x, int dir) {
 	int nx = x + dx[dir];
 
 	//alpha로 이동하는 모래의 양은 비율이 적혀있는 칸으로 이동하지 않은 남은 모래의 양과 같다
-	//(y, x) 기준: 초기 모래(a[y][x]) - 생성된 모래(sum) = alpha 좌표의 모래(alpha)
+	//초기 모래(a[y][x]) - 생성된 모래(sum) = alpha 좌표의 모래(alpha)
 	int alpha = sand - sum;
 
 	if (ny < 0 || ny >= n || nx < 0 || nx >= n) {
@@ -61,7 +61,6 @@ int wind(int y, int x, int dir) {
 void go(int y, int x) {
 	int dir = -1;
 
-	//토네이도
 	while (y != 0 || x != 0) {
 		visited[y][x] = 1;
 
