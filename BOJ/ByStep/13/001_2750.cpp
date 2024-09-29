@@ -1,6 +1,6 @@
 #include<iostream>
 #include<vector>
-#include<algorithm>
+#include<algorithm> //sort
 using namespace std;
 
 vector<int> v;
@@ -14,6 +14,7 @@ int main() {
 
 	for (int i = 0; i < n; i++) {
 		cin >> temp;
+		
 		v.push_back(temp);
 	}
 
