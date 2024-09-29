@@ -1,7 +1,8 @@
 #include<iostream>
 using namespace std;
 
-int temp, n, m, cnt, minVal = 65;
+int temp, n, m, cnt;
+int minVal = 65;
 string board[51];
 
 string WB[8] = {
@@ -63,6 +64,7 @@ int main() {
     cin.tie(NULL); cout.tie(NULL);
 
     cin >> n >> m;
+        
     for (int i = 0; i < n; i++) {
         cin >> board[i];
     }
@@ -76,6 +78,7 @@ int main() {
             }
         }
     }
+        
     cout << minVal;
 
     return 0;
