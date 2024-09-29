@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <stack>
-#include <algorithm>
+#include <algorithm> //reverse
 using namespace std;
 
 vector<int> solution(vector<int> arr) 
