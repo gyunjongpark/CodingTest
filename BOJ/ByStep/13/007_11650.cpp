@@ -19,6 +19,7 @@ int main() {
 
 	while (n--) {
 		cin >> x >> y;
+		
 		v.push_back({ x,y });
 	}
 
