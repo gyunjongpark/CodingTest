@@ -17,7 +17,10 @@ int main() {
 		s[2] = a / 5, a %= 5;
 		s[3] = a;
 
-		for (int a : s) cout << a << ' ';
+		for (int a : s){
+			cout << a << ' ';
+		}
+		
 		cout << '\n';
 	}
 
