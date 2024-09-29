@@ -6,7 +6,7 @@ ll a, b; //큰 수 입력에 대하여 변수를 64비트 정수로 선언하시
 
 ll getGCD(ll a, ll b) {
 	if (a == 0) return b;
-	getGCD(b % a, a);
+	return getGCD(b % a, a);
 }
 
 ll getLCM(ll a, ll b) {
