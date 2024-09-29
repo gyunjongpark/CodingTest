@@ -1,5 +1,5 @@
 #include<iostream>
-#include<algorithm>
+#include<algorithm> //sort
 #include<vector>
 using namespace std;
 
@@ -8,7 +8,6 @@ int n, x, y;
 
 bool cmp(pair<int, int> a, pair<int, int> b) {
 	if (a.second == b.second) return a.first < b.first;
-	
 	return a.second < b.second;
 }
 
@@ -20,6 +19,7 @@ int main() {
 
 	while (n--) {
 		cin >> x >> y;
+		
 		v.push_back({ x,y });
 	}
 
