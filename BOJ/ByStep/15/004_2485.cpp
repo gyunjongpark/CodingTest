@@ -26,6 +26,7 @@ int main() {
 	}
 
 	int dist = d[0]; //초기화, v[1]-v[0]
+	
 	for (int i = 1; i < n - 1; i++) {
 		dist = getGCD(dist, d[i]); //최소 거리 구하기
 	}
