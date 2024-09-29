@@ -16,11 +16,12 @@ int main() {
 		cin >> temp;
 		v.push_back(temp);
 	}
+	
 	sort(v.begin(), v.end());
 
 	cin >> m;
 
-	//upper_bound, lower_bound를 이용한 풀이
+	//upper_bound, lower_bound를 이용한 풀이(O(logN))
 	for (int i = 0; i < m; i++) {
 		cin >> temp;
 		cout << upper_bound(v.begin(), v.end(), temp) - lower_bound(v.begin(), v.end(), temp) << ' ';
