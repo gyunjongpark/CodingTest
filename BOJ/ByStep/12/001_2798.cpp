@@ -19,10 +19,12 @@ int main() {
         for (int j = 0; j < i; j++) {
             for (int k = 0; k < j; k++) {
                 int card = a[i] + a[j] + a[k];
+                
                 if (card <= m && maxVal < card) maxVal = card;
             }
         }
     }
+    
     cout << maxVal;
 
     return 0;
