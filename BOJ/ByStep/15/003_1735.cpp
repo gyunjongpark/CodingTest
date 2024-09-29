@@ -17,6 +17,7 @@ int main() {
 	int ja = a * d + b * c;
 	int mo = b * d;
 	int temp = getGCD(ja, mo);
+	
 	ja /= temp;
 	mo /= temp;
 
