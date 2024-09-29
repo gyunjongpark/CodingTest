@@ -2,16 +2,24 @@
 #include<vector>
 using namespace std;
 
-int n, temp, ret, chae[1004];
+int n, temp, ret;
+bool chae[1001]; //수는 1,000 이하의 자연수이다 = chae[1000]까지 접근해야 함
 
-void era(int n) { //에라토스테네스의 체로 chae 배열 먼저 완성
-	for (int i = 2; i <= n; i++) {
-		if (chae[i]) continue;
+void era(int num) { //에라토스테네스의 체로 chae 배열 먼저 완성
+	chae[0] = false;
+	chae[1] = false;
 
-		for (int j = i + i; j <= n; j += i) {
-			chae[j] = 1;
-		}
+	for (int i = 2; i <= num; i++) {
+		chae[i] = true;
 	}
+
+	for (int i = 2; i <= num; i++) {
+		if (!chae[i]) continue;
+
+		for (int j = i + i; j <= num; j += i) {
+			chae[j] = false;
+		}
+	}	
 
 	return;
 }
@@ -22,13 +30,12 @@ int main() {
 
 	cin >> n;
 
-	era(1001); //수는 1,000 이하의 자연수이다
+	era(1000); //수는 1,000 이하의 자연수이다 = chae[1000]까지 접근해야 함
 
 	for (int i = 0; i < n; i++) {
 		cin >> temp;
-		if (temp == 1) continue; //1은 소수가 아니므로 continue
 
-		if (!chae[temp]) ret++;
+		if (chae[temp]) ret++;
 	}
 
 	cout << ret;
