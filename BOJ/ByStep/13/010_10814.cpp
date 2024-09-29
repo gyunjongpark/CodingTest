@@ -1,5 +1,5 @@
 #include<iostream>
-#include<algorithm>
+#include<algorithm> //stable_sort(O(NlogN))
 #include<vector>
 using namespace std;
 
@@ -22,7 +22,7 @@ int main() {
 		v.push_back({ a,b });
 	}
 
-	//나이가 같으면 먼저 가입한 사람이 앞에 오는 순서로 정렬
+	//나이가 같으면 먼저 가입한 사람이(먼저 입력된 순서) 앞에 오는 순서로 정렬
 	stable_sort(v.begin(), v.end(), cmp);
 
 	for (pair<int, string> a : v) {
