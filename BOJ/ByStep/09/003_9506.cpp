@@ -2,15 +2,17 @@
 #include<vector>
 using namespace std;
 
-int n, sum;
-vector<int> v;
+int n;
 
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
 
 	while (true) {
-		sum = 0; v.clear(); // init
+        
+	        // init
+		int sum = 0;
+	        vector<int> v;
 
 		cin >> n;
 
@@ -24,9 +26,11 @@ int main() {
 
 		if (sum == n) {
 			cout << n << " = ";
+            
 			for (int i = 0; i < v.size() - 1; i++) {
 				cout << v[i] << " + ";
 			}
+            
 			cout << v[v.size()-1] << '\n';
 		}
 		else cout << n << " is NOT perfect.\n";
