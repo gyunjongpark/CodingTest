@@ -1,5 +1,5 @@
 #include<iostream>
-#include<algorithm>
+#include<algorithm> //sort, unique
 #include<vector>
 using namespace std;
 
@@ -9,7 +9,6 @@ int n;
 
 bool cmp(string a, string b) {
 	if (a.size() == b.size()) return a < b;
-	
 	return a.size() < b.size();
 }
 
@@ -21,6 +20,7 @@ int main() {
 
 	while (n--) {
 		cin >> s;
+		
 		v.push_back(s);
 	}
 
