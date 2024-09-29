@@ -1,5 +1,5 @@
 #include<iostream>
-#include<algorithm> //sort
+#include<algorithm> //sort, binary_search
 #include<vector>
 using namespace std;
 
@@ -21,11 +21,11 @@ int main() {
 
 	cin >> m;
 
-	//O(NlogN)
 	for (int i = 0; i < m; i++) {
 		cin >> num;
 
-		//O(logN), binary_search는 정렬된 배열에만 적용할 수 있다
+		//binary_search(O(logN))는 정렬된 배열에만 적용할 수 있다
+		//binary_search(start iterator, end iterator, number to find) -> return a bool type
 		if (binary_search(v.begin(), v.end(), num)) {
 			cout << 1 << ' ';
 		}
