@@ -13,9 +13,11 @@ int main() {
 
 	for (int i = 0; i < n; i++) {
 		cin >> x >> y;
+		
 		maxX = max(x, maxX); maxY = max(y, maxY);
 		minX = min(x, minX); minY = min(y, minY);
 	}
+	
 	cout << (maxX - minX) * (maxY - minY);
 
 	return 0;
