@@ -2,9 +2,8 @@
 using namespace std;
 
 string s;
-int cnt[26]; //alphabet count
+int cnt[26], ret, temp;
 int maxVal = -1;
-int ret, temp;
 
 int main() {
 	cin.tie(NULL), cout.tie(NULL);
@@ -28,6 +27,7 @@ int main() {
 			temp = cur;
 		}
 	}
+	
 	if (ret == 1) cout << (char)(temp + 65); //숫자를 대문자로
 	else cout << '?';
 
