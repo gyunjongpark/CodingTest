@@ -1,6 +1,7 @@
-#include<vector>
 #include<iostream>
+#include<vector>
 #include<set>
+#include<climits> //INT_MAX
 using namespace std;
 
 set<int> st;
@@ -14,7 +15,8 @@ int solution(vector<int> nums)
 
     for (int num : nums) st.insert(num);
 
-    answer = min(answer, (int)st.size()); //모든 자료구조의 size 연산은 unsigned long을 반환합니다
-    
+    //size() 연산은 size_t 타입을 반환하므로 엄밀한 검사가 필요
+    answer = min(answer, (st.size() <= INT_MAX) ? (int)st.size() : INT_MAX);
+
     return answer;
 }
