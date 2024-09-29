@@ -3,21 +3,27 @@
 using namespace std;
 
 int n, chae[250000]; //n <= 123456이므로 대충 2배
-vector<int> v;
 
 vector<int> era(int n) {
 	vector<int> v;
 
+	chae[0] = false;
+	chae[1] = false;
+
 	for (int i = 2; i <= n; i++) {
-		if (chae[i]) continue; //이미 지워졌다면 continue
+		chae[i] = true;
+	}
+
+	for (int i = 2; i <= n; i++) {
+		if (!chae[i]) continue; //이미 지워졌다면 continue
 
 		for (int j = i + i; j <= n; j += i) {
-			chae[j] = 1; //i의 배수 지우기(소수만 남기기)
+			chae[j] = false; //i의 배수 지우기(소수만 남기기)
 		}
 	}
 
 	for (int i = 2; i <= n; i++) {
-		if (!chae[i]) v.push_back(i); //소수라면 push back
+		if (chae[i]) v.push_back(i); //소수라면 push back
 	}
 
 	return v;
@@ -28,9 +34,10 @@ int main() {
 	cin.tie(NULL); cout.tie(NULL);
 
 	while (true) {
-		v.clear(); //init
+		vector<int> v;
 
 		cin >> n;
+		
 		if (n == 0) break;
 
 		vector<int> ret = era(2 * n);
