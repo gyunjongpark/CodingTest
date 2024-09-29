@@ -3,7 +3,7 @@ using namespace std;
 
 const int dy[] = { 0,1,0,-1 };
 const int dx[] = { -1,0,1,0 };
-const int wind_dy[4][9] = {
+const int wind_dy[][9] = {
 	{-1,1,-2,2,0,-1,1,-1,1}, //left
 	{-1,-1,0,0,2,0,0,1,1}, //down
 	{1,-1,2,-2,0,1,-1,1,-1}, //right
@@ -20,9 +20,10 @@ int n, a[500][500], ret;
 bool visited[500][500];
 
 int wind(int y, int x, int dir) {
-	int ret = 0; //범위를 벗어난 모래 저장
-	int sand = a[y][x];
-	int sum = 0; //범위 내 남은 모래 저장
+	int sand = a[y][x]; //초기 전체 모래
+	int sum = 0; //생성된 모래의 합
+	int ret = 0; //생성된 모래 중 범위를 벗어난 모래의 합
+	
 
 	//비율 자리의 모래 계산
 	for (int i = 0; i < 9; i++) {
@@ -43,6 +44,8 @@ int wind(int y, int x, int dir) {
 	int ny = y + dy[dir];
 	int nx = x + dx[dir];
 
+	//alpha로 이동하는 모래의 양은 비율이 적혀있는 칸으로 이동하지 않은 남은 모래의 양과 같다
+	//(y, x) 기준: 초기 모래(a[y][x]) - 생성된 모래(sum) = alpha 좌표의 모래(alpha)
 	int alpha = sand - sum;
 
 	if (ny < 0 || ny >= n || nx < 0 || nx >= n) {
@@ -58,6 +61,7 @@ int wind(int y, int x, int dir) {
 void go(int y, int x) {
 	int dir = -1;
 
+	//토네이도
 	while (y != 0 || x != 0) {
 		visited[y][x] = 1;
 
@@ -65,8 +69,8 @@ void go(int y, int x) {
 		int ny = y + dy[nd];
 		int nx = x + dx[nd];
 
-		if (visited[ny][nx]) { //이미 방문되어 있다면 기존 방향으로 한 칸 더 진행
-			nd = dir % 4;			
+		if (visited[ny][nx]) { //이미 방문되어 있다면 기존 방향으로 한 칸 더 전진
+			nd = dir % 4;
 			ny = y + dy[nd];
 			nx = x + dx[nd];
 		}
