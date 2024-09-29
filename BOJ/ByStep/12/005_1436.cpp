@@ -13,10 +13,12 @@ int main() {
 
 	for (int i = 666; cnt < n; i++) {
 		ret = to_string(i);
+		
 		if (ret.find("666") != string::npos) {
 			cnt++;
 		}
 	}
+	
 	cout << ret;
 	
 	return 0;
