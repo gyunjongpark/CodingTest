@@ -1,5 +1,5 @@
 #include<iostream>
-#include<algorithm>
+#include<algorithm> //sort
 using namespace std;
 
 string s;
