@@ -7,6 +7,7 @@ int minVal = 10001;
 
 bool check(int n) {
 	if (n <= 1) return 0;
+	
 	for (int i = 2; i <= (int)sqrt(n); i++) {
 		if (n % i == 0) return 0;
 	}
@@ -26,6 +27,7 @@ int main() {
 			minVal = i;
 		}
 	}
+	
 	if (ret == 0) cout << -1;
 	else cout << ret << '\n' << minVal;
 
