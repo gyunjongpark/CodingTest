@@ -16,8 +16,9 @@ int main() {
 		dq.push_back({ i + 1,temp });
 	}
 
-	while (dq.size()) {
+	while (!dq.empty()) {
 		cout << dq.front().first << ' ';
+		
 		cur = dq.front().second;
 		dq.pop_front();
 
