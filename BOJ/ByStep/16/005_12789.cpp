@@ -18,7 +18,7 @@ int main() {
 
 		stk.push(temp);
 
-		while (stk.size() && stk.top() == cnt) {
+		while (!stk.empty() && stk.top() == cnt) {
 			stk.pop();
 			cnt++;
 		}
