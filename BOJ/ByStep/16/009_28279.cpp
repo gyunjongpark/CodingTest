@@ -23,14 +23,14 @@ int main() {
 			dq.push_back(a);
 		}
 		else if (n == 3) {
-			if (dq.size()) {
+			if (!dq.empty()) {
 				cout << dq.front() << '\n';
 				dq.pop_front();
 			}
 			else cout << -1 << '\n';
 		}
 		else if (n == 4) {
-			if (dq.size()) {
+			if (!dq.empty()) {
 				cout << dq.back() << '\n';
 				dq.pop_back();
 			}
@@ -40,19 +40,15 @@ int main() {
 			cout << dq.size() << '\n';
 		}
 		else if (n == 6) {
-			if (dq.size()) cout << 0 << '\n';
+			if (!dq.empty()) cout << 0 << '\n';
 			else cout << 1 << '\n';
 		}
 		else if (n == 7) {
-			if (dq.size()) {
-				cout << dq.front() << '\n';
-			}
+			if (!dq.empty()) cout << dq.front() << '\n';
 			else cout << -1 << '\n';
 		}
 		else if (n == 8) {
-			if (dq.size()) {
-				cout << dq.back() << '\n';
-			}
+			if (!dq.empty()) cout << dq.back() << '\n';
 			else cout << -1 << '\n';
 		}
 	}
