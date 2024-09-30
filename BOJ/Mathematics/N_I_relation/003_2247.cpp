@@ -13,7 +13,8 @@ int main() {
 	for (ll i = 2; i <= n; i++) { //약수 1 제외
 		ll cnt = n / i; //n!에서(1 ~ n 중에서) 현재 i가 곱해진 경우를 하나씩 계산
 
-		//본인을 제외한 cnt에 자신을 곱해서 CSOD(n) 완성
+		//본인을 제외한 cnt에 자신을 곱해서 SOD(i) 완성
+		//answer에 누적시켜서 CSOD(n) 완성
 		answer += (cnt - 1) * i;
 
 		answer %= 1000000; //모듈러 연산
