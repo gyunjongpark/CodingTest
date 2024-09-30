@@ -6,7 +6,7 @@ int a, b;
 int getGCD(int a, int b) {
 	if (a == 0) return b;
 
-	getGCD(b % a, a);
+	return getGCD(b % a, a);
 }
 
 int getLCM(int a, int b) {
