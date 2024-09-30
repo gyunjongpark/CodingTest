@@ -6,17 +6,17 @@ using namespace std;
 bool chae[MAX]; //소수만 true로 저장될 배열
 
 //에라토스테네스의 체 O(Nlog(logN))
-void era(int n) {
-	for (int i = 0; i <= n; i++) chae[i] = true; //초기값은 전부 소수로 가정
-	
+void era(int n) {	
 	chae[0] = false; //0과 1은 소수의 정의에 따라 소수가 아니다
 	chae[1] = false; //0과 1은 소수의 정의에 따라 소수가 아니다
 
+	for (int i = 2; i <= n; i++) chae[i] = true; //초기값은 전부 소수로 가정
+	
 	for (int i = 2; i <= n; i++) {
 		if (!chae[i]) continue; //소수가 아니라면 continue
 
 		for (int j = i + i; j <= n; j += i) {
-			chae[j] = false; //소수의 배수(소수가 아닌 수)들을 false로 전환
+			chae[j] = false; //소수의 배수를 false로 전환
 		}
 	}
 
