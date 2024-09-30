@@ -10,12 +10,13 @@ int main() {
 	cin.tie(NULL); cout.tie(NULL);
 
 	cin >> n;
+	
 	while (n--) {
 		cin >> s;
 
 		stack<char> stk;
 		for (char a : s) {
-			if (stk.size()) {
+			if (!stk.empty()) {
 				if (stk.top() == '(' && a == ')') stk.pop();
 				else stk.push(a);
 			}
@@ -24,7 +25,7 @@ int main() {
 			}
 		}
 
-		if (stk.size()) cout << "NO\n";
+		if (!stk.empty()) cout << "NO\n";
 		else cout << "YES\n";
 	}
 
