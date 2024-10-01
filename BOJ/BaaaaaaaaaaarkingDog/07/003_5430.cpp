@@ -32,13 +32,14 @@ int main(void) {
 	while (t--) {
 
 		//init
-		cin >> p >> n >> x;
 		string test_str = "";
 		deque<string> ret_str;
-		bool flag = 0; bool reversed = 0;
+		bool flag = false; bool reversed = false;
+
+		cin >> p >> n >> x;
 
 		for (int i = 1; i < x.size() - 1; i++) {
-			test_str += x[i]; //바깥 괄호 [ ] 제거하고 test_str에 저장
+			test_str += x[i]; //바깥 괄호 제거하고 test_str에 저장
 		}
 
 		if (!test_str.empty()) {
@@ -55,9 +56,7 @@ int main(void) {
 					break; //더 이상 진행할 이유가 없음
 				}
 				else { //반전 상태에 따라 pop의 위치 결정
-					if (reversed) {
-						ret_str.pop_back();
-					}
+					if (reversed) ret_str.pop_back();
 					else ret_str.pop_front();
 				}
 			}
