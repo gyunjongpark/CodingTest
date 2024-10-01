@@ -4,23 +4,30 @@
 #include<vector>
 using namespace std;
 
+struct Pos {
+    int y, x, h;
+};
+Pos sPos, ePos;
+
 const int dy[] = { -1,0,1,0 };
 const int dx[] = { 0,1,0,-1 };
 const int dh[] = { 1,-1 };
 int l, r, c, answer, visited[31][31][31];
 char a[31][31][31];
 string s;
-tuple<int, int, int> sPos, ePos;
 
-void bfs(int y, int x, int h) {
+void bfs(Pos pos) {
+    int y = pos.y, x = pos.x, h = pos.h;
     visited[y][x][h] = 1;
 
-    queue<tuple<int, int, int>> q;
+    queue<Pos> q;
     q.push({ y,x,h });
 
     while (!q.empty()) {
-        int y, x, height;
-        tie(y, x, height) = q.front(); q.pop();
+        Pos cur;
+        cur = q.front(); q.pop();
+
+        int y = cur.y, x = cur.x, height = cur.h;
 
         for (int i = 0; i < 4; i++) {
             int ny = y + dy[i];
@@ -38,11 +45,11 @@ void bfs(int y, int x, int h) {
         for (int i = 0; i < 2; i++) {
             int nh = height + dh[i];
 
-            if (nh < 0 || nh >= l) continue; //범위를 벗어나면 continue
+            if (nh < 0 || nh >= l) continue;
             if (a[y][x][nh] == '#') continue;
 
             if (!visited[y][x][nh]) {
-                visited[y][x][nh] = visited[y][x][height] + 1; //y, x는 고정
+                visited[y][x][nh] = visited[y][x][height] + 1;
                 q.push({ y, x, nh });
             }
         }
@@ -68,9 +75,11 @@ int main() {
 
                 for (int j = 0; j < c; j++) {
                     a[i][j][k] = s[j];
+
                     if (a[i][j][k] == 'S') {
                         sPos = { i,j,k };
                     }
+
                     if (a[i][j][k] == 'E') {
                         ePos = { i,j,k };
                     }
@@ -78,11 +87,11 @@ int main() {
             }
         }
 
-        bfs(get<0>(sPos), get<1>(sPos), get<2>(sPos));
+        bfs(sPos);
 
 
-        if (!visited[get<0>(ePos)][get<1>(ePos)][get<2>(ePos)]) cout << "Trapped!" << '\n';
-        else cout << "Escaped in " << visited[get<0>(ePos)][get<1>(ePos)][get<2>(ePos)] - 1 << " minute(s)." << '\n';
+        if (!visited[ePos.y][ePos.x][ePos.h]) cout << "Trapped!" << '\n';
+        else cout << "Escaped in " << visited[ePos.y][ePos.x][ePos.h] - 1 << " minute(s)." << '\n';
     }
 
     return 0;
