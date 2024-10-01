@@ -20,7 +20,7 @@ int main() {
         house.push_back({ r,g,b });
     }
 
-    //dp 첫 번째 줄 init
+    //첫 번째 집을 dp[0]의 원소로 초기화
     for (int i = 0; i < 3; i++) {
         dp[0][i] = house[0][i];
     }
