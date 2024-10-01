@@ -23,8 +23,8 @@ int main() {
 			if (stk.top() == '(' && c == ')' && flag == 1) { //레이저 완성 시
 				ret += stk.size() - 1; //'('를 제외하고 쪼개지는 막대기의 수를 ret에 추가
 				
-				stk.pop(); //레이저 init
-				flag = 0; //레이저 init
+				stk.pop(); //레이저 부품 제거
+				flag = 0; //레이저 flag init
 			}
 			else if (stk.top() == '(' && c == ')' && flag == 0) { //가장 상위의 막대기가 끊어진 경우
 				stk.pop(); //막대기의 수 하나 줄이기
