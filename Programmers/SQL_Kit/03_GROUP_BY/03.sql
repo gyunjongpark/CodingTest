@@ -2,7 +2,7 @@ SELECT A.AUTHOR_ID, B.AUTHOR_NAME, A.CATEGORY, SUM((C.SALES * A.PRICE)) AS TOTAL
 FROM BOOK AS A, AUTHOR AS B, (
                               SELECT BOOK_ID, SUM(SALES) AS SALES
                               FROM BOOK_SALES
-                              WHERE DATE_FORMAT(SALES_DATE,'%Y-%m') IN ('2022-01')
+                              WHERE SALES_DATE LIKE '2022-01%'
                               GROUP BY BOOK_ID
                              ) AS C
 WHERE A.BOOK_ID = C.BOOK_ID
