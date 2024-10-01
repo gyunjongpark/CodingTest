@@ -24,7 +24,8 @@ void bfs() {
 
             if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue; //범위를 벗어나면 continue
 
-            //애초에 토마토가 들어있지 않았거나(a[i][j] = -1 -> visited[i][j] = 0), 날짜가 지나서 익은 토마토라면
+            //애초에 토마토가 들어있지 않았거나(a[i][j] = -1 -> visited[i][j] = 0)
+            //날짜가 지나서 익은 토마토라면(이미 방문한 토마토라면)
             if (visited[ny][nx] >= 0) continue;
 
             visited[ny][nx] = visited[y][x] + 1;
@@ -58,7 +59,7 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            if (visited[i][j] == -1) { //토마토가 모두 익지 못하는 상황이면 -1 출력
+            if (visited[i][j] == -1) { //익지 못한 토마토가 있을 경우 -1 출력 후 return
                 cout << -1;
 
                 return 0;
