@@ -14,10 +14,9 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> temp;
 
-        //접근 방식이 stack에서 오아시스 재결합, 히스토그램 넓이 구하기랑 비슷하다!
         while (!dq.empty() && dq.back().second >= temp) {
             dq.pop_back(); //입력된 temp보다 dq에 들어있는 값이 크다면 바로 pop_back
-            //dq에 들어있는 값이 temp를 포함해서 최소가 될 때까지 진행
+            //dq에 들어있는 값이 temp를 포함해서 최소가 될 때까지 진행된다
         }
 
         dq.push_back({ i,temp });
