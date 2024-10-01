@@ -20,7 +20,8 @@ int bfs() {
         int y, x, broken;
         tie(y, x, broken) = q.front(); q.pop();
 
-        if (y == n - 1 && x == m - 1) { //broken 여부와 관계없이 (n,m) 위치에 도달했다면 종료
+        //broken 여부와 관계없이 (n,m) 위치에 도달했다면 종료
+        if (y == n - 1 && x == m - 1) {
             return visited[y][x][broken];
         }
 
@@ -43,11 +44,11 @@ int bfs() {
             //벽을 부술 기회가 남아있고, a[ny][nx]가 1이면서(벽) 방문하지 않았다면
             if (!broken && a[ny][nx] == '1' && !visited[ny][nx][1]) {
                 visited[ny][nx][1] = visited[y][x][broken] + 1;
-                q.push({ ny,nx,1 }); //이후 bfs는 broken = 1인 채로 진행되므로 해당 if문은 더이상 쓸모없게 된다
+                q.push({ ny,nx,1 }); //이후 bfs는 broken = 1인 채로 진행되므로 해당 if문은 더 이상 쓸모없게 된다
             }
 
             //모든 벽에 대해서 부수는 경우와 보존하는 경우 모든 수를 전부 탐색한다
-            //queue의 성질에 따라서 가장 먼저 (n, m) 위치에 도달한 경우를 계산한다
+            //queue의 성질에 의해 가장 먼저 (n, m) 위치에 도달한 경우를 계산한다
         }
     }
 
