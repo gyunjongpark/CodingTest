@@ -2,6 +2,7 @@
 #include<vector>
 using namespace std;
 
+//5373 큐빙과 비슷한 접근법. 경우의 수로 나올 좌표를 미리 생성
 vector<vector<pair<int, int>>> tet = {
     {{0,1},{0,2},{0,3}}, {{1,0},{2,0},{3,0}}, //ㅣ 회전
     {{0,1},{1,0},{1,1}}, //ㅁ
@@ -17,7 +18,7 @@ int n, m, a[501][501], ret, sum;
 int get_score(int i, int j, int k) {
     int sum = a[i][j]; //기준점 먼저 더하기
 
-    for (int t = 0; t < 3; t++) { //tet 하나는 3개의 좌표를 가지고 있다
+    for (int t = 0; t < 3; t++) {
         int y = i + tet[k][t].first;
         int x = j + tet[k][t].second;
 
