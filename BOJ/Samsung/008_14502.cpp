@@ -34,7 +34,6 @@ int check_area() {
 
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < m; j++) {
-			//빈 칸이면서 바이러스가 퍼지지 않았다면
 			if (a[i][j] == 0 && !visited[i][j]) cnt++;
 		}
 	}
@@ -63,10 +62,10 @@ int main() {
 		for (int j = i + 1; j < wallList.size(); j++) {
 			for (int k = j + 1; k < wallList.size(); k++) {
         
-				//방문처리 초기화
+				//방문 처리 초기화(세웠던 벽 + 방문 초기화)
 				fill(&visited[0][0], &visited[0][0] + 10 * 10, 0);
 
-				//방문처리로 벽 세우기
+				//방문 처리로 벽 세우기
 				visited[wallList[i].first][wallList[i].second] = 1;
 				visited[wallList[j].first][wallList[j].second] = 1;
 				visited[wallList[k].first][wallList[k].second] = 1;
