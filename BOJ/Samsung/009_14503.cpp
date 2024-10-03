@@ -10,7 +10,7 @@ bool visited[51][51];
 
 void drive(int y, int x, int dir) {
     if (!visited[y][x]) {
-        visited[y][x] = 1; //방문처리
+        visited[y][x] = 1; //방문 처리
         ret++;
     }
 
@@ -29,12 +29,11 @@ void drive(int y, int x, int dir) {
     //y, x에서 네 방향 모두 조건을 만족하지 않을 시 후진 방향 설정
     int back_dir = (dir + 2) % 4;
 
-    //후진할 좌표 설정
     int ny = y + dy[back_dir];
     int nx = x + dx[back_dir];
 
     if (ny >= 0 && ny < n && nx >= 0 && nx < m && a[ny][nx] == 0) {
-        drive(ny, nx, dir); //방향은 유지한 채로 후진
+        drive(ny, nx, dir); //후진한 좌표에서 drive 다시 시도
     }
     else return; //더 이상 후진할 수 없다면 종료
 }
