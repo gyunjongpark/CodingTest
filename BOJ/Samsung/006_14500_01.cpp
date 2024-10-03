@@ -8,14 +8,16 @@ int n, m, a[501][501], ret;
 bool visited[501][501];
 vector<int> v;
 
-void combi(int y, int x, vector<int>& v) {
+void combi_dfs(int y, int x, vector<int>& v) {
     if (v.size() == 4) {
         int sum = 0;
 
         for (int i = 0; i < 4; i++) {
             sum += v[i];
         }
+
         ret = max(ret, sum);
+
         return;
     }
 
@@ -29,7 +31,7 @@ void combi(int y, int x, vector<int>& v) {
         if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue;
 
         if (!visited[ny][nx]) {
-            combi(ny, nx, v);
+            combi_dfs(ny, nx, v);
         }
     }
 
@@ -37,7 +39,7 @@ void combi(int y, int x, vector<int>& v) {
     v.pop_back(); //원상 복구
 }
 
-//combi dfs는 ㅗ,ㅜ,ㅏ,ㅓ로 뻗어나갈 수 없기 때문에, 해당 블럭은 좌표를 통해 배열의 값을 직접 더한다
+//combi_dfs는 ㅗ,ㅜ,ㅏ,ㅓ로 뻗어나갈 수 없기 때문에 배열의 값을 직접 더해 블록을 완성한다
 //4가지 케이스에 대해서 모두 max 연산을 거친다 (else if x)
 void check_extra_shape(int y, int x) {
     if (y >= 1 && x >= 1 && x + 1 < m) {
@@ -73,8 +75,7 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            combi(i, j, v); //이어진 4개의 좌표를 선택하는 경우의 수를 모두 조사
-
+            combi_dfs(i, j, v); //이어진 4개의 좌표를 선택하는 경우의 수
             check_extra_shape(i, j);
         }
     }
