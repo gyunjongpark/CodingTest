@@ -8,17 +8,21 @@ int n, x, y, d, g, ret, gen, curve[1024];
 bool a[101][101];
 
 void makeDragon(int x, int y, int d, int g) {
-	a[y][x] = 1; //시작 좌표는 무조건 true
-
-	//init
-	gen = 0;
 	fill(curve, curve + 1024, 0);
 
-	curve[gen++] = d; //0세대 방향을 curve[0]에 저장 후 세대 증가
+	a[y][x] = 1;
+	gen = 0;
 
+	curve[gen] = d; //입력된 d를 0세대 커브의 방향으로 저장
+	gen++;
+
+	//현재 세대부터 역순으로 저장(도식화 후 규칙성 찾기)
 	for (int i = 0; i < g; i++) {
-		for (int j = gen - 1; j >= 0; j--) { //현재 세대부터 역순으로 저장
-			curve[gen++] = (curve[j] + 1) % 4;
+		for (int j = gen - 1; j >= 0; j--) {
+			
+			//현 세대 방항은 이전 세대의 방향을 반시계로 회전한 방향이다
+			curve[gen] = (curve[j] + 1) % 4;
+			gen++;
 		}
 	}
 
@@ -56,6 +60,3 @@ int main() {
 
 	return 0;
 }
-
-//방향을 따져보고 규칙성 찾기
-//논리를 따져보고 규칙성 찾기. 14890(경사로)문제와 접근 방식이 유사하다
