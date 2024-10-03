@@ -16,11 +16,9 @@ void makeDragon(int x, int y, int d, int g) {
 	curve[gen] = d; //입력된 d를 0세대 커브의 방향으로 저장
 	gen++;
 
-	//현재 세대부터 역순으로 저장(도식화 후 규칙성 찾기)
+	//현 세대 방항은 역순으로 이전 세대의 방향을 반시계로 회전한 방향이다(도식화 후 규칙성 찾기)
 	for (int i = 0; i < g; i++) {
 		for (int j = gen - 1; j >= 0; j--) {
-			
-			//현 세대 방항은 이전 세대의 방향을 반시계로 회전한 방향이다
 			curve[gen] = (curve[j] + 1) % 4;
 			gen++;
 		}
