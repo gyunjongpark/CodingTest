@@ -35,7 +35,7 @@ void bfs() {
 		}
 
 		//현재 좌표를 기준으로 검사를 진행한다
-		//일반적인 ny = y + dy[i]로는 ny가 구멍일지라도 반복문이 진행되므로 논리에 맞지 않는다
+		//일반적인 ny = y + dy[i]로는 y가 구멍일지라도 반복문이 진행되므로 논리에 맞지 않는다
 		for (int dir = 0; dir < 4; dir++) {
 			int nry = cur.ry;
 			int nrx = cur.rx;
