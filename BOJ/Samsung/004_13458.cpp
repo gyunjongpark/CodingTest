@@ -8,13 +8,13 @@ int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
 
-	cin >> n; //식당의 수
+	cin >> n; //시험장 수
 
 	for (int i = 0; i < n; i++) {
-		cin >> a[i]; //고객의 수
+		cin >> a[i]; //응시자 수
 	}
 
-	cin >> leader >> teammate; //팀장 최대 할당량, 팀원 최대 할당량
+	cin >> leader >> teammate; //감독관 최대 할당량, 부감독관 최대 할당량
 
 	ll ret = n;
 	
