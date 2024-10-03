@@ -8,7 +8,7 @@ int ret = INT_MAX;
 bool visited[21];
 vector<int> v;
 
-int go(vector<int> start, vector<int> link) {
+int go(vector<int>& start, vector<int>& link) {
     pair<int, int> ret; //init
 
     for (int i = 0; i < n / 2; i++) {
