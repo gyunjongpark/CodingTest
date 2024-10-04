@@ -25,10 +25,8 @@ void bfs() {
 		info cur;
 		cur = q.front(); q.pop();
 
-		//종료 조건 1
 		if (cur.cnt > 10) break;
-
-		//종료 조건 2
+		
 		if (a[cur.ry][cur.rx] == 'O' && a[cur.by][cur.bx] != 'O') {
 			ret = cur.cnt;
 			break;
@@ -77,7 +75,7 @@ void bfs() {
 					break; //구멍이라면 그 위치에서 break
 				}
 			}
-
+			
 			if (nry == nby && nrx == nbx) { //두 구슬이 겹쳤다면
 				if (a[nry][nrx] != 'O') { //겹쳤는데 구멍이 아닌 경우
 					int r_dist = abs(nry - cur.ry) + abs(nrx - cur.rx);
@@ -95,10 +93,9 @@ void bfs() {
 				}
 			}
 
-			//방문한 좌표는 queue에 다시 집어넣지 않는다
+			//방문한 좌표는 다시 queue에 집어넣지 않는다
 			if (!visited[nry][nrx][nby][nbx]) {
 				visited[nry][nrx][nby][nbx] = 1;
-
 				q.push({ nry,nrx,nby,nbx,cur.cnt + 1 });
 			}
 		}
