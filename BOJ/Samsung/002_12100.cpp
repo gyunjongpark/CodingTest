@@ -1,5 +1,4 @@
 #include<iostream>
-#include<cstring> //memcpy, memset
 using namespace std;
 
 int n;
@@ -17,7 +16,11 @@ struct Board {
 			}
 		}
 
-		memcpy(a, temp, sizeof(temp));
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				a[i][j] = temp[i][j];
+			}
+		}
 
 		return;
 	}
@@ -53,14 +56,18 @@ struct Board {
 				}
 			}
 
-			//더 이상 참조할 j가 없다면 단독으로 temp를 완성한다
+			//더 이상 참조할 j가 없다면 단독으로 temp 완성
 			while (c < n) {
 				temp[i][c] = 0;
 				c++;
 			}
 		}
 
-		memcpy(a, temp, sizeof(temp));
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				a[i][j] = temp[i][j];
+			}
+		}
 
 		return;
 	}
@@ -69,17 +76,16 @@ struct Board {
 void dfs(Board c, int here) {
 	if (here == 5) {
 		c.get_max();
-
 		return;
 	}
 
 	for (int dir = 0; dir < 4; dir++) {
 		Board d = c;
-		
-		d.pushing_blocks();
-		
-		dfs(d, here + 1);
 
+		d.pushing_blocks();
+
+		dfs(d, here + 1);
+		
 		c.rotate();
 	}
 
