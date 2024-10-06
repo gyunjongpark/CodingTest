@@ -8,16 +8,9 @@ int n, m, a[501][501], ret;
 bool visited[501][501];
 vector<int> v;
 
-void combi_dfs(int y, int x, vector<int>& v) {
-    if (v.size() == 4) {
-        int sum = 0;
-
-        for (int i = 0; i < 4; i++) {
-            sum += v[i];
-        }
-
+void combi_dfs(int y, int x, int cnt, int sum) {
+    if (cnt == 4) {
         ret = max(ret, sum);
-
         return;
     }
 
@@ -31,16 +24,15 @@ void combi_dfs(int y, int x, vector<int>& v) {
         if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue;
 
         if (!visited[ny][nx]) {
-            combi_dfs(ny, nx, v);
+            combi_dfs(ny, nx, cnt + 1, sum + a[ny][nx]);
         }
     }
 
-    visited[y][x] = 0; //원상 복구
-    v.pop_back(); //원상 복구
+    visited[y][x] = 0;
+    v.pop_back();
 }
 
 //combi_dfs는 ㅗ,ㅜ,ㅏ,ㅓ로 뻗어나갈 수 없기 때문에 배열의 값을 직접 더해 블록을 완성한다
-//4가지 케이스에 대해서 모두 max 연산을 거친다 (else if x)
 void check_extra_shape(int y, int x) {
     if (y >= 1 && x >= 1 && x + 1 < m) {
         ret = max(ret, a[y][x] + a[y - 1][x] + a[y][x - 1] + a[y][x + 1]); //ㅗ
@@ -75,8 +67,8 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            combi_dfs(i, j, v); //이어진 4개의 좌표를 선택하는 경우의 수
-            check_extra_shape(i, j);
+            combi_dfs(i, j, 1, a[i][j]); //이어진 4개의 좌표를 선택하는 경우의 수를 조사 후 점수 계산
+            check_extra_shape(i, j); //dfs로 만들 수 없는 모양을 조사 후 점수 계산
         }
     }
 
