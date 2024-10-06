@@ -4,13 +4,12 @@ using namespace std;
 
 const int dy[] = { -1,0,1,0 };
 const int dx[] = { 0,1,0,-1 };
-int n, m, y, x, d, a[51][51];
-int ret = 0;
+int n, m, y, x, d, a[51][51], ret;
 bool visited[51][51];
 
 void drive(int y, int x, int dir) {
     if (!visited[y][x]) {
-        visited[y][x] = 1; //방문 처리
+        visited[y][x] = true; //방문 처리
         ret++;
     }
 
@@ -20,8 +19,9 @@ void drive(int y, int x, int dir) {
         int ny = y + dy[dir];
         int nx = x + dx[dir];
 
+        //범위 내에 있으면서 방문하지 않았다면
         if (ny >= 0 && ny < n && nx >= 0 && nx < m && a[ny][nx] == 0 && !visited[ny][nx]) {
-            drive(ny, nx, dir); //1번 과정 시도
+            drive(ny, nx, dir); //해당 좌표에서 다시 1번 과정 시도
             return; //좌표가 옮겨졌다면 y, x에서의 drive의 역할은 종료된다
         }
     }
