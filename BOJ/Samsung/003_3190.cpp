@@ -10,32 +10,12 @@ bool a[101][101], visited[101][101];
 char c;
 deque<pair<int, int>> dq, v;
 
-int main() {
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL); cout.tie(NULL);
-
-	cin >> n >> k;
-
-	for (int i = 0; i < k; i++) {
-		cin >> y >> x;
-		a[y - 1][x - 1] = 1;
-	}
-
-	cin >> l;
-
-	for (int i = 0; i < l; i++) {
-		cin >> t >> c;
-
-		if (c == 'D') v.push_back({ t,1 });
-		else v.push_back({ t,3 });
-	}
-
-	//init
+void go() {
 	dq.push_back({ 0,0 });
 	visited[0][0] = 1;
 	dir = 1;
 
-	while (dq.size()) {
+	while (!dq.empty()) {
 		ret++;
 
 		int ny = dq.front().first + dy[dir];
@@ -56,11 +36,36 @@ int main() {
 			dq.pop_back();
 		}
 
-		if (ret == v.front().first) {
+		if (ret == v.front().first) { //입력된 시간이 되면 방향을 바꾼다
 			dir = (dir + v.front().second) % 4;
 			v.pop_front();
 		}
 	}
+
+	return;
+}
+
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL); cout.tie(NULL);
+
+	cin >> n >> k;
+
+	for (int i = 0; i < k; i++) {
+		cin >> y >> x;
+		a[y - 1][x - 1] = 1;
+	}
+
+	cin >> l;
+
+	for (int i = 0; i < l; i++) {
+		cin >> t >> c;
+
+		if (c == 'D') v.push_back({ t,1 });
+		else v.push_back({ t,3 });
+	}
+
+	go();
 
 	cout << ret;
 
