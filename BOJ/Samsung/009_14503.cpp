@@ -1,5 +1,4 @@
 #include<iostream>
-#include<climits> //INT_MAX
 using namespace std;
 
 const int dy[] = { -1,0,1,0 };
