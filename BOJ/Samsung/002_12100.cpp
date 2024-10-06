@@ -1,8 +1,7 @@
 #include<iostream>
 using namespace std;
 
-int n;
-int ret = -1;
+int n, ret;
 
 struct Board {
 	int a[21][21];
@@ -39,8 +38,8 @@ struct Board {
 		int temp[21][21];
 
 		for (int i = 0; i < n; i++) {
-			bool flag = false; //combinalbe flag
-			int c = 0; //moving variable
+			bool flag = false;
+			int c = 0;
 
 			for (int j = 0; j < n; j++) {
 				if (a[i][j] == 0) continue;
@@ -52,7 +51,7 @@ struct Board {
 				else {
 					temp[i][c] = a[i][j]; //밀기
 					c++;
-					flag = true; //합칠 수 있는 flag = true
+					flag = true; //합칠 수 있는 flag를 다시 true
 				}
 			}
 
@@ -83,7 +82,6 @@ void dfs(Board c, int here) {
 		Board d = c;
 
 		d.pushing_blocks();
-
 		dfs(d, here + 1);
 		
 		c.rotate();
@@ -107,7 +105,7 @@ int main() {
 	}
 
 	dfs(c, 0);
-
+	
 	cout << ret;
 
 	return 0;
