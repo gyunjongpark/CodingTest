@@ -8,9 +8,10 @@ int n, ret, l, r, sum, a[51][51];
 bool visited[51][51];
 
 void dfs(int y, int x, int& sum, vector<pair<int,int>>& v) {
-	sum += a[y][x];
 	visited[y][x] = true;
 	v.push_back({ y,x });
+
+	sum += a[y][x];
 
 	for (int i = 0; i < 4; i++) {
 		int ny = y + dy[i];
@@ -41,9 +42,10 @@ int main() {
 	}
 
 	while (true) {
-		bool flag = false; //인구이동 발생 시 true가 된다
 		fill(&visited[0][0], &visited[0][0] + 51 * 51, 0); //인구이동이 끝나면 reset
 
+		bool flag = false; //인구이동 발생 시 true
+		
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
 				vector<pair<int, int>> v;
