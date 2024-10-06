@@ -39,8 +39,6 @@ void go(int dir) {
 
         //현재 윗면 출력
         cout << n1 << '\n';
-
-        return;
     }
 
     return;
