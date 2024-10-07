@@ -9,9 +9,9 @@ struct Board {
 	void rotate() {
 		int temp[21][21];
 
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
-				temp[i][j] = a[n - j - 1][i];
+		for (int i = 0; i < n; i++) { //열 c
+			for (int j = 0; j < n; j++) { //행 r
+				temp[i][j] = a[n - j - 1][i]; //시계방향으로 회전. (c, r) = (r - j - 1, c)
 			}
 		}
 
@@ -37,11 +37,11 @@ struct Board {
 	void pushing_blocks() {
 		int temp[21][21];
 
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < n; i++) { //행
 			bool flag = false;
 			int c = 0;
 
-			for (int j = 0; j < n; j++) {
+			for (int j = 0; j < n; j++) { //열
 				if (a[i][j] == 0) continue;
 
 				if (flag && (a[i][j] == temp[i][c - 1])) {
@@ -50,8 +50,8 @@ struct Board {
 				}
 				else {
 					temp[i][c] = a[i][j]; //밀기
-					c++;
 					flag = true; //합칠 수 있는 flag를 다시 true
+					c++;
 				}
 			}
 
@@ -82,8 +82,9 @@ void dfs(Board c, int here) {
 		Board d = c;
 
 		d.pushing_blocks();
-		dfs(d, here + 1);
 		
+		dfs(d, here + 1);
+
 		c.rotate();
 	}
 
@@ -98,14 +99,14 @@ int main() {
 
 	Board c;
 
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
+	for (int i = 0; i < n; i++) { //행 r
+		for (int j = 0; j < n; j++) { //열 c
 			cin >> c.a[i][j];
 		}
 	}
 
 	dfs(c, 0);
-	
+
 	cout << ret;
 
 	return 0;
