@@ -10,8 +10,72 @@ Shark shark;
 
 const int dy[] = { -1,0,1,0 };
 const int dx[] = { 0,1,0,-1 };
-int n, a[21][21], shark_size, shark_eat;
+int n, board[21][21], shark_size, shark_eat;
 bool visited[21][21];
+
+void go() {
+	bool flag = true;
+
+	while (flag) { //먹을 수 있는 물고기가 있다면 true
+		flag = false; //조사를 시작할 때는 false로 가정
+
+		fill(&visited[0][0], &visited[0][0] + 21 * 21, 0);
+		visited[shark.y][shark.x] = true; //시작점 방문처리
+
+		board[shark.y][shark.x] = 0; //시작점의 좌표값은 0으로 변경
+
+		queue<Shark> q; //가장 적합한 물고기를 찾기 위한 bfs 시작
+		q.push(shark);
+
+		Shark candi; //candidate
+		candi.time = -1; candi.y = INT_MAX;
+
+		while (!q.empty()) {
+			Shark cur = q.front(); q.pop();
+
+			//입력된 cur의 시간이 최초 갱신된 candi의 시간보다 길다면 break
+			if (candi.time != -1 && candi.time < cur.time) break;
+
+			//먹을 수 있는 물고기가 있다면
+			if (board[cur.y][cur.x] != 0 && board[cur.y][cur.x] < shark_size) {
+				flag = true;
+
+				//먹을 수 있는 물고기들 중 가장 적합한 물고기를 candi에 저장
+				if (cur.y < candi.y || (cur.y == candi.y && cur.x < candi.x)) {
+					candi = cur;
+				}
+			}
+
+			for (int i = 0; i < 4; i++) {
+				Shark next;
+
+				next.y = cur.y + dy[i];
+				next.x = cur.x + dx[i];
+				next.time = cur.time + 1;
+
+				if (next.y < 0 || next.y >= n || next.x < 0 || next.x >= n) continue;
+
+				if (!visited[next.y][next.x] && board[next.y][next.x] <= shark_size) {
+					visited[next.y][next.x] = true;
+					q.push(next);
+				}
+			}
+		}
+
+		//먹을 수 있는 물고기가 있다면
+		if (flag) {
+			shark = candi; //아기 상어가 가장 적합한 물고기를 먹고 정보를 변경한다
+			shark_eat++;
+
+			if (shark_eat == shark_size) {
+				shark_size++;
+				shark_eat = 0;
+			}
+		}
+	}
+
+	return;
+}
 
 int main() {
 	ios_base::sync_with_stdio(false);
@@ -21,77 +85,18 @@ int main() {
 
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
-			cin >> a[i][j];
+			cin >> board[i][j];
 
-			if (a[i][j] == 9) {
-				shark.y = i, shark.x = j, shark.time = 0;
-				shark_size = 2, shark_eat = 0;
+			if (board[i][j] == 9) {
+				shark = { i,j,0 };
 
-				a[i][j] = 0; //상어가 있던 자리는 0으로 갱신
-			}
-		}
-	}
-
-	bool available = true; //해당 좌표에 먹을 수 있는 물고기가 존재하는가?
-
-	while (available) {
-		available = false;
-
-		fill(&visited[0][0], &visited[0][0] + 21 * 21, 0);
-
-		visited[shark.y][shark.x] = 1; //상어 방문처리
-
-		queue<Shark> q;
-		q.push(shark);
-
-		Shark candidates; //먹을 수 있는 가장 가까운 물고기의 정보 저장
-		candidates.y = INT_MAX, candidates.time = -1; //init
-
-		while (!q.empty()) {
-			Shark cur = q.front(); q.pop();
-
-			//가장 가까운 물고기를 이미 잡았다면 break
-			if (candidates.time != -1 && candidates.time < cur.time) break;
-
-			//cur의 좌표에 먹을 수 있는 물고기가 존재한다면
-			if (a[cur.y][cur.x] != 0 && a[cur.y][cur.x] < shark_size) {
-				available = true;
-
-				//같은 거리라도 상 -> 좌 좌표 순서대로 먹는다
-				if (candidates.y > cur.y || candidates.y == cur.y && candidates.x > cur.x) {
-					candidates = cur; //해당 좌표가 현재 후보보다 좌상단에 있다면 후보 변경
-				}
-			}
-
-			for (int dir = 0; dir < 4; dir++) {
-				Shark ncur;
-
-				ncur.y = cur.y + dy[dir];
-				ncur.x = cur.x + dx[dir];
-				ncur.time = cur.time + 1;
-
-				if (ncur.y < 0 || ncur.y >= n || ncur.x < 0 || ncur.x >= n) continue;
-
-				if (!visited[ncur.y][ncur.x] && a[ncur.y][ncur.x] <= shark_size) {
-					visited[ncur.y][ncur.x] = 1;
-					q.push(ncur);
-				}
-			}
-		}
-
-		//cur의 좌표에 먹을 수 있는 물고기가 존재한다면
-		if (available) {
-			shark = candidates; //최종 선택된 후보를 shark의 좌표로 갱신
-			shark_eat++;
-
-			if (shark_eat == shark_size) {
-				shark_size++;
+				shark_size = 2;
 				shark_eat = 0;
 			}
-
-			a[shark.y][shark.x] = 0; //상어가 있던 자리는 0으로 갱신
 		}
 	}
+
+	go();
 
 	cout << shark.time;
 
