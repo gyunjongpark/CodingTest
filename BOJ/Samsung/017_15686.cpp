@@ -4,7 +4,7 @@
 using namespace std;
 
 int n, m, a[51][51];
-int ret_city_dist = INT_MAX; //도시의 치킨 거리의 최솟값 계산하기
+int ret_city_dist = INT_MAX; //도시의 치킨 거리의 최솟값 계산
 vector<pair<int, int>> house, chicken_store; //집 목록, 치킨집 목록
 vector<int> selected_chicken_store_number; //치킨집을 선택하는 경우의 수 저장
 
@@ -12,10 +12,13 @@ int calculate_city_distance(vector<pair<int, int>>& house, vector<int>& selected
 	int city_dist = 0; //도시의 치킨 거리
 
 	for (pair<int, int> home : house) {
-		int individual_dist = INT_MAX; //치킨 거리의 최솟값 계산하기
+		int individual_dist = INT_MAX; //치킨 거리의 최솟값 계산
 
 		for (int selected_number : selected_chicken_store_number) {
-			individual_dist = min(individual_dist, abs(home.first - chicken_store[selected_number].first) + abs(home.second - chicken_store[selected_number].second));
+			int abs_first = abs(home.first - chicken_store[selected_number].first);
+			int abs_second = abs(home.second - chicken_store[selected_number].second);
+
+			individual_dist = min(individual_dist, abs_first + abs_second);
 		}
 
 		city_dist += individual_dist;
@@ -36,7 +39,7 @@ void combi(int start, vector<int>& selected_chicken_store_number) {
 
 		combi(i, selected_chicken_store_number);
 
-		selected_chicken_store_number.pop_back(); //원상 복구
+		selected_chicken_store_number.pop_back();
 	}
 }
 
