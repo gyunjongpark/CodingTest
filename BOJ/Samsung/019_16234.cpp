@@ -45,7 +45,7 @@ int main() {
 	while (true) {
 		fill(&visited[0][0], &visited[0][0] + 51 * 51, 0);
 
-		bool flag = false; //인구이동 발생 시 true
+		bool flag = false;
 
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
@@ -55,7 +55,7 @@ int main() {
 				if (!visited[i][j]) {
 					dfs(i, j);
 
-					if (v.size() == 1) continue; //본인만 포함되었다면(국경선이 공유되지 않음)
+					if (v.size() == 1) continue; //국경선이 공유되지 않았다면
 					else {
 						for (pair<int, int> i : v) {
 							a[i.first][i.second] = sum / v.size();
@@ -67,7 +67,7 @@ int main() {
 			}
 		}
 
-		if (!flag) break;
+		if (!flag) break; //인구 이동이 발생하지 않았다면 break
 
 		ret++;
 	}
