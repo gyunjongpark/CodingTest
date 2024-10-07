@@ -4,19 +4,19 @@ using namespace std;
 
 const int dy[] = { 0,-1,0,1 };
 const int dx[] = { 1,0,-1,0 };
-int n, x, y, d, g, ret, gen, curve[1024];
+int n, x, y, d, g, ret, gen, curve[1025];
 bool a[101][101];
 
 void makeDragon(int x, int y, int d, int g) {
 	fill(curve, curve + 1024, 0);
 
-	a[y][x] = 1;
+	a[y][x] = true;
 	gen = 0;
 
 	curve[gen] = d; //입력된 d를 0세대 커브의 방향으로 저장
 	gen++;
 
-	//현 세대 방항은 역순으로 이전 세대의 방향을 반시계로 회전한 방향이다(도식화 후 규칙성 찾기)
+	//현재 드래곤 커브는 지금까지의 방향 집합을 역순, 반시계로 회전한 방향의 집합을 기존 방향에 추가한다
 	for (int i = 0; i < g; i++) {
 		for (int j = gen - 1; j >= 0; j--) {
 			curve[gen] = (curve[j] + 1) % 4;
@@ -42,7 +42,6 @@ int main() {
 
 	for (int i = 0; i < n; i++) {
 		cin >> x >> y >> d >> g;
-
 		makeDragon(x, y, d, g);
 	}
 
