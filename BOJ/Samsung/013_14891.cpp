@@ -18,7 +18,7 @@ void rotate_gear(int number, int wise) {
     return;
 }
 
-void set_and_rotate(int number, int wise) {
+void set_direction(int number, int wise) {
     fill(dir, dir + 4, 0); //init
 
     dir[number] = wise; //현재 방향 저장
@@ -60,7 +60,7 @@ int main() {
 
     while (k--) {
         cin >> number >> wise;
-        set_and_rotate(number - 1, wise);
+        set_direction(number - 1, wise);
     }
 
     if (v[0][0] == 1) ret += 1;
