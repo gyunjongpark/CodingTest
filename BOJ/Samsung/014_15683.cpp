@@ -148,7 +148,7 @@ void dfs(int cctv_cnt) {
 
 		dfs(cctv_cnt + 1);
 
-		for (pair<int, int> s : spreaded_area) a[s.first][s.second] = 0; //원상 복구
+		for (pair<int, int> s : spreaded_area) a[s.first][s.second] = 0;
 	}
 
 	return;
