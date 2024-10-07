@@ -93,7 +93,7 @@ void bfs() {
 				}
 			}
 
-			//방문한 좌표는 다시 queue에 집어넣지 않는다
+			//이미 방문한 좌표는 queue에 집어넣지 않는다
 			if (!visited[nry][nrx][nby][nbx]) {
 				visited[nry][nrx][nby][nbx] = 1;
 				q.push({ nry,nrx,nby,nbx,cur.cnt + 1 });
