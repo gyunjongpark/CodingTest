@@ -1,83 +1,79 @@
 #include<iostream>
 using namespace std;
 
-int r, c, k, board[101][101], ret;
-int pre_row, pre_col, cur_row, cur_col, bucket[101];
+int r, c, k, pre_row, pre_col, cur_row, cur_col, ret;
+int board[101][101];
 
 void update_row(int y) {
-	fill(&bucket[0], &bucket[0] + 101, 0);
+	int bucket[101] = { 0, };
 
 	for (int x = 1; x <= pre_col; x++) {
 		bucket[board[y][x]]++;
 	}
 
-	int size = 0;
+	int idx = 1;
+	
+	for (int cnt = 1; cnt <= 100; cnt++) { //횟수
+		for (int val = 1; val <= 100; val++) { //값
+			if (bucket[val] == cnt) { //횟수가 적게 나온 값을 우선으로 오름차순 출력
+				board[y][idx++] = val; //값
+				board[y][idx++] = cnt; //횟수
 
-	//횟수, 값을 기준으로 오름차순
-	for (int i = 1; i <= 100; i++) { //1. 횟수
-		for (int j = 1; j <= 100; j++) { //2. 값
-			if (bucket[j] == i) {
-				board[y][++size] = j;
-				board[y][++size] = i;
-
-				if (size == 100) break;
+				if (idx > 100) break;
 			}
 		}
 
-		if (size == 100) break;
+		if (idx > 100) break;
 	}
 
-	//기존의 길이보다 짧게 갱신되었을 때 남은 칸을 0으로 저장
-	for (int x = size + 1; x <= pre_col; x++) {
+	for (int x = idx; x <= pre_col; x++) {
 		board[y][x] = 0;
 	}
 
-	if (cur_col < size) {
-		cur_col = size; //size를 cur로 갱신
+	if (cur_col < idx) {
+		cur_col = idx;
 	}
 
 	return;
 }
 
 void update_col(int x) {
-	fill(&bucket[0], &bucket[0] + 101, 0);
+	int bucket[101] = { 0, };
 
 	for (int y = 1; y <= pre_row; y++) {
 		bucket[board[y][x]]++;
 	}
 
-	int size = 0;
+	int idx = 1;
 
-	//횟수, 값을 기준으로 오름차순
-	for (int i = 1; i <= 100; i++) { //1. 횟수
-		for (int j = 1; j <= 100; j++) { //2. 값
-			if (bucket[j] == i) {
-				board[++size][x] = j;
-				board[++size][x] = i;
+	for (int cnt = 1; cnt <= 100; cnt++) { //횟수
+		for (int val = 1; val <= 100; val++) { //값
+			if (bucket[val] == cnt) { //횟수가 적게 나온 값을 우선으로 오름차순 출력
+				board[idx++][x] = val; //값
+				board[idx++][x] = cnt; //횟수
 
-				if (size == 100) break;
+				if (idx > 100) break;
 			}
 		}
-
-		if (size == 100) break;
+		
+		if (idx > 100) break;
 	}
 
-	//기존의 길이보다 짧게 갱신되었을 때 남은 칸을 0으로 저장
-	for (int y = size + 1; y <= pre_row; y++) {
+	for (int y = idx; y <= pre_row; y++) {
 		board[y][x] = 0;
 	}
 
-	if (cur_row < size) {
-		cur_row = size; //size를 cur로 갱신
+	if (cur_row < idx) {
+		cur_row = idx;
 	}
 
 	return;
 }
 
-void go() {	
+void go() {
 	while (board[r][c] != k) {
 		if (cur_row >= cur_col) {
-			pre_col = cur_col; //0을 채우기 위한 pre
+			pre_col = cur_col;
 			cur_col = 0;
 
 			for (int y = 1; y <= cur_row; y++) {
@@ -85,7 +81,7 @@ void go() {
 			}
 		}
 		else {
-			pre_row = cur_row; //0을 채우기 위한 pre
+			pre_row = cur_row;
 			cur_row = 0;
 
 			for (int x = 1; x <= cur_col; x++) {
@@ -113,8 +109,7 @@ int main() {
 		}
 	}
 
-	cur_row = 3;
-	cur_col = 3;
+	cur_row = 3; cur_col = 3;
 
 	go();
 
