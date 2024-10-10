@@ -17,8 +17,8 @@ void update_row(int y) {
 	for (int i = 1; i <= 100; i++) { //1. 횟수
 		for (int j = 1; j <= 100; j++) { //2. 값
 			if (bucket[j] == i) {
-				board[y][++size] = j; //1. 횟수
-				board[y][++size] = i; //2. 값
+				board[y][++size] = j;
+				board[y][++size] = i;
 
 				if (size == 100) break;
 			}
@@ -52,8 +52,8 @@ void update_col(int x) {
 	for (int i = 1; i <= 100; i++) { //1. 횟수
 		for (int j = 1; j <= 100; j++) { //2. 값
 			if (bucket[j] == i) {
-				board[++size][x] = j; //1. 횟수
-				board[++size][x] = i; //2. 값
+				board[++size][x] = j;
+				board[++size][x] = i;
 
 				if (size == 100) break;
 			}
