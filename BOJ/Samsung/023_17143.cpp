@@ -1,40 +1,39 @@
 #include<iostream>
-#include<cstring> //memset,memcpy
 using namespace std;
 
-struct shark {
+struct Shark {
 	int r, c, s, d, z;
 	bool isDead;
 };
-shark a[10001]; //상어 목록 저장
+Shark shark[10001]; //상어 목록 저장
 
 const int dy[] = { -1,1,0,0 };
 const int dx[] = { 0,0,1,-1 };
-int r, c, m, pos[101][101], temp[101][101], ret;
+int r, c, m, board[101][101], ret;
 
 void go() {
 	for (int xpos = 0; xpos < c; xpos++) { //1. 낚시왕이 오른쪽으로 한 칸 이동한다
 		for (int ypos = 0; ypos < r; ypos++) {
-			if (pos[ypos][xpos]) { //2. 제일 가까운 상어를 잡는다
-				a[pos[ypos][xpos]].isDead = true;
-				ret += a[pos[ypos][xpos]].z; //낚시왕이 잡은 상어 크기의 합
-				pos[ypos][xpos] = 0; //격자판에서 잡은 상어가 사라진다
+			if (board[ypos][xpos]) { //2. 제일 가까운 상어를 잡는다
+				shark[board[ypos][xpos]].isDead = true;
+				ret += shark[board[ypos][xpos]].z; //낚시왕이 잡은 상어 크기의 합 갱신
+				board[ypos][xpos] = 0; //격자판에서 잡은 상어가 사라진다
 
 				break; //해당 열에서는 더이상 작업을 하지 않는다
 			}
 		}
 
 		//3. 상어가 이동한다
-		fill(&temp[0][0], &temp[0][0] + 101 * 101, 0);
+		int temp[101][101] = { 0, };
 
 		for (int i = 1; i <= m; i++) {
-			if (a[i].isDead) continue;
+			if (shark[i].isDead) continue;
 
-			int y = a[i].r;
-			int x = a[i].c;
-			int s = a[i].s;
-			int d = a[i].d;
-			int z = a[i].z;
+			int y = shark[i].r;
+			int x = shark[i].c;
+			int s = shark[i].s;
+			int d = shark[i].d;
+			int z = shark[i].z;
 
 			int ny, nx;
 
@@ -69,23 +68,27 @@ void go() {
 			}
 
 			if (temp[ny][nx]) { //좌표에 이미 상어가 있다면 크기 비교 후 갱신
-				if (a[temp[ny][nx]].z < a[i].z) {
-					a[temp[ny][nx]].isDead = true;
+				if (shark[temp[ny][nx]].z < shark[i].z) {
+					shark[temp[ny][nx]].isDead = true;
 					temp[ny][nx] = i;
 				}
-				else a[i].isDead = true;
+				else shark[i].isDead = true;
 			}
-			else temp[ny][nx] = i;
+			else temp[ny][nx] = i; //상어가 없다면 바로 대입
 
 			//i번째 상어의 정보 갱신
-			a[i].r = ny;
-			a[i].c = nx;
-			a[i].d = d;
-			//a[i].s = s; 움직인 후에도 같은 속도 성분을 유지한다
-			a[i].z = z;
+			shark[i].r = ny;
+			shark[i].c = nx;
+			shark[i].d = d;
+			//shark[i].s = s; 같은 속도 성분을 유지한다
+			//shark[i].z = z; 크기 또한 변하지 않는다
 		}
 
-		memcpy(pos, temp, sizeof(temp));
+		for (int i = 0; i < 101; i++) {
+			for (int j = 0; j < 101; j++) {
+				board[i][j] = temp[i][j];
+			}
+		}
 	}
 
 	return;
@@ -98,14 +101,14 @@ int main() {
 	cin >> r >> c >> m;
 
 	for (int i = 1; i <= m; i++) {
-		cin >> a[i].r >> a[i].c >> a[i].s >> a[i].d >> a[i].z;
-		a[i].r--, a[i].c--, a[i].d--;
+		cin >> shark[i].r >> shark[i].c >> shark[i].s >> shark[i].d >> shark[i].z;
+		shark[i].r--, shark[i].c--, shark[i].d--;
 
 		//모듈러 연산으로 격자 범위 내 속도로 맞추기
-		if (a[i].d <= 1) a[i].s %= (2 * (r - 1));
-		else a[i].s %= (2 * (c - 1));
+		if (shark[i].d <= 1) shark[i].s %= (2 * (r - 1)); //위, 아래
+		else shark[i].s %= (2 * (c - 1)); //좌, 우
 
-		pos[a[i].r][a[i].c] = i; //좌표에 해당 상어의 인덱스 저장
+		board[shark[i].r][shark[i].c] = i; //좌표에 해당 상어의 인덱스 저장
 	}
 
 	go();
