@@ -12,8 +12,8 @@ const int dx[] = { 0,-1,-1,-1,0,1,1,1 };
 int a, b, board[4][4], ret;
 
 void dfs(int board[4][4], Fish fishes[16], int shark_y, int shark_x, int sum) {
-	int temp_board[4][4];
-	Fish temp_fishes[16];
+	int temp_board[4][4] = { 0, };
+	Fish temp_fishes[16] = { 0, };
 
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
@@ -51,7 +51,7 @@ void dfs(int board[4][4], Fish fishes[16], int shark_y, int shark_x, int sum) {
 		//격자의 특성 상 무한루프는 발생하지 않는다
 		//범위 밖이거나 상어가 있다면
 		while (ny < 0 || ny >= 4 || nx < 0 || nx >= 4 || (ny == shark_y && nx == shark_x)) {
-			//nd를 기반한 ny,nx가 범위 안으로 들어올 때까지 변경
+			//nd를 기반한 ny,nx가 범위 안으로 들어올 때까지 nd 변경
 			nd = (nd + 1) % 8;
 
 			//수정된 nd를 기반으로 cy,cx에서 다시 ny,nx를 도출
@@ -80,20 +80,20 @@ void dfs(int board[4][4], Fish fishes[16], int shark_y, int shark_x, int sum) {
 			temp_fishes[f].dir = nd;
 
 			temp_board[ny][nx] = f;
-			temp_board[cy][cx] = -1; //물고기가 없다면
+			temp_board[cy][cx] = -1; //공백 처리
 		}
 	}
 
 	//shark move
-	for (int step = 1; step < 4; step++) {
-		int ny = shark_y + dy[shark_dir] * step;
-		int nx = shark_x + dx[shark_dir] * step;
+	for (int step = 1; step < 4; step++) { //4x4이므로 step은 최대 3번
+		int shark_ny = shark_y + dy[shark_dir] * step;
+		int shark_nx = shark_x + dx[shark_dir] * step;
 
 		//현재 step에서 범위를 벗어났다면 다음 step은 당연히 범위를 벗어나므로 break
-		if (ny < 0 || ny >= 4 || nx < 0 || nx >= 4) break;
+		if (shark_ny < 0 || shark_ny >= 4 || shark_nx < 0 || shark_nx >= 4) break;
 
-		if (temp_board[ny][nx] != -1) {
-			dfs(temp_board, temp_fishes, ny, nx, sum);
+		if (temp_board[shark_ny][shark_nx] != -1) { //물고기가 있다면
+			dfs(temp_board, temp_fishes, shark_ny, shark_nx, sum);
 		}
 	}
 
@@ -107,10 +107,10 @@ int main() {
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
 			cin >> a >> b; //물고기의 번호와 방향
-			a--, b--; //인덱싱을 위한 후위 감소 연산
+			a--, b--; //인덱싱
 
-			board[i][j] = a; //0 ~ 15
-			fishes[a] = { i,j,b,0 }; //0 ~ 15
+			board[i][j] = a; //0 ~ 15, 물고기의 번호를 격자에 저장
+			fishes[a] = { i,j,b,0 }; //0 ~ 15, 물고기 마다 좌표, 방향, 생사여부 저장
 		}
 	}
 
