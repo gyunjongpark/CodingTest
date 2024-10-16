@@ -15,7 +15,8 @@ int main() {
 	for (int i = 0; i < 10; i++) {
 		cin >> s >> e;
 
-		reverse(arr + s - 1, arr + e); //이터레이터 연산 주의!
+		//arr.begin()은 첫번째 원소를 가리키고, arr.end()는 마지막 원소 다음 위치를 가리킨다
+		reverse(arr + s - 1, arr + e);
 	}
 
 	for (int i : arr) {
