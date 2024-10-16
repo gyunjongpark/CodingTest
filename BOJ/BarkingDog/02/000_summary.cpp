@@ -6,9 +6,10 @@ struct Shark {
 };
 Shark shark;
 
-//단순한 자료형 변수, 구조체, 벡터(call by value)로 생성된 메모리의 값을 변경하는 함수 작성 시에는 참조자(&)나 포인터 연산이 필요하다
-//배열의 경우 call by reference이므로 참조자는 필요 없다
-//구조체의 값이 '복사'되는 것 뿐이므로 실제 값은 변하지 않는다
+//단순한 자료형 변수, 구조체, 벡터(call by value)를 인자로 사용하거나 메모리 내 값을 변경하는 함수 작성 시에는 참조자(&)나 포인터 연산이 필요하다
+//배열을 인자로 넘기는 경우는 call by reference이므로 참조자는 필요 없다
+
+//call by value. 구조체의 값이 '복사'되는 것 뿐이므로 실제 값은 변하지 않는다
 void changeShark1(Shark shark) {
 	shark.y = 0;
 	shark.x = 0;
@@ -17,7 +18,7 @@ void changeShark1(Shark shark) {
 	return;
 }
 
-//값이 변한다(참조자 연산)
+//call by reference. 값이 변한다(참조자 연산)
 void changeShark2(Shark& shark) {
 	shark.y = 0;
 	shark.x = 0;
@@ -26,7 +27,7 @@ void changeShark2(Shark& shark) {
 	return;
 }
 
-//값이 변한다(포인터 연산)
+//call by reference. 값이 변한다(포인터 연산)
 void changeShark3(Shark* shark) {
 	(*shark).y = 0;
 	(*shark).x = 0;
