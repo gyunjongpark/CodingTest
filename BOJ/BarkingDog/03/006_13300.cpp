@@ -12,7 +12,8 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		cin >> s >> g;
     
-		arr[s][g - 1]++;
+		arr[s][g - 1]++; //입력받는 g는 1 ~ 6이므로 인덱싱에 주의
+		
 	}
 
 	for (int i = 0; i < 2; i++) {
