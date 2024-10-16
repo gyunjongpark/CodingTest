@@ -1,7 +1,8 @@
 #include<iostream>
 using namespace std;
 
-int minVal = 100, sum, temp;
+int sum, temp;
+int minVal = 100;
 
 int main() {
 	ios_base::sync_with_stdio(false);
