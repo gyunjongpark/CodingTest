@@ -40,7 +40,7 @@ void label_land(int y, int x, int cnt) {
 }
 
 void bfs(int num) { //섬의 번호를 인자로 받는다
-    queue<info> q; //queue<좌표(y,x),두 섬 사이의 거리>
+    queue<info> q;
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
@@ -61,11 +61,11 @@ void bfs(int num) { //섬의 번호를 인자로 받는다
 
             if (ny < 0 || ny >= n || nx < 0 || nx >= n) continue;
 
-            //바다도 아니고 자신의 섬도 아니라면... 다른 섬에 도착한 것이다!
+            //바다도 아니고 자신의 섬도 아니라면 다른 섬에 도착한 것이다!
             if (a[ny][nx] != 0 && a[ny][nx] != num) {
                 visited[ny][nx] = 1;
                 ret = min(ret, cur.dist); //최소 거리 갱신
-
+                
                 return; //다리를 놓았으므로 return
             }
 
