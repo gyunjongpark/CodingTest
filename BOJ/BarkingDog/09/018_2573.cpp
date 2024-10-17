@@ -82,7 +82,7 @@ int main() {
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                if (a[i][j] && !visited[i][j]) { //빙산이라면 dfs 시작
+                if (a[i][j] && !visited[i][j]) {
                     dfs(i, j);
                     ret++;
                 }
