@@ -20,7 +20,7 @@ int main() {
         if (s[i] == ')') {
             stk.pop();
 
-            //기존 stk.top() 유형이 아닌 문자열 s[i - 1]을 사용하는 유형
+            //stk.top()이 아닌 직전 문자 s[i - 1]을 사용하는 발상
             if (s[i - 1] == '(') {
                 ret += stk.size();
             }
