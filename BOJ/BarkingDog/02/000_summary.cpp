@@ -8,14 +8,14 @@ struct Shark {
 };
 Shark shark = { 1,1 };
 
-//배열
+//배열. call by reference
 void changearr(int arr[]) {
 	arr[0] = 10;
 
 	return;
 }
 
-//단순한 자료형 변수, 구조체, 벡터(call by value)를 인자로 사용해 메모리 내 값을 변경하는 함수는 참조자(&)나 포인터 연산이 필요하다
+//call by value. 단순한 자료형 변수, 구조체, 벡터(call by value)를 인자로 사용해 메모리 내 값을 변경하는 함수는 참조자(&)나 포인터 연산이 필요하다
 void changestruct1(Shark shark) {
 	shark.y = 10;
 	shark.x = 10;
@@ -23,6 +23,7 @@ void changestruct1(Shark shark) {
 	return;
 }
 
+//참조자 연산. call by reference
 void changestruct2(Shark& shark) {
 	shark.y = 10;
 	shark.x = 10;
@@ -30,6 +31,7 @@ void changestruct2(Shark& shark) {
 	return;
 }
 
+//포인터 연산. call by reference
 void changestruct3(Shark* shark) {
 	(*shark).y = 20;
 	(*shark).x = 20;
