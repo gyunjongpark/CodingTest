@@ -36,11 +36,11 @@ int main(void) {
 
 			dq.pop_front();
 		}
-		else if (pos > dq.size() / 2) { //pos가 정중앙일 경우 val 본인도 이동해야하므로 등호는 2번 연산에 붙인다
+		else if (pos > dq.size() / 2) { //pos가 정중앙일 경우 3번 연산은 val 본인도 이동해야 하므로 등호는 2번 연산에 붙인다
 			while (val != dq.front()) {
 				dq.push_front(dq.back());
 				dq.pop_back();
-				cnt++; //3번 연산. 
+				cnt++; //3번 연산
 			}
 
 			dq.pop_front();
