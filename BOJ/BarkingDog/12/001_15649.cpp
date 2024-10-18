@@ -37,7 +37,7 @@ int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);
 
-    cin >> n >> m; //1 ~ n까지의 수 중에서 m개를 뽑는다
+    cin >> n >> m;
 
     vector<int> v;
     vector<bool> visited(n + 1, false); //중복 방지를 위한 visited
