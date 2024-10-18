@@ -1,5 +1,6 @@
 #include<iostream>
 using namespace std;
+
 int side, walk;
 
 pair<int, int> philo(int side, int walk) {
@@ -17,7 +18,7 @@ pair<int, int> philo(int side, int walk) {
 	}
 
 	int half = side / 2;
-  int section = half * half;
+  	int section = half * half;
 
 	if (walk <= section) {
 		pair<int, int> rv = philo(half, walk);
