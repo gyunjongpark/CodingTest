@@ -55,7 +55,7 @@ int main() {
     sort(a, a + n);
 
     vector<int> v;
-    vector<bool> visited(n +1, false); //중복 방지를 위한 visited
+    vector<bool> visited(n + 1, false); //중복 방지를 위한 visited
 
     combi(-1, v, visited); //idx를 다루어야 하므로 start = -1
 
