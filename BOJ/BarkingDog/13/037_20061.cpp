@@ -3,7 +3,7 @@ using namespace std;
 
 const int BLUE = 0;
 const int GREEN = 1;
-int n, score, ret, board[2][10][4]; //blue, green
+int t, x, y, n, score, ret, board[2][10][4]; //blue, green
 
 void move_point(int y, int x, int color) {
 	int label = board[color][y][x];
@@ -189,6 +189,7 @@ void delete_overflow_block(int color) {
 
 	for (int y = 4; y <= 5; y++) {
 		bool has_block = false;
+		
 		for (int x = 0; x < 4; x++) {
 			if (board[color][y][x] != 0) {
 				has_block = true;
@@ -247,8 +248,6 @@ int main() {
 	cin >> n;
 
 	for (int i = 0; i < n; i++) {
-		int t, x, y;
-
 		cin >> t >> y >> x;
 
 		put(t, y, BLUE, i + 1);
