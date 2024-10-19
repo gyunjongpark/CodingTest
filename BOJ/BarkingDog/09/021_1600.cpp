@@ -32,7 +32,7 @@ int bfs() {
 
             if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue;
 
-            //used 여부와 관계없이 a[ny][nx]가 0이면서 방문하지 않았다면 bfs를 진행한다
+            //used 여부와 관계없이 a[ny][nx]가 0이면서 방문하지 않았다면 bfs 진행
             if (a[ny][nx] == 0 && !visited[ny][nx][nused]) {
                 visited[ny][nx][nused] = visited[cur.y][cur.x][cur.used] + 1;
                 q.push({ ny,nx,nused });
