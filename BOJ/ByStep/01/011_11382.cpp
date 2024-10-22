@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-typedef unsigned long long ll;
+typedef long long ll;
 
 ll a, b, c;
 
