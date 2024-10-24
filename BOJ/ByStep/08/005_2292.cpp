@@ -10,7 +10,7 @@ int main() {
     cin >> n;
 
     if (n == 1) cout << 1;
-    else { //너무 신박해서 출제될 확률은 희박할 듯...
+    else {
         for (int sum = 2; sum <= n; i++) {
             sum += 6 * i;
         }
@@ -20,3 +20,5 @@ int main() {
 
     return 0;
 }
+
+//너무 신박해서 출제될 확률은 희박할 듯...
