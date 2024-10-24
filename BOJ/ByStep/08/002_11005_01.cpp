@@ -11,15 +11,17 @@ int main() {
 
 	cin >> a >> b;
 
-	while(a > 0) {
+	while (a > 0) {
 		int temp = a % b;
 
 		if (10 <= temp && temp <= 35) s += (char)(temp + 55);
-		else if (0 <= temp && temp <= 9) s += (char)(temp + 48);
+		else s += (char)(temp + 48);
 
 		a /= b;
 	}
+
 	reverse(s.begin(), s.end());
+
 	cout << s;
 
 	return 0;
