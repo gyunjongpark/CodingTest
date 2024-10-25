@@ -8,7 +8,6 @@ int dp[1500001];
 int recur(int day) {
     if (day > n) return INT_MIN;
     if (day == n) return 0;
-
     if (dp[day]) return dp[day];
 
     dp[day] = max(recur(day + 1), recur(day + t[day][0]) + t[day][1]);
