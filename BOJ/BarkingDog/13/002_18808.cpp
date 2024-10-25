@@ -5,24 +5,26 @@ int n, m, k, r, c, ret;
 int note[42][42], paper[12][12];
 
 void rotate() {
-	int temp[12][12];
+	int temp_paper[12][12];
 
-	for (int i = 0; i < c; i++) { //temp를 기준으로 r, c 반복문 진행
-		for (int j = 0; j < r; j++) {
-			temp[i][j] = paper[r - j - 1][i];
+	for (int i = 0; i < r; i++) {
+		for (int j = 0; j < c; j++) {
+			temp_paper[j][r - i - 1] = paper[i][j];
 		}
 	}
 
 	fill(&paper[0][0], &paper[0][0] + 12 * 12, 0);
 
-	for (int i = 0; i < c; i++) { //temp를 기준으로 r, c 반복문 진행
-		for (int j = 0; j < r; j++) {
-			paper[i][j] = temp[i][j];
+	
+	//call by reference. 열과 행 바꾸기
+	swap(r, c);
+
+	//temp가 새로운 paper가 된다
+	for (int i = 0; i < r; i++) {
+		for (int j = 0; j < c; j++) {
+			paper[i][j] = temp_paper[i][j];
 		}
 	}
-
-	//열과 행이 바뀐 temp가 새로운 paper가 되므로 다음 rotate는 r과 c가 바뀐다
-	swap(r, c); //call by reference
 
 	return;
 }
