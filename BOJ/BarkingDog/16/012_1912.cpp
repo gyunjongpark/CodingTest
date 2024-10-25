@@ -13,7 +13,6 @@ int main() {
 
 	for (int i = 1; i <= n; i++) {
 		cin >> temp;
-    
 		dp[i] = max(dp[i - 1] + temp, temp);
 	}
 
