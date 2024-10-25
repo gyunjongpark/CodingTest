@@ -5,7 +5,7 @@ int n, m, k, r, c, ret;
 int note[42][42], paper[12][12];
 
 void rotate() {
-	int temp_paper[12][12];
+	int temp_paper[12][12] = { 0, };
 
 	for (int i = 0; i < r; i++) {
 		for (int j = 0; j < c; j++) {
@@ -15,7 +15,6 @@ void rotate() {
 
 	fill(&paper[0][0], &paper[0][0] + 12 * 12, 0);
 
-	
 	//call by reference. 열과 행 바꾸기
 	swap(r, c);
 
@@ -33,6 +32,7 @@ void rotate() {
 bool postable(int y, int x) {
 	for (int i = 0; i < r; i++) {
 		for (int j = 0; j < c; j++) {
+
 			//paper가 1인데 이미 note가 1이라면(하나라도 겹친다면) 붙일 수 없다
 			if (note[y + i][x + j] == 1 && paper[i][j] == 1) {
 				return false;
