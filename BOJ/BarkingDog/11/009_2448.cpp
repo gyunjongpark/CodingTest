@@ -24,7 +24,7 @@ int main() {
 	cin >> n;
 
 	for (int i = 0; i < n; i++) {
-		cout << string(n - i - 1, ' '); //string(출력 횟수, 출력할 char형 문자)
+		for (int j = 0; j < n - i - 1; j++) cout << ' ';
 
 		for (int j = 0; j <= n + i; j++) {
 			recur(i, j, n);
