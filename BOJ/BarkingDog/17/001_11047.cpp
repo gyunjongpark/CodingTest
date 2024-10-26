@@ -1,5 +1,4 @@
 #include<iostream>
-#include<climits> //INT_MIN
 using namespace std;
 
 int n, k, a[11], ret;
