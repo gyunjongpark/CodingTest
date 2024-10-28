@@ -5,8 +5,9 @@ int a, b;
 
 int main() {
 	cin >> a >> b;
-	
-	printf("%.9f", (double)a / (double)b); //printf : 지정된 형식으로 출력
+
+	//printf : 지정된 형식으로 출력
+	printf("%.9f", (double)a / (double)b);
   
 	return 0;
 }
