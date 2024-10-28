@@ -1,5 +1,5 @@
 #include<iostream>
-#include<algorithm> //sort, erase, unique
+#include<algorithm> //sort, unique
 #include<vector>
 using namespace std;
 
