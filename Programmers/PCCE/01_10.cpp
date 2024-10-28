@@ -1,6 +1,5 @@
 #include <string>
 #include <vector>
-
 using namespace std;
 
 bool postable(int mat_size, vector<vector<string>> park) {
