@@ -35,7 +35,6 @@ void puyo() {
         bool flag = false;
 
         fill(&visited[0][0], &visited[0][0] + 14 * 8, 0);
-        ret_blocks.clear();
 
         //터질 수 있는 블록들 ret_blocks에 저장하기
         for (int i = 11; i >= 0; i--) {
@@ -63,6 +62,8 @@ void puyo() {
 
             a[y][x] = '.';
         }
+
+        ret_blocks.clear(); //ret_blocks init
 
         //맨 아래거나 아래 블록이 비어있지 않을 때까지 한 칸씩 아래로 내리기 반복
         for (int i = 11; i >= 0; i--) {
