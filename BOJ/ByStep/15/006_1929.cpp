@@ -4,7 +4,7 @@ using namespace std;
 
 int n, m, sum;
 bool chae[1000001];
-vector<int> v;
+vector<int> ret;
 
 vector<int> era(int n) {
 	vector<int> v;
@@ -37,13 +37,13 @@ int main() {
 
 	cin >> m >> n;
 
-	vector<int> ret = era(n);
+	vector<int> v = era(n);
 
-	for (int i : ret) {
-		if (i >= m) v.push_back(i);
+	for (int i : v) {
+		if (i >= m) ret.push_back(i);
 	}
 
-	for (int i : v) cout << i << '\n';
+	for (int i : ret) cout << i << '\n';
 
 	return 0;
 }
