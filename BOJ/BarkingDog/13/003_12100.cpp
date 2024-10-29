@@ -18,8 +18,12 @@ struct Board {
 
 		fill(&board[0][0], &board[0][0] + 21 * 21, 0);
 
-		for (int i = 0; i < n; i++) { //열 c
-			for (int j = 0; j < n; j++) { //행 r
+		//call by reference. 열과 행 바꾸기
+		//swap(r, c); 행과 열이 n으로 같으므로 생략
+
+		//temp가 새로운 board가 된다
+		for (int i = 0; i < n; i++) { //열 r
+			for (int j = 0; j < n; j++) { //행 c
 				board[i][j] = temp[i][j];
 			}
 		}
@@ -40,11 +44,11 @@ struct Board {
 	void pushing_blocks() {
 		int temp[21][21];
 
-		for (int i = 0; i < n; i++) { //행
+		for (int i = 0; i < n; i++) { //행별로 밀기
 			bool flag = false;
 			int c = 0;
 
-			for (int j = 0; j < n; j++) { //열
+			for (int j = 0; j < n; j++) { //행마다의 성분 검사
 				if (board[i][j] == 0) continue;
 
 				if (flag && (board[i][j] == temp[i][c - 1])) {
