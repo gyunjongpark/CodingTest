@@ -1,5 +1,4 @@
 #include<iostream>
-#include<cmath> //sqrt
 using namespace std;
 
 int n;
@@ -9,10 +8,10 @@ int main() {
 	cin.tie(NULL); cout.tie(NULL);
 
 	cin >> n;
-  
+
 	int x = n;
-	
-	for (int i = 2; i <= (int)sqrt(n); i++) {
+
+	for (int i = 2; i * i <= n; i++) {
 		while (x % i == 0) {
 			cout << i << '\n';
 			x /= i;
