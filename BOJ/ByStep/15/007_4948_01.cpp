@@ -2,7 +2,8 @@
 #include<vector>
 using namespace std;
 
-int n, chae[250000]; //n <= 123456이므로 대충 2배
+int n;
+bool chae[250001]; //n <= 123456이므로 대충 2배인 25만
 
 vector<int> era(int n) {
 	vector<int> v;
