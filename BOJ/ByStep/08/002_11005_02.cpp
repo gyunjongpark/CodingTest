@@ -1,6 +1,6 @@
 #include<iostream>
 #include<vector>
-#include<algorithm>
+#include<algorithm> //reverse
 using namespace std;
 
 int n, b;
