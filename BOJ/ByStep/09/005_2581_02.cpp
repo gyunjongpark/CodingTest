@@ -4,7 +4,7 @@ using namespace std;
 
 int n, m, sum;
 int minVal = 10001;
-bool chae[10001]; //범위는 넉넉히 잡는다
+bool chae[10001]; //M과 N은 10,000 이하의 자연수이며, M은 N보다 작거나 같다
 
 vector<int> era(int num) { //에라토스테네스의 체
 	vector<int> v;
@@ -25,6 +25,7 @@ vector<int> era(int num) { //에라토스테네스의 체
 		}
 	}
 
+	//O(N)
 	for (int i = 0; i <= num; i++) {
 		if (chae[i]) v.push_back(i); //소수만 골라서 push back
 	}
