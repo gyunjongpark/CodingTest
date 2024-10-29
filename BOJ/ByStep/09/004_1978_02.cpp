@@ -3,7 +3,7 @@
 using namespace std;
 
 int n, temp, ret;
-bool chae[1001]; //수는 1,000 이하의 자연수이다 = chae[1000]까지 접근해야 함
+bool chae[1001]; //수는 1,000 이하의 자연수이다
 
 void era(int num) { //에라토스테네스의 체로 chae 배열 먼저 완성
 	chae[0] = false;
@@ -19,7 +19,7 @@ void era(int num) { //에라토스테네스의 체로 chae 배열 먼저 완성
 		for (int j = i + i; j <= num; j += i) {
 			chae[j] = false;
 		}
-	}	
+	}
 
 	return;
 }
@@ -30,7 +30,7 @@ int main() {
 
 	cin >> n;
 
-	era(1000); //수는 1,000 이하의 자연수이다 = chae[1000]까지 접근해야 함
+	era(1000); //수는 1,000 이하의 자연수이다
 
 	for (int i = 0; i < n; i++) {
 		cin >> temp;
