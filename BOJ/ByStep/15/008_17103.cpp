@@ -5,7 +5,6 @@ int t, n;
 bool chae[1000001];
 
 void era(int num) {
-
 	chae[0] = false;
 	chae[1] = false;
 
