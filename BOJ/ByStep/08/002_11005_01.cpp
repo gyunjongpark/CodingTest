@@ -11,7 +11,7 @@ int main() {
 
 	cin >> a >> b;
 
-	while (a > 0) {
+	while (a > 1) {
 		int temp = a % b;
 
 		if (10 <= temp && temp <= 35) s += (char)(temp + 55);
@@ -19,6 +19,8 @@ int main() {
 
 		a /= b;
 	}
+
+	if (a == 1) s += '1';
 
 	reverse(s.begin(), s.end());
 
