@@ -5,7 +5,7 @@ using namespace std;
 
 string s;
 int k, number, wise, ret;
-vector<vector<int>> v(4, vector<int>(8));
+vector<vector<int>> v(4, vector<int>(8, 0));
 
 void rotate_gear(int number, int wise) {
     if (wise == 1) { //시계 방향 회전
