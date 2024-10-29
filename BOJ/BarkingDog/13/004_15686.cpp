@@ -6,7 +6,6 @@ using namespace std;
 int n, m, a[51][51];
 int ret_city_dist = INT_MAX; //도시의 치킨 거리의 최솟값 계산
 vector<pair<int, int>> house, chicken_store; //집 목록, 치킨집 목록
-vector<int> selected; //치킨집을 선택하는 경우의 수 저장
 
 int calculate_city_distance(vector<pair<int, int>>& house, vector<int>& selected) {
 	int city_dist = 0; //도시의 치킨 거리
@@ -27,18 +26,22 @@ int calculate_city_distance(vector<pair<int, int>>& house, vector<int>& selected
 	return city_dist;
 }
 
-void combi(int start, vector<int>& selected) {
+void combi(int start, vector<int>& selected, vector<bool>& visited) {
 	if (selected.size() == m) {
 		ret_city_dist = min(ret_city_dist, calculate_city_distance(house, selected));
 		return;
 	}
 
 	for (int i = start + 1; i < chicken_store.size(); i++) {
-		selected.push_back(i);
+		if (visited[i]) continue;
 
-		combi(i, selected);
+		selected.push_back(i);
+		visited[i] = true;
+
+		combi(i, selected,visited);
 
 		selected.pop_back();
+		visited[i] = false;
 	}
 }
 
@@ -61,7 +64,10 @@ int main() {
 		}
 	}
 
-	combi(-1, selected);
+	vector<int> selected; //치킨집을 선택하는 경우의 수 저장
+	vector<bool> visited(2501, false); //중복 방지를 위한 visited
+
+	combi(-1, selected, visited); //인덱스 연산
 
 	cout << ret_city_dist;
 
