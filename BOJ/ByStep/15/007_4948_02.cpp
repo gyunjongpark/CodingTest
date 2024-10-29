@@ -34,20 +34,21 @@ int main() {
 	cin.tie(NULL); cout.tie(NULL);
 
 	while (true) {
-		vector<int> v;
+		vector<int> ret;
 
 		cin >> n;
-		
+
 		if (n == 0) break;
 
-		vector<int> ret = era(2 * n);
+		vector<int> v = era(2 * n);
 
-		for (int i : ret) {
+		for (int i : v) {
 			if (i > n) {
-				v.push_back(i);
+				ret.push_back(i);
 			}
 		}
-		cout << v.size()<<'\n';
+
+		cout << ret.size() << '\n';
 	}
 
 	return 0;
