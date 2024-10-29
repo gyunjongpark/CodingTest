@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
 
-int day = 1;
 int a, b, v;
+int day = 1;
 
 int main() {
 	ios_base::sync_with_stdio(false);
