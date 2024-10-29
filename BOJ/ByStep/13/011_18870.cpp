@@ -1,5 +1,5 @@
 #include<iostream>
-#include<algorithm> //lower_bound, upper_bound
+#include<algorithm> //sort, unique, lower_bound
 #include<vector>
 using namespace std;
 
@@ -22,7 +22,8 @@ int main() {
 	sort(v.begin(), v.end());
 	v.erase(unique(v.begin(), v.end()), v.end());
 
-	//lower(upper)_bound(시작 이터레이터, 끝 이터레이터, 찾는 값) -> 이터레이터를 반환하므로 적절한 연산 필요
+	//lower(upper)_bound(시작 이터레이터, 끝 이터레이터, 찾는 값) -> 이터레이터 반환
+	//lower_bound는 시작 이터레이터, upper_bound는 초과 이터레이터를 반환합니다
 	for (int i = 0; i < n; i++) {
 		cout << lower_bound(v.begin(), v.end(), ret[i]) - v.begin() << ' ';
 	}
