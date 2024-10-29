@@ -65,10 +65,8 @@ int main() {
 				if (is_posted) break;
 
 				for (int x = 0; x <= m - c; x++) {
-					if (postable(y, x)) { //붙일 수 있는지 검사
-
-						//검사 통과! R x C 사이즈의 스티커 붙이기
-						for (int i = 0; i < r; i++) {
+					if (postable(y, x)) { //붙일 수 있는지 검사						
+						for (int i = 0; i < r; i++) { //검사 통과! R x C 사이즈의 스티커 붙이기
 							for (int j = 0; j < c; j++) {
 								if (paper[i][j] == 1) {
 									note[y + i][x + j] = 1;
