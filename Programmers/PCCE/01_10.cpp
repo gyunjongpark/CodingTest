@@ -4,12 +4,12 @@ using namespace std;
 
 bool postable(int mat_size, vector<vector<string>> park) {
     bool flag = true;
-    int park_row, park_col;
-    park_row = park.size();
-    park_col = park[0].size();
+    int r, c;
+    r = park.size();
+    c = park[0].size();
 
-    for (int y = 0; y <= park_row - mat_size; y++) {
-        for (int x = 0; x <= park_col - mat_size; x++) {
+    for (int y = 0; y <= r - mat_size; y++) {
+        for (int x = 0; x <= c - mat_size; x++) {
             flag = true;
 
             for (int i = 0; i < mat_size; i++) {
@@ -44,3 +44,5 @@ int solution(vector<int> mats, vector<vector<string>> park) {
 
     return answer;
 }
+
+//스티커 붙이기...
