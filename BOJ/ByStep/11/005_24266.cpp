@@ -10,7 +10,7 @@ int main() {
 
 	cin >> n;
 
-	cout << n*n*n << '\n';
+	cout << n * n * n << '\n';
 	cout << 3 << '\n';
 
 	return 0;
