@@ -5,6 +5,7 @@ using namespace std;
 bool postable(int mat_size, vector<vector<string>> park) {
     bool flag = true;
     int r, c;
+
     r = park.size();
     c = park[0].size();
 
@@ -19,15 +20,13 @@ bool postable(int mat_size, vector<vector<string>> park) {
                         break;
                     }
                 }
-                if (!flag) {
-                    break;
-                }
+                if (!flag) break;
             }
-            if (flag) {
-                return true;
-            }
+
+            if (flag) return true;
         }
     }
+
     return false;
 }
 
@@ -44,5 +43,3 @@ int solution(vector<int> mats, vector<vector<string>> park) {
 
     return answer;
 }
-
-//스티커 붙이기...
