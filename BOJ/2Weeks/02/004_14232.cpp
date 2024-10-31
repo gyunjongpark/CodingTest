@@ -15,7 +15,7 @@ int main() {
 	ll x = n;
 
 	//보석을 여러 개 훔쳐갈 시, 보석끼리 달라붙으며 무게가 모든 보석들의 곱으로 늘어난다 -> 소인수 분해!
-	//가장 작은 소인수부터 출력
+	//가장 작은 소인수부터 저장(오름차순)
 	for (ll i = 2; i * i <= x; i++) {
 		while (x % i == 0) {
 			v.push_back(i);
@@ -23,7 +23,7 @@ int main() {
 		}
 	}
   
-	if (x != 1) v.push_back(x); //유일하게 sqrt(n)보다 큰 소인수가 있다면 출력
+	if (x != 1) v.push_back(x); //유일하게 sqrt(n)보다 큰 소인수가 있다면 저장
 
 	cout << v.size() << '\n';
 	for (ll l : v) cout << l << ' ';
