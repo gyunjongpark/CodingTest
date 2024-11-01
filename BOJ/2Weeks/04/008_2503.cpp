@@ -55,9 +55,7 @@ int main() {
 		if (temp_num[0] == temp_num[1] || temp_num[1] == temp_num[2] ||
 			temp_num[2] == temp_num[0]) continue;
 
-		int cnt = 0;
-
-		match(0, cnt, temp_num, v);
+		match(0, 0, temp_num, v);
 	}
 
 	cout << ret;
