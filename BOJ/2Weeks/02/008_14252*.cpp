@@ -25,9 +25,11 @@ int main() {
 		if (getGCD(a[i], a[i + 1]) == 1) continue;
 
 		for (int j = a[i] + 1; j < a[i + 1]; j++) {
-			if (getGCD(a[i], j) == 1 && getGCD(a[i + 1], j) == 1) {
-				cnt++; // 1개의 수로 공약수열 완성
-				break;
+			if (getGCD(a[i], j) == 1) {
+				if (getGCD(a[i + 1], j) == 1) {
+					cnt++; // 1개의 수로 공약수열 완성
+					break;
+				}
 			}
 
 			//1개의 수로 공약수열이 완성되지 않는 경우
