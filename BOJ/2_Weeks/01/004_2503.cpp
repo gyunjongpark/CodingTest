@@ -23,14 +23,13 @@ int main() {
 		cin >> num >> s >> b;
 		v.push_back({ num,s,b });
 	}
-	
+
 	for (int temp = 111; temp <= 999; temp++) {
 		string temp_num = to_string(temp);
 
-   		//계산에서 제외되는 조건 확인
+		//계산에서 제외되는 조건 확인
 		if (temp_num[0] == '0' || temp_num[1] == '0' || temp_num[2] == '0') continue;
-		if (temp_num[0] == temp_num[1] || temp_num[1] == temp_num[2] ||
-			temp_num[2] == temp_num[0]) continue;
+		if (temp_num[0] == temp_num[1] || temp_num[1] == temp_num[2] || temp_num[2] == temp_num[0]) continue;
 
 		int cnt = 0;
 
@@ -48,7 +47,7 @@ int main() {
 
 			if (strike == v[i].s && ball == v[i].b) cnt++;
 		}
-		
+
 		if (cnt == n) ret++;
 	}
 
