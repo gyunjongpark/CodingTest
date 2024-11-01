@@ -1,4 +1,4 @@
-/* 재귀를 통한 로직 자체는 맞지만, 주어진 시간 제한을 통과할 수 없어 오답인 코드
+/* 재귀를 통한 로직 자체는 맞지만, 문제에서 주어진 시간 제한을 통과할 수 없어 오답인 코드
 #include<iostream>
 #include<vector>
 #include<climits> //INT_MIN
