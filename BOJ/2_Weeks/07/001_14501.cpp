@@ -17,7 +17,7 @@ int main() {
 		dp[i] = dp[i + 1];
 
 		if (i + t[i] <= n) {
-			dp[i] = max(dp[i + t[i]] + p[i], dp[i + 1]);
+			dp[i] = max(dp[i], dp[i + t[i]] + p[i]);
 		}
 	}
 
