@@ -8,10 +8,10 @@ int ret = INT_MAX;
 void recur(int idx, int sour, int bitter, int used) {
 	if (idx == n) {
 		if (used > 0) {
-			ret = min(ret, abs(sour - bitter));
+			ret = min(ret, abs(sour - bitter)); //재료를 사용한 경우에만 최솟값을 갱신한다
 		}
 
-		return;
+		return; //재료 사용 여부에 관계없이 n번째 idx라면 재귀 함수 종료
 	}
 
 	recur(idx + 1, sour * s[idx], bitter + b[idx], used + 1);
