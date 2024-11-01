@@ -22,11 +22,11 @@ void recur(int idx, int p, int f, int s, int v, int c) {
 			ret = c;
 			best_combi = temp_combi;
 
-			return;
+			return; //최솟값을 찾았다면 재귀 함수 종료
 		}
 	}
 
-	if (idx == n) return;
+	if (idx == n) return; //최솟값에 관계없이 n번째 idx라면 재귀 함수 종료
 
 	temp_combi.push_back(idx + 1);
 	recur(idx + 1, p + ingre[idx].p, f + ingre[idx].f, s + ingre[idx].s, v + ingre[idx].v, c + ingre[idx].c);
