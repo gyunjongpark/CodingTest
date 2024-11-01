@@ -2,7 +2,7 @@
 #include<climits> //INT_MIN
 using namespace std;
 
-int n, t[16], p[16]; //1 ≤ T[i] ≤ 5, 1 ≤ P[i] ≤ 1,000
+int n, t[16], p[16];
 int dp[16];
 int ret = -1;
 
@@ -10,7 +10,7 @@ int recur(int day) {
 	if (day > n) return INT_MIN;
 	if (day == n) return 0;
 
-	if (dp[day]) return dp[day];
+	if (dp[day]) return dp[day]; //1 ≤ P[i] ≤ 1,000
 
 	dp[day] = max(recur(day + t[day]) + p[day], recur(day + 1));
 
