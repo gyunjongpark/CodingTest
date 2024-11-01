@@ -15,6 +15,8 @@ int ret = INT_MAX;
 vector<int> temp_combi, best_combi;
 
 void recur(int idx, int p, int f, int s, int v, int c) {
+	//idx가 n에 도달하지 않아도 영앙소를 만족한다면 재귀 함수 종료
+	//idx가 늘어날수록 c가 증가하므로 최솟값이 아니다
 	if (p >= mp && f >= mf && s >= ms && v >= mv) {
 		if (ret > c) { //ret = min(ret, c)를 사용하지 않는 이유? combi 값을 읽기 위해 조건문 활용
 			ret = c;
