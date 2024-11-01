@@ -1,8 +1,8 @@
 #include<iostream>
 using namespace std;
 
-int n, t[16], p[16];
-int ret = -1; //1 ≤ T[i] ≤ 5, 1 ≤ P[i] ≤ 1,000
+int n, t[16], p[16]; //1 ≤ T[i] ≤ 5, 1 ≤ P[i] ≤ 1,000
+int ret = -1;
 
 void recur(int day, int pay) {
 	if (day > n) return;
