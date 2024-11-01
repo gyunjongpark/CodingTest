@@ -22,7 +22,7 @@ int main() {
 	}
 
 	for (int idx = 1; idx <= n; idx++) {
-		for (int weight = 1; weight <= k; weight++) {
+		for (int weight = 0; weight <= k; weight++) {
 			dp[idx][weight] = dp[idx - 1][weight];
 
 			if (weight - backpack[idx - 1].w >= 0) {
