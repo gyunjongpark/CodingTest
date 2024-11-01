@@ -12,7 +12,7 @@ int main() {
 	cin >> t;
 
 	while (t--) {
-		cin >> n;
+		cin >> n; //10^12 ≤ S ≤ 10^18
 
 		bool flag = true; //적절하면 true
 
