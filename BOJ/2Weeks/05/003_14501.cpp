@@ -8,7 +8,7 @@ void recur(int day, int pay) {
 	if (day > n) return;
 	if (day == n) {
 		ret = max(ret, pay);
-		return;
+		return; //최댓값의 경우 idx가 n까지 도달해야 값을 확정지을 수 있다
 	}
 
 	recur(day + t[day], pay + p[day]);
