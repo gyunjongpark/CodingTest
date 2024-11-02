@@ -16,6 +16,7 @@ int main() {
 
 	cin >> x;
 
+	//counting array
 	for (int i = 0; i < n; i++) {
 		if (x - a[i] >= 0 && cnt[x - a[i]]) {
 			ret++;
