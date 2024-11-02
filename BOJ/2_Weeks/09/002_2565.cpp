@@ -6,11 +6,6 @@ using namespace std;
 int n, a, b, dp[101], ret;
 vector<pair<int, int>> line;
 
-bool cmp(pair<int, int> a, pair<int, int> b) {
-	if (a.first == b.first) return a.second < b.second;
-	return a.first < b.first;
-}
-
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
@@ -22,13 +17,14 @@ int main() {
 		line.push_back({ a,b });
 	}
 
-	sort(line.begin(), line.end(), cmp);
+	sort(line.begin(), line.end()); //첫번째 원소를 기준으로 자동 정렬
 
+	//두번째 원소를 기준으로 LIS 알고리즘 적용
 	fill(&dp[0], &dp[0] + 101, 1);
 
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < i; j++) {
-			if (line[i].first > line[j].first && line[i].second > line[j].second) {
+			if (line[i].second > line[j].second) {
 				dp[i] = max(dp[i], dp[j] + 1);
 			}
 		}
