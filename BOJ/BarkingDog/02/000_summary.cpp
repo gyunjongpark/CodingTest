@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-int a[10] = { 1, };
+int a[10];
 
 struct Shark {
 	int y, x;
@@ -42,6 +42,8 @@ void changestruct3(Shark* shark) {
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
+
+	fill(&a[0], &a[0] + 10, 1); //모든 원소를 1로 초기화
 
 	changearr(a); //call by reference. a[0]을 10으로 변경
 	cout << a[0] << '\n'; //10
