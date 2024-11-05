@@ -17,9 +17,9 @@ int main() {
 		line.push_back({ a,b });
 	}
 
-	sort(line.begin(), line.end()); //첫번째 원소를 기준으로 정렬
-
-	//두번째 원소를 기준으로 LIS 알고리즘 적용
+	//두 번째 원소를 기준으로 LIS를 적용하기 위해 첫 번째 원소를 기준으로 정렬
+	sort(line.begin(), line.end());
+	
 	fill(&dp[0], &dp[0] + 101, 1);
 
 	for (int i = 0; i < n; i++) {
