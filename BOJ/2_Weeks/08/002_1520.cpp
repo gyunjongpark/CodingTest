@@ -22,7 +22,7 @@ int recur(int y, int x) {
         }
     }
 
-    dp[y][x] = ret; //해당 좌표에 도달하는 최소 경로의 갯수
+    dp[y][x] = ret; //해당 좌표에서 뻗어나갈 수 있는 경로의 가짓 수
 
     return dp[y][x];
 }
