@@ -15,11 +15,12 @@ bool postable(int mat_size, vector<vector<string>> park) {
 
             for (int i = 0; i < mat_size; i++) {
                 for (int j = 0; j < mat_size; j++) {
-                    if (park[i + y][j + x] != "-1") {
+                    if (park[y + i][x + j] != "-1") {
                         flag = false;
                         break;
                     }
                 }
+
                 if (!flag) break;
             }
 
