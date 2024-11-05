@@ -10,8 +10,8 @@ int main() {
 
 	//N <= 1000이므로 가능한 모든 조합을 배열에 저장하자!
 	for (int n = 1; n <= 1000; n++) {
-    
-    //init
+
+		//init
 		comb[n][0] = 1; //nC0 = 1
 		comb[n][n] = 1; //nCn = 1
 
