@@ -1,13 +1,13 @@
 #include<iostream>
-#include<vector>
 #include<climits> //INT_MIN
 using namespace std;
 
 const int dy[] = { -1,0,1,0 };
 const int dx[] = { 0,1,0,-1 };
-int dp[501][501], a[501][501], n;
-int answer = INT_MIN;
+int dp[501][501], board[501][501], n;
+int ret = INT_MIN;
 
+//판다가 이동할 수 있는 칸의 수의 최댓값 = dfs로 깊이 탐색 후 깊이를 반환하는 편이 자연스러움
 int recur(int y, int x) {
     if (dp[y][x]) return dp[y][x];
 
@@ -19,7 +19,7 @@ int recur(int y, int x) {
 
         if (ny < 0 || ny >= n || nx < 0 || nx >= n) continue;
 
-        if (a[ny][nx] > a[y][x]) {
+        if (board[ny][nx] > board[y][x]) {
             dp[y][x] = max(dp[y][x], recur(ny, nx) + 1);
         }
     }
@@ -32,10 +32,10 @@ int main() {
     cin.tie(NULL); cout.tie(NULL);
 
     cin >> n;
-
+    
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            cin >> a[i][j];
+            cin >> board[i][j];
         }
     }
 
@@ -47,11 +47,11 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            answer = max(answer, dp[i][j]);
+            ret = max(ret, dp[i][j]);
         }
     }
 
-    cout << answer;
+    cout << ret;
 
     return 0;
 }
