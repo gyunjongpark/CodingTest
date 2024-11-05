@@ -11,6 +11,8 @@ int answer = INT_MIN;
 int recur(int y, int x) {
     if (dp[y][x]) return dp[y][x];
 
+    dp[y][x] = 1; //init
+
     for (int i = 0; i < 4; i++) {
         int ny = y + dy[i];
         int nx = x + dx[i];
@@ -49,7 +51,7 @@ int main() {
         }
     }
 
-    cout << answer + 1;
+    cout << answer;
 
     return 0;
 }
