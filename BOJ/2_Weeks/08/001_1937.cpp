@@ -7,7 +7,7 @@ const int dx[] = { 0,1,0,-1 };
 int dp[501][501], board[501][501], n;
 int ret = INT_MIN;
 
-//판다가 이동할 수 있는 칸의 수의 최댓값 = dfs로 탐색 후 최대 깊이를 반환하는 로직
+//판다가 이동할 수 있는 칸의 수의 최댓값 = dfs로 탐색 후 각 좌표에서의 최대 깊이를 dp에 저장
 int recur(int y, int x) {
     if (dp[y][x]) return dp[y][x];
 
