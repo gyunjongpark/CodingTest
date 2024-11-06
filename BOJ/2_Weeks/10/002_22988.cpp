@@ -25,6 +25,7 @@ int main() {
         r--;
         ret++;
     }
+
     while (l <= r) {
         if (l < r && a[l] + a[r] >= (x + 1) / 2) {
             ret++;
@@ -37,6 +38,8 @@ int main() {
         }
     }
 
+    //remain 갯수 2개로 최소 X/2 ml의 용기를 만들 수 있다
+    //만들어진 X/2 용기에 remain 1개를 결합해 ret을 1 추가할 수 있다
     cout << ret + remain / 3;
 
     return 0;
