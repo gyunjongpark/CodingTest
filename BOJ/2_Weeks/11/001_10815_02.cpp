@@ -24,13 +24,9 @@ int main() {
 	for (int i = 0; i < m; i++) {
 		cin >> num;
 
-		if (binary_search(v.begin(), v.end(), num)) {
-			cout << 1 << ' ';
-		}
-		else {
-			cout << 0 << ' ';
-		}
+		if (binary_search(v.begin(), v.end(), num)) cout << 1 << ' ';
+		else cout << 0 << ' ';
 	}
-
+	
 	return 0;
 }
