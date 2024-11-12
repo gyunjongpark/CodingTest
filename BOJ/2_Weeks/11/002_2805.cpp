@@ -3,7 +3,7 @@
 using namespace std;
 typedef long long ll;
 
-ll n, m, ret;
+int n, m, ret;
 int tree[1000001];
 
 int main() {
@@ -18,11 +18,11 @@ int main() {
 
 	sort(tree, tree + n);
 
-	ll l = 0, r = tree[n - 1];
+	int l = 0, r = tree[n - 1];
 
 	while (l <= r) {
 		ll wood = 0;
-		ll cut = (l + r) / 2;
+		int cut = (l + r + 1) / 2;
 
 		for (int i = 0; i < n; i++) {
 			if (tree[i] - cut > 0) {
