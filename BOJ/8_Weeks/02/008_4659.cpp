@@ -16,10 +16,10 @@ int main() {
 			break;
 		}
 
-		int v_cnt = 0, c_cnt = 0; // init
-		bool isInclude = 0; // init
-		bool flag = 0; // init
-		char prev = 0; // init
+		int v_cnt = 0, c_cnt = 0; //init
+		bool isInclude = 0; //init
+		bool flag = 0; //init
+		char prev = 0; //init
 
 		for (char c : s) {
 			if (isVowel(c)) {
@@ -32,14 +32,14 @@ int main() {
 				c_cnt++;
 			}
 
-			if (v_cnt == 3 || c_cnt == 3) flag = true; // 조건 2
+			if (v_cnt == 3 || c_cnt == 3) flag = true; //조건 2
 
-			if (prev == c && c != 'e' && c != 'o') flag = true; // 조건 3
+			if (prev == c && c != 'e' && c != 'o') flag = true; //조건 3
 
 			prev = c;
 		}
 
-		if (!isInclude) flag = true; //  조건 1
+		if (!isInclude) flag = true; //조건 1
 
 		if (flag) cout << "<" << s << "> is not acceptable.\n";
 		else cout << "<" << s << "> is acceptable.\n";
