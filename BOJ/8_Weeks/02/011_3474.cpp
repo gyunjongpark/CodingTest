@@ -15,11 +15,11 @@ int main() {
 		int ret2 = 0, ret5 = 0; // init
 
 		for (int i = 2; i <= n; i *= 2) {
-			ret2 += n / i; // n!에서 2가 몇 번 곱해져 있는가?
+			ret2 += n / i; //n!에서 2가 몇 번 곱해져 있는가?
 		}
 
 		for (int i = 5; i <= n; i *= 5) {
-			ret5 += n / i; // n!에서 5가 몇 번 곱해져 있는가?
+			ret5 += n / i; //n!에서 5가 몇 번 곱해져 있는가?
 		}
 
 		cout << min(ret2, ret5) << '\n';
