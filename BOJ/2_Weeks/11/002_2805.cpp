@@ -21,21 +21,21 @@ int main() {
 	int l = 0, r = tree[n - 1];
 
 	while (l <= r) {
+		int mid = (l + r + 1) / 2;
 		ll wood = 0;
-		int cut = (l + r + 1) / 2;
 
 		for (int i = 0; i < n; i++) {
-			if (tree[i] - cut > 0) {
-				wood += tree[i] - cut;
+			if (tree[i] - mid > 0) {
+				wood += tree[i] - mid;
 			}
 		}
 
 		if (wood >= m) {
-			ret = cut;
-			l = cut + 1;
+			ret = max(ret, mid);
+			l = mid + 1;
 		}
 		else {
-			r = cut - 1;
+			r = mid - 1;
 		}
 	}
 
