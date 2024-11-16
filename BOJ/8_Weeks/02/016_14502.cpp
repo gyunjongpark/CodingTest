@@ -3,21 +3,20 @@
 #include<queue>
 using namespace std;
 
-vector<pair<int, int>> virusList, wallList;
 const int dy[] = { -1,0,1,0 };
 const int dx[] = { 0,1,0,-1 };
 int n, m, a[10][10];
 bool visited[10][10];
+vector<pair<int, int>> virusList, wallList;
 
 void bfs(int y, int x) {
-	visited[y][x] = 1;
+	visited[y][x] = true;
 
 	queue<pair<int, int>> q;
 	q.push({ y,x });
 
 	while (!q.empty()) {
-		pair<int, int> cur;
-		cur = q.front(); q.pop();
+		pair<int, int> cur = q.front(); q.pop();
 
 		for (int i = 0; i < 4; i++) {
 			int ny = cur.first + dy[i];
@@ -26,7 +25,7 @@ void bfs(int y, int x) {
 			if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue;
 
 			if (a[ny][nx] == 0 && !visited[ny][nx]) {
-				visited[ny][nx] = 1;
+				visited[ny][nx] = true;
 				q.push({ ny,nx });
 			}
 		}
@@ -43,9 +42,8 @@ int check_area() {
 	int cnt = 0;
 
 	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < m; j++) {
-			//빈 칸이면서 바이러스가 퍼지지 않았다면
-			if (a[i][j] == 0 && !visited[i][j]) cnt++;
+		for (int j = 0; j < m; j++) {			
+			if (a[i][j] == 0 && !visited[i][j]) cnt++; //빈 칸이면서 바이러스가 퍼지지 않았다면
 		}
 	}
 
@@ -71,14 +69,13 @@ int main() {
 
 	for (int i = 0; i < wallList.size(); i++) {
 		for (int j = i + 1; j < wallList.size(); j++) {
-			for (int k = j + 1; k < wallList.size(); k++) {
-				//방문처리 초기화
-				fill(&visited[0][0], &visited[0][0] + 10 * 10, 0);
+			for (int k = j + 1; k < wallList.size(); k++) {				
+				fill(&visited[0][0], &visited[0][0] + 10 * 10, false); //방문처리 초기화
 
 				//방문처리로 벽 세우기
-				visited[wallList[i].first][wallList[i].second] = 1;
-				visited[wallList[j].first][wallList[j].second] = 1;
-				visited[wallList[k].first][wallList[k].second] = 1;
+				visited[wallList[i].first][wallList[i].second] = true;
+				visited[wallList[j].first][wallList[j].second] = true;
+				visited[wallList[k].first][wallList[k].second] = true;
 
 				maxVal = max(maxVal, check_area());
 			}
