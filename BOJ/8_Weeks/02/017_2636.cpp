@@ -9,9 +9,9 @@ int n, m, cnt, ret;
 vector<pair<int, int>> v;
 
 void dfs(int y, int x) {
-	visited[y][x] = 1;
+	visited[y][x] = true;
 
-	if (a[y][x] == 1) { 
+	if (a[y][x] == 1) {
 		v.push_back({ y,x }); // 녹일 치즈 저장
 		return; // 치즈인 경우 본인만 방문하고 저장 후 return
 	}
@@ -43,23 +43,23 @@ int main() {
 	}
 
 	while (true) {
-		fill(&visited[0][0], &visited[0][0] + 101 * 101, 0); // init
+		fill(&visited[0][0], &visited[0][0] + 101 * 101, false); // init
 		v.clear(); // 녹일 치즈 초기화
 
 		dfs(0, 0); // 첫 좌표부터 dfs 시작
 
-		for (pair<int, int> i : v) { 
+		for (pair<int, int> i : v) {
 			a[i.first][i.second] = 0; // 치즈 녹이기
 		}
 
 		ret = v.size(); // 녹인 치즈의 개수
 		cnt++; // 녹인 횟수 count
 
-		bool flag = 0;
+		bool flag = false;
 
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
-				if (a[i][j]) flag = 1; // 녹일 치즈가 남아있다면 true
+				if (a[i][j]) flag = true; // 녹일 치즈가 남아있다면 true
 			}
 		}
 		if (!flag) break; // 더 이상 녹일 치즈가 없다면 break
