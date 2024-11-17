@@ -30,7 +30,7 @@ int main(void) {
 	}
 
 	if (mid.size()) {
-		ret.insert(ret.size() / 2, mid);
+		ret.insert(ret.size() / 2, mid); //string.insert(위치(인덱스), 문자열)
 	}
 
 	if (flag >= 2) {
