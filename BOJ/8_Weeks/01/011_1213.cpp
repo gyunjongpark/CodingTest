@@ -2,8 +2,9 @@
 using namespace std;
 
 string s, ret;
+string mid = -1;
 int flag, cnt['Z' + 1];
-char mid = -1;
+
 
 int main() {
 	ios_base::sync_with_stdio(false);
@@ -31,7 +32,7 @@ int main() {
 	}
 
 	if (mid != -1) {
-		ret.insert(ret.begin() + ret.size() / 2, mid); //iterator 연산
+		ret.insert(ret.size() / 2, mid); //insert(위치, 문자열)
 	}
 
 	if (flag == 2) {
