@@ -1,6 +1,4 @@
 #include<iostream>
-#include<string> //getline
-#include<vector>
 using namespace std;
 
 int ret[3][2];
