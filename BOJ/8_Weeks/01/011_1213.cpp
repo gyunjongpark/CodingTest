@@ -1,41 +1,39 @@
 #include<iostream>
 using namespace std;
 
-string s, ret;
-string mid = -1;
-int flag, cnt['Z' + 1];
+string s, mid, ret;
+int cnt[26], flag;
 
-
-int main() {
+int main(void) {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
 
 	cin >> s;
 
 	for (char c : s) {
-		cnt[c]++;
+		cnt[c - 'A']++;
 	}
 
-	for (int i = 'Z'; i >= 'A'; i--) {
-		if (cnt[i] % 2) {
-			mid = (char)i;
+	for (char i = 'Z'; i >= 'A'; i--) {
+		if (cnt[i - 'A'] % 2) {
+			mid = i;
 			flag++;
-			cnt[i]--;
+			cnt[i - 'A']--;
 		}
 
-		if (flag == 2) break; //mid는 1개가 최대
+		if (flag >= 2) break;
 
-		for (int j = 0; j < cnt[i]; j += 2) { //양쪽으로 하나씩 덧붙인다
-			ret += (char)i;
-			ret = (char)i + ret;
+		for (int j = 0; j < cnt[i - 'A']; j += 2) {
+			ret += i;
+			ret = i + ret;
 		}
 	}
 
-	if (mid != -1) {
-		ret.insert(ret.size() / 2, mid); //insert(위치, 문자열)
+	if (mid.size()) {
+		ret.insert(ret.size() / 2, mid);
 	}
 
-	if (flag == 2) {
+	if (flag >= 2) {
 		cout << "I'm Sorry Hansoo";
 	}
 	else {
