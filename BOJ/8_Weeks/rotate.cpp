@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 using namespace std;
 
 int ret[3][2];
@@ -18,6 +19,17 @@ int main(void) {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
 
+	//1차원 배열 회전
+	vector<int> arr{ 1,2,3,4,5 };
+	rotate(arr.begin(), arr.begin() + 1, arr.end()); //rotate(시작 iterator, 몇 칸?, 끝 이터레이터) 반시계 방향 회전
+	for (int i : arr) cout << i << ' '; cout << '\n'; //2 3 4 5 1
+
+	rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend()); //rotate(시작 iterator, 몇 칸?, 끝 이터레이터) 시계 방향 회전
+	for (int i : arr) cout << i << ' '; cout << '\n'; //1 2 3 4 5
+
+	cout << '\n';
+
+	//2차원 배열 회전
 	int a[2][3] = { //r = 2, c = 3
 		{1,2,3},
 		{4,5,6}
@@ -31,7 +43,7 @@ int main(void) {
 		cout << '\n';
 	}
 
-	rotate(a);
+	rotate(a); cout << '\n';
 
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 2; j++) {
