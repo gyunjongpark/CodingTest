@@ -30,7 +30,7 @@ int main() {
 			if (sum == m) {
 				cnt++;
 
-				//각각 고유한 번호를 가지고 있으므로 start,end 모두 조절
+				//각각 고유한 번호를 가지고 있으므로 start, end 모두 조절
 				s++;
 				e--;
 			}
