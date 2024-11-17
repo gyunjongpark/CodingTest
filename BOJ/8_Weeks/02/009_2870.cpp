@@ -15,12 +15,12 @@ bool cmp(string a, string b) { //비내림차순
 void check(string ret) {
 	while (true) {
 		if (ret.size() && ret[0] == '0') {
-			ret.erase(0, 1); //erase(인덱스,갯수). 다음 이터레이터 반환
+			ret.erase(0, 1); //erase(인덱스, 갯수)
 		}
 		else break; //size가 없거나(전부 0인 수를 모조리 지웠거나), 0이 아닌 숫자를 만났거나
 	}
 
-	if (ret.size() == 0) ret = "0"; //size가 없다면(0을 전부 지운 경우라면) 0 추가
+	if (ret.size() == 0) ret = "0"; //size가 없다면(0을 전부 지운 경우라면) 0 추가 후 v에 전달
 
 	v.push_back(ret);
 
@@ -42,17 +42,17 @@ int main() {
 			if ('0' <= s[i] && s[i] <= '9') {
 				ret += s[i];
 			}
-			else { //숫자가 아니라면
-				if (ret.size()) { //숫자가 도중에 끊기면 check. 중간 점검
+			else { //도중에 숫자가 아니라면
+				if (ret.size()) { //중간 점검
 					check(ret);
 
-					ret = ""; //init
+					ret = ""; //초기화
 				}
 			}
 		}
 
 		if (ret.size()) {
-			check(ret); //마지막 요소가 숫자일 가능성 check. 최종 점검
+			check(ret); //마지막 요소가 숫자일 가능성. 최종 점검
 		}
 	}
 
