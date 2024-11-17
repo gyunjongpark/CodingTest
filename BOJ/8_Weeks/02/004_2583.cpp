@@ -17,7 +17,7 @@ int bfs(int y, int x) {
 	queue<pair<int, int>> q;
 	q.push({ y,x });
 
-	int ret = 1;
+	int ret = 1; //영역의 넓이 구하기
 
 	while (!q.empty()) {
 		int y, x;
@@ -28,8 +28,9 @@ int bfs(int y, int x) {
 			int nx = x + dx[i];
 
 			if (ny < 0 || ny >= m || nx < 0 || nx >= n) continue;
+
 			if (a[ny][nx] == 0 && !visited[ny][nx]) {
-				visited[ny][nx] = 1;
+				visited[ny][nx] = true;
 				q.push({ ny,nx });
 				ret++;
 			}
