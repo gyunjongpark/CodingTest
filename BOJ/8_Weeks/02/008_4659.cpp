@@ -16,16 +16,16 @@ int main() {
 			break;
 		}
 
-		int v_cnt = 0, c_cnt = 0; //init
-		bool isInclude = 0; //init
-		bool flag = 0; //init
-		char prev = 0; //init
+		int v_cnt = 0, c_cnt = 0;
+		bool isIncluded = false;
+		bool flag = false;
+		char prev = 0;
 
 		for (char c : s) {
 			if (isVowel(c)) {
 				v_cnt++;
 				c_cnt = 0;
-				isInclude = true;
+				isIncluded = true;
 			}
 			else {
 				v_cnt = 0;
@@ -39,7 +39,7 @@ int main() {
 			prev = c;
 		}
 
-		if (!isInclude) flag = true; //조건 1
+		if (!isIncluded) flag = true; //조건 1
 
 		if (flag) cout << "<" << s << "> is not acceptable.\n";
 		else cout << "<" << s << "> is acceptable.\n";
