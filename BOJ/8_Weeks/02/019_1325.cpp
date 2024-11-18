@@ -2,14 +2,14 @@
 #include<vector>
 using namespace std;
 
-vector<int> adj[10001]; // push_back
+vector<int> adj[10001];
 bool visited[10001];
 int n, m, a, b, v[10001];
 
 int dfs(int here) {
-	visited[here] = 1;
+	visited[here] = true;
 
-	int ret = 1; // 최초 해킹한 컴퓨터 count
+	int ret = 1;
 
 	for (int there : adj[here]) {
 		if (!visited[there]) {
@@ -31,17 +31,17 @@ int main() {
 		adj[b].push_back(a);
 	}
 
-	int maxVal = -1;
+	int ret = -1;
 
 	for (int i = 1; i <= n; i++) {
 		fill(&visited[0], &visited[0] + 10001, 0);
 
 		v[i] = dfs(i);
-		maxVal = max(maxVal, v[i]);
+		ret = max(ret, v[i]);
 	}
 
 	for (int i = 1; i <= n; i++) {
-		if (maxVal == v[i]) {
+		if (ret == v[i]) {
 			cout << i << ' ';
 		}
 	}
