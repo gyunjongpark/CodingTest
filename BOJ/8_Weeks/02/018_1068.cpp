@@ -2,34 +2,34 @@
 #include<vector>
 using namespace std;
 
-int n, r, temp, root, ret;
+int n, temp, root, node;
 bool visited[51];
 vector<int> adj[51];
 
 int dfs(int here) {
 	visited[here] = true;
 
-	int ret = 0; //리프 노드의 수 init
-	int child = 0; //자식 노드의 수 init
+	int leaf = 0;
+	int child = 0;
 
 	for (int there : adj[here]) {
-		if (there == r) continue;
+		if (there == node) continue;
 
 		if (!visited[there]) {
-			ret += dfs(there);
+			leaf += dfs(there);
 			child++;
 		}
 	}
+	
+	if (!child) leaf++;
 
-	if (!child) ret++; //here가 리프 노드라면
-
-	return ret;
+	return leaf;
 }
 
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
-
+	
 	cin >> n;
 
 	for (int i = 0; i < n; i++) {
@@ -43,13 +43,13 @@ int main() {
 		}
 	}
 
-	cin >> r;
+	cin >> node;
 
-	if (r == root) {
+	if (node == root) {
 		cout << 0;
 	}
 	else {
-		cout << dfs(root); //루트 노드부터 탐색
+		cout << dfs(root);
 	}
 
 	return 0;
