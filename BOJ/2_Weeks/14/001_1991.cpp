@@ -3,14 +3,20 @@ using namespace std;
 
 int n;
 char parent, l, r;
-pair<char, char> node[28];
+bool visited[28];
+pair<char, char> adj[28];
 
 void preorder(char here) {
 	if (here == '.') return;
 
-	cout << here;
-	preorder(node[here - 'A'].first);
-	preorder(node[here - 'A'].second);
+	if (!visited[here - 'A']) {
+		visited[here - 'A'] = true;
+		cout << here;
+
+		preorder(adj[here - 'A'].first);
+		preorder(adj[here - 'A'].second);
+	}
+	
 
 	return;
 }
@@ -18,9 +24,14 @@ void preorder(char here) {
 void inorder(char here) {
 	if (here == '.') return;
 
-	inorder(node[here - 'A'].first);
-	cout << here;
-	inorder(node[here - 'A'].second);
+	if (!visited[here - 'A']) {
+		inorder(adj[here - 'A'].first);
+
+		visited[here - 'A'] = true;
+		cout << here;
+
+		inorder(adj[here - 'A'].second);
+	}
 
 	return;
 }
@@ -28,9 +39,13 @@ void inorder(char here) {
 void postorder(char here) {
 	if (here == '.') return;
 
-	postorder(node[here - 'A'].first);
-	postorder(node[here - 'A'].second);
-	cout << here;
+	if (!visited[here - 'A']) {
+		postorder(adj[here - 'A'].first);
+		postorder(adj[here - 'A'].second);
+
+		visited[here - 'A'] = true;
+		cout << here;
+	}
 
 	return;
 }
@@ -38,19 +53,19 @@ void postorder(char here) {
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
-	
+
 	cin >> n;
 
 	for (int i = 0; i < n; i++) {
 		cin >> parent >> l >> r;
 
-		node[parent - 'A'].first = l;
-		node[parent - 'A'].second = r;
+		adj[parent - 'A'].first = l;
+		adj[parent - 'A'].second = r;
 	}
 
-	preorder('A'); cout << '\n';
-	inorder('A'); cout << '\n';
-	postorder('A');
+	preorder('A'); fill(&visited[0], &visited[0] + 28, false); cout << '\n';
+	inorder('A'); fill(&visited[0], &visited[0] + 28, false); cout << '\n';
+	postorder('A'); fill(&visited[0], &visited[0] + 28, false);
 
 	return 0;
 }
