@@ -1,6 +1,5 @@
 #include<iostream>
 #include<queue>
-#include<tuple> //tie
 using namespace std;
 
 const int dy[] = { -1,0,1,0 };
@@ -19,17 +18,16 @@ void bfs(int y, int x) {
 	q.push({ y,x });
 
 	while (!q.empty()) {
-		int ypos, xpos;
-		tie(ypos, xpos) = q.front(); q.pop();
+		pair<int, int> cur = q.front(); q.pop();
 
 		for (int i = 0; i < 4; i++) {
-			int ny = ypos + dy[i];
-			int nx = xpos + dx[i];
+			int ny = cur.first + dy[i];
+			int nx = cur.second + dx[i];
 
 			if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue;
 
 			if (a[ny][nx] == 'L' && !visited[ny][nx]) {
-				visited[ny][nx] = visited[ypos][xpos] + 1;
+				visited[ny][nx] = visited[cur.first][cur.second] + 1;
 				q.push({ ny,nx });
 
 				maxTime = max(maxTime, visited[ny][nx]);
@@ -54,10 +52,12 @@ int main() {
 		}
 	}
 
-	//O(50*50*50)
+	//O(50 * 50 * 50)
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < m; j++) {
-			if (a[i][j] == 'L') bfs(i, j);
+			if (a[i][j] == 'L') {
+				bfs(i, j);
+			}
 		}
 	}
 
