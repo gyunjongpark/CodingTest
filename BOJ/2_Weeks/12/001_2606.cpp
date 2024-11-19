@@ -8,6 +8,7 @@ vector<int> adj[101];
 
 int dfs(int here) {
     visited[here] = true;
+
     int ret = 1;
 
     for (int there : adj[here]) {
@@ -27,11 +28,13 @@ int main() {
 
     for (int i = 0; i < m; i++) {
         cin >> a >> b;
+
+        //양방향 간선
         adj[a].push_back(b);
         adj[b].push_back(a);
     }
 
-    cout << dfs(1) - 1;
+    cout << dfs(1) - 1; //본인 제외
 
     return 0;
 }
