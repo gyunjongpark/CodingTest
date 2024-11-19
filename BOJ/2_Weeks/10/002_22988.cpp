@@ -26,7 +26,7 @@ int main() {
         ret++;
     }
 
-    while (l <= r) {
+    while (l <= r) { //병이 하나 남을 경우(l과 r이 겹칠 경우) remain 연산을 위해 <=
         if (l < r && a[l] + a[r] >= (x + 1) / 2) {
             ret++;
             l++;
@@ -38,8 +38,9 @@ int main() {
         }
     }
 
-    //remain 갯수 2개로 최소 X/2 ml의 용기를 만들 수 있다
+    //remain 2개로 X/2 용기 하나를 만들 수 있다
     //만들어진 X/2 용기에 remain 1개를 결합해 ret을 1 추가할 수 있다
+    //즉, remain 3개로 ret을 1 추가할 수 있다
     cout << ret + remain / 3;
 
     return 0;
