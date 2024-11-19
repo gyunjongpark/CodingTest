@@ -21,7 +21,7 @@ int main() {
 	//two pointer
 	int l = 0, r = n - 1;
 
-	while (l < r) { //ai + aj = x (1 ≤ i < j ≤ n)을 만족하므로 <
+	while (l < r) { //ai + aj = x (1 ≤ i < j ≤ n)을 만족해야 하므로 <
 		if (a[l] + a[r] == x) {
 			ret++;
 
