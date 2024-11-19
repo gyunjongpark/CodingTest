@@ -12,18 +12,18 @@ int main() {
 	cin >> t;
 
 	while (t--) {
-		cin >> n; //10^12 ≤ S ≤ 10^18
+		cin >> n; //10 ^ 12 ≤ S ≤ 10 ^ 18
 
-		bool flag = true; //적절하면 true
+		bool flag = true; //적절한 암호라고 가정
 
 		for (int i = 2; i < 1000001; i++) {
 			if (n % i == 0) {
-				flag = false; //나눠지면 소수가 아니므로 적절하지 않음
+				flag = false; //나눠지면 false
 				break;
 			}
 		}
 
-		if (!flag) cout << "NO\n"; //적절하지 않으면 NO
+		if (!flag) cout << "NO\n";
 		else cout << "YES\n";
 	}
 
