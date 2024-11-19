@@ -24,7 +24,7 @@ int main() {
         dp[0][i] = house[0][i];
     }
 
-    //이후의 행은 현재 행의 집 + 이전 행 중 다른 색상의 집 중 최소 비용 선택
+    //최소 비용 선택
     for (int i = 1; i < n; i++) {
         dp[i][0] = min(dp[i - 1][1], dp[i - 1][2]) + house[i][0];
         dp[i][1] = min(dp[i - 1][0], dp[i - 1][2]) + house[i][1];
