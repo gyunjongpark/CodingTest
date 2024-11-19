@@ -3,7 +3,7 @@
 using namespace std;
 
 vector<int> adj[1004];
-int visited[1004];
+bool visited[1004];
 
 void postOrder(int here) {
 	if (!visited[here]) {
