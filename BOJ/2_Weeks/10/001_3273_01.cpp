@@ -21,11 +21,11 @@ int main() {
 	//two pointer
 	int l = 0, r = n - 1;
 
-	while (l < r) {
+	while (l < r) { //ai + aj = x (1 ≤ i < j ≤ n)을 만족하므로 <
 		if (a[l] + a[r] == x) {
 			ret++;
 
-     			//n개의 서로 다른 양의 정수이므로 두 지점 모두 수정
+			//n개의 서로 다른 양의 정수이므로 두 지점 모두 수정
 			l++;
 			r--;
 		}
