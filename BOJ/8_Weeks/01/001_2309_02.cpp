@@ -21,8 +21,8 @@ int main() {
 			sum += arr[i];
 		}
 
-		if (sum == 100) break; //next_permutation 사용 시 탈출 조건을 반드시 명시해야 한다
-	} while (next_permutation(arr, arr + 9)); //next_permutation : 순열 무한 반복
+		if (sum == 100) break;
+	} while (next_permutation(arr, arr + 9));
 
 	for (int i = 0; i < 7; i++) {
 		cout << arr[i] << '\n';
