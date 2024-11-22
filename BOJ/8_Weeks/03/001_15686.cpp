@@ -4,18 +4,18 @@
 using namespace std;
 
 int n, m, a[51][51];
-int ret = INT_MAX; //도시의 치킨 거리의 최솟값 계산
-vector<pair<int, int>> house, chicken_store; //집 목록, 치킨집 목록
+int ret = INT_MAX; //도시의 치킨 거리 중 최솟값 계산
+vector<pair<int, int>> home, chicken; //집 목록, 치킨집 목록
 
-int calculate_city_distance(vector<pair<int, int>>& house, vector<int>& selected) {
+int cal_city_dist(vector<pair<int, int>>& house, vector<int>& v) {
 	int city_dist = 0;
 
 	for (pair<int, int> home : house) {
 		int individual_dist = INT_MAX; //각각의 집에서 가까운 치킨집과의 거리 계산
 
-		for (int selected_number : selected) {
-			int abs_y = abs(home.first - chicken_store[selected_number].first);
-			int abs_x = abs(home.second - chicken_store[selected_number].second);
+		for (int selected_number : v) {
+			int abs_y = abs(home.first - chicken[selected_number].first);
+			int abs_x = abs(home.second - chicken[selected_number].second);
 
 			individual_dist = min(individual_dist, abs_y + abs_x);
 		}
@@ -26,21 +26,21 @@ int calculate_city_distance(vector<pair<int, int>>& house, vector<int>& selected
 	return city_dist; //도시의 치킨 거리 반환
 }
 
-void combi(int start, vector<int>& selected, vector<bool>& visited) {
-	if (selected.size() == m) {
-		ret = min(ret, calculate_city_distance(house, selected));
+void combi(int start, vector<int>& v, vector<bool>& visited) {
+	if (v.size() == m) { //m개를 방문한다면
+		ret = min(ret, cal_city_dist(home, v));
 		return;
 	}
 
-	for (int i = start + 1; i < chicken_store.size(); i++) {
+	for (int i = start + 1; i < chicken.size(); i++) {
 		if (visited[i]) continue;
 
-		selected.push_back(i);
+		v.push_back(i);
 		visited[i] = true;
 
-		combi(i, selected, visited);
+		combi(i, v, visited);
 
-		selected.pop_back();
+		v.pop_back();
 		visited[i] = false;
 	}
 }
@@ -56,18 +56,18 @@ int main() {
 			cin >> a[i][j];
 
 			if (a[i][j] == 1) {
-				house.push_back({ i,j });
+				home.push_back({ i,j });
 			}
 			else if (a[i][j] == 2) {
-				chicken_store.push_back({ i,j });
+				chicken.push_back({ i,j });
 			}
 		}
 	}
 
-	vector<int> selected; //치킨집을 선택하는 경우의 수 저장
-	vector<bool> visited(2501, false);
+	vector<int> v; //치킨집 번호 저장
+	vector<bool> visited(2501, false); //방문 처리
 
-	combi(-1, selected, visited);
+	combi(-1, v, visited);
 
 	cout << ret;
 
