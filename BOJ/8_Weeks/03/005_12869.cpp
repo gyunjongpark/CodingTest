@@ -19,6 +19,7 @@ int atk[6][3]{ //공격할 수 있는 경우의 수
 
 void bfs(int a, int b, int c) {
     visited[a][b][c] = 1;
+    
     q.push({ a,b,c });
 
     while (!q.empty()) {
