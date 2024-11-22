@@ -15,20 +15,20 @@ int cal(char a, int b, int c) {
     if (a == '*') return b * c;
 }
 
-void go(int here, int now) {
+void go(int here, int cur_num) {
     if (here == num.size() - 1) {
-        ret = max(ret, now);
+        ret = max(ret, cur_num);
         return;
     }
 
-    go(here + 1, cal(oper[here], now, num[here + 1]));
+    go(here + 1, cal(oper[here], cur_num, num[here + 1]));
 
     if (here + 2 <= num.size() - 1) {
         //뒷 연산을 괄호로 묶어서 먼저 계산
         int temp = cal(oper[here + 1], num[here + 1], num[here + 2]);
         
         //계산된 temp와 기존의 now를 연산
-        go(here + 2, cal(oper[here], now, temp));
+        go(here + 2, cal(oper[here], cur_num, temp));
     }
 }
 
