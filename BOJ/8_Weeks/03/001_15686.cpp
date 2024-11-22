@@ -7,20 +7,20 @@ int n, m, a[51][51];
 int ret = INT_MAX; //도시의 치킨 거리 중 최솟값 계산
 vector<pair<int, int>> home, chicken; //집 목록, 치킨집 목록
 
-int cal_city_dist(vector<pair<int, int>>& house, vector<int>& v) {
+int cal_city_dist(vector<pair<int, int>>& home, vector<int>& v) {
 	int city_dist = 0;
 
-	for (pair<int, int> home : house) {
-		int individual_dist = INT_MAX; //각각의 집에서 가까운 치킨집과의 거리 계산
+	for (pair<int, int> h : home) {
+		int dist = INT_MAX; //하나의 집에서 가까운 치킨집과의 거리 계산
 
 		for (int selected_number : v) {
-			int abs_y = abs(home.first - chicken[selected_number].first);
-			int abs_x = abs(home.second - chicken[selected_number].second);
+			int abs_y = abs(h.first - chicken[selected_number].first);
+			int abs_x = abs(h.second - chicken[selected_number].second);
 
-			individual_dist = min(individual_dist, abs_y + abs_x);
+			dist = min(dist, abs_y + abs_x);
 		}
 
-		city_dist += individual_dist; //합산
+		city_dist += dist; //전체 합산
 	}
 
 	return city_dist; //도시의 치킨 거리 반환
@@ -33,7 +33,7 @@ void combi(int start, vector<int>& v, vector<bool>& visited) {
 	}
 
 	for (int i = start + 1; i < chicken.size(); i++) {
-		if (visited[i]) continue;
+		if (visited[i]) continue; //중복 방지
 
 		v.push_back(i);
 		visited[i] = true;
