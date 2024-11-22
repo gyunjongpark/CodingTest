@@ -5,12 +5,12 @@ using namespace std;
 const int dy[] = { -1,0,1,0 };
 const int dx[] = { 0,1,0,-1 };
 int n, m, visited[51][51];
-int maxTime = -1;
+int ret = -1;
 char a[51][51];
 string s;
 
 void bfs(int y, int x) {
-	fill(&visited[0][0], &visited[0][0] + 51 * 51, 0);
+	fill(&visited[0][0], &visited[0][0] + 51 * 51, 0); //방문기록 초기화
 
 	visited[y][x] = 1;
 
@@ -30,7 +30,7 @@ void bfs(int y, int x) {
 				visited[ny][nx] = visited[cur.first][cur.second] + 1;
 				q.push({ ny,nx });
 
-				maxTime = max(maxTime, visited[ny][nx]);
+				ret = max(ret, visited[ny][nx]);
 			}
 		}
 	}
@@ -55,13 +55,13 @@ int main() {
 	//O(50 * 50 * 50)
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < m; j++) {
-			if (a[i][j] == 'L') {
+			if (a[i][j] == 'L') { //가장 먼 거리를 구하기 위해 visited x
 				bfs(i, j);
 			}
 		}
 	}
 
-	cout << maxTime - 1;
+	cout << ret - 1;
 
 	return 0;
 }
