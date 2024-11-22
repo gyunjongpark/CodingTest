@@ -5,9 +5,9 @@ using namespace std;
 
 const int dy[] = { -1,0,1,0 };
 const int dx[] = { 0,1,0,-1 };
-bool visited[101][101], board[101][101];
-int n, m, ret;
-vector<pair<int, int>> v; //녹일 치즈들의 좌표 저장
+int n, m, a[101][101], ret;
+bool visited[101][101];
+vector<pair<int, int>> cheese_list;
 
 void bfs(int y, int x) {
 	visited[y][x] = true;
@@ -18,21 +18,20 @@ void bfs(int y, int x) {
 	while (!q.empty()) {
 		pair<int, int> cur = q.front(); q.pop();
 
-		if (board[cur.first][cur.second] == 1) {
-			v.push_back({ cur.first,cur.second });
-			break;
+		if (a[cur.first][cur.second] == 1) { //치즈라면?
+			cheese_list.push_back({ cur.first,cur.second });
 		}
+		else {
+			for (int i = 0; i < 4; i++) {
+				int ny = cur.first + dy[i];
+				int nx = cur.second + dx[i];
 
-		for (int i = 0; i < 4; i++) {
-			int ny = cur.first + dy[i];
-			int nx = cur.second + dx[i];
+				if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue;
 
-			if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue;
-
-			//치즈인지 여부와 관계없이 일단 탐색
-			if (!visited[ny][nx]) {
-				visited[ny][nx] = true;
-				bfs(ny, nx);
+				if (!visited[ny][nx]) {
+					visited[ny][nx] = true;
+					q.push({ ny,nx });
+				}
 			}
 		}
 	}
@@ -48,23 +47,20 @@ int main() {
 
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < m; j++) {
-			cin >> board[i][j];
+			cin >> a[i][j];
 		}
 	}
 
 	while (true) {
-		//초기화
 		fill(&visited[0][0], &visited[0][0] + 101 * 101, false);
-		v.clear();
+		cheese_list.clear();
 
-		//녹일 치즈 구하기. v에 치즈 좌표 저장
-		bfs(0, 0);
+		bfs(0, 0); //판의 가장자리에는 치즈가 놓여 있지 않으며..
 
-		int cnt = v.size(); //녹이기 직전 치즈의 양
+		int cnt = cheese_list.size(); //치즈조각이 놓여 있는 칸의 개수
 
-		//치즈 녹이기
-		for (pair<int, int> i : v) {
-			board[i.first][i.second] = 0;
+		for (pair<int, int> c : cheese_list) {
+			a[c.first][c.second] = 0; //치즈 녹이기
 		}
 
 		ret++; //녹인 횟수 증가
@@ -73,11 +69,12 @@ int main() {
 
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
-				if (board[i][j] == 1) {
+				if (a[i][j] == 1) {
 					flag = true;
 					break;
 				}
 			}
+
 			if (flag) break;
 		}
 
