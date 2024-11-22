@@ -15,20 +15,23 @@ int cal(char a, int b, int c) {
     if (a == '*') return b * c;
 }
 
-void go(int here, int cur_num) {
-    if (here == num.size() - 1) {
+//단, 괄호 안에는 연산자가 하나만 들어 있어야 한다. O(2 ^ n)
+void recur(int idx, int cur_num) {
+    if (idx == num.size() - 1) {
         ret = max(ret, cur_num);
         return;
     }
 
-    go(here + 1, cal(oper[here], cur_num, num[here + 1]));
+    if (idx + 1 < num.size()) {
+        recur(idx + 1, cal(oper[idx], cur_num, num[idx + 1]));
+    }
 
-    if (here + 2 <= num.size() - 1) {
+    if (idx + 2 < num.size()) {
         //뒷 연산을 괄호로 묶어서 먼저 계산
-        int temp = cal(oper[here + 1], num[here + 1], num[here + 2]);
-        
-        //계산된 temp와 기존의 now를 연산
-        go(here + 2, cal(oper[here], cur_num, temp));
+        int temp = cal(oper[idx + 1], num[idx + 1], num[idx + 2]);
+
+        //계산된 temp와 기존의 now를 나중에 연산
+        recur(idx + 2, cal(oper[idx], cur_num, temp));
     }
 }
 
@@ -47,7 +50,7 @@ int main() {
         }
     }
 
-    go(0, num[0]);
+    recur(0, num[0]);
 
     cout << ret;
 
