@@ -56,7 +56,9 @@ int main() {
 				if (!visited[i][j]) {
 					dfs(i, j);
 
-					if (v.size() == 1) continue; //국경선이 공유되지 않았다면
+					if (v.size() == 1) {
+						continue; //국경선이 공유되지 않았다면
+					}
 					else {
 						flag = true; //인구 이동 발생
 
