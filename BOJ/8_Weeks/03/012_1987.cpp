@@ -1,6 +1,5 @@
 #include<iostream>
 #include<queue>
-#include<set>
 using namespace std;
 
 const int dy[] = { -1,0,1,0 };
@@ -21,7 +20,7 @@ void dfs(int y, int x, int cnt) {
 
         if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue;
 
-        if (!visited[a[ny][nx]-'A']) {
+        if (!visited[a[ny][nx] - 'A']) {
             dfs(ny, nx, cnt + 1);
             visited[a[ny][nx] - 'A'] = false;
         }
@@ -33,7 +32,7 @@ void dfs(int y, int x, int cnt) {
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);
-    
+
     cin >> n >> m;
 
     for (int i = 0; i < n; i++) {
