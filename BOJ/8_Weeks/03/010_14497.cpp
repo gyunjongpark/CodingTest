@@ -4,12 +4,13 @@ using namespace std;
 
 const int dy[] = { -1,0,1,0 };
 const int dx[] = { 0,1,0,-1 };
-int visited[301][301], n, m, sy, sx, ey, ex, ret;
+int n, m, sy, sx, ey, ex, ret;
+bool visited[301][301];
 char a[301][301];
 string s;
 
 void bfs(int sy, int sx) {
-    visited[sy][sx] = 1;
+    visited[sy][sx] = true;
 
     queue<pair<int, int>> q;
     q.push({ sy,sx });
@@ -21,19 +22,18 @@ void bfs(int sy, int sx) {
             int ny = cur.first + dy[i];
             int nx = cur.second + dx[i];
 
-            if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue;            
+            if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue;
 
             if (!visited[ny][nx]) {
-                if (a[ny][nx] == '1') {
-                    visited[ny][nx] = 1;
+                visited[ny][nx] = true;
+
+                if (a[ny][nx] == '1') {                
                     a[ny][nx] = '0';
                 }
-                else if (a[ny][nx] == '0') {
-                    visited[ny][nx] = 1;
+                else if (a[ny][nx] == '0') {                
                     q.push({ ny,nx });
                 }
-                else if (a[ny][nx] == '#') {
-                    visited[ny][nx] = 1;
+                else if (a[ny][nx] == '#') {                    
                     break;
                 }
             }
@@ -64,9 +64,9 @@ int main() {
 
         bfs(sy, sx);
 
-        ret++;
+        ret++; //bfs 횟수
 
-        if (visited[ey][ex]) {
+        if (visited[ey][ex]) { //'#'에 도달할 수 있다면 반복문 종료
             cout << ret;
             break;
         }
