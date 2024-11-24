@@ -26,7 +26,9 @@ void recur(int idx, string num) {
 
         if (idx == 0 || isCorrect(num[idx - 1], i + '0', a[idx - 1])) {
             check[i] = 1;
+
             recur(idx + 1, num + to_string(i));
+
             check[i] = 0;
         }
     }
@@ -48,9 +50,8 @@ int main() {
 
     sort(ret.begin(), ret.end());
 
-    int diff = ret.size();
-
-    cout << ret[diff - 1] << '\n' << ret[0];
+    //모든 입력에 답은 항상 존재하며, 출력 정수는 하나의 문자열이 되도록 해야 한다
+    cout << ret[ret.size() - 1] << '\n' << ret[0]; //ret.size() >= 1
 
     return 0;
 }
