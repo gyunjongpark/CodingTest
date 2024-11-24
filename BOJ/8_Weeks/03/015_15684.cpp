@@ -2,16 +2,16 @@
 #include<climits> //INT_MAX
 using namespace std;
 
+bool visited[31][11];
 int n, m, h, j, a, b, result;
 int ret = INT_MAX;
-bool visited[31][11];
 
 bool check() {
-    for (int i = 1; i <= n; i++) {
+    for (int i = 1; i < n; i++) {
         int start = i;
 
         for (int j = 1; j <= h; j++) {
-            if (start < n && visited[j][start]) {
+            if (visited[j][start]) {
                 start++;
             }
             else if (start - 1 >= 1 && visited[j][start - 1]) {
@@ -36,8 +36,9 @@ void dfs(int here, int cnt) {
     }
 
     for (int i = here; i <= h; i++) {
-        for (int j = 1; j < n; j++) { //visited는 j -> j + 1이므로 j == n의 경우 제외
-            if (visited[i][j] || (j + 1 < n && visited[i][j + 1]) || (j - 1 >= 1 && visited[i][j - 1])) continue; //본인 또는 인접한 가로선이 이미 존재한다면
+        for (int j = 1; j < n; j++) {
+            if (visited[i][j] || (j + 1 < n && visited[i][j + 1]) ||
+                (j - 1 >= 1 && visited[i][j - 1])) continue;
 
             visited[i][j] = 1;
 
@@ -58,10 +59,10 @@ int main() {
 
     for (int i = 0; i < m; i++) {
         cin >> a >> b;
-        visited[a][b] = 1; //b번 세로선과 b + 1번 세로선을 a번 점선 위치에서 연결
+        visited[a][b] = 1; //b번 세로선과 b + 1번 세로선을 a번째 가로선 위치에서 연결
     }
 
-    dfs(1, 0);
+    dfs(1, 0); //첫 번째 가로선부터 시작
 
     result = (ret == INT_MAX ? -1 : ret);
 
