@@ -4,8 +4,8 @@
 #include<string> //to_string
 using namespace std;
 
-int n, check[10];
 char a[20];
+int n, check[10];
 vector<string> ret;
 
 bool isCorrect(char a, char b, char op) {
@@ -50,8 +50,8 @@ int main() {
 
     sort(ret.begin(), ret.end());
 
-    //모든 입력에 답은 항상 존재하며, 출력 정수는 하나의 문자열이 되도록 해야 한다
-    cout << ret[ret.size() - 1] << '\n' << ret[0]; //ret.size() >= 1
+    //모든 입력에 답은 항상 존재하며... 이 문제에서 ret.size()는 1 이상이 보장된다
+    cout << ret[ret.size() - 1] << '\n' << ret[0];
 
     return 0;
 }
