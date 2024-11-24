@@ -4,7 +4,7 @@
 #include<string> //to_string
 using namespace std;
 
-char a[20];
+char a[10];
 int n, check[10];
 vector<string> ret;
 
