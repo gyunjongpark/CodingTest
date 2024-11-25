@@ -19,6 +19,8 @@ int main() {
 
 	for (int i = 0; i < m; i++) {
 		cin >> s;
+
+		//map은 한번이라도 언급된다면 메모리를 할당하고 value를 0으로 초기화하여 key - value 쌍을 생성합니다
 		if (mp[s]) cnt++;
 	}
 	
@@ -27,4 +29,3 @@ int main() {
 	return 0;
 }
 
-//map은 한번이라도 언급된다면 메모리를 할당하고 value를 0으로 초기화하여 key - value 쌍을 생성합니다
