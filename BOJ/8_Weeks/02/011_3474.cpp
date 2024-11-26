@@ -12,7 +12,7 @@ int main() {
 	while (t--) {
 		cin >> n;
 
-		int ret2 = 0, ret5 = 0; // init
+		int ret2 = 0, ret5 = 0;
 
 		for (int i = 2; i <= n; i *= 2) {
 			ret2 += n / i; //n!에서 2가 몇 번 곱해져 있는가?
@@ -22,7 +22,7 @@ int main() {
 			ret5 += n / i; //n!에서 5가 몇 번 곱해져 있는가?
 		}
 
-		cout << min(ret2, ret5) << '\n';
+		cout << min(ret2, ret5) << '\n'; //n!에서 10이 몇 번 곱해져 있는가?
 	}
 
 	return 0;
