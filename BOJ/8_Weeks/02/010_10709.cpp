@@ -17,12 +17,10 @@ int main() {
 		for (int j = 0; j < w; j++) {
 			a[i][j] = s[j];
 
-			if (a[i][j] == 'c') {
-				ret[i][j] = 0; //init
+			if (a[i][j] == '.') {
+				ret[i][j] = -1;
 			}
-			else if (a[i][j] == '.'){
-				ret[i][j] = -1; //init
-			}
+		}
 	}
 
 	for (int i = 0; i < h; i++) {
@@ -43,7 +41,7 @@ int main() {
 		for (int j = 0; j < w; j++) {
 			cout << ret[i][j] << ' ';
 		}
-		
+
 		cout << '\n';
 	}
 
