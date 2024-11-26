@@ -24,7 +24,7 @@ int main() {
 		//two pointer
 		int s = 0; int e = n - 1;
 
-		while (s < e) {
+		while (s < e) { //갑옷은 두 개의 재료로 만든다 = 겹치지 않는다
 			int sum = a[s] + a[e];
 
 			if (sum == m) {
