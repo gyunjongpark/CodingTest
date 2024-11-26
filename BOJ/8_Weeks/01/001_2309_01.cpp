@@ -14,7 +14,7 @@ int main() {
         sum += a[i];
     }
 
-    sort(a, a + 9); //먼저 정렬하지 않으면 7개의 원소를 담는 순서 벡터를 다시 정의해야 한다
+    sort(a, a + 9);
 
     bool flag = false;
     
