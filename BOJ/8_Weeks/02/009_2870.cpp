@@ -15,12 +15,12 @@ bool cmp(string a, string b) { //비내림차순
 void check(string ret) {
 	while (true) {
 		if (ret.size() && ret[0] == '0') {
-			ret.erase(0, 1); //erase(인덱스, 갯수)
+			ret.erase(0, 1); //erase(인덱스(배열 번호), 갯수)
 		}
-		else break; //size가 없거나(전부 0인 수를 모조리 지웠거나), 0이 아닌 숫자를 만났거나
+		else break; //전부 0인 수를 모조리 지웠거나 0이 아닌 숫자를 만났다면
 	}
 
-	if (ret.size() == 0) ret = "0"; //size가 없다면(0을 전부 지운 경우라면) 0 추가 후 v에 전달
+	if (ret.size() == 0) ret = "0"; //0을 전부 지운 경우라면 0 추가 후 v에 값 삽입
 
 	v.push_back(ret);
 
@@ -43,16 +43,15 @@ int main() {
 				ret += s[i];
 			}
 			else { //도중에 숫자가 아니라면
-				if (ret.size()) { //중간 점검
-					check(ret);
-
+				if (ret.size()) { //크기가 있다면 
+					check(ret); //중간 점검
 					ret = ""; //초기화
 				}
 			}
 		}
 
 		if (ret.size()) {
-			check(ret); //마지막 요소가 숫자일 가능성. 최종 점검
+			check(ret); //마지막 요소가 숫자일 가능성 점검
 		}
 	}
 
