@@ -4,20 +4,23 @@ typedef long long ll;
 
 int a, b, c;
 
-ll recur(int a, int b, int c) { //어떤 연산을 하든 a ^ b % c라는 포맷은 유지해야 한다
+ll recur(int a, int b, int c) {
 	if (b == 1) return a % c;
 
-	if (b % 2) { //홀수 승수인 경우 한번 더 a % c 연산
+	if (b % 2) { //홀수 승수인 경우
 		return (recur(a, b / 2, c) * recur(a, b / 2, c) % c) * a % c;
 
-		//recur(a, b / 2, c)가 c - 1이라면 (c - 1) ^ 2 = c에 대한 2차방정식이 되므로 %c 연산이 필요하다
-		//b가 홀수 승수인 경우 a가 c - 1가 된다면 c의 차수가 1이 되므로 %c 연산이 추가로 필요하다
+		//recur(a, b / 2, c)의 결과는 최대 c - 1이 될 수 있다
+		//recur * recur의 결과는 c에 대한 2차방정식이 될 수 있으므로 %c 연산이 필요하다
+		
+		//홀수 승수인 경우 recur * recur * a
+		//a는 최대 c - 1가 될 수 있으므로(c의 차수가 1) %c 연산이 추가로 필요하다	
 	}
 	else {
-		//모듈러 연산. 쪼개진 것에 대해서 한번 더 연산
 		return (recur(a, b / 2, c) * recur(a, b / 2, c) % c);
 
-		//recur(a, b / 2, c)가 c - 1이라면 (c - 1) ^ 2 = c에 대한 2차방정식이 되므로 %c 연산이 필요하다
+		//recur(a, b / 2, c)의 결과는 최대 c - 1이 될 수 있다
+		//recur * recur의 결과는 c에 대한 2차방정식이 될 수 있으므로 %c 연산이 필요하다
 	}
 }
 
