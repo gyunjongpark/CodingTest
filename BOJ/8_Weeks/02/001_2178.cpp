@@ -4,7 +4,7 @@ using namespace std;
 
 const int dy[] = { -1,0,1,0 };
 const int dx[] = { 0,1,0,-1 };
-int n, m, a[101][101], visited[101][101];
+int n, m, a[101][101], visited[101][101], ret;
 string s;
 
 void bfs(int y, int x) {
@@ -17,7 +17,7 @@ void bfs(int y, int x) {
         pair<int, int> cur = q.front(); q.pop();
         
         if (cur.first == n - 1 && cur.second == m - 1) {
-            cout << visited[n - 1][m - 1];
+            ret = visited[n - 1][m - 1];
             return;
         }
 
@@ -53,5 +53,7 @@ int main() {
 
     bfs(0, 0);
 
+    cout << ret;
+    
     return 0;
 }
