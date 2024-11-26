@@ -18,10 +18,11 @@ void bfs(int y, int x) {
 	while (!q.empty()) {
 		pair<int, int> cur = q.front(); q.pop();
 
-		if (a[cur.first][cur.second] == 1) { //치즈라면?
+		if (a[cur.first][cur.second] == 1) { //치즈
+			visited[cur.first][cur.second] == true;
 			cheese_list.push_back({ cur.first,cur.second });
 		}
-		else {
+		else { //공기
 			for (int i = 0; i < 4; i++) {
 				int ny = cur.first + dy[i];
 				int nx = cur.second + dx[i];
@@ -30,7 +31,7 @@ void bfs(int y, int x) {
 
 				if (!visited[ny][nx]) {
 					visited[ny][nx] = true;
-					q.push({ ny,nx });
+					q.push({ ny,nx }); //공기일 경우에만 in-queue
 				}
 			}
 		}
@@ -55,7 +56,7 @@ int main() {
 		fill(&visited[0][0], &visited[0][0] + 101 * 101, false);
 		cheese_list.clear();
 
-		bfs(0, 0); //판의 가장자리에는 치즈가 놓여 있지 않으며..
+		bfs(0, 0); //판의 가장자리에는 치즈가 놓여 있지 않다
 
 		int cnt = cheese_list.size(); //치즈조각이 놓여 있는 칸의 개수
 
