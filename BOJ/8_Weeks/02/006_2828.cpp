@@ -9,6 +9,7 @@ int main() {
 
 	cin >> n >> m >> j;
 
+	//two pointer
 	int l = 1, r = l + m - 1;
 
 	while (j--) {
