@@ -34,7 +34,7 @@ int main() {
         fill(&a[0][0], &a[0][0] + 51 * 51, 0);
         fill(&visited[0][0], &visited[0][0] + 51 * 51, false);
 
-        int ret = 0; //case마다 초기화
+        int ret = 0;
 
         cin >> m >> n >> k;
 
