@@ -12,12 +12,12 @@ string print(int sum) {
 	return d.substr(d.size() - 2, 2) + ":" + e.substr(e.size() - 2, 2);
 }
 
-int string_to_int(string t) {
+int str_to_int(string t) {
 	return atoi(t.substr(0, 2).c_str()) * 60 + atoi(t.substr(3, 2).c_str());
 }
 
-void calculate_time(int& sum, string t, string pre) { //시간 차 계산
-	sum += string_to_int(t) - string_to_int(pre);
+void cal_time(int& sum, string t, string pre) { //시간 차 계산
+	sum += str_to_int(t) - str_to_int(pre);
 
 	return;
 }
@@ -31,19 +31,18 @@ int main() {
 	while (n--) {
 		cin >> team >> t;
 
-		if (team_a > team_b) calculate_time(asum, t, pre);
-		else if (team_a < team_b) calculate_time(bsum, t, pre);
+		if (team_a > team_b) cal_time(asum, t, pre);
+		else if (team_a < team_b) cal_time(bsum, t, pre);
 
 		team == 1 ? team_a++ : team_b++;
 		pre = t; //이전 시간 저장
 	}
 
 	//종료 직후 check
-	if (team_a > team_b) calculate_time(asum, "48:00", pre);
-	else if (team_a < team_b) calculate_time(bsum, "48:00", pre);
+	if (team_a > team_b) cal_time(asum, "48:00", pre);
+	else if (team_a < team_b) cal_time(bsum, "48:00", pre);
 
-	cout << print(asum) << '\n';
-	cout << print(bsum);
+	cout << print(asum) << '\n' << print(bsum);
 
 	return 0;
 }
