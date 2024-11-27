@@ -1,8 +1,10 @@
 #include<iostream>
 #include<vector>
+#include<climits> //INT_MIN
 using namespace std;
 
-int n, ret;
+int n;
+int ret = INT_MIN; //정답은 2 ^ 31보다 작고, -(2 ^ 31)보다 크다
 string s;
 vector<int> num;
 vector<char> oper;
@@ -14,7 +16,7 @@ int cal(char c, int a, int b) {
 }
 
 void recur(int idx, int cur) {
-    if (idx == num.size() - 1) {
+    if (idx == num.size() - 1) { //첫째 줄에 수식의 길이 N(1 ≤ N ≤ 19)가 주어진다
         ret = max(ret, cur);
         return;
     }
