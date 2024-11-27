@@ -1,72 +1,74 @@
 #include<iostream>
-#include<vector>
-#include<queue>
-#include<tuple> //tie
 #include<climits> //INT_MAX
+#include<queue>
+#include<vector>
 using namespace std;
 
 const int dy[] = { -1,0,1,0 };
 const int dx[] = { 0,1,0,-1 };
-int ret, n, m, fire_visited[1001][1001], j_visited[1001][1001];
+int n, m, fire_visited[1001][1001], j_visited[1001][1001], ret;
 char a[1001][1001];
+pair<int, int> j_pos;
+vector<pair<int, int>> fire_pos;
 string s;
-pair<int, int> jPos; //지훈이는 한 명
-vector<pair<int, int>> firePos; //불은 여러 곳에서 발생할 수 있다
 
-void fire_bfs() {
-    for (pair<int, int> fire : firePos) {
-        fire_visited[fire.first][fire.second] = 1;
-    }
+void j_bfs() {
+    j_visited[j_pos.first][j_pos.second] = 1;
 
     queue<pair<int, int>> q;
-    for (pair<int, int> fire : firePos) {
-        q.push(fire);
-    }
+    q.push(j_pos);
 
     while (!q.empty()) {
-        int y, x;
-        tie(y, x) = q.front(); q.pop();
+        pair<int, int> cur = q.front(); q.pop();
+
+        if (cur.first==0 || cur.second==0 ||
+            cur.first == n - 1 || cur.second == m - 1) {
+            ret = j_visited[cur.first][cur.second];
+            break;
+        }
 
         for (int i = 0; i < 4; i++) {
-            int ny = y + dy[i];
-            int nx = x + dx[i];
+            int ny = cur.first + dy[i];
+            int nx = cur.second + dx[i];
 
-            if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue; //범위를 벗어나면 continue
-            if (fire_visited[ny][nx] != INT_MAX || a[ny][nx] == '#') continue; //이미 불이 번졌거나 벽이라면 continue
+            if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue; //범위를 벗어날 때
+            if (a[ny][nx] == '#') continue; //벽면일 때
+            if (fire_visited[ny][nx] <= j_visited[cur.first][cur.second] + 1) continue; //이미 불이 붙었을 때
 
-            fire_visited[ny][nx] = fire_visited[y][x] + 1;
-            q.push({ ny,nx });
+            if (a[ny][nx] == '.' && !j_visited[ny][nx]) {
+                j_visited[ny][nx] = j_visited[cur.first][cur.second] + 1;
+                q.push({ ny,nx });
+            }
         }
     }
 
     return;
 }
 
-void j_bfs(int y, int x) {
-    j_visited[y][x] = 1;
+void fire_bfs() {
+    for (pair<int, int> i : fire_pos) {
+        fire_visited[i.first][i.second] = 1;
+    }
 
     queue<pair<int, int>> q;
-    q.push({ y,x });
+    for (pair<int, int> fire : fire_pos) {
+        q.push(fire);
+    }
 
     while (!q.empty()) {
-        int y, x;
-        tie(y, x) = q.front(); q.pop();
-
-        if (y == 0 || y == n - 1 || x == 0 || x == m - 1) { //탈출 조건
-            ret = j_visited[y][x];
-            break;
-        }
+        pair<int, int> cur = q.front(); q.pop();
 
         for (int i = 0; i < 4; i++) {
-            int ny = y + dy[i];
-            int nx = x + dx[i];
+            int ny = cur.first + dy[i];
+            int nx = cur.second + dx[i];
 
-            if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue; //범위를 벗어나면 continue
-            if (fire_visited[ny][nx] <= j_visited[y][x] + 1) continue; //먼저 불에 탔다면 continue
-            if (j_visited[ny][nx] || a[ny][nx] == '#') continue; //이미 방문했거나 벽이라면 continue
+            if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue; //범위를 벗어날 때
+            if (a[ny][nx] == '#') continue; //벽면일 때
 
-            j_visited[ny][nx] = j_visited[y][x] + 1;
-            q.push({ ny,nx });
+            if (a[ny][nx] == '.' && fire_visited[ny][nx] == INT_MAX) {
+                fire_visited[ny][nx] = fire_visited[cur.first][cur.second] + 1;
+                q.push({ ny,nx });
+            }
         }
     }
 
@@ -77,8 +79,6 @@ int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);
 
-    fill(&fire_visited[0][0], &fire_visited[0][0] + 1001 * 1001, INT_MAX);
-
     cin >> n >> m;
 
     for (int i = 0; i < n; i++) {
@@ -88,16 +88,18 @@ int main() {
             a[i][j] = s[j];
 
             if (a[i][j] == 'J') {
-                jPos = { i,j };
+                j_pos = { i,j }; //J는 입력에서 하나만 주어진다
             }
-            else if (a[i][j] == 'F') {
-                firePos.push_back({ i,j });
+
+            if (a[i][j] == 'F') {
+                fire_pos.push_back({ i,j });
             }
         }
     }
 
+    fill(&fire_visited[0][0], &fire_visited[0][0] + 1001 * 1001, INT_MAX);
     fire_bfs();
-    j_bfs(jPos.first, jPos.second);
+    j_bfs();
 
     if (ret) cout << ret;
     else cout << "IMPOSSIBLE";
