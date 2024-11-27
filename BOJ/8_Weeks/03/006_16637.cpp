@@ -15,17 +15,18 @@ int cal(char c, int a, int b) {
     if (c == '-') return a - b;
 }
 
+//단, 괄호 안에는 연산자가 하나만 들어 있어야 한다 -> O(2 ^ N)
 void recur(int idx, int cur) {
-    if (idx == num.size() - 1) { //첫째 줄에 수식의 길이 N(1 ≤ N ≤ 19)가 주어진다
+    if (idx == oper.size()) {
         ret = max(ret, cur);
         return;
     }
 
-    if (idx + 1 < num.size()) {
+    if (idx < oper.size()) {
         recur(idx + 1, cal(oper[idx], cur, num[idx + 1]));
     }
 
-    if (idx + 2 < num.size()) {
+    if (idx + 1 < oper.size()) {
         int temp = cal(oper[idx + 1], num[idx + 1], num[idx + 2]);
         recur(idx + 2, cal(oper[idx], cur, temp));
     }
@@ -46,7 +47,7 @@ int main() {
         }
     }
 
-    recur(0, num[0]); //반드시 첫번째 숫자부터 연산 시작
+    recur(0, num[0]); //수식을 계산할 때는 왼쪽에서부터 순서대로 계산해야 한다
 
     cout << ret;
 
