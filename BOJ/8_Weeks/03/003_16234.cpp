@@ -50,7 +50,7 @@ int main() {
 
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
-				v.clear();
+				v.clear(); //인구 이동이 발생하는 영역의 좌표 저장
 				sum = 0;
 
 				if (!visited[i][j]) {
