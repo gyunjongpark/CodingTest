@@ -10,7 +10,7 @@ char a[51][51];
 string s;
 
 void bfs(int y, int x) {
-	fill(&visited[0][0], &visited[0][0] + 51 * 51, 0); //방문기록 초기화
+	fill(&visited[0][0], &visited[0][0] + 51 * 51, 0); //방문 초기화
 
 	visited[y][x] = 1;
 
@@ -55,7 +55,7 @@ int main() {
 	//O(50 * 50 * 50)
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < m; j++) {
-			if (a[i][j] == 'L') { //가장 먼 거리를 구하기 위해 visited x
+			if (a[i][j] == 'L') {
 				bfs(i, j);
 			}
 		}
