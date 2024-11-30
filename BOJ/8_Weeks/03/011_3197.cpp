@@ -5,37 +5,30 @@ using namespace std;
 
 const int dy[] = { -1,0,1,0 };
 const int dx[] = { 0,1,0,-1 };
-
 int n, m, ret;
-string s;
 char a[1501][1501];
 bool visited[1501][1501], water_visited[1501][1501];
+string s;
 vector<pair<int, int>> swan;
 queue<pair<int, int>> water, next_water;
 queue<pair<int, int>> swan_q, next_swan_q;
 
-bool can_meet() {
+bool meet() {
     while (!swan_q.empty()) {
-        int y = swan_q.front().first;
-        int x = swan_q.front().second;
-
-        swan_q.pop();
+        pair<int, int> cur = swan_q.front(); swan_q.pop();
 
         for (int i = 0; i < 4; i++) {
-            int ny = y + dy[i];
-            int nx = x + dx[i];
+            int ny = cur.first + dy[i];
+            int nx = cur.second + dx[i];
 
-            if (ny < 0 || ny >= n || nx < 0 || nx >= m || visited[ny][nx]) continue;
+            if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue;
 
-            if (a[ny][nx] == 'L') return true; //백조끼리 만날 때
+            if (!visited[ny][nx]) {
+                visited[ny][nx] = true;
 
-            visited[ny][nx] = true;
-
-            if (a[ny][nx] == '.') {
-                swan_q.push({ ny, nx });
-            }
-            else if (a[ny][nx] == 'X') {
-                next_swan_q.push({ ny, nx });
+                if (a[ny][nx] == 'L') return true; //두 백조가 만났다면
+                else if (a[ny][nx] == '.') swan_q.push({ ny,nx });
+                else if (a[ny][nx] == 'X') next_swan_q.push({ ny,nx });
             }
         }
     }
@@ -43,25 +36,24 @@ bool can_meet() {
     return false;
 }
 
-void melt_ice() {
+void melt() {
     while (!water.empty()) {
-        int y = water.front().first;
-        int x = water.front().second;
-
-        water.pop();
+        pair<int, int> cur = water.front(); water.pop();
 
         for (int i = 0; i < 4; i++) {
-            int ny = y + dy[i];
-            int nx = x + dx[i];
+            int ny = cur.first + dy[i];
+            int nx = cur.second + dx[i];
 
-            if (ny < 0 || ny >= n || nx < 0 || nx >= m || water_visited[ny][nx]) continue;
+            if (ny < 0 || ny >= n || nx < 0 || nx >= m) continue;
 
-            if (a[ny][nx] == 'X') {
-                a[ny][nx] = '.';
-                next_water.push({ ny, nx });
+            if (!water_visited[ny][nx]) {
+                water_visited[ny][nx] = true;
+
+                if (a[ny][nx] == 'X') {
+                    a[ny][nx] = '.'; //얼음 녹이기
+                    next_water.push({ ny,nx });
+                }
             }
-
-            water_visited[ny][nx] = true;
         }
     }
 
@@ -80,7 +72,7 @@ int main() {
         for (int j = 0; j < m; j++) {
             a[i][j] = s[j];
 
-            if (a[i][j] != 'X') {
+            if (a[i][j] != 'X') { //물이 있기 때문에 백조가 존재할 수 있다
                 water.push({ i, j });
                 water_visited[i][j] = true;
             }
@@ -91,16 +83,16 @@ int main() {
         }
     }
 
-    swan_q.push(swan[0]);
     visited[swan[0].first][swan[0].second] = true;
+    swan_q.push(swan[0]);
 
     while (true) {
-        if (can_meet()) {
+        if (meet()) {
             cout << ret;
             break;
         }
 
-        melt_ice();
+        melt();
 
         swap(swan_q, next_swan_q);
         swap(water, next_water);
