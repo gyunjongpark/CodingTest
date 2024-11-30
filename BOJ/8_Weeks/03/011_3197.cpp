@@ -8,10 +8,10 @@ const int dx[] = { 0,1,0,-1 };
 int n, m, ret;
 char a[1501][1501];
 bool visited[1501][1501], water_visited[1501][1501];
-string s;
-vector<pair<int, int>> swan;
 queue<pair<int, int>> water, next_water;
 queue<pair<int, int>> swan_q, next_swan_q;
+vector<pair<int, int>> swan;
+string s;
 
 bool meet() {
     while (!swan_q.empty()) {
@@ -26,9 +26,15 @@ bool meet() {
             if (!visited[ny][nx]) {
                 visited[ny][nx] = true;
 
-                if (a[ny][nx] == 'L') return true; //두 백조가 만났다면
-                else if (a[ny][nx] == '.') swan_q.push({ ny,nx });
-                else if (a[ny][nx] == 'X') next_swan_q.push({ ny,nx });
+                if (a[ny][nx] == 'L') { //두 백조가 만났다면
+                    return true;
+                }
+                else if (a[ny][nx] == '.') {
+                    swan_q.push({ ny,nx }); //백조가 다닐 수 있는 경로(백조 또는 물)
+                }
+                else if (a[ny][nx] == 'X') {
+                    next_swan_q.push({ ny,nx }); //melt 이후 다닐 수 있는 경로
+                }
             }
         }
     }
@@ -39,6 +45,8 @@ bool meet() {
 void melt() {
     while (!water.empty()) {
         pair<int, int> cur = water.front(); water.pop();
+
+        water_visited[cur.first][cur.second] = true;
 
         for (int i = 0; i < 4; i++) {
             int ny = cur.first + dy[i];
@@ -72,9 +80,8 @@ int main() {
         for (int j = 0; j < m; j++) {
             a[i][j] = s[j];
 
-            if (a[i][j] != 'X') { //물이 있기 때문에 백조가 존재할 수 있다
-                water.push({ i, j });
-                water_visited[i][j] = true;
+            if (a[i][j] != 'X') {
+                water.push({ i,j });
             }
 
             if (a[i][j] == 'L') {
@@ -84,15 +91,15 @@ int main() {
     }
 
     visited[swan[0].first][swan[0].second] = true;
-    swan_q.push(swan[0]);
+    swan_q.push(swan[0]); //백조가 다닐 수 있는 경로(백조 또는 물)
 
     while (true) {
-        if (meet()) {
+        if (meet()) { //두 백조가 만날 수 있다면
             cout << ret;
             break;
         }
-
-        melt();
+         
+        melt(); //얼음 녹이기
 
         swap(swan_q, next_swan_q);
         swap(water, next_water);
