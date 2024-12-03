@@ -5,15 +5,15 @@ using namespace std;
 
 int n, m, a[51][51];
 int ret = INT_MAX; //도시의 치킨 거리 중 최솟값 계산
-vector<pair<int, int>> home, chicken; //집 목록, 치킨집 목록
+vector<pair<int, int>> home, chicken; //집, 치킨집의 좌표 저장
 
-int cal_city_dist(vector<pair<int, int>>& home, vector<int>& v) {
+int cal_city_dist(vector<pair<int, int>>& home, vector<int>& ch_idx) {
 	int city_dist = 0;
 
 	for (pair<int, int> h : home) {
 		int dist = INT_MAX; //각각의 집마다 가까운 치킨집과의 거리 계산
 
-		for (int selected_number : v) {
+		for (int selected_number : ch_idx) {
 			int abs_y = abs(h.first - chicken[selected_number].first);
 			int abs_x = abs(h.second - chicken[selected_number].second);
 
@@ -23,24 +23,24 @@ int cal_city_dist(vector<pair<int, int>>& home, vector<int>& v) {
 		city_dist += dist; //전체 합산
 	}
 
-	return city_dist; //도시의 치킨 거리 반환
+	return city_dist;
 }
 
-void combi(int start, vector<int>& v, vector<bool>& visited) {
-	if (v.size() == m) {
-		ret = min(ret, cal_city_dist(home, v));
+void combi(int start, vector<int>& ch_idx, vector<bool>& visited) {
+	if (ch_idx.size() == m) {
+		ret = min(ret, cal_city_dist(home, ch_idx));
 		return;
 	}
 
-	for (int i = start + 1; i < chicken.size(); i++) {
+	for (int i = start + 1; i < chicken.size(); i++) { //전체 치킨집 중 m개 선택
 		if (visited[i]) continue;
 
-		v.push_back(i);
+		ch_idx.push_back(i);
 		visited[i] = true;
 
-		combi(i, v, visited);
+		combi(i, ch_idx, visited);
 
-		v.pop_back();
+		ch_idx.pop_back();
 		visited[i] = false;
 	}
 }
@@ -64,10 +64,10 @@ int main() {
 		}
 	}
 
-	vector<int> v; //치킨집 번호 저장
-	vector<bool> visited(2501, false);
+	vector<int> ch_idx; //치킨집 번호 저장
+	vector<bool> visited(2501, false); //방문 처리
 
-	combi(-1, v, visited);
+	combi(-1, ch_idx, visited);
 
 	cout << ret;
 
