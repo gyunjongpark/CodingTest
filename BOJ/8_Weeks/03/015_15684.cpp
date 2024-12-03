@@ -7,11 +7,11 @@ int n, m, h, j, a, b, result;
 int ret = INT_MAX;
 
 bool check() {
-    for (int i = 1; i < n; i++) {
+    for (int i = 1; i <= n; i++) {
         int start = i;
 
         for (int j = 1; j <= h; j++) {
-            if (visited[j][start]) {
+            if (start < n && visited[j][start]) {
                 start++;
             }
             else if (start - 1 >= 1 && visited[j][start - 1]) {
