@@ -68,6 +68,26 @@ void melt() {
     return;
 }
 
+void bfs() {
+    visited[swan[0].first][swan[0].second] = true;
+    swan_q.push(swan[0]); //백조가 다닐 수 있는 경로(백조 또는 물)
+
+    while (true) {
+        if (meet()) { //두 백조가 만날 수 있다면
+            break;
+        }
+
+        melt(); //얼음 녹이기
+
+        swap(swan_q, next_swan_q);
+        swap(water, next_water);
+
+        ret++;
+    }
+
+    return;
+}
+
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
@@ -81,7 +101,7 @@ int main() {
             a[i][j] = s[j];
 
             if (a[i][j] != 'X') {
-                water.push({ i,j });
+                water.push({ i,j }); //백조가 다닐 수 있는 경로(백조 또는 물)
             }
 
             if (a[i][j] == 'L') {
@@ -90,22 +110,9 @@ int main() {
         }
     }
 
-    visited[swan[0].first][swan[0].second] = true;
-    swan_q.push(swan[0]); //백조가 다닐 수 있는 경로(백조 또는 물)
+    bfs();
 
-    while (true) {
-        if (meet()) { //두 백조가 만날 수 있다면
-            cout << ret;
-            break;
-        }
-         
-        melt(); //얼음 녹이기
-
-        swap(swan_q, next_swan_q);
-        swap(water, next_water);
-
-        ret++;
-    }
+    cout << ret;
 
     return 0;
 }
