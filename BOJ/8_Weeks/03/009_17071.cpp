@@ -8,6 +8,8 @@ int mov = 1; //동생
 bool visited[2][500001];
 
 void bfs(int n) {
+    visited[0][n] = true;
+
     queue<int> q;
     q.push(n);
 
@@ -19,7 +21,7 @@ void bfs(int n) {
             break;
         }
 
-        //17(k=5), 16(k=6), 15(k=8), 16(k=11), 15(k=15) 
+        //17(init, k = 5), 16(k = 6), 15(k = 8), 16(k = 11), 15(k = 15) 
         if (visited[mov % 2][k]) {
             ret = mov;
             break;
@@ -32,7 +34,7 @@ void bfs(int n) {
             int cur = q.front(); q.pop();
 
             for (int ncur : {cur - 1, cur + 1, cur * 2}) {
-                if (ncur == k) {                    
+                if (ncur == k) {
                     flag = true;
                     ret = mov;
 
@@ -61,7 +63,7 @@ void bfs(int n) {
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);
-    
+
     cin >> n >> k;
 
     if (n == k) {
