@@ -9,28 +9,11 @@ bool visited[301][301];
 char a[301][301];
 string s;
 
-int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL); cout.tie(NULL);
-
-    cin >> n >> m >> sy >> sx >> ey >> ex;
-
-    sy--, sx--, ey--, ex--;
-
-    for (int i = 0; i < n; i++) {
-        cin >> s;
-
-        for (int j = 0; j < m; j++) {
-            a[i][j] = s[j];
-        }
-    }
-
+void bfs() {
     visited[sy][sx] = true;
 
     queue<pair<int, int>> q;
     q.push({ sy,sx });
-
-    int ret = 1;
 
     while (a[ey][ex] != '0') {
         queue<pair<int, int>> temp;
@@ -63,7 +46,28 @@ int main() {
         ret++;
     }
 
-    cout << ret - 1;
+    return;
+}
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL); cout.tie(NULL);
+
+    cin >> n >> m >> sy >> sx >> ey >> ex;
+
+    sy--, sx--, ey--, ex--;
+
+    for (int i = 0; i < n; i++) {
+        cin >> s;
+
+        for (int j = 0; j < m; j++) {
+            a[i][j] = s[j];
+        }
+    }
+
+    bfs();
+
+    cout << ret;
 
     return 0;
 }
