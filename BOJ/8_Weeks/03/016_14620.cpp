@@ -50,7 +50,7 @@ bool check(int y, int x) {
 		if (visited[ny][nx]) return false;
 	}
 
-	return 1;
+	return true;
 }
 
 void dfs(int cnt, int cur) {
