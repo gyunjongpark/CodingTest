@@ -40,11 +40,11 @@ void dfs(int here, int cnt) {
             if (visited[i][j] || (j + 1 < n && visited[i][j + 1]) ||
                 (j - 1 >= 1 && visited[i][j - 1])) continue;
 
-            visited[i][j] = 1;
+            visited[i][j] = true;
 
             dfs(i, cnt + 1);
 
-            visited[i][j] = 0;
+            visited[i][j] = false;
         }
     }
 
@@ -59,7 +59,7 @@ int main() {
 
     for (int i = 0; i < m; i++) {
         cin >> a >> b;
-        visited[a][b] = 1; //b번 세로선과 b + 1번 세로선을 a번째 가로선 위치에서 연결
+        visited[a][b] = true; //b번 세로선과 b + 1번 세로선을 a번째 가로선 위치에서 연결
     }
 
     dfs(1, 0); //첫 번째 가로선부터 시작
