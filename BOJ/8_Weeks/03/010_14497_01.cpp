@@ -59,6 +59,7 @@ int main() {
         }
     }
 
+    //O(300 * 300 * 300)
     while (true) {
         fill(&visited[0][0], &visited[0][0] + 301 * 301, 0);
 
