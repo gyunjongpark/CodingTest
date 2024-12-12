@@ -16,14 +16,17 @@ int main() {
 	}
 
 	cout << '<';
+	
 	while (q.size() != 1) {
 		for (int i = 1; i < k; i++) {
 			q.push(q.front());
 			q.pop();
 		}
+		
 		cout << q.front() << ", ";
 		q.pop();
 	}
+	
 	cout << q.front() << '>';
 
 	return 0;
