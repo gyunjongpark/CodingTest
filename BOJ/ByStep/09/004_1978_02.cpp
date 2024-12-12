@@ -35,7 +35,9 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		cin >> temp;
 
-		if (chae[temp]) ret++;
+		if (chae[temp]) {
+			ret++;
+		}
 	}
 
 	cout << ret;
