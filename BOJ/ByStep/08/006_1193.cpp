@@ -9,6 +9,7 @@ int main() {
 	cin.tie(NULL); cout.tie(NULL);
 
 	cin >> n;
+	
 	while (n > i) {
 		n -= i;
 		i++;
