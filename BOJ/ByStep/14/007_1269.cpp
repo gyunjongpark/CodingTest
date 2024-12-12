@@ -19,6 +19,7 @@ int main() {
 	for (pair<int,int> i : mp) {
 		if (i.second == 1) cnt++;
 	}
+	
 	cout << cnt;
 
 	return 0;
