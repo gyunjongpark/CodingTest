@@ -13,7 +13,7 @@ int main() {
 	}
 
 	for (int i = 1; i <= 30; i++) {
-		if (arr[i] != i) { //출석번호가 없다면 arr[i]의 값은 0이다
+		if (arr[i] != i) { //출석번호가 없는 arr[i]의 값은 0이다
 			cout << i << '\n';
 		}	
 	}
