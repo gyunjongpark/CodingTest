@@ -2,7 +2,7 @@
 #include<set>
 using namespace std;
 
-string s, str;
+string s;
 set<string> st;
 
 int main() {
@@ -11,15 +11,15 @@ int main() {
 
 	cin >> s;
 
-	for (int i = 0; i < s.size(); i++) {
-		for (int j = i; j < s.size(); j++) {
+	for (int i = 0; i < s.size(); i++) { //시작할 위치
+		string str = "";
+
+		for (int j = i; j < s.size(); j++) { //해당 위치부터 부분 문자열 생성
 			str += s[j];
 			st.insert(str);
 		}
-		
-		str = ""; //init
 	}
-	
+
 	cout << st.size();
 
 	return 0;
