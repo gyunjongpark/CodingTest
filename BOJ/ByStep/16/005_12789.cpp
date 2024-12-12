@@ -25,7 +25,7 @@ int main() {
 	}
 
 	if (stk.empty()) cout << "Nice";
-	else cout<<"Sad";
+	else cout << "Sad";
 
 	return 0;
 }
