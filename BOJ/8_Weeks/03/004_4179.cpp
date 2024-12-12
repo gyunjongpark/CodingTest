@@ -98,6 +98,7 @@ int main() {
     }
 
     fill(&fire_visited[0][0], &fire_visited[0][0] + 1001 * 1001, INT_MAX);
+
     fire_bfs();
     j_bfs();
 
