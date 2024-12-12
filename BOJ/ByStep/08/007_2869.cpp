@@ -12,9 +12,10 @@ int main() {
 
 	day += (v - a) / (a - b);
 
-	if ((v - a) % (a - b)) {
+	if ((v - a) % (a - b)){
 		day++;
 	}
+
 	cout << day;
 
 	return 0;
