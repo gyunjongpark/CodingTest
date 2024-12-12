@@ -10,6 +10,7 @@ int main() {
 
 	for (int i = 0; i < 5; i++) {
 		cin >> s;
+
 		for (int j = 0; j < s.size(); j++) {
 			a[i][j] = s[j];
 		}
@@ -17,8 +18,10 @@ int main() {
 
 	for (int i = 0; i < 15; i++) {
 		for (int j = 0; j < 15; j++) {
-			if (a[j][i] == 0) continue; //null이면 continue
-			
+			if (a[j][i] == 0) {
+				continue; //null이면 continue
+			}
+
 			cout << a[j][i];
 		}
 	}
