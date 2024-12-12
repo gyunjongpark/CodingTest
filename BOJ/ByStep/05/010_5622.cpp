@@ -15,6 +15,7 @@ int main() {
 		ret += alphabet[s[i] - 65] - 48; //'A' = 65, 문자 - 숫자 = 48
 		ret++; //다음 숫자를 누르려면 다이얼을 처음 위치에서 다시 돌려야 한다
 	}
+	
 	cout << ret;
 
 	return 0;
