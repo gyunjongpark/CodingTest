@@ -25,6 +25,7 @@ int main() {
 	for (pair<string,int> a : mp) {
 		if (a.second == 2) cnt++;
 	}
+	
 	cout << cnt << '\n';
 
 	for (pair<string,int> a : mp) {
