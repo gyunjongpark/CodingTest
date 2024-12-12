@@ -10,8 +10,7 @@ int main() {
 	cin >> n;
 
 	for (int i = 0; i < n; i++) {
-		cin >> temp;
-		
+		cin >> temp;		
 		v.push_back(temp);
 	}
 	
