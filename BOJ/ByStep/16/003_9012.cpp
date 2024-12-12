@@ -15,6 +15,7 @@ int main() {
 		cin >> s;
 
 		stack<char> stk;
+		
 		for (char a : s) {
 			if (!stk.empty()) {
 				if (stk.top() == '(' && a == ')') stk.pop();
