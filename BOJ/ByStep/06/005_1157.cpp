@@ -13,7 +13,6 @@ int main() {
 
 	for (char a : s) {
 		if (a >= 'a') a -= 32; //'a' = 97, 'A' = 65
-
 		cnt[a - 'A']++; //cnt[0~25]
 	}
 
