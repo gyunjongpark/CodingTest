@@ -12,8 +12,14 @@ int main() {
 	cin >> s;
 
 	for (char a : s) {
-		if (a >= 'a') a -= 32; //'a' = 97, 'A' = 65
-		cnt[a - 'A']++; //cnt[0~25]
+		if (a >= 'a') {
+			a -= 32;
+		}
+
+		//알파벳 대소문자로 이루어진 단어가 주어진다. 조건문 반드시 통과
+		if ('A' <= a && a <= 'Z') {
+			cnt[a - 'A']++;
+		}
 	}
 
 	for (int i : cnt) {
@@ -26,7 +32,7 @@ int main() {
 			temp = cur;
 		}
 	}
-	
+
 	if (ret == 1) cout << (char)(temp + 65); //숫자를 대문자로
 	else cout << '?';
 
