@@ -19,10 +19,9 @@ void bfs(int y, int x) {
 		pair<int, int> cur = q.front(); q.pop();
 
 		if (a[cur.first][cur.second] == 1) { //치즈일 경우
-			visited[cur.first][cur.second] == true;
 			cheese_list.push_back({ cur.first,cur.second });
 		}
-		else { //공기
+		else {
 			for (int i = 0; i < 4; i++) {
 				int ny = cur.first + dy[i];
 				int nx = cur.second + dx[i];
@@ -56,9 +55,9 @@ int main() {
 		fill(&visited[0][0], &visited[0][0] + 101 * 101, false);
 		cheese_list.clear();
 
-		bfs(0, 0); //판의 가장자리는 반드시 빈 공간이다
+		bfs(0, 0); //판의 가장자리는 반드시 빈 공간이다. 문제 조건
 
-		int cnt = cheese_list.size(); //치즈조각이 놓여 있는 칸의 수
+		int cnt = cheese_list.size(); //치즈 조각이 놓여 있는 칸의 수
 
 		for (pair<int, int> c : cheese_list) {
 			a[c.first][c.second] = 0; //치즈 녹이기
