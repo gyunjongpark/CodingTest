@@ -16,19 +16,19 @@ int main(void) {
 	while (n--) {
 		cin >> h;
 
-		int cnt = 1; //본인 포함 현재 입력된 사람이 볼 수 있는 사람의 수
+		int cnt = 1; //입력된 사람과 같은 키인 사람의 수(본인 포함)
 
-		while (!stk.empty() && stk.top().first <= h) { //현재 키가 가장 최근의 큰 키보다 크거나 같다면
-			ret += stk.top().second; //최근의 큰 키를 가진 사람이 볼 수 있는 사람들의 수를 결과 쌍에 추가
+		while (!stk.empty() && stk.top().first <= h) { //입력된 키가 스택의 키보다 크거나 같다면
+			ret += stk.top().second; //스택에 있는 사람들을 위에서부터 차례대로 만날 수 있다
 
-			if (stk.top().first == h) { //특별히 최근의 큰 키와 현재 키가 정확히 같다면(현재 사람이 포용할 수 있다면)
-				cnt += stk.top().second; //최근의 큰 키를 가진 사람이 볼 수 있는 사람들의 수를 현재의 사람이 볼 수 있는 사람 수에 추가
+			if (stk.top().first == h) { //특별히 스택에서 같은 키를 가진 사람을 만날 때
+				cnt += stk.top().second; //입력된 사람과 같은 키인 사람의 수를 포용한다
 			}
 
 			stk.pop();
 		}
 
-		if (!stk.empty()) { //while문을 통과했는데 stk이 비어있지 않은 경우는 현재 키보다 큰 키가 남아있는 경우이므로 결과 쌍에 1 추가
+		if (!stk.empty()) { //입력된 키보다 큰 키가 남아있는 경우, 결과 쌍에 1 추가
 			ret++;
 		}
 
