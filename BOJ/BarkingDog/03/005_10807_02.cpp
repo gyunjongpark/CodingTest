@@ -1,5 +1,5 @@
 #include<iostream>
-#include<algorithm> //sort
+#include<algorithm> //sort, upper_bound, lower_bound
 using namespace std;
 
 int n, v, a[101], cnt;
