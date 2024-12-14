@@ -38,16 +38,15 @@ int main() {
 			num /= 2;
 		}
 		else if (str[i] == ']') {
-			if (stk.empty() || stk.top() != '[') { //괄호의 쌍이 맞지 않는다면
+			if (stk.empty() || stk.top() != '[') {
 				flag = true;
 				break;
 			}
 
-			if (str[i - 1] == '[') { //직전 문자와 쌍을 이룬다면 ret의 값을 갱신한다
+			if (str[i - 1] == '[') {
 				ret += num;
 			}
-
-			//직전 문자와 쌍이 아니더라도 stk 내 괄호의 쌍이 맞으므로 무조건 아래 연산을 수행한다
+			
 			stk.pop();
 			num /= 3;
 		}
