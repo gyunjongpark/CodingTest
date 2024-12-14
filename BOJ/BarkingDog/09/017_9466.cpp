@@ -7,7 +7,7 @@ const int IN_CYCLE = 2;
 const int NOT_IN_CYCLE = 3;
 int t, n, a[100001], state[100001];
 
-void run(int here) {
+void bfs(int here) {
     int cur = here;
 
     while (true) {
@@ -76,7 +76,7 @@ int main() {
 
         for (int i = 1; i <= n; i++) {
             if (state[i] == NOT_VISITED) { //방문하지 않았다면
-                run(i);
+                bfs(i);
             }
         }
 
