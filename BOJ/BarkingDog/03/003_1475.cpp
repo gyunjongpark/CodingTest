@@ -22,7 +22,7 @@ int main() {
 		ret = max(ret, cnt[i]);
 	}
 	
-	ret = max(ret, (cnt[6] + cnt[9] + 1) / 2);
+	ret = max(ret, (cnt[6] + cnt[9] + 1) / 2); //홀수에 대한 올림 연산
 	
 	cout << ret;
 
