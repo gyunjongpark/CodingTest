@@ -30,10 +30,10 @@ void bfs() {
             if (a[ny][nx] == -1) continue; //토마토가 들어있지 않은 경우 continue
 
             //익지 않은 토마토 bfs
-            if (!visited[ny][nx]) {
+            if (a[ny][nx] == 0 && !visited[ny][nx]) {
                 visited[ny][nx] = visited[cur.first][cur.second] + 1;
                 q.push({ ny,nx });
-            }            
+            }
         }
     }
 
