@@ -9,7 +9,7 @@ int main() {
 	cin.tie(NULL); cout.tie(NULL);
 
 	cin >> a >> b >> c;
-	ret = a * b * c; //10억 미만의 수이므로 int 자료형에 담을 수 있다
+	ret = a * b * c; //10억 미만의 자연수이므로 충분히 int 자료형에 담을 수 있다
 	string str = to_string(ret);
 
 	for (char c : str) {
