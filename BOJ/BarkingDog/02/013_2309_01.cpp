@@ -32,7 +32,9 @@ int main() {
     }
 
     for (int i = 0; i < 9; i++) {
-        if (i == not_dwarf.first || i == not_dwarf.second) continue;
+        if (i == not_dwarf.first || i == not_dwarf.second) {
+            continue;
+        }
 
         cout << a[i] << '\n';
     }
