@@ -42,7 +42,7 @@ int bfs() {
             //위 if문에서 벽에 막혔을 경우 딱 한번 벽을 부술 수 있다
             //벽을 부술 기회가 남아있고, a[ny][nx]가 1이면서 방문하지 않았다면
             if (!cur.broken && a[ny][nx] == '1' && !visited[ny][nx][1]) {
-                visited[ny][nx][1] = visited[cur.y][cur.x][cur.broken] + 1;
+                visited[ny][nx][true] = visited[cur.y][cur.x][cur.broken] + 1;
                 q.push({ ny,nx,true }); //이후 bfs는 broken = true인 채로 진행
             }
         }
