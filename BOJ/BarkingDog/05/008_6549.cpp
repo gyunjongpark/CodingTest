@@ -14,7 +14,7 @@ int main() {
 
 		if (n == 0) break;
 
-		ll ret = 0; //가장 넓이가 큰 직사각형의 넓이
+		ll ret = 0; //가장 넓이가 큰 직사각형의 넓이 저장
 		stack<pair<ll, ll>> stk; //높이와 인덱스를 pair로 저장
 
 		for (int i = 0; i < n; i++) {
@@ -25,7 +25,7 @@ int main() {
 			while (!stk.empty() && stk.top().first >= h) { //스택보다 낮은 높이의 직사각형 입력 시 중간 점검
 				ret = max(ret, (i - stk.top().second) * stk.top().first); //이전 인덱스까지 중 최대 넓이를 계산
 
-				idx = stk.top().second; //인덱스는 현재 stk.top().first 높이를 품을 수 있는 최대한의 지점으로 변경
+				idx = stk.top().second; //반복문을 돌면서 인덱스는 현재의 stk.top().first 높이를 품을 수 있을 때까지 최소한의 지점으로 계속 변경된다
 				stk.pop();
 			}
 
