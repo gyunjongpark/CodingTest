@@ -9,7 +9,7 @@ struct info {
 
 const int dy[] = { -1,0,1,0 };
 const int dx[] = { 0,1,0,-1 };
-int visited[1001][1001][2], n, m; //dist[y][x][벽을 부셨는지 여부]
+int visited[1001][1001][2], n, m; //visited[y][x][벽을 부셨는지 여부]
 char a[1001][1001];
 string s;
 
