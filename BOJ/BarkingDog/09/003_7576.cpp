@@ -29,7 +29,7 @@ void bfs() {
             if (visited[ny][nx] >= 1) continue; //날짜가 지나서 익은 토마토라면 continue
             if (a[ny][nx] == -1) continue; //토마토가 들어있지 않은 경우 continue
 
-            //익지 않은 토마토 bfs
+            //익지 않은 토마토에 대하여 bfs 진행
             if (a[ny][nx] == 0 && !visited[ny][nx]) {
                 visited[ny][nx] = visited[cur.first][cur.second] + 1;
                 q.push({ ny,nx });
@@ -63,7 +63,7 @@ int main() {
             if (a[i][j] == -1) continue; //토마토가 들어있지 않은 경우 continue
 
             if (a[i][j] == 0 && !visited[i][j]) {
-                flag = true; //bfs 이후 익지 않은 토마토가 있다면
+                flag = true; //bfs 이후 익지 않은 토마토가 있다면 flag = true
             }
             else {
                 answer = max(answer, visited[i][j] - 1); //모두 익어야 하므로 maximum value 출력
