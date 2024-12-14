@@ -5,7 +5,7 @@ using namespace std;
 stack<int> stk;
 string ret;
 int n, temp;
-int cnt = 1; //부호 출력을 위한 cnt
+int cnt = 1; //부호 출력 계산을 위한 cnt
 bool flag;
 
 int main() {
@@ -25,7 +25,7 @@ int main() {
 		}
 
 		if (stk.top() != temp) {
-			flag = true; //도중에 스택 수열이 성립되지 않아도 입력받는다
+			flag = true; //스택 수열이 도중에 성립되지 않아도 끝까지 입력받는다
 		}
 		else {
 			ret += "-\n";
