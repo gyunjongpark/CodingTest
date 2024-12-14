@@ -2,8 +2,7 @@
 #include<queue>
 using namespace std;
 
-int n, k;
-int visited[100001];
+int n, k, visited[100001];
 
 void bfs(int n) {
     visited[n] = 1; //방문 여부
