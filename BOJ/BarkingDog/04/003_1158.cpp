@@ -32,7 +32,7 @@ int main(void) {
 
 		cout << L.front() << ", ";
 
-		L.erase(L.begin());
+		L.pop_front();
 	}
 
 	cout << '>';
