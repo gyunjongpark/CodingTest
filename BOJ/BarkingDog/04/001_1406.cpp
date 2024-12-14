@@ -24,7 +24,7 @@ int main(void) {
 
 		if (ch == 'P') {
 			cin >> add;
-			lst.insert(cur, add); //다음 이터레이터를 반환
+			lst.insert(cur, add); //작업 후 cur는 다음 이터레이터를 반환합니다
 		}
 		else if (ch == 'L') {
 			if (cur != lst.begin()) {
@@ -38,8 +38,8 @@ int main(void) {
 		}
 		else if (ch == 'B') {
 			if (cur != lst.begin()) {
-				cur--; //커서 '왼쪽'에 있는 문자를 삭제함
-				cur = lst.erase(cur); //다음 이터레이터를 반환
+				cur--; //커서 '왼쪽'에 있는 문자를 삭제하기 위해
+				cur = lst.erase(cur); //작업 후 cur는 다음 이터레이터를 반환합니다
 			}
 		}
 	}
