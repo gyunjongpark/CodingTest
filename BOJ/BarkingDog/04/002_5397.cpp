@@ -31,7 +31,7 @@ int main(void) {
 			else if (c == '-') {
 				if (cur != L.begin()) {
 					cur--;
-					cur = L.erase(cur); //다음 이터레이터를 반환
+					cur = L.erase(cur); //작업 후 cur는 다음 이터레이터를 반환합니다
 				}
 			}
 			else {
@@ -39,7 +39,9 @@ int main(void) {
 			}
 		}
 
-		for (char c : L) cout << c;
+		for (char c : L) {
+			cout << c;
+		}
 
 		cout << '\n';
 	}
