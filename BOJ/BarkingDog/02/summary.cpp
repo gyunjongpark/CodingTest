@@ -2,6 +2,9 @@
 #include<vector>
 using namespace std;
 
+//STL, 구조체, 단순 자료형 변수를 인자로 대입하면 값이 바뀌지 않는다. call by value
+//포인터, 참조자를 인자로 대입하면 값이 바뀐다. call by reference
+
 //call by value. 두 값이 바뀌지 않는다
 void swap1(int a, int b) { //단순 변수
     int temp = a;
@@ -30,7 +33,7 @@ void swap3(int& a, int& b) { //참조자
 }
 
 //call by value. 배열의 값이 변하지 않는다
-void change_vector_val1(vector<int> v) { //단순 벡터
+void change_vector_val1(vector<int> v) { //단순 벡터 STL
     v[10] = 7;
     return;
 }
@@ -40,9 +43,6 @@ void change_vector_val2(vector<int>& v) { //참조자
     v[10] = 7;
     return;
 }
-
-//STL, 구조체, 단순 자료형 변수를 사용하는 연산은 call by value 형식이다
-//포인터, 참조자를 사용하는 연산은 call by reference 형식이다
 
 int main() {
     ios_base::sync_with_stdio(false);
